@@ -16,6 +16,7 @@ const App = () => {
   return (
     <Router history={history}>
     <div className="App">
+    <NavBar />
       <Switch>
           {/* <Route path="/" exact component={Home} /> */}
           <PrivateRoute path="/board" component={SudokuBoard} />
