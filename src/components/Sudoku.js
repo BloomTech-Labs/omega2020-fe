@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Board from './Board';
-import puzzles from './Puzzles';
+import { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import './Sudoku.css';
 
-export default class Sudoku extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-            boardState : this.getFormattedPuzzle(),
-            history   : [],
-            conflicts : new Set([])  
-          };
-  }
+export default Sudoku = () => {
+    const [gameBoardState, setGameBoardState] = useState(
+    {
+            boardState : getFormattedPuzzle(),
+            // history   : [],
+            // conflicts : new Set([])  
+    });
+  
 
   getRandomPuzzle = () => {
-    return puzzles[Math.floor(Math.random() * puzzles.length)];
+    return unsolvedPuzzle;
   }
 
   getDeepCopyOfArray = (arr) => {
@@ -162,8 +160,8 @@ export default class Sudoku extends Component {
     }
   */  
   getFormattedPuzzle = () => {
-    const puzzle = this.getRandomPuzzle();
-    const formattedPuzzle = this.formatPuzzle(puzzle);
+    const puzzle = getRandomPuzzle();
+    const formattedPuzzle = formatPuzzle(puzzle);
     return formattedPuzzle;
   }
 
