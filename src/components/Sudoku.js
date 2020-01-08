@@ -9,6 +9,7 @@ const Sudoku = () => {
       const formattedPuzzle = formatPuzzle(puzzle);
       return formattedPuzzle;
     }
+
     const [gameBoardState, setGameBoardState] = useState(
     {
             boardState : getFormattedPuzzle(),
@@ -181,7 +182,7 @@ const Sudoku = () => {
     );
   
 }
-
+//
 function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
@@ -190,7 +191,7 @@ function createArray(length) {
         var args = Array.prototype.slice.call(arguments, 1);
         while(i--) arr[length-1 - i] = createArray.apply(this, args);
     }
-
+    console.log("Return of arr: ", arr)
     return arr;
 }
 
