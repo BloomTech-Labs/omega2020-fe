@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Board from './Board';
+import Board from './square';
 import { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 // import './Sudoku.css';
 
 const Sudoku = () => {
+
     const getFormattedPuzzle = () => {
       const puzzle = getRandomPuzzle();
       const formattedPuzzle = formatPuzzle(puzzle);
@@ -167,7 +168,7 @@ const Sudoku = () => {
   */  
 
     return (
-      <div className = "Sudoku">
+      <div className = "sudoku">
         <h1 className="sudokuHeader">Sudoku!</h1>
         {/* <Board
           boardState          = {gameBoardState}
