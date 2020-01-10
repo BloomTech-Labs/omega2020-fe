@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Board from './square';
+import Board from './Square';
 import { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
-// import './Sudoku.css';
+import './Sudoku.css';
 
 const Sudoku = () => {
 
@@ -168,9 +168,9 @@ const Sudoku = () => {
   */  
 
     return (
-      <div className = "sudoku">
-        <h1 className="sudokuHeader">Sudoku!</h1>
-        {/* <Board
+      <div className = "Sudoku">
+        <h1 className="SudokuHeader">Sudoku!</h1>
+        <Board
           boardState          = {gameBoardState}
         //   conflicts           = {state.conflicts}
         //   onNewGameClick      = {handleNewGameClick}
@@ -178,7 +178,7 @@ const Sudoku = () => {
         //   historyLength       = {state.history.length}
         //   onUndoClick         = {handleUndoClick}
         //   onVerifyClick       = {handleVerifyClick}
-        /> */}
+        />
       </div>
     );
   

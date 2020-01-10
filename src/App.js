@@ -10,6 +10,6 @@ function App() {
       <Soduku />
     </div>
   );
-};
+}
 
 export default App;

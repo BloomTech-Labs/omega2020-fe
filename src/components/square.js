@@ -1,26 +1,24 @@
-import React from 'react';
+import React, {  } from 'react';
 
+function Square(props) {
 
-function Square() {
-    const createSquare = () => {
+	const generateSquareContent = () => {
+		// A Square may only be edited if it's value is "."
+		const disabled = !props.editable;
+		const squareValue = props.value === '.' ? ""   : props.value;
 
-        //edit the square
-        // const disabled = !editable;
-        // const squareValue = value === '.' ? "" : value;
-
-        //borders
-        const style = {};
-        const ri = props.rowIndex;
-        const ci = props.colIndex;
-        
-        if(ri > 0 && ri % 3 === 0) {
+		// custom borders to get look of sudoku board
+		const style = {};
+		const ri = props.rowIndex;
+		const ci = props.colIndex;
+		if(ri > 0 && ri % 3 === 0) {
 			style['borderTop'] = '2px solid black';
 		}
 		if(ci > 0 && ci % 3 === 0) {
 			style['borderLeft'] = '2px solid black'
 		}
-		if(this.props.conflict) {
-			if(this.props.editable) {
+		if(props.conflict) {
+			if(props.editable) {
 				style['background'] = 'red';
 			} else {
 				style['border'] = '1px solid red';
@@ -28,6 +26,7 @@ function Square() {
 		}
 
 		return (
+			<div>
 			<td>
 			  <input
 				className       = "Square"
@@ -35,30 +34,31 @@ function Square() {
 			  	type 			= "text"
 			  	value 			= {squareValue}
 			  	disabled 		= {disabled}
-			  	onChange 		= {this.handleSquareValueChange}/>
+			  	onChange 		= {handleSquareValueChange}/>
 			</td>
+
+			</div>
 			);
 	}
 
-	handleSquareValueChange = (e) => {
+	const handleSquareValueChange = (e) => {
 		const newSquareValue = e.target.value;
-		if(this.isValidInput(newSquareValue)) {
-			const ri = this.props.rowIndex;
-			const ci = this.props.colIndex;
-			this.props.onValueChange(ri, ci, newSquareValue);			
+		if(isValidInput(newSquareValue)) {
+			const ri = props.rowIndex;
+			const ci = props.colIndex;
+			props.onValueChange(ri, ci, newSquareValue);			
 		}
 	}
 
-	isValidInput = (i) => {
+	const isValidInput = (i) => {
 		return (i === '' || (i.length === 1 && isNumeric(i)));
 	}
 
-	return this.generateSquareContent();
-
+	return generateSquareContent();
 }
 
 const isNumeric = (num) => {
 		return !isNaN(num);
-    }
+	}
 
 export default Square;
