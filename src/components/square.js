@@ -28,9 +28,9 @@ function Square(props) {
 		};
 
 		return (
-			<div className="Square_Wrapper">
+			<div className="Square">
 				<input
-					className = "Square"
+					// className = "Square"
 					style = {style}
 					type = "text"
 					value = {squareValue}

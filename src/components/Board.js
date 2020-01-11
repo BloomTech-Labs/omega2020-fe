@@ -17,7 +17,7 @@ const Board = (props) => {
         
         console.log("boardState", boardState)
 
-		for(let i=0; i<boardState.length; i++) {
+		for(let i=0; i<9; i++) {
             // console.log("boardState.length", boardState.length)
 			let currRow = [];
 			for(let j=0; j<boardState[i].length; j++) {
