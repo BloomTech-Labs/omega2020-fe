@@ -3,14 +3,19 @@ import Square from './Square';
 import SudokuButtons from './SudokuButtons';
 
 function Board(props) {
+    console.log(props);
+
 	const handleSquareValueChange = (i, j, newValue) => {
 		props.onSquareValueChange(i, j, newValue);
-	}
+    }
+    
 
 	const generateBoard = () => {
 		const board = [];
-		const boardState = props.boardState;
+        const boardState = props.boardState;
+        
         console.log("boardState", boardState)
+
 		for(let i=0; i<boardState.length; i++) {
             console.log("boardState.length", boardState.length)
 			let currRow = [];
@@ -35,7 +40,8 @@ function Board(props) {
 		return board;
 	}
 
-	
+    console.log(props);
+
 	const board = generateBoard();
     return (
             <div>

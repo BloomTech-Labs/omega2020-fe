@@ -2,6 +2,8 @@ import React, {  } from 'react';
 
 function Square(props) {
 
+	console.log(props);
+
 	const generateSquareContent = () => {
 		// A Square may only be edited if it's value is "."
 		const disabled = !props.editable;
@@ -26,8 +28,7 @@ function Square(props) {
 		};
 
 		return (
-			<div>
-			<td>
+			<div className="Square_Wrapper">
 				<input
 					className = "Square"
 					style = {style}
@@ -36,11 +37,10 @@ function Square(props) {
 					disabled = {disabled}
 					onChange = {handleSquareValueChange}
 				/>
-			</td>
-
 			</div>
 			);
 	};
+
 
 	const handleSquareValueChange = (e) => {
 		const newSquareValue = e.target.value;

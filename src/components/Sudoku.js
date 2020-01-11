@@ -21,7 +21,7 @@ const Sudoku = () => {
   console.log("gameBoardState: ", gameBoardState)
 
   function getRandomPuzzle() {
-    return unsolvedPuzzle;
+    return solvedPuzzle;
   };
 
   function getDeepCopyOfArray(arr) {
@@ -57,8 +57,8 @@ const Sudoku = () => {
 
       // Now assign the previous board state as the current board state
       return {
-        boardState:lastBoardState, 
-        history:newHistory,
+        boardState: lastBoardState, 
+        history: newHistory,
         conflicts : new Set([])
       };
     });
@@ -103,12 +103,12 @@ const Sudoku = () => {
       };
     };
 
-    const rowConflicts = flatten(getConflicts(Object.values(rows)));
-    const colConflicts = flatten(getConflicts(Object.values(cols)));
-    const boxConflicts = flatten(getConflicts(Object.values(boxes)));
+  const rowConflicts = flatten(getConflicts(Object.values(rows)));
+  const colConflicts = flatten(getConflicts(Object.values(cols)));
+  const boxConflicts = flatten(getConflicts(Object.values(boxes)));
 
-    const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
-    setGameBoardState({conflicts: new Set(mergedConflicts)});
+  const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
+  setGameBoardState({conflicts: new Set(mergedConflicts)});
   };
 
   function flatten(a) {
