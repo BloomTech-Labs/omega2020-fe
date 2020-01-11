@@ -1,6 +1,6 @@
 import React, {  } from 'react';
 import Square from './Square';
-// import SudokuButtons from './SudokuButtons';
+import SudokuButtons from './SudokuButtons.js';
 
 const Board = (props) => {
     // let connor = connor;
@@ -53,12 +53,12 @@ const Board = (props) => {
                 {board}
                 </p>
             </div>
-            {/* <SudokuButtons
+            <SudokuButtons
                 historyLength  = {props.historyLength}
                 onUndoClick    = {props.onUndoClick}
                 onNewGameClick = {props.onNewGameClick}
                 onVerifyClick  = {props.onVerifyClick}
-            /> */}
+            />
             </div>
     );
 	

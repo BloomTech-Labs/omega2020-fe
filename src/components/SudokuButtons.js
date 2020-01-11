@@ -1,20 +1,11 @@
 import React from 'react';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
-export default SudokuButtons = (props) => {
-	render() {
+const SudokuButtons = (props) => {
+	
     	const btnStyle = {marginTop: 25, marginLeft: 18, marginRight: 10};
 		return (
 			<div className = "SudokuButtons">
-			 <Button
-		       className = "gameControlBtn"
-		       color     = "primary"
-		       variant   = "raised"
-		       style     = {btnStyle}
-		       onClick   = {props.onVerifyClick}>
-		       Verify
-		      </Button>
-
 		      <Button
 		       className = "gameControlBtn"
 		       color     = "primary"
@@ -23,6 +14,24 @@ export default SudokuButtons = (props) => {
 		       disabled  = {props.historyLength < 1}
 		       onClick   = {props.onUndoClick}>
 		       Undo
+		       </Button>
+
+			 <Button
+		       className = "gameControlBtn"
+		       color     = "primary"
+		       variant   = "raised"
+		       style     = {btnStyle}
+		       onClick   = {props.onVerifyClick}>
+		       Show Square
+		      </Button>
+
+			   <Button
+		       className = "gameControlBtn"
+		       color     = "primary"
+		       variant   = "raised"
+		       style     = {btnStyle}
+		       onClick   = {props.onSaveClick}>
+		       Save
 		       </Button>
 
 		      <Button
@@ -35,5 +44,7 @@ export default SudokuButtons = (props) => {
 		       </Button>
 		    </div>
 			);
-	}
-}
+	
+};
+
+export default SudokuButtons;
