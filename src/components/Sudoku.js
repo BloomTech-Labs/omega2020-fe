@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Board from './Square';
+import Board from './Board';
 import { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import './Sudoku.css';
 
@@ -186,11 +186,11 @@ const Sudoku = () => {
       <div className = "Sudoku">
         <h1 className="SudokuHeader">Sudoku!</h1>
         <Board
-          boardState = {gameBoardState}
-          // conflicts = {state.conflicts}
+          boardState = {gameBoardState.boardState}
+          conflicts = {gameBoardState.conflicts}
           onNewGameClick = {handleNewGameClick}
           onSquareValueChange = {handleSquareValueChange}
-          // historyLength = {state.history.length}
+          historyLength = {gameBoardState.history.length}
           onUndoClick = {handleUndoClick}
           onVerifyClick = {handleVerifyClick}
         />

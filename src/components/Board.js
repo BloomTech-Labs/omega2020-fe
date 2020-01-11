@@ -1,29 +1,31 @@
 import React, {  } from 'react';
 import Square from './Square';
-import SudokuButtons from './SudokuButtons';
+// import SudokuButtons from './SudokuButtons';
 
-function Board(props) {
-    console.log(props);
+const Board = (props) => {
+    // let connor = connor;
+    // console.log("CONNOR: ", connor);
 
 	const handleSquareValueChange = (i, j, newValue) => {
 		props.onSquareValueChange(i, j, newValue);
     }
     
 
+    const boardState = props.boardState;
 	const generateBoard = () => {
 		const board = [];
-        const boardState = props.boardState;
         
         console.log("boardState", boardState)
 
 		for(let i=0; i<boardState.length; i++) {
-            console.log("boardState.length", boardState.length)
+            // console.log("boardState.length", boardState.length)
 			let currRow = [];
 			for(let j=0; j<boardState[i].length; j++) {
 				const conflicts = props.conflicts;
 				const conflict = conflicts.has(i+""+j) ? true: false
 				let currSquare = (
                                 <Square
+                                    className="SquareContent"
                                     key = {"" + i + j}
                                     value = {boardState[i][j].cellValue}
                                     editable = {boardState[i][j].editable}
@@ -33,9 +35,10 @@ function Board(props) {
                                     onValueChange = {handleSquareValueChange}
                                 />
 							)
-				currRow.push(currSquare);
+                currRow.push(currSquare);
+                // console.log("CURROW: ", curRow)
 			}
-			board.push(<tr key = {i}>{currRow}</tr>);
+			board.push(<div className="row" key = {i}>{currRow}</div>);
 		}
 		return board;
 	}
@@ -45,11 +48,11 @@ function Board(props) {
 	const board = generateBoard();
     return (
             <div>
-            <table className = "Board">
-                <tbody>
+            <div className = "Board">
+                <p>
                 {board}
-                </tbody>
-            </table>
+                </p>
+            </div>
             {/* <SudokuButtons
                 historyLength  = {props.historyLength}
                 onUndoClick    = {props.onUndoClick}

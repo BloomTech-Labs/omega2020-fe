@@ -37,7 +37,9 @@ function Square(props) {
 					disabled = {disabled}
 					onChange = {handleSquareValueChange}
 				/>
+				
 			</div>
+
 			);
 	};
 

@@ -12,44 +12,28 @@
 }
 
 .Square {
-	display: grid;
-	grid-template-rows: 200px 200px 200px 200px;
-	margin: 10px;
-	padding: 10px;
+
 	background-color: red;
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;         /* Opera/IE 8+ */
-	border: 0.5px solid black;
-	padding: 0;
-	margin: 0;
+	/* -webkit-box-sizing: border-box; Safari/Chrome, other WebKit 
+    -moz-box-sizing: border-box; Firefox, other Gecko  */
+	box-sizing: border-box;         
+	/*Opera/IE 8+*/
+	border: 0.5px solid black; 
 	height: 40px;
 	width: 40px;
 	text-align: center;
-	font-size: 28px;
-}
+	font-size: 28px; 
+} 
 
-.Square2 {
-	display: grid;
-	grid-template-columns: repeat(9, 1fr);
-	grid-template-rows: repeat(9, 1fr);
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
-	background-color: red;
-	height:50vh;
-	width:50vw;
-	padding:5px;
-	margin:5px;
-
-}
 
 .Square_Wrapper {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-	background-color: red;
-	border: 1px solidblack;
-	
+	grid-template-columns: repeat(9, 1fr);
+	grid-template-rows: repeat(9, 1fr);
+	grid-column-gap: 3px;
+	grid-row-gap: 3px;
+	/* background-color: blue; */
 }
 
-/* input[type="text"]:disabled{background-color:#ededed;} */
+
+input[type="text"]:disabled{background-color:#ededed;}
