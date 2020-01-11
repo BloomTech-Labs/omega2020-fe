@@ -22,43 +22,45 @@ function Square(props) {
 				style['background'] = 'red';
 			} else {
 				style['border'] = '1px solid red';
-			}
-		}
+			};
+		};
 
 		return (
 			<div>
 			<td>
-			  <input
-				className       = "Square"
-			    style           = {style}
-			  	type 			= "text"
-			  	value 			= {squareValue}
-			  	disabled 		= {disabled}
-			  	onChange 		= {handleSquareValueChange}/>
+				<input
+					className = "Square"
+					style = {style}
+					type = "text"
+					value = {squareValue}
+					disabled = {disabled}
+					onChange = {handleSquareValueChange}
+				/>
 			</td>
 
 			</div>
 			);
-	}
+	};
 
 	const handleSquareValueChange = (e) => {
 		const newSquareValue = e.target.value;
+
 		if(isValidInput(newSquareValue)) {
 			const ri = props.rowIndex;
 			const ci = props.colIndex;
 			props.onValueChange(ri, ci, newSquareValue);			
-		}
-	}
+		};
+	};
 
 	const isValidInput = (i) => {
 		return (i === '' || (i.length === 1 && isNumeric(i)));
-	}
+	};
 
 	return generateSquareContent();
-}
+};
 
 const isNumeric = (num) => {
 		return !isNaN(num);
-	}
+};
 
 export default Square;

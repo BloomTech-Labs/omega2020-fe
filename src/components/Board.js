@@ -10,23 +10,24 @@ function Board(props) {
 	const generateBoard = () => {
 		const board = [];
 		const boardState = props.boardState;
-
+        console.log("boardState", boardState)
 		for(let i=0; i<boardState.length; i++) {
+            console.log("boardState.length", boardState.length)
 			let currRow = [];
 			for(let j=0; j<boardState[i].length; j++) {
 				const conflicts = props.conflicts;
 				const conflict = conflicts.has(i+""+j) ? true: false
 				let currSquare = (
-									<Square
-									 key           = {"" + i + j}
-									 value         = {boardState[i][j].cellValue}
-									 editable      = {boardState[i][j].editable}
-									 conflict  = {conflict}
-									 rowIndex      = {i}
-									 colIndex      = {j}
-									 onValueChange = {handleSquareValueChange}
-								    />
-								 )
+                                <Square
+                                    key = {"" + i + j}
+                                    value = {boardState[i][j].cellValue}
+                                    editable = {boardState[i][j].editable}
+                                    conflict = {conflict}
+                                    rowIndex = {i}
+                                    colIndex = {j}
+                                    onValueChange = {handleSquareValueChange}
+                                />
+							)
 				currRow.push(currSquare);
 			}
 			board.push(<tr key = {i}>{currRow}</tr>);
