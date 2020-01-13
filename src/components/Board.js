@@ -1,5 +1,5 @@
 import React, {  } from 'react';
-import Square from './Square';
+import Square from './square.js';
 import SudokuButtons from './SudokuButtons.js';
 
 const Board = (props) => {
