@@ -12,8 +12,8 @@
 }
 
 input {
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	/* -webkit-box-sizing: border-box; Safari/Chrome, other WebKit */
+    /* -moz-box-sizing: border-box;    Firefox, other Gecko */
 	/*box-sizing: border-box;      /*   Opera/IE 8+
 	/* border: 0.5px solid black; */
 	padding: 0;
