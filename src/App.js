@@ -19,7 +19,7 @@ const App = () => {
     <div className="App">
 
       <h1>Omega2020 App</h1>
-      <Sudoku />
+      {/* <Sudoku /> */}
 
     <NavBar />
       <Switch>
