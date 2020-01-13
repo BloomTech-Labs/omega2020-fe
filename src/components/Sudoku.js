@@ -39,6 +39,7 @@ const Sudoku = () => {
           editable  : prevEditable
         };
       console.log("newBoardState: ", prevState.newBoardState)
+
       // Now push the previous board state on the history stack
       const newHistory = getDeepCopyOfArray(prevState.history);
       newHistory.push(prevState.boardState);
@@ -64,7 +65,7 @@ const Sudoku = () => {
       };
     });
   };
-
+  
   const handleNewGameClick = () => {
     setGameBoardState({
       boardState: getFormattedPuzzle(),
@@ -72,19 +73,19 @@ const Sudoku = () => {
       conflicts : new Set([])
     });
   };
-
+  
   const handleVerifyClick = () => {
     const { boardState } = boardState;
-
+    
     // rows[0]/cols[0] -> first row/column
     const rows = {};
     const cols = {};
     // Example: boxes['00'] -> an array of values in the first box. 
     const boxes = {};
-
+    
     for(let i=0; i<boardState.length; i++) {
       rows[i] = getDeepCopyOfArray(boardState[i]);
-
+      
       for(let j=0; j<boardState[i].length;j++) {
         // populating cols
         if(cols.hasOwnProperty(j)) {
@@ -92,10 +93,10 @@ const Sudoku = () => {
         } else {
           cols[j] = [boardState[i][j]];
         };
-
+        
         // populating boxes
         const boxId = stringify(Math.floor(i/3), Math.floor(j/3));
-
+        
         if(boxes.hasOwnProperty(boxId)) {
           boxes[boxId].push(boardState[i][j]);
         } else {
@@ -103,25 +104,25 @@ const Sudoku = () => {
         };
       };
     };
-
-  const rowConflicts = flatten(getConflicts(Object.values(rows)));
-  const colConflicts = flatten(getConflicts(Object.values(cols)));
-  const boxConflicts = flatten(getConflicts(Object.values(boxes)));
-
-  const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
-  setGameBoardState({conflicts: new Set(mergedConflicts)});
+    
+    const rowConflicts = flatten(getConflicts(Object.values(rows)));
+    const colConflicts = flatten(getConflicts(Object.values(cols)));
+    const boxConflicts = flatten(getConflicts(Object.values(boxes)));
+    
+    const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
+    setGameBoardState({conflicts: new Set(mergedConflicts)});
   };
-
   function flatten(a) {
     return Array.isArray(a) ? [].concat(...a.map(flatten)) : a;
   };
-
+  
   function getConflicts(arrs) {
     return (arrs.map(arr => getConflictsInArray(arr)));
   };
-
+  
   function getConflictsInArray(arr) {
     const conflictMap = {};
+    console.log("conflictMap: ", conflictMap)
 
     for(let i=0; i<arr.length; i++) {
       let curr = arr[i];
@@ -217,7 +218,7 @@ function createArray(length) {
         var args = Array.prototype.slice.call(arguments, 1);
         while(i--) arr[length-1 - i] = createArray.apply(this, args);
     };
-    console.log("Return of arr: ", arr)
+    // console.log("Return of arr: ", arr)
     return arr;
 };
 

@@ -54,6 +54,7 @@ function Square(props) {
 		};
 	};
 
+	// Cell validation
 	const isValidInput = (i) => {
 		return (i === '' || (i.length === 1 && isNumeric(i)));
 	};
