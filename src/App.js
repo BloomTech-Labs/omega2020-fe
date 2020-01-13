@@ -1,4 +1,6 @@
 import React from 'react';
+import Sudoku from './components/Sudoku.js';
+
 import './App.css';
 import { Router, Route, Switch } from "react-router-dom";
 import { useAuth0 } from "./react-auth0-spa";
@@ -16,6 +18,10 @@ const App = () => {
   return (
     <Router history={history}>
     <div className="App">
+
+      <h1>Omega2020 App</h1>
+      <Sudoku />
+
     <NavBar />
       <Switch>
           {/* <Route path="/" exact component={Home} /> */}
@@ -23,6 +29,7 @@ const App = () => {
       </Switch>
       
       <h1>Omega2020 App</h1> 
+
     </div>
     </Router>
   );
