@@ -13,12 +13,12 @@ function Square(props) {
 		const style = {};
 		const ri = props.rowIndex;
 		const ci = props.colIndex;
-		if(ri > 0 && ri % 3 === 0) {
-			style['borderTop'] = '2px solid black';
-		}
-		if(ci > 0 && ci % 3 === 0) {
-			style['borderLeft'] = '2px solid black'
-		}
+		// if(ri > 0 && ri % 3 === 0) {
+		// 	style['borderTop'] = '2px solid black';
+		// }
+		// if(ci > 0 && ci % 3 === 0) {
+		// 	style['borderLeft'] = '2px solid black'
+		// }
 		if(props.conflict) {
 			if(props.editable) {
 				style['background'] = 'red';

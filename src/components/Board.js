@@ -48,17 +48,20 @@ const Board = (props) => {
 	const board = generateBoard();
     return (
             <div>
-            <div className = "Board">
-                <p>
-                {board}
-                </p>
-            </div>
-            <SudokuButtons
-                historyLength  = {props.historyLength}
-                onUndoClick    = {props.onUndoClick}
-                onNewGameClick = {props.onNewGameClick}
-                onVerifyClick  = {props.onVerifyClick}
-            />
+                <div className = "Board">
+                    <p>
+                    {board}
+                    </p>
+                </div>
+                {/* <div>
+                    <SudokuButtons
+                        historyLength  = {props.historyLength}
+                        onUndoClick    = {props.onUndoClick}
+                        onNewGameClick = {props.onNewGameClick}
+                        onVerifyClick  = {props.onVerifyClick}
+                        />
+                    
+                </div> */}
             </div>
     );
 	

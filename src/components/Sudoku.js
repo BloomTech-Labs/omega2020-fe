@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Board from './Board';
 import { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
+import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';
 
 const Sudoku = () => {
@@ -21,7 +22,7 @@ const Sudoku = () => {
   console.log("gameBoardState: ", gameBoardState)
 
   function getRandomPuzzle() {
-    return solvedPuzzle;
+    return unsolvedPuzzle;
   };
 
   function getDeepCopyOfArray(arr) {
@@ -185,15 +186,24 @@ const Sudoku = () => {
     return (
       <div className = "Sudoku">
         <h1 className="SudokuHeader">Sudoku!</h1>
-        <Board
-          boardState = {gameBoardState.boardState}
-          conflicts = {gameBoardState.conflicts}
-          onNewGameClick = {handleNewGameClick}
-          onSquareValueChange = {handleSquareValueChange}
-          historyLength = {gameBoardState.history.length}
-          onUndoClick = {handleUndoClick}
-          onVerifyClick = {handleVerifyClick}
-        />
+
+        <div className="Board">
+          <Board
+            boardState = {gameBoardState.boardState}
+            conflicts = {gameBoardState.conflicts}
+            onSquareValueChange = {handleSquareValueChange}
+            historyLength = {gameBoardState.history.length}
+            onVerifyClick = {handleVerifyClick}
+            />
+        </div>  
+        <div>
+          <SudokuButtons
+            historyLength  = {gameBoardState.history.length}
+            onUndoClick = {handleUndoClick}
+            onNewGameClick = {handleNewGameClick}
+            onVerifyClick  = {handleVerifyClick}
+            />
+        </div>
       </div>
     );
   
