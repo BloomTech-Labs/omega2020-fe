@@ -77,7 +77,7 @@ const Sudoku = () => {
   function handleVerifyClick() {
     const { boardState } = gameBoardState;
     console.log("HANDLE VERIFY CLICK", boardState)
-    // console.log("PuzleState: ", puzzleState)
+    
     // rows[0]/cols[0] -> first row/column
     const rows = {};
     const cols = {};
@@ -97,7 +97,6 @@ const Sudoku = () => {
         
         // populating boxes
         const boxId = stringify(Math.floor(i/3), Math.floor(j/3));
-    // console.log("BOX ID: ", boxId)
         
         if(boxes.hasOwnProperty(boxId)) {
           boxes[boxId].push(boardState[i][j]);

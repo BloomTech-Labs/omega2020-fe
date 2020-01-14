@@ -1,6 +1,6 @@
 import React, {  } from 'react';
 import Square from './square.js';
-import SudokuButtons from './SudokuButtons.js';
+// import SudokuButtons from './SudokuButtons.js';
 
 const Board = (props) => {
     console.log("BOARD PROPS: ", props)

@@ -9,10 +9,12 @@ function Square(props) {
 		const disabled = !props.editable;
 		const squareValue = props.value === '.' ? ""   : props.value;
 
-		// custom borders to get look of sudoku board
+		// Style validation - if conflicts exist, turn square red if it was edited wrong.
+		//  		  - turn border red of conflicting squares for hint as to why.
 		const style = {};
 		const ri = props.rowIndex;
 		const ci = props.colIndex;
+
 		// if(ri > 0 && ri % 3 === 0) {
 		// 	style['borderTop'] = '2px solid black';
 		// }
