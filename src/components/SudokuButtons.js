@@ -22,7 +22,7 @@ const SudokuButtons = (props) => {
 		       variant   = "raised"
 		    //    style     = {btnStyle}
 		       onClick   = {props.onVerifyClick}>
-		       Show Square
+		       Get hint
 		      </Button>
 
 			   <Button
