@@ -1,6 +1,6 @@
 .Sudoku {
- background-color: rosybrown;
-	height: 80vh;
+ /* background-color: rosybrown;
+	height: 80vh; */
 }
 
 .Board {
@@ -9,6 +9,8 @@
 	width: 50vw; */
 	/* display: flex;
 	align-content: center; */
+	height: 75vh; 
+
 }
 
 input {
