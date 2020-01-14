@@ -1,6 +1,6 @@
 .Sudoku {
-	background-color: whitesmoke;
-	height: 70%;
+ /* background-color: rosybrown;
+	height: 80vh; */
 }
 
 .Board {
@@ -9,10 +9,7 @@
 	width: 50vw; */
 	/* display: flex;
 	align-content: center; */
-	/* opacity: 1; */
-	grid-column-gap: 1px;
-	grid-row-gap: 1px;
-	border-color: black;
+	height: 75vh; 
 }
 
 input {
