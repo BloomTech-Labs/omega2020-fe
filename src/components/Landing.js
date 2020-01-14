@@ -87,9 +87,9 @@ const Landing = () => {
             </Container>
             <Container className={classes.buttonGrid} maxWidth='md'>
 
-                <Button className={classes.button} href="http://localhost:3000/register">Create Account</Button>
-                <Button href="http://localhost:3000/puzzle">Guest Login</Button>
-                <Button href="http://localhost:3000/login">Sign in</Button>
+                <Button className={classes.button} href="/register">Create Account</Button>
+                <Button href="/puzzle">Guest Login</Button>
+                <Button href="/login">Sign in</Button>
             </Container>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
