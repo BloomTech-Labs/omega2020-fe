@@ -7,7 +7,7 @@ import { useAuth0 } from "./react-auth0-spa";
 import NavBar from "./components/NavBar";
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
-import Registration from './components/Registration';
+import Registration from './components/Register';
 import Login from "./components/Login";
 import Landing from "./components/Landing";
 
@@ -22,7 +22,7 @@ const App = () => {
     <Router history={history}>
     <div className="App">
 
-      <h1>Omega2020 App</h1>
+      {/* <h1>Omega2020 App</h1> */}
       {/* <Sudoku /> */}
 
     <NavBar />
@@ -34,7 +34,7 @@ const App = () => {
           <Route path="/puzzle" component={Sudoku} />
       </Switch>
       
-      <h1>Omega2020 App</h1> 
+      {/* <h1>Omega2020 App</h1>  */}
 
     </div>
     </Router>

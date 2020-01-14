@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import axiosLoginAuth from '../utils/axiosLoginAuth';
+import axios from 'axios';
+import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -9,6 +10,7 @@ import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -60,30 +62,36 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Login = (props) => {
-    const [user, setUser] = useState({ email: '', password: ''})
-
-
-    const changeHandler = event => {
-        setUser({...user, [event.target.name]: event.target.value})
-    }
-     const handleSubmit = event => {
-         event.preventDefault();
-         console.log(user);
-         axiosLoginAuth()
-            .post("/auth/login", user)
-            .then(result => {
-            console.log(result)
-            localStorage.setItem("token", result.data.token);    
-            setUser({ email: '', password: ''})
-            alert(result.data.message)
-            if(result.data.message){
-              props.history.push("/puzzle")
-         } 
-        })
+const Registration = (props) => {
+        const [user, setUser] = useState({ "email": '', "password": ''})
     
+    const changeHandler = event => {
+    
+        event.preventDefault();
+        setUser({...user, [event.target.name]: event.target.value })
     }
-
+    
+    
+    const handleSubmit = event => {
+        event.preventDefault();
+    
+        // axiosLoginAuth()
+        axios
+            .post("https://omega2020.herokuapp.com/auth/register", user)
+            .then( result => {
+                   alert(result.data.message)
+                   if(result.data.message){
+                     props.history.push("/login")
+                } 
+                })
+                .catch(error => {
+                    console.log(error)
+                    alert("Email already exists please login to continue", error)
+                })
+                setUser({
+                    email: '', password: ''
+                })
+            }
   const classes = useStyles();
 
   
@@ -94,7 +102,7 @@ const Login = (props) => {
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Typography component="h1" variant="h5">
-            Sign in and Start Solving!
+            Create Your Account
           </Typography>
           <form onSubmit={handleSubmit} className={classes.form} noValidate>
             <TextField
@@ -126,7 +134,7 @@ const Login = (props) => {
               color="primary"
               className={classes.submit}
             >
-              Lets Play!
+              Register
             </Button>
             <Box mt={5}>
               <Copyright />
@@ -139,4 +147,4 @@ const Login = (props) => {
   );
 }
 
-export default Login
+export default Registration
