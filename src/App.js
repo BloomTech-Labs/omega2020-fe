@@ -7,6 +7,10 @@ import { useAuth0 } from "./react-auth0-spa";
 import NavBar from "./components/NavBar";
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
+import Registration from './components/Registration';
+import Login from "./components/Login";
+import Landing from "./components/Landing";
+
 
 const App = () => {
   const { loading } = useAuth0();
@@ -19,10 +23,13 @@ const App = () => {
     <div className="App">
 
       <h1>Omega2020 App</h1>
-      <Sudoku />
+      {/* <Sudoku /> */}
 
     <NavBar />
       <Switch>
+        <Route path="/home" component={Landing} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Registration} />
           {/* <Route path="/" exact component={Home} /> */}
           <Route path="/puzzle" component={Sudoku} />
       </Switch>
