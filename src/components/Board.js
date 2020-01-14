@@ -3,7 +3,7 @@ import Square from './square.js';
 import SudokuButtons from './SudokuButtons.js';
 
 const Board = (props) => {
-
+    console.log("BOARD PROPS: ", props)
 	const handleSquareValueChange = (i, j, newValue) => {
 		props.onSquareValueChange(i, j, newValue);
     }
@@ -13,12 +13,13 @@ const Board = (props) => {
 	const generateBoard = () => {
 		const board = [];
         
-        console.log("boardState", boardState.length)
+        // console.log("boardState", boardState.length)
 
 		for(let i=0; i<boardState.length; i++) {
 			let currRow = [];
 			for(let j=0; j<boardState[i].length; j++) {
-				const conflicts = props.conflicts;
+                const conflicts = props.conflicts;
+                // console.log("CONFLICTS: ", conflicts)
 				const conflict = conflicts.has(i+""+j) ? true: false
 				let currSquare = (
                                 <Square
@@ -33,7 +34,6 @@ const Board = (props) => {
                                 />
 							)
                 currRow.push(currSquare);
-                // console.log("CURROW: ", curRow)
 			}
 			board.push(<div className="row" key = {i}>{currRow}</div>);
 		}

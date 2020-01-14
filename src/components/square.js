@@ -2,7 +2,7 @@ import React, {  } from 'react';
 
 function Square(props) {
 
-	console.log(props);
+	// console.log(props);
 
 	const generateSquareContent = () => {
 		// A Square may only be edited if it's value is "."

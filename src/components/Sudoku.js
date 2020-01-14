@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Board from './Board';
-import { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
+import GetPuzzles, { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';
 
 const Sudoku = () => {
-
+  GetPuzzles()
   const getFormattedPuzzle = () => {
     const puzzle = getRandomPuzzle();
     const formattedPuzzle = formatPuzzle(puzzle);
@@ -19,7 +19,7 @@ const Sudoku = () => {
           conflicts : new Set([])  
   });
   
-  console.log("gameBoardState: ", gameBoardState)
+  // console.log("gameBoardState: ", gameBoardState)
 
   function getRandomPuzzle() {
     return unsolvedPuzzle;
@@ -74,9 +74,10 @@ const Sudoku = () => {
     });
   };
   
-  const handleVerifyClick = () => {
-    const { boardState } = boardState;
-    
+  function handleVerifyClick() {
+    const { boardState } = gameBoardState;
+    console.log("HANDLE VERIFY CLICK", boardState)
+    // console.log("PuzleState: ", puzzleState)
     // rows[0]/cols[0] -> first row/column
     const rows = {};
     const cols = {};
@@ -85,7 +86,7 @@ const Sudoku = () => {
     
     for(let i=0; i<boardState.length; i++) {
       rows[i] = getDeepCopyOfArray(boardState[i]);
-      
+      console.log("BOX ID: ", "boxId")
       for(let j=0; j<boardState[i].length;j++) {
         // populating cols
         if(cols.hasOwnProperty(j)) {
@@ -96,6 +97,7 @@ const Sudoku = () => {
         
         // populating boxes
         const boxId = stringify(Math.floor(i/3), Math.floor(j/3));
+    // console.log("BOX ID: ", boxId)
         
         if(boxes.hasOwnProperty(boxId)) {
           boxes[boxId].push(boardState[i][j]);
@@ -108,21 +110,24 @@ const Sudoku = () => {
     const rowConflicts = flatten(getConflicts(Object.values(rows)));
     const colConflicts = flatten(getConflicts(Object.values(cols)));
     const boxConflicts = flatten(getConflicts(Object.values(boxes)));
-    
+    console.log("BOX CONFLICTS1: ", boxConflicts)
     const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
-    setGameBoardState({conflicts: new Set(mergedConflicts)});
+    setGameBoardState({...gameBoardState, conflicts: new Set(mergedConflicts)});
   };
+  
   function flatten(a) {
     return Array.isArray(a) ? [].concat(...a.map(flatten)) : a;
   };
   
   function getConflicts(arrs) {
+    console.log("ARRSSS: ", getConflicts)
+
     return (arrs.map(arr => getConflictsInArray(arr)));
   };
   
   function getConflictsInArray(arr) {
     const conflictMap = {};
-    console.log("conflictMap: ", conflictMap)
+    console.log("ARR: ", arr)
 
     for(let i=0; i<arr.length; i++) {
       let curr = arr[i];
@@ -194,7 +199,7 @@ const Sudoku = () => {
             conflicts = {gameBoardState.conflicts}
             onSquareValueChange = {handleSquareValueChange}
             historyLength = {gameBoardState.history.length}
-            onVerifyClick = {handleVerifyClick}
+            // onVerifyClick = {handleVerifyClick}
             />
         </div>  
         <div>
