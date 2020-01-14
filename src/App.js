@@ -28,11 +28,11 @@ const App = () => {
 
     <Nav />
       <Switch>
-        <Route exact path="/home" component={Landing} />
+        <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Registration} />
           {/* <Route path="/" exact component={Home} /> */}
-          <Route path="/puzzle" component={Sudoku} />
+          <Route exact path="/puzzle" component={Sudoku} />
       </Switch>
     <Footer />
       
