@@ -14,19 +14,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Omega2020
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -40,14 +27,18 @@ const useStyles = makeStyles(theme => ({
   },
   buttonGrid: {
     textAlign: 'center',
+    paddingTop: theme.spacing(8),
+    display:'flex',
+    justifyContent:'space-around'
+
   },
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
   },
   image: {
-    height: '100%',
-    width: '100%',
+    width:'100%',
+    height:'100%'
   },
   card: {
     height: '100%',
@@ -60,9 +51,8 @@ const useStyles = makeStyles(theme => ({
   cardContent: {
     flexGrow: 1,
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+  button: {
+    justifyContent:'space-evenly'
   },
 }));
 
@@ -91,13 +81,13 @@ const Landing = () => {
     <React.Fragment>
       <main>
         {/* Hero unit */}
-          <Container className={classes.image} maxWidth="md">
-          <img src="src\images\omega2020.PNG"  width="400" height="400" alt="Omega2020 logo" />
+          <Container maxWidth="md">
+          <img className={classes.image} src={require("../images/omega2.PNG")}  width="400" height="400" alt="Omega2020 logo" />
         
             </Container>
             <Container className={classes.buttonGrid} maxWidth='md'>
 
-                <Button href="http://localhost:3000/register">Create Account</Button>
+                <Button className={classes.button} href="http://localhost:3000/register">Create Account</Button>
                 <Button href="http://localhost:3000/puzzle">Guest Login</Button>
                 <Button href="http://localhost:3000/login">Sign in</Button>
             </Container>
@@ -126,16 +116,6 @@ const Landing = () => {
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
     </React.Fragment>
   );
 }

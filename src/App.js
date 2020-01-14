@@ -4,12 +4,13 @@ import Sudoku from './components/Sudoku.js';
 import './App.css';
 import { Router, Route, Switch } from "react-router-dom";
 import { useAuth0 } from "./react-auth0-spa";
-import NavBar from "./components/NavBar";
+import Nav from "./components/Nav";
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
 import Registration from './components/Register';
 import Login from "./components/Login";
 import Landing from "./components/Landing";
+import Footer from "./components/Footer";
 
 
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
       {/* <h1>Omega2020 App</h1> */}
       {/* <Sudoku /> */}
 
-    <NavBar />
+    <Nav />
       <Switch>
         <Route exact path="/home" component={Landing} />
         <Route exact path="/login" component={Login} />
@@ -33,6 +34,7 @@ const App = () => {
           {/* <Route path="/" exact component={Home} /> */}
           <Route path="/puzzle" component={Sudoku} />
       </Switch>
+    <Footer />
       
       {/* <h1>Omega2020 App</h1>  */}
 
