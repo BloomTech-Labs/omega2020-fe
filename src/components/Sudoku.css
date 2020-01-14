@@ -10,20 +10,17 @@
 	/* display: flex;
 	align-content: center; */
 	height: 75vh; 
-
 }
 
 input {
-	/* -webkit-box-sizing: border-box; Safari/Chrome, other WebKit */
-    /* -moz-box-sizing: border-box;    Firefox, other Gecko */
-	/*box-sizing: border-box;      /*   Opera/IE 8+
-	/* border: 0.5px solid black; */
 	padding: 0;
 	margin: 0;
 	height: 40px;
 	width: 40px;
 	text-align: center;
 	font-size: 28px;
+	font-weight: bold;
+	border-color: #1D1C1D;
 }
 
 
@@ -31,8 +28,7 @@ input {
 	display: grid;
 	grid-template-rows: repeat(9, 1fr);
 	grid-template-columns: repeat(9, 1fr);
-	/* grid-column-gap: 3px;
-	grid-row-gap: 3px; */
+	
 	/* background-color: blue; */
 	padding: 0;
 	margin: 0;
@@ -40,6 +36,8 @@ input {
 	width: 100vw;
 	text-align: center;
 	font-size: 28px;
+	opacity: 1;
+	border-color: black;
 
 }
 
@@ -50,9 +48,14 @@ input {
 }
 
 
-input[type="text"]:disabled{background-color:#ededed;}
+
+input[type="text"]:disabled{background-color: #cdcac9;}
+input[type="text"]:enabled {
+	background: #FFFFFF;
+  }
 
 .Sudoku_Buttons {
 	display: inline-flex;
-	
+	background-color: #CCCCCC;
+	text-decoration-color: 1D1C1D;
 }

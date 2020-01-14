@@ -2,17 +2,19 @@ import React, {  } from 'react';
 
 function Square(props) {
 
-	console.log(props);
+	// console.log(props);
 
 	const generateSquareContent = () => {
 		// A Square may only be edited if it's value is "."
 		const disabled = !props.editable;
 		const squareValue = props.value === '.' ? ""   : props.value;
 
-		// custom borders to get look of sudoku board
+		// Style validation - if conflicts exist, turn square red if it was edited wrong.
+		//  		  - turn border red of conflicting squares for hint as to why.
 		const style = {};
 		const ri = props.rowIndex;
 		const ci = props.colIndex;
+
 		// if(ri > 0 && ri % 3 === 0) {
 		// 	style['borderTop'] = '2px solid black';
 		// }
