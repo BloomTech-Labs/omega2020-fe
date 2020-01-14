@@ -29,10 +29,10 @@ const App = () => {
     <Nav />
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Registration} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Registration} />
           {/* <Route path="/" exact component={Home} /> */}
-          <Route exact path="/puzzle" component={Sudoku} />
+          <Route path="/puzzle" component={Sudoku} />
       </Switch>
     <Footer />
       
