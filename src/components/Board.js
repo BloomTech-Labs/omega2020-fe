@@ -51,7 +51,7 @@ const Board = (props) => {
                         {board}
                     </div>
                 </div>
-            </div>
+            </div>           
     );
 	
 };

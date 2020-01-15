@@ -6,6 +6,7 @@ import './Sudoku.css';
 
 const Sudoku = () => {
   GetPuzzles()
+  
   const getFormattedPuzzle = () => {
     const puzzle = getRandomPuzzle();
     const formattedPuzzle = formatPuzzle(puzzle);
