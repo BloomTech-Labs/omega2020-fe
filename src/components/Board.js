@@ -1,15 +1,15 @@
 import React, {  } from 'react';
 import Square from './square.js';
-// import SudokuButtons from './SudokuButtons.js';
 
 const Board = (props) => {
     console.log("BOARD PROPS: ", props)
+
 	const handleSquareValueChange = (i, j, newValue) => {
 		props.onSquareValueChange(i, j, newValue);
-    }
+    };
     
-
     const boardState = props.boardState;
+
 	const generateBoard = () => {
 		const board = [];
         
@@ -22,43 +22,35 @@ const Board = (props) => {
                 // console.log("CONFLICTS: ", conflicts)
 				const conflict = conflicts.has(i+""+j) ? true: false
 				let currSquare = (
-                                <Square
-                                    className="SquareContent"
-                                    key = {"" + i + j}
-                                    value = {boardState[i][j].cellValue}
-                                    editable = {boardState[i][j].editable}
-                                    conflict = {conflict}
-                                    rowIndex = {i}
-                                    colIndex = {j}
-                                    onValueChange = {handleSquareValueChange}
-                                />
-							)
+                    <Square
+                        className="SquareContent"
+                        key = {"" + i + j}
+                        value = {boardState[i][j].cellValue}
+                        editable = {boardState[i][j].editable}
+                        conflict = {conflict}
+                        rowIndex = {i}
+                        colIndex = {j}
+                        onValueChange = {handleSquareValueChange}
+                    />
+				)
                 currRow.push(currSquare);
-			}
-			board.push(<div className="row" key = {i}>{currRow}</div>);
-		}
+			};
+			board.push(<div className="Board_RowData" key = {i}>{currRow}</div>);
+		};
 		return board;
-	}
+	};
 
     console.log(props);
 
-	const board = generateBoard();
+    const board = generateBoard();
+    
     return (
             <div>
                 <div className = "Board">
-                    <p>
-                    {board}
-                    </p>
+                    <div>
+                        {board}
+                    </div>
                 </div>
-                {/* <div>
-                    <SudokuButtons
-                        historyLength  = {props.historyLength}
-                        onUndoClick    = {props.onUndoClick}
-                        onNewGameClick = {props.onNewGameClick}
-                        onVerifyClick  = {props.onVerifyClick}
-                        />
-                    
-                </div> */}
             </div>
     );
 	
