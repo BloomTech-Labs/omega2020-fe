@@ -26,10 +26,9 @@ function Copyright() {
 const useStyles = makeStyles(theme => ({
   root: {
     height: '90vh',
-    width: '100vw',
-    justifyContent: "center" 
-
-    
+    width: '80vw',
+    justifyContent: "center",
+    margin: theme.spacing(8, 10, 8, 23),
   },
   image: {
     backgroundImage: 'url(https://source.unsplash.com/random)',

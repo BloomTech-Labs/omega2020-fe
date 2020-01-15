@@ -1,6 +1,6 @@
 .Sudoku {
- /* background-color: rosybrown;
-	height: 80vh; */
+	background-image: url("../images/Diamonds.jpg");
+	height: 100vh;
 }
 
 .Board {
