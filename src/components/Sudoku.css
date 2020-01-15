@@ -10,6 +10,7 @@
 	/* display: flex;
 	align-content: center; */
 	height: 75vh; 
+	display: grid;
 }
 
 input {
@@ -59,3 +60,4 @@ input[type="text"]:enabled {
 	background-color: #CCCCCC;
 	text-decoration-color: 1D1C1D;
 }
+
