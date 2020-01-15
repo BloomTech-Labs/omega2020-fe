@@ -83,7 +83,8 @@ const useStyles = makeStyles(theme => ({
   },
   topText: {
     margin: theme.spacing(5, 0, 5, 5),
-
+    fontWeight: 'bold;'
+    
   },
   bottomText: {
   },

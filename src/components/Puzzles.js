@@ -7,7 +7,10 @@ export default function GetPuzzles() {
     useEffect(() => {
         axios
           .get("https://omega2020.herokuapp.com/puzzles")
-          .then(res => console.log('res.data', res.data))
+          .then(res => {
+            console.log("AXIOS", res.data);
+            setPuzzles(res.data);
+          })
           .catch(err => console.log(err.response));
       }, []);
     return puzzles;

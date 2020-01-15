@@ -74,10 +74,8 @@ const Registration = (props) => {
         axios
             .post("https://omega2020.herokuapp.com/auth/register", user)
             .then( result => {
-                   alert(result.data.message)
-                   if(result.data.message){
+              console.log("user", user)
                      props.history.push("/login")
-                } 
                 })
                 .catch(error => {
                     console.log(error)
@@ -108,8 +106,10 @@ const Registration = (props) => {
               id="email"
               label="Email Address"
               name="email"
+              type="text"
               autoComplete="email"
               autoFocus
+              onChange={changeHandler}
             />
             <TextField
               variant="outlined"
@@ -121,6 +121,7 @@ const Registration = (props) => {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={changeHandler}
             />
             <Button
               type="submit"

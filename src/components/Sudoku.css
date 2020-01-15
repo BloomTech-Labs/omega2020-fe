@@ -1,27 +1,12 @@
 .Sudoku {
 	background-image: url("../images/Diamonds.jpg");
 	height: 100vh;
-};
+}
 
 .Board {
 	text-align: center;
 	height: 75vh; 
-	display: inline-grid;
-	grid-area: auto;
-};
-
-.Square {
-
-	padding: 0;
-	margin: 0;
-	height: 40px;
-	width: 40px;
-	text-align: center;
-	font-size: 28px;
-	border-color: purple;
-	border: 0.5px solid black;
-
-};
+}
 
 input {
 	padding: 0;
@@ -32,21 +17,47 @@ input {
 	font-size: 28px;
 	font-weight: bold;
 	border-color: #1D1C1D;
-};
+}
+input[type="text"]:disabled{background-color: #cdcac9;}
+input[type="text"]:enabled{
+	background: #FFFFFF;
+  }
 
-input[type="text"]:disabled{background-color: #cdcac9;};
-input[type="text"]:enabled {background: #FFFFFF;};
 
+.Square_Input {
+
+	padding: 0;
+	margin: 0;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	font-size: 28px;
+	border-color: purple;
+	border: 0.5px solid black;
+
+}
+
+.Square {
+	display: grid;
+	margin: 0;
+	padding: 0;
+}
 
 .Board_RowData {
-	display: inline-grid;
+	display: flex;
 	width: 50px;
 	height: 50px;
 	/* row-gap: 1px; */
-};
+	margin: 0;
+	padding: 0;
+}
+
+
+
 
 .Sudoku_Buttons {
 	display: inline-flex;
 	background-color: #CCCCCC;
 	text-decoration-color: #1D1C1D;
-};
+}
+

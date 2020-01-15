@@ -104,6 +104,7 @@ const Login = (props) => {
               id="email"
               label="Email Address"
               name="email"
+              type="text"
               autoComplete="email"
               autoFocus
             />

@@ -30,7 +30,7 @@ function Square(props) {
 		};
 
 		return (
-			<div className="Square">
+			<div className="Square_Input">
 				<input
 					// className = "Square"
 					style = {style}
