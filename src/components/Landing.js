@@ -67,6 +67,26 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     padding: theme.spacing(5, 15, 5, 10),
   },
+  textDiv: {
+    margin: theme.spacing(5, 0, 5, 10),
+  },
+  topTextDiv: {
+    margin: theme.spacing(5, 0, 5, 0),
+  },
+  bottomTextDiv: {
+  },
+  topTitle: {
+    margin: theme.spacing(5, 0, 5, 0),
+
+  },
+  bottomTitle: {
+  },
+  topText: {
+    margin: theme.spacing(5, 0, 5, 5),
+
+  },
+  bottomText: {
+  },
 }));
 
 var myImage1 = 'src\images\Vector.png';
@@ -107,8 +127,39 @@ const Landing = () => {
       <main>
         {/* Hero unit */}
           <Container maxWidth="lg">
-          <img className={classes.image} src={require("../images/omega2.PNG")}  width="400" height="400" alt="Omega2020 logo" />
-        
+            <img className={classes.image} src={require("../images/omega2020.PNG")}  width="400" height="400" alt="Omega2020 logo" />
+            <div className={classes.textDiv} width="400" height="400">
+              <div className={classes.topTextDiv}>
+                <div classname={classes.topTitle}>
+                    <Typography variant="h4">
+                          Customize your game play!
+                    </Typography>
+                </div>
+                  <Container classname={classes.topText}>
+                    <Typography>
+                          Choose one of four difficulty levels.
+                    </Typography>
+                    <Typography>
+                          Try a dark mode puzzle or any of our other various themes.
+                    </Typography>
+                  </Container>
+              </div>  
+                  <div classname={classes.bottomTitle}>
+                    <Typography variant="h4">
+                          Upload your puzzle for online play!
+                    </Typography>
+                  </div>
+              <div className={classes.bottomTextDiv}>
+                  <Container classname={classes.bottomText}>
+                    <Typography>
+                          Snap a photo of your puzzle and enjoy it with all of our features.
+                    </Typography>
+                    <Typography>
+                          Save and continue your puzzle when you haver time. 
+                    </Typography>
+                  </Container>
+              </div>
+            </div>
             </Container>
             <Container className={classes.buttonGrid} maxWidth='lg'>
             </Container>
