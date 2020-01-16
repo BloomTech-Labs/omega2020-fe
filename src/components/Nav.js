@@ -5,6 +5,7 @@ import Tab from '@material-ui/core/Tab';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+import {NavLink} from "react-router-dom";
 
 
 const useStyles = makeStyles(theme => ({
@@ -34,8 +35,9 @@ const Nav = () => {
       return (
         <AppBar position="static" className={classes.nav} title="My App">
           <Tabs>
-          <img className={classes.image} src={require('../images/omegalogo.PNG')} />
-
+          <NavLink style={{textDecoration: "none"}} to="/">
+            <img className={classes.image} src={require('../images/omegalogo.PNG')} onClick="location.href='/'" />
+          </NavLink> 
           <Grid
             justify='flex-end' // Add it here :)
             container 

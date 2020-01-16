@@ -33,6 +33,7 @@ function Square(props) {
 		return (
 			<div className="Square_Input">
 				<input
+					id="square"
 					className = "Square"
 					style = {style}
 					type = "text"
@@ -44,6 +45,8 @@ function Square(props) {
 			</div>
 
 			);
+
+		
 	};
 
 

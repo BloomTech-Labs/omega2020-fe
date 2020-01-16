@@ -35,14 +35,15 @@ input[type="text"]:enabled{
 	width: 40px;
 	text-align: center;
 	font-size: 28px;
-	/* border-color: purple; */
-	border: 0.5px solid lightgrey;
 }
 
 .Square {
+	border: 0.5px solid grey;
+
 	/* border:2px solid black; */
 	/* display: grid;
 	padding: 0; */
+	/* border: 3px solid blue; */
 
 }
 
@@ -61,9 +62,11 @@ input[type="text"]:enabled{
 
 
 
-.Sudoku_Buttons {
+.SudokuButtons {
 	display: inline-flex;
-	background-color: #CCCCCC;
-	text-decoration-color: #1D1C1D;
+	margin-bottom:2%;
+	margin-top:-1%;
+
 }
+
 

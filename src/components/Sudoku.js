@@ -192,7 +192,14 @@ const Sudoku = () => {
     return (
       <div className = "Sudoku">
         <h1 className="SudokuHeader">Sudoku!</h1>
-
+        <div>
+          <SudokuButtons
+            historyLength  = {gameBoardState.history.length}
+            onUndoClick = {handleUndoClick}
+            onNewGameClick = {handleNewGameClick}
+            onVerifyClick  = {handleVerifyClick}
+            />
+        </div>
         <div className="Board">
           <Board
             boardState = {gameBoardState.boardState}
@@ -202,14 +209,7 @@ const Sudoku = () => {
             // onVerifyClick = {handleVerifyClick}
             />
         </div>  
-        <div>
-          <SudokuButtons
-            historyLength  = {gameBoardState.history.length}
-            onUndoClick = {handleUndoClick}
-            onNewGameClick = {handleNewGameClick}
-            onVerifyClick  = {handleVerifyClick}
-            />
-        </div>
+       
       </div>
     );
   
