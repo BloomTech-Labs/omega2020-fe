@@ -191,7 +191,6 @@ const Sudoku = () => {
 
     return (
       <div className = "Sudoku">
-        <h1 className="SudokuHeader">Sudoku!</h1>
         <div>
           <SudokuButtons
             historyLength  = {gameBoardState.history.length}
@@ -200,8 +199,9 @@ const Sudoku = () => {
             onVerifyClick  = {handleVerifyClick}
             />
         </div>
-        <div className="Board">
+        <div>
           <Board
+            className="Board"
             boardState = {gameBoardState.boardState}
             conflicts = {gameBoardState.conflicts}
             onSquareValueChange = {handleSquareValueChange}

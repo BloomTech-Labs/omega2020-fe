@@ -18,9 +18,25 @@ function Square(props) {
 
 		if(ri > 0 && ri % 3 === 0) {
 			style['borderTop'] = '3px solid black';
+
+		}
+		if(ri === 0) {
+			style['borderTop'] = '3px solid black';
+
+		}
+		if(ci === 0) {
+			style['borderLeft'] = '3px solid black';
+
+		}
+		if(ri > 0 && ri % 1 === 0) {
+			style['borderBottom'] = '3px solid black';
+
 		}
 		if(ci > 0 && ci % 3 === 0) {
-			style['borderLeft'] = '3px solid black'
+			style['borderLeft'] = '3px solid black';
+		}
+		if(ci > 0 && ci % 1 === 0) {
+			style['borderRight'] = '3px solid black';
 		}
 		if(props.conflict) {
 			if(props.editable) {
