@@ -2,7 +2,7 @@
 	background-image: url("../images/Diamonds.jpg");
 	height: 100vh;
 	text-align:center;
-
+    font-family: 'Roboto'; font-size: 22px;
 }
 
 .Board {
