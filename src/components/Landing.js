@@ -172,7 +172,7 @@ const Landing = () => {
                 <Button variant="contained" color="primary" disableElevation className={classes.button} href="/register">Create Account</Button>
               </Container>
                 <Card className={classes.card}>
-                <img className={classes.icons} src={require("../images/Vector.png")} width="150" height="150" alt="Omega2020 logo" />
+                <img className={classes.icons} src={require("../images/solvelarge.PNG")} width="150" height="150" alt="Omega2020 logo" />
                   <CardMedia
                     className={classes.cardMedia}
                 
@@ -195,7 +195,7 @@ const Landing = () => {
                   <Button variant="contained" color="primary" disableElevation className={classes.button} href="/puzzle">Guest Login</Button>
                 </Container>
                 <Card className={classes.card}>
-                <img className={classes.icons} src={require("../images/sudoku 1.png")}  width="150" height="150" alt="Omega2020 logo" />
+                <img className={classes.icons} src={require("../images/sudokularge.PNG")}  width="150" height="150" alt="Omega2020 logo" />
                   <CardMedia
                     className={classes.cardMedia}
                 
@@ -219,7 +219,7 @@ const Landing = () => {
                   <Button variant="contained" color="primary" disableElevation className={classes.button} href="/login">Sign in</Button>
                 </Container>
                 <Card className={classes.card}>
-                <img className={classes.icons} src={require("../images/solve.PNG")} width="150" height="150" alt="Omega2020 logo" />
+                <img className={classes.icons} src={require("../images/solvelarge.PNG")} width="150" height="150" alt="Omega2020 logo" />
                   <CardMedia
                     className={classes.cardMedia}
                 

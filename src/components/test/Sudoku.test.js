@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from '../App';
+import App from '../../App'
 
 test('Landing page renders Omega2020', () => {
   const { getByText } = render(<App />);
