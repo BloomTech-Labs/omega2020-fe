@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Board from './Board';
+import Board from './Board.js';
 import GetPuzzles, { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';

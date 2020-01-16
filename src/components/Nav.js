@@ -31,6 +31,9 @@ const useStyles = makeStyles(theme => ({
 const Nav = () => { 
     const classes = useStyles();
 
+    const logout = () => {
+      localStorage.removeItem("token");
+  }
 
       return (
         <AppBar position="static" className={classes.nav} title="My App">
@@ -47,6 +50,9 @@ const Nav = () => {
                 </Link>
                 <Link href="/" className={classes.label} label="Play Puzzle">
                 Home
+                </Link>
+                <Link href="/" onClick={logout} className={classes.label} label="Play Puzzle">
+                Logout
                 </Link>
 
             </Grid>

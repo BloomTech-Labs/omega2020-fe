@@ -42,13 +42,18 @@ function Square(props) {
 			if(props.editable) {
 				style['background'] = 'red';
 			} else {
-				style['border'] = '1px solid red';
+				style['background'] = 'pink';
 			};
 		};
 
+		function chBackcolor(color) {
+			document.body.style.background = color;
+		 }
+
 		return (
-			<div className="Square_Input">
+			<div  className="Square_Input">
 				<input
+					onSelect="chBackcolor('blue')"
 					id="square"
 					className = "Square"
 					style = {style}
