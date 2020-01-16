@@ -1,4 +1,5 @@
 import React, {  } from 'react';
+import './Sudoku.css';
 
 function Square(props) {
 
@@ -15,12 +16,12 @@ function Square(props) {
 		const ri = props.rowIndex;
 		const ci = props.colIndex;
 
-		// if(ri > 0 && ri % 3 === 0) {
-		// 	style['borderTop'] = '2px solid black';
-		// }
-		// if(ci > 0 && ci % 3 === 0) {
-		// 	style['borderLeft'] = '2px solid black'
-		// }
+		if(ri > 0 && ri % 3 === 0) {
+			style['borderTop'] = '3px solid black';
+		}
+		if(ci > 0 && ci % 3 === 0) {
+			style['borderLeft'] = '3px solid black'
+		}
 		if(props.conflict) {
 			if(props.editable) {
 				style['background'] = 'red';
@@ -32,7 +33,8 @@ function Square(props) {
 		return (
 			<div className="Square_Input">
 				<input
-					// className = "Square"
+					id="square"
+					className = "Square"
 					style = {style}
 					type = "text"
 					value = {squareValue}
@@ -43,6 +45,8 @@ function Square(props) {
 			</div>
 
 			);
+
+		
 	};
 
 
