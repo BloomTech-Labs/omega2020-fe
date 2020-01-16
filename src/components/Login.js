@@ -107,6 +107,7 @@ const Login = (props) => {
               type="text"
               autoComplete="email"
               autoFocus
+              onChange={changeHandler}
             />
             <TextField
               variant="outlined"
@@ -118,6 +119,7 @@ const Login = (props) => {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={changeHandler}
             />
             <Button
               type="submit"
