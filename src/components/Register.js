@@ -109,7 +109,7 @@ const Registration = (props) => {
               id="email"
               label="Email Address"
               name="email"
-              type="text"
+              type="email"
               autoComplete="email"
               autoFocus
               onChange={changeHandler}
