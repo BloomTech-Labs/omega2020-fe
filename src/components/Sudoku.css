@@ -22,12 +22,12 @@ input {
 	font-size: 28px;
 	font-weight: bold;
 	border-color:  grey;
+	background: #FFFFFF;
 }
 
 input[type="text"]:disabled{background-color: #cdcac9;}
 input[type="text"]:disabled{color: black;}
-input[type="text"]:enabled{background: #FFFFFF;}
-input[type="text"]:selected{background: blue;}
+input[type="text"]:focus{background: #608CFF;}
 
 .Square_Input {
 	padding: 0;
