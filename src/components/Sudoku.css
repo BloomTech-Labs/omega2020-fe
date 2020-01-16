@@ -1,11 +1,13 @@
 .Sudoku {
 	background-image: url("../images/Diamonds.jpg");
 	height: 100vh;
+	text-align: center;
 }
 
 .Board {
 	text-align: center;
 	height: 75vh; 
+
 }
 
 input {
@@ -17,6 +19,7 @@ input {
 	font-size: 28px;
 	font-weight: bold;
 	border-color: #1D1C1D;
+
 }
 input[type="text"]:disabled{background-color: #cdcac9;}
 input[type="text"]:enabled{
@@ -34,22 +37,25 @@ input[type="text"]:enabled{
 	font-size: 28px;
 	border-color: purple;
 	border: 0.5px solid black;
-
 }
 
 .Square {
+
 	display: grid;
-	margin: 0;
 	padding: 0;
+
 }
 
 .Board_RowData {
 	display: flex;
 	width: 50px;
-	height: 50px;
+	height: auto;
 	/* row-gap: 1px; */
-	margin: 0;
+	margin-left:40%;
+	margin-right:40%;
 	padding: 0;
+	text-align: center;
+
 }
 
 
