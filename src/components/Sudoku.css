@@ -18,7 +18,7 @@ input {
 	text-align: center;
 	font-size: 28px;
 	font-weight: bold;
-	border-color: #1D1C1D;
+	border-color:  grey;
 
 }
 input[type="text"]:disabled{background-color: #cdcac9;}
@@ -35,14 +35,14 @@ input[type="text"]:enabled{
 	width: 40px;
 	text-align: center;
 	font-size: 28px;
-	border-color: purple;
-	border: 0.5px solid black;
+	/* border-color: purple; */
+	border: 0.5px solid lightgrey;
 }
 
 .Square {
-
-	display: grid;
-	padding: 0;
+	/* border:2px solid black; */
+	/* display: grid;
+	padding: 0; */
 
 }
 
