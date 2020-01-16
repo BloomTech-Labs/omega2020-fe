@@ -28,10 +28,13 @@ const useStyles = makeStyles(theme => ({
     height: '90vh',
     width: '80vw',
     justifyContent: "center",
-    margin: theme.spacing(8, 10, 8, 23),
+    margin: theme.spacing(8, 10, 8, 20),
+  },
+  main: {
+    height:'60%',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    marginLeft:'5%',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
@@ -92,7 +95,7 @@ const Registration = (props) => {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <Grid className={classes.main} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Typography component="h1" variant="h5">
             Create Your Account
@@ -138,7 +141,7 @@ const Registration = (props) => {
           </form>
         </div>
       </Grid>
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <img className={classes.image} src={require("../images/Mask Group.png")} alt="Omega2020 theme" />
     </Grid>
   );
 }
