@@ -156,7 +156,7 @@ const Landing = () => {
                           Snap a photo of your puzzle and enjoy it with all of our features.
                     </Typography>
                     <Typography>
-                          Save and continue your puzzle when you haver time. 
+                          Save and continue your puzzle when you have time. 
                     </Typography>
                   </Container>
               </div>

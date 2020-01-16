@@ -44,16 +44,7 @@ const Board = (props) => {
 
     const board = generateBoard();
     
-    return (
-            <div>
-                <div className = "Board">
-                    <div>
-                        {board}
-                    </div>
-                </div>
-            </div>           
-    );
-	
+    return (<div className="Board">{board}</div>);
 };
 
 export default Board;
