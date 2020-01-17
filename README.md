@@ -44,21 +44,21 @@ https://github.com/Lambda-School-Labs/omega2020-be
     - Secured with JWT
 
 ### Play
-   ⋅⋅* Place cursor in empty cell.
-   ⋅⋅* Enter a unique number for each column, row and field, and from 1 to 9.
-   ⋅⋅* Error that is shown with a red cell illustrates the wrong number entered.
-   ⋅⋅* Notes allows user to make notes of possible numbers for the given cell, and shows in small numbers within the cell.
-   ⋅⋅* Win a game and a notice will pop up congratulating you.
+    Place cursor in empty cell.
+    Enter a unique number for each column, row and field, and from 1 to 9.
+    Error that is shown with a red cell illustrates the wrong number entered.
+    Notes allows user to make notes of possible numbers for the given cell, and shows in small numbers within the cell.
+    Win a game and a notice will pop up congratulating you.
 
 ### Learn
-   ⋅⋅* tutorials will show when the user selects "tutorials" from the navigation menu.
-       ⋅⋅* list each tutorial here
+    tutorials will show when the user selects "tutorials" from the navigation menu.
+        list each tutorial here
 
-   ⋅⋅* solver for single cell will be given when the user selects the "help" button.
+    solver for single cell will be given when the user selects the "help" button.
 
 ### Save
-   ⋅⋅* printed puzzles to resolve at any later time, using Omega2020 Sudoku game board.
-   ⋅⋅* saved puzzles will 
+    printed puzzles to resolve at any later time, using Omega2020 Sudoku game board.
+    saved puzzles will 
 
 ---
 

@@ -1,8 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+
 import App from '../../App.js'
 import Sudoku from '../Sudoku.js';
 import SudokuButtons from '../SudokuButtons';
+
 
 test('Landing page renders Omega2020', () => {
   const { getByText } = render(<App />);
