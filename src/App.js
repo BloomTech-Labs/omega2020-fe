@@ -14,18 +14,14 @@ import Footer from "./components/Footer";
 
 
 const App = () => {
-  const { loading } = useAuth0();
+  // const { loading } = useAuth0();
 
-  if (loading) {
-    return <div>Loading..</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading..</div>;
+  // }
   return (
     <Router history={history}>
     <div className="App">
-
-      {/* <h1>Omega2020 App</h1> */}
-      {/* <Sudoku /> */}
-
     <Nav />
       <Switch>
         <Route exact path="/" component={Landing} />
@@ -35,9 +31,6 @@ const App = () => {
           <Route path="/puzzle" component={Sudoku} />
       </Switch>
     <Footer />
-      
-      {/* <h1>Omega2020 App</h1>  */}
-
     </div>
     </Router>
   );
