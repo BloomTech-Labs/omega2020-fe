@@ -75,6 +75,7 @@ const Login = (props) => {
      const handleSubmit = event => {
          event.preventDefault();
          console.log(user);
+         
          axiosLoginAuth()
             .post("/auth/login", user)
             .then(result => {
