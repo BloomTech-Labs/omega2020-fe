@@ -1,5 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { render, unmountComponentAtNode } from "react-dom";
+import { act } from "react-dom/test-utils";
 
 import App from './App';
 
@@ -13,4 +15,4 @@ import App from './App';
 
 test('There is Omega2020 in the app', () => {
     expect('Omega2020').toMatch(/meg/);
-  });
+});
