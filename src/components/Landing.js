@@ -77,7 +77,7 @@ const useStyles = makeStyles(theme => ({
   },
   topTitle: {
     margin: theme.spacing(5, 0, 5, 0),
-
+    fontSize:'40px'
   },
   bottomTitle: {
   },
@@ -132,30 +132,30 @@ const Landing = () => {
             <div className={classes.textDiv} width="400" height="400">
               <div className={classes.topTextDiv}>
                 <div classname={classes.topTitle}>
-                    <Typography variant="h4">
-                          Customize your game play!
+                    <Typography variant="h3">
+                          Customize your gameplay!
                     </Typography>
                 </div>
                   <Container classname={classes.topText}>
-                    <Typography>
+                    <Typography variant="h5">
                           Choose one of four difficulty levels.
                     </Typography>
-                    <Typography>
+                    <Typography variant="h5">
                           Try a dark mode puzzle or any of our other various themes.
                     </Typography>
                   </Container>
               </div>  
                   <div classname={classes.bottomTitle}>
-                    <Typography variant="h4">
+                    <Typography variant="h3">
                           Upload your puzzle for online play!
                     </Typography>
                   </div>
               <div className={classes.bottomTextDiv}>
                   <Container classname={classes.bottomText}>
-                    <Typography>
+                  <Typography variant="h5">
                           Snap a photo of your puzzle and enjoy it with all of our features.
                     </Typography>
-                    <Typography>
+                    <Typography variant="h5">
                           Save and continue your puzzle when you have time. 
                     </Typography>
                   </Container>
@@ -233,7 +233,7 @@ const Landing = () => {
                     Learn
                     </Typography>
                     <Typography>
-                    Read our tutorials and learn the best practices for solving almost any sudoku puzzle (coming soon).
+                    Read our tutorials and learn the best practices for solving almost any Sudoku puzzle (coming soon).
                     </Typography>
                   </CardContent>
                 </Card>

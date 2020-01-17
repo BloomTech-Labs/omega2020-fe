@@ -9,6 +9,7 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import axiosLoginAuth from '../utils/axiosLoginAuth';
 
 function Copyright() {
   return (
@@ -78,16 +79,27 @@ const Registration = (props) => {
             .post("https://omega2020.herokuapp.com/auth/register", user)
             .then( result => {
               console.log("user", user)
-                     props.history.push("/login")
-                })
-                .catch(error => {
+              console.log("result", result)
+              setUser({email: '', password: ''})
+              axiosLoginAuth()
+                .post("/auth/login", user)
+                .then(result => {
+                console.log(result)
+                localStorage.setItem("token", result.data.token);    
+                setUser({ email: '', password: ''})
+                          props.history.push("/puzzle")
+                  })
+                  .catch(error => {
                     console.log(error)
-                    alert("Email already exists please login to continue", error)
+                    alert("Email and/or Passwrod not recognized, please try again", error)
                 })
-                setUser({
-                    email: '', password: ''
-                })
-            }
+            })
+            .catch(error => {
+              console.log(error)
+              alert("Email already exists please login to continue", error)
+            })
+            
+                 }
   const classes = useStyles();
 
   
