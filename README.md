@@ -25,14 +25,14 @@ Current Web-based Sudoku puzzles are clumsy, hard to use, and not visually stimu
 
 ### Solution: React & React Router  
 **What problems does this solution solve for this specific project?**
-- the app works fast because it is already saved.
+- Increases performance.
 - React Router manages the url and declares what will be rendered
 - It is the best of both worlds, integrating both server-side and client-side rendering.
 - Can reuse components
 - Code is stable since it flows in one direction
 
 **What are the costs of using this solution?**
-- the app has to load fully before it is useful
+- The app has to load fully before it is useful
 - Lots of libraries must be used 
 - Folder structure can get complicated 
 
@@ -44,12 +44,12 @@ Current Web-based Sudoku puzzles are clumsy, hard to use, and not visually stimu
 ### Solution: Node & Express  
 **What problems does this solution solve for this specific project?:**
 - Easy to configure
-- Includes various middleware modules 
-- Large, active community
+- Middleware added for security
+- Large, active support community
 - Benefit of Fullstack JS
 
 **What are the costs of using this solution?**  
-- Unstable API
+- Unstable API due to constant updates lacking backwards compatibility.
 - Express error messages can often times be unhelpful
 
 ## Database
@@ -70,8 +70,9 @@ Current Web-based Sudoku puzzles are clumsy, hard to use, and not visually stimu
 
 ### Solution: Netlify & Heroku  
 **What problems does this solution solve for this specific project?**
-- Great Github integration
+- Great Github integration ****allowing for branch deployments and predeployment conflict checks.
 - Quick and easy setup, with very little additional code needed
+- Free deployment
 - Heroku offers relatively easy Postgres implementation
 
 **What are the costs of using this solution?**
@@ -116,12 +117,15 @@ An existing user wishes to login.
 ---
 ### ​Registration Page / Login Page
 **What services, APIs, or platforms will you use to implement this feature?**  
-- JWT bcrypt for Authentication    
+- JWT and Bcrypt for Authentication    
 
-**What are the costs and benefits of using this solution?**  
-Better overall security would be offered via a third party, Auth0 for example. However, due to a variety of reasons a significant percentage of our web productivity was no longer available to us, and seeing as how none of the data we will be securing is particularly sensitive, we opted to go for JWT and bcrypt for faster, more reliable implementation while still offering solid security.
+**What are the costs and benefits of using this solution?** 
+
+Better overall security would be offered via a third party, Auth0 for example. However, due **** dev resource depletion the need to cut out unneccessary modules was recognized. The Auth0 will be utilized in later versions. While currently using JWT only allows for faster and more reliable implementation while still offering solid security.
+
 - Cost
     - Not as secure as Auth0 or Firebase
+    - Login flow potentially requires more interaction from user.
 - Pros
     - Security is still quite good
     - Fast, reliable implementation
@@ -129,7 +133,7 @@ Better overall security would be offered via a third party, Auth0 for example. H
 ---
 ### ​Sudoku Puzzle Display
 **What services, APIs, or platforms will you use to implement this feature?**
-- 'Vanilla' CSS
+- 'Vanilla' CSS and JavaScript
 
 **What are the costs and benefits of using this solution?**  
 - Cost
