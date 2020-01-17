@@ -81,11 +81,12 @@ const Login = (props) => {
             console.log(result)
             localStorage.setItem("token", result.data.token);    
             setUser({ email: '', password: ''})
-            alert(result.data.message)
-            if(result.data.message){
               props.history.push("/puzzle")
-         } 
         })
+        .catch(error => {
+          console.log(error)
+          alert("Email and/or Passwrod not recognized, please try again", error)
+      })
     
     }
 
