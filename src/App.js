@@ -23,13 +23,13 @@ const App = () => {
     <Router history={history}>
     <div className="App">
     <Nav />
-      <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Registration} />
-          {/* <Route path="/" exact component={Home} /> */}
-          <Route path="/puzzle" component={Sudoku} />
-      </Switch>
+    <Switch>
+      <Route exact path="/" component={Landing} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Registration} />
+        {/* <Route path="/" exact component={Home} /> */}
+        <Route path="/puzzle" component={Sudoku} />
+    </Switch>
     <Footer />
     </div>
     </Router>
