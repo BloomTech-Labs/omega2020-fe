@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import { Auth0Provider } from "./react-auth0-spa";
@@ -14,14 +15,8 @@ const onRedirectCallback = appState => {
     );
 };
 
+
 ReactDOM.render(
-    <Auth0Provider
-      domain={config.domain}
-      client_id={config.clientId}
-      redirect_uri={window.location.origin}
-      onRedirectCallback={onRedirectCallback}
-    >
+  <Router>
       <App />
-    </Auth0Provider>,
-    document.getElementById("root")
-  );
+  </Router>, document.getElementById('root'));
