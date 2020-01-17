@@ -39,7 +39,7 @@ const Nav = () => {
         <AppBar position="static" className={classes.nav} title="My App">
           <Tabs>
           <NavLink style={{textDecoration: "none"}} to="/">
-            <img className={classes.image} src={require('../images/omegalogo.PNG')} onClick="location.href='/'" />
+            <img className={classes.image} src={require('../images/omegalogo.PNG')} />
           </NavLink> 
           <Grid
             justify='flex-end' // Add it here :)
