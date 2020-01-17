@@ -219,7 +219,7 @@ const Landing = () => {
                   <Button variant="contained" color="primary" disableElevation className={classes.button} href="/login">Sign in</Button>
                 </Container>
                 <Card className={classes.card}>
-                <img className={classes.icons} src={require("../images/solvelarge.PNG")} width="150" height="150" alt="Omega2020 logo" />
+                <img className={classes.icons} src={require("../images/learnlarge.PNG")} width="150" height="150" alt="Omega2020 logo" />
                   <CardMedia
                     className={classes.cardMedia}
                 
