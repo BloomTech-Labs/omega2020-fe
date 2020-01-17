@@ -86,30 +86,32 @@ Current Web-based Sudoku puzzles are clumsy, hard to use, and not visually stimu
 **Description:** ​Marketing site for existing and prospective users, contains login, registration and play puzzle
 buttons to access application
 **Use Case:** ​A prospective user is seeking a place to play Sudoku on their device, so they come to our landing
-page to learn more about our program and the features we offer and potentially register as a new user.
-An existing user wishes to login.  
+page to learn more about our program and the features we offer and potentially register as a new user
+An existing user wishes to login  
 
 ---
 
 **Name:** ​Registration Page  
 **User type:** ​All  
 **Description:** Allows for creation of new users
-**Use Case:** ​A new user needs to create an account to have access to extended functionality like saving settings, saving a puzzle, or challenging a friend.
+**Use Case:** ​A new user needs to create an account to have access to extended functionality like saving settings, saving a puzzle, or challenging a friend
 
 ---
 
 **Name:** ​Login Page  
 **User type:** ​All  
 **Description:** ​Performs login authentication, redirects based on result  
-**Use Case:** ​A user wants to login using proper credentials; to have access to account specific features.  
+**Use Case:** ​A user wants to login using proper credentials; to have access to    account specific features 
 
 ---
 
 **Name:** ​Puzzle Page
 **User type:** ​All  
-**Description:** ​A Sudoku board populates with data from our backend, providing a user (logged in or not) with the ability to immediately play a game of Sudoku.
-**Use Case:** ​A user wants to quickly access the site and get into a game.
-**Known Issue:** If a user enters multiple invalid inputs, shows hints, and then manually deletes those invalid inputs and shows hints again *without* hitting 'undo', the empty cells will trigger a red conflict status. 
+**Description:** ​A Sudoku board populates with data from our backend, providing 
+a user (logged in or not) with the ability to immediately play a game of Sudoku
+**Use Case:** ​A user wants to quickly access the site and get into a game
+**Known Issue:** If a user enters multiple invalid inputs, shows hints, and then manually deletes those invalid inputs and shows hints again *without* hitting undo', the empty cells will trigger a red conflict status 
+
 ---
 
 # Implementation of Features
