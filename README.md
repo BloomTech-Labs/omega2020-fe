@@ -101,15 +101,16 @@ An existing user wishes to login
 **Name:** ​Login Page  
 **User type:** ​All  
 **Description:** ​Performs login authentication, redirects based on result  
-**Use Case:** ​A user wants to login using proper credentials; to have access to account specific features 
+**Use Case:** ​A user wants to login using proper credentials; to have access to    account specific features 
 
 ---
 
 **Name:** ​Puzzle Page
 **User type:** ​All  
-**Description:** ​A Sudoku board populates with data from our backend, providing a user (logged in or not) with the ability to immediately play a game of Sudoku
+**Description:** ​A Sudoku board populates with data from our backend, providing 
+a user (logged in or not) with the ability to immediately play a game of Sudoku
 **Use Case:** ​A user wants to quickly access the site and get into a game
-**Known Issue:** If a user enters multiple invalid inputs, shows hints, and then manually deletes those invalid inputs and shows hints again *without* hitting 'undo', the empty cells will trigger a red conflict status 
+**Known Issue:** If a user enters multiple invalid inputs, shows hints, and then manually deletes those invalid inputs and shows hints again *without* hitting undo', the empty cells will trigger a red conflict status 
 
 ---
 
