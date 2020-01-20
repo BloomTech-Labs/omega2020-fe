@@ -5,6 +5,7 @@ import App from './App';
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 import history from "./utils/history";
+import { BrowserRouter } from 'react-router-dom';
 
 const onRedirectCallback = appState => {
     history.push(
@@ -15,13 +16,13 @@ const onRedirectCallback = appState => {
 };
 
 ReactDOM.render(
-    <Auth0Provider
+    <BrowserRouter
       domain={config.domain}
       client_id={config.clientId}
       redirect_uri={window.location.origin}
       onRedirectCallback={onRedirectCallback}
     >
       <App />
-    </Auth0Provider>,
+    </BrowserRouter>,
     document.getElementById("root")
   );
