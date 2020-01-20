@@ -46,14 +46,9 @@ function Square(props) {
 			};
 		};
 
-		function ChBackColor(color) {
-			document.body.style.background = color;
-		 }
-
 		return (
 			<div  className="Square_Input">
 				<input
-					// onSelect=ChBackColor('blue')
 					id="square"
 					className = "Square"
 					style = {style}
