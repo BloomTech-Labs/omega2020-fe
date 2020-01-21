@@ -29,7 +29,7 @@ const SudokuButtons = (props) => {
 		       onClick   = {props.onVerifyClick}>
 		       Get hint
 		      </Button>
-{/* 
+
 			   <Button
 			   size="large"
 		       className = "gameControlBtn"
@@ -40,7 +40,7 @@ const SudokuButtons = (props) => {
 		       Save
 		       </Button>
 
-		      <Button
+		      {/* <Button
 			   size="large"
 		       className = "gameControlBtn"
 		       color     = "primary"
