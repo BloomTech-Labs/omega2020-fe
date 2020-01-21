@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Board from './Board.js';
 import GetPuzzles, { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
-import validateWin from '../utils/validateWin.js';
 import './Sudoku.css';
 
 const Sudoku = () => {
@@ -117,6 +116,17 @@ const Sudoku = () => {
     console.log("BOX CONFLICTS1: ", boxConflicts)
     const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
     setGameBoardState({...gameBoardState, conflicts: new Set(mergedConflicts)});
+    
+    // WIN STATE -> to validate the win. Uncomment line 123 to replace winning string.
+          if (mergedConflicts.length === 0){
+             
+            // let boardState = "864371259325849761971265843436192587198657432257483916689734125713528694542916378"
+              if (boardState === solvedPuzzle){
+              return (
+                  // build some animation for win here
+                  alert('Congratulations! You have solved the puzzle!')
+              )
+            }}
   };
   
   function flatten(a) {

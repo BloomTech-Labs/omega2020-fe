@@ -1,11 +1,11 @@
 // If board has all squares filled and no conflicts, compare board state string with the solved puzzle string.
 // if board state string = solved puzzle string, then win animation
+import { solvedPuzzle } from '../components/Puzzles.js';
 
-// import React from 'react';
 // import { Setup, Draw } from '../components/fireworks/sketch.js';
 // import Particle from '../components/fireworks/particle.js';
 
-const validateWin = ({ boardState, solvedPuzzle, conflicts }) => {
+const validateWin = ({ boardState, conflicts }) => {
     if (boardState === solvedPuzzle){
         if (conflicts.length === 0){
         return (
