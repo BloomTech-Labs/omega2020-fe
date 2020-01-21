@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Board from './Board.js';
 import GetPuzzles, { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
+import validateWin from '../utils/validateWin.js';
 import './Sudoku.css';
 
 const Sudoku = () => {
@@ -22,6 +23,7 @@ const Sudoku = () => {
   
   // console.log("gameBoardState: ", gameBoardState)
 
+  // Retrieve puzzle data
   function getRandomPuzzle() {
     return unsolvedPuzzle;
   };
@@ -78,7 +80,9 @@ const Sudoku = () => {
   function handleVerifyClick() {
     const { boardState } = gameBoardState;
     console.log("HANDLE VERIFY CLICK", boardState)
-    
+
+    // Gives id to boxes in two digit format for xy (row column)
+
     // rows[0]/cols[0] -> first row/column
     const rows = {};
     const cols = {};
@@ -106,7 +110,7 @@ const Sudoku = () => {
         };
       };
     };
-    
+    // creates an array of conflicts found by location
     const rowConflicts = flatten(getConflicts(Object.values(rows)));
     const colConflicts = flatten(getConflicts(Object.values(cols)));
     const boxConflicts = flatten(getConflicts(Object.values(boxes)));
