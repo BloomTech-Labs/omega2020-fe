@@ -62,7 +62,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Registration = (props) => {
-        const [user, setUser] = useState({ "email": '', "password": ''})
+    const [user, setUser] = useState({"email": '', "password": ''})
     
     const changeHandler = event => {
     
@@ -73,33 +73,37 @@ const Registration = (props) => {
     
     const handleSubmit = event => {
         event.preventDefault();
-    
         // axiosLoginAuth()
         axios
-            .post("https://omega2020.herokuapp.com/auth/register", user)
+            // .post("https://omega2020.herokuapp.com/auth/register", user)
+            .post("http://localhost:7777/auth/register", user)
             .then( result => {
               console.log("user", user)
               console.log("result", result)
-              setUser({email: '', password: ''})
+              setUser({email: user.email, password: user.password, id: user.id})
               axiosLoginAuth()
                 .post("/auth/login", user)
                 .then(result => {
                 console.log(result)
-                localStorage.setItem("token", result.data.token);    
-                setUser({ email: '', password: ''})
-                          props.history.push("/puzzle")
-                  })
-                  .catch(error => {
-                    console.log(error)
-                    alert("Email and/or Passwrod not recognized, please try again", error)
+                localStorage.setItem("token", result.data.token);
+                localStorage.setItem("userId", result.data.userId);
+                props.history.push("/puzzle");
+                // setUser({ email: '', password: ''})
+                //           props.history.push("/puzzle")
+                //   })
+                //   .catch(error => {
+                //     console.log(error)
+                //     alert("Email and/or Passwrod not recognized, please try again", error)
+                // })
                 })
-            })
-            .catch(error => {
-              console.log(error)
-              alert("Email already exists please login to continue", error)
-            })
+                .catch(error => {
+                  console.log(error)
+                  alert("Email already exists please login to continue", error)
+                })
             
-                 }
+              })
+  }
+    
   const classes = useStyles();
 
   
