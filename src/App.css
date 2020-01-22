@@ -1,7 +1,8 @@
 .App {
 	/* background-color: whitesmoke; */
 	background-image: url("./images/Diamonds.jpg");
-	font-family: 'Roboto';
+  font-family: 'Roboto';
+  height: 100vh;
 }
 
 .dark-mode .App {
@@ -19,6 +20,10 @@
     position: relative;
     width: 40px;
   }
+
+  .dark-mode .formControl {
+    color: black;
+    }
 
   .toggle {
     background: lightblue;

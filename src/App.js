@@ -11,6 +11,8 @@ import Registration from './components/Register';
 import Login from "./components/Login";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
+import Settings from "./components/Settings";
+
 
 
 const App = () => {
@@ -27,6 +29,7 @@ const App = () => {
       <Route exact path="/" component={Landing} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Registration} />
+      <Route path="/settings" component={Settings} />
         {/* <Route path="/" exact component={Home} /> */}
         <Route path="/puzzle" component={Sudoku} />
     </Switch>

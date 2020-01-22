@@ -3,6 +3,10 @@
     background-color: #313843;
   }
 
+.main {
+    color: black;
+}
+
   .dark-mode__toggle {
     background: papayawhip;
     border-radius: 50px;
