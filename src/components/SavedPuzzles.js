@@ -20,7 +20,6 @@ import axiosWithAuth from '../utils/axiosWithAuth';
     return (
         <div className = "PuzzlesList">
           User Puzzles:
-
           
           {userPuzzles.map(data =>  <div>{data.id}</div> )}
 
