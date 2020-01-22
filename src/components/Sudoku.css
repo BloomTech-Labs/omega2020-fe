@@ -1,5 +1,13 @@
+
+.dark-mode input {
+    color: #fff;
+	background: slategrey;
+	border-color:  black;
+
+  }
+
+
 .Sudoku {
-	background-image: url("../images/Diamonds.jpg");
 	height: 100vh;
 	text-align:center;
     font-family: 'Roboto'; font-size: 22px;

@@ -1,18 +1,10 @@
-.App {
-	/* background-color: whitesmoke; */
-	background-image: url("./images/Diamonds.jpg");
-	font-family: 'Roboto';
-}
-
-.dark-mode .App {
-  color: #fff;
-	background-color: #313843;
-	background-image: none;
-
+.dark-mode {
+    color: #fff;
+    background-color: #313843;
   }
 
   .dark-mode__toggle {
-    background: grey;
+    background: papayawhip;
     border-radius: 50px;
     border: 1px solid black;
     height: 20px;
@@ -21,7 +13,7 @@
   }
 
   .toggle {
-    background: lightblue;
+    background: silver;
     border-radius: 50px;
     height: 18px;
     left: 0;
@@ -33,4 +25,3 @@
   .toggled {
     left: 18px;
   }
-

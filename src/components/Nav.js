@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -6,7 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import {NavLink} from "react-router-dom";
-
+import useDarkMode from './themes/useDarkMode';
+import '../App.css';
+import './Sudoku.css'
 
 const useStyles = makeStyles(theme => ({
     nav: {
@@ -31,6 +33,12 @@ const useStyles = makeStyles(theme => ({
 const Nav = () => { 
     const classes = useStyles();
 
+    const [darkMode, setDarkMode] = useDarkMode('theme');
+    const toggleMode = e => {
+    e.preventDefault();
+    setDarkMode(!darkMode);
+  }
+
     const logout = () => {
       localStorage.removeItem("token");
   }
@@ -54,7 +62,12 @@ const Nav = () => {
                 <Link href="/" onClick={logout} className={classes.label} label="Play Puzzle">
                 Logout
                 </Link>
-
+                <div className="dark-mode__toggle">
+                <div
+                  onClick={toggleMode}
+                  className={darkMode ? 'toggle toggled' : 'toggle'}
+                />
+                </div>
             </Grid>
                 {/* <Tab className={classes.label} label="Item 2" />
                 <Tab className={classes.label} label="Item 3" />

@@ -54,7 +54,6 @@ function Square(props) {
 			<div  className="Square_Input">
 				<input
 					onSelect="chBackcolor('blue')"
-					id="square"
 					className = "Square"
 					style = {style}
 					type = "text"
