@@ -1,41 +1,42 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 import Board from './Board.js';
-import GetPuzzles, { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
+import { GetPuzzles, solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';
 import { ga } from 'react-ga';
 
+
 const Sudoku = () => {
-  const puzzleData = GetPuzzles();
-  console.log("SODUKU AXIOS DATA", puzzleData);
 
   
   const getFormattedPuzzle = () => {
     const puzzle = getRandomPuzzle();
-    // const puzzle = puzzleData.soduku;
     const formattedPuzzle = formatPuzzle(puzzle);
-    // console.log("formattedPuzzle", formattedPuzzle);
+    console.log("formattedPuzzle", formattedPuzzle);
     return formattedPuzzle;
   };
-
-
+  
   // Retrieve puzzle data
   function getRandomPuzzle() {
-    console.log("YYYY", puzzleData.sudoku)
+    var puzzles = GetPuzzles();
+    console.log("YYYY", puzzles.sudoku)
     console.log("XXXXXX", unsolvedPuzzle.data)
+    return puzzles.sudoku;
     return unsolvedPuzzle.data;
-    // return puzzleData.soduku;
   };
-
-  const [gameBoardState, setGameBoardState] = useState(
-  {
-          boardState : getFormattedPuzzle(),
-          puzzleId: "",
-          solvedPuzzleState: solvedPuzzle,
-          history   : [],
-          conflicts : new Set([])  
-  });
   
+  
+  const [gameBoardState, setGameBoardState] = useState(
+    {
+      boardState : getFormattedPuzzle(),
+      puzzleId: "",
+      solvedPuzzleState: solvedPuzzle,
+      history   : [],
+      conflicts : new Set([])  
+    });
+
   // console.log("gameBoardState: ", gameBoardState)
 
   function getDeepCopyOfArray(arr) {
