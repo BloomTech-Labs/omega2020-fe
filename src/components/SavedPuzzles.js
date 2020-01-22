@@ -4,6 +4,15 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 // import GetUserPuzzles, { userPuzzles }  from './UserPuzzles';
 
 
+// const savePuzzle = e => {
+//     e.preventDefault();
+//     axiosWithAuth()
+//     .post('/puzzleId', {"puzzle":  id})
+//     .then(res => console.log("Saved Res: ", res))
+//     .catch(err => console.log(err))
+//   }
+
+
   const SavedPuzzles = () => {
     const [userPuzzles, setUserPuzzles] = useState([]);
 
