@@ -1,6 +1,4 @@
 import React, {  } from 'react';
-import validateWin from '../utils/validateWin.js';
-import { solvedPuzzle } from '../components/Puzzles.js';
 
 import Square from './square.js';
 
@@ -40,19 +38,7 @@ const Board = (props) => {
 			};
 			board.push(<div className="Board_RowData" key = {i}>{currRow}</div>);
 		};
-        // const validateWin = ({ boardState, conflicts }) => {
-        //     if (boardState === solvedPuzzle){
-        //         if (conflicts.length === 0){
-        //         return (
-        //             // build some animation for win here
-        //             alert('Congratulations! You have solved the puzzle!')
-        //         )}
-        //     } else {
-        //         return (
-        //             alert('Hmmm. This is odd.')
-        //         )
-        //     }
-        // };
+        
 		return board;
 	};
 

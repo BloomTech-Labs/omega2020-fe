@@ -3,6 +3,7 @@ import Board from './Board.js';
 import GetPuzzles, { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';
+import { ga } from 'react-ga';
 
 const Sudoku = () => {
   GetPuzzles()
@@ -10,22 +11,27 @@ const Sudoku = () => {
   const getFormattedPuzzle = () => {
     const puzzle = getRandomPuzzle();
     const formattedPuzzle = formatPuzzle(puzzle);
+    // console.log("formattedPuzzle", formattedPuzzle);
     return formattedPuzzle;
+  };
+
+
+  // Retrieve puzzle data
+  function getRandomPuzzle() {
+    console.log("XXXXXX", unsolvedPuzzle.data)
+    return unsolvedPuzzle.data;
   };
 
   const [gameBoardState, setGameBoardState] = useState(
   {
           boardState : getFormattedPuzzle(),
+          puzzleId: "",
+          solvedPuzzleState: solvedPuzzle,
           history   : [],
           conflicts : new Set([])  
   });
   
   // console.log("gameBoardState: ", gameBoardState)
-
-  // Retrieve puzzle data
-  function getRandomPuzzle() {
-    return unsolvedPuzzle;
-  };
 
   function getDeepCopyOfArray(arr) {
     return JSON.parse(JSON.stringify(arr));
@@ -47,7 +53,7 @@ const Sudoku = () => {
       newHistory.push(prevState.boardState);
 
       return {
-        boardState: newBoardState, 
+        boardState: newBoardState,
         history: newHistory, 
         conflicts: new Set([])
       };
@@ -70,6 +76,7 @@ const Sudoku = () => {
   
   const handleNewGameClick = () => {
     setGameBoardState({
+      ...gameBoardState,
       boardState: getFormattedPuzzle(),
       history   : [],
       conflicts : new Set([])
@@ -78,25 +85,26 @@ const Sudoku = () => {
   
   function handleVerifyClick() {
     const { boardState } = gameBoardState;
-    console.log("HANDLE VERIFY CLICK", boardState)
+    // console.log("HANDLE VERIFY CLICK", boardState)
 
-    // Gives id to boxes in two digit format for xy (row column)
-
+    // Assigns id to boxes in two digit format for xy (row column)
     // rows[0]/cols[0] -> first row/column
     const rows = {};
     const cols = {};
     // Example: boxes['00'] -> an array of values in the first box. 
     const boxes = {};
-    
+
+    // populating rows
     for(let i=0; i<boardState.length; i++) {
       rows[i] = getDeepCopyOfArray(boardState[i]);
-      console.log("BOX ID: ", "boxId")
+      // console.log("BOX ID: ", "boxId")
+
       for(let j=0; j<boardState[i].length;j++) {
-        // populating cols
+        // populating columns
         if(cols.hasOwnProperty(j)) {
-          cols[j].push(boardState[i][j]);
+          cols[j].push(boardState[i][j]); //set a new cell value in the board
         } else {
-          cols[j] = [boardState[i][j]];
+          cols[j] = [boardState[i][j]]; // or keep the value
         };
         
         // populating boxes
@@ -113,20 +121,39 @@ const Sudoku = () => {
     const rowConflicts = flatten(getConflicts(Object.values(rows)));
     const colConflicts = flatten(getConflicts(Object.values(cols)));
     const boxConflicts = flatten(getConflicts(Object.values(boxes)));
-    console.log("BOX CONFLICTS1: ", boxConflicts)
+
+    // console.log("BOX CONFLICTS1: ", boxConflicts)
+
     const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
     setGameBoardState({...gameBoardState, conflicts: new Set(mergedConflicts)});
+
+    console.log("GBS: ", gameBoardState.boardState[0][0].cellValue);
+    console.log("GBS:BS: ", gameBoardState.boardState)
+    // console.log("SOLVEDPUZZLE: ", solvedPuzzleState)
+    // Turn boardState into a string
+    var playString = [];
+    var playStringNow;
+    for (var i=0; i<gameBoardState.boardState.length; i++) {
+      for (var j=0; j<gameBoardState.boardState.length; j++) {
+
+        // console.log("GBS2", gameBoardState.boardState[i][j].cellValue)
+        playStringNow = gameBoardState.boardState[i][j].cellValue
+        playString.push(playStringNow)
+      }
+    }
+    var activePuzzleString = playString.join('')
+    console.log("activePuzzleString", activePuzzleString)
     
-    // WIN STATE -> to validate the win. Uncomment line 123 to replace winning string.
-          if (mergedConflicts.length === 0){
-             
-            // let boardState = "864371259325849761971265843436192587198657432257483916689734125713528694542916378"
-              if (boardState === solvedPuzzle){
-              return (
-                  // build some animation for win here
-                  alert('Congratulations! You have solved the puzzle!')
-              )
-            }}
+    // WIN STATE -> to validate the win. Uncomment line  to replace winning string.
+    if (mergedConflicts.length === 0){
+
+      // let boardState = "864371259325849761971265843436192587198657432257483916689734125713528694542916378"
+      if (activePuzzleString === solvedPuzzle.data){
+        return (
+            // build some animation for win here
+            alert('Congratulations! You have solved the puzzle!')
+        )
+    }}
   };
   
   function flatten(a) {
@@ -134,14 +161,14 @@ const Sudoku = () => {
   };
   
   function getConflicts(arrs) {
-    console.log("ARRSSS: ", getConflicts)
+    // console.log("ARRSSS: ", getConflicts)
 
     return (arrs.map(arr => getConflictsInArray(arr)));
   };
   
   function getConflictsInArray(arr) {
     const conflictMap = {};
-    console.log("ARR: ", arr)
+    // console.log("ARR: ", arr)
 
     for(let i=0; i<arr.length; i++) {
       let curr = arr[i];
@@ -173,7 +200,7 @@ const Sudoku = () => {
                             editable  : editable
                         };
     };
-    console.log("Formatted Puzzle", formattedPuzzle);
+    // console.log("Formatted Puzzle", formattedPuzzle);
     return formattedPuzzle;
   };
 
