@@ -6,10 +6,13 @@ import './Sudoku.css';
 import { ga } from 'react-ga';
 
 const Sudoku = () => {
-  GetPuzzles()
+  const puzzleData = GetPuzzles();
+  console.log("SODUKU AXIOS DATA", puzzleData);
+
   
   const getFormattedPuzzle = () => {
     const puzzle = getRandomPuzzle();
+    // const puzzle = puzzleData.soduku;
     const formattedPuzzle = formatPuzzle(puzzle);
     // console.log("formattedPuzzle", formattedPuzzle);
     return formattedPuzzle;
@@ -18,8 +21,10 @@ const Sudoku = () => {
 
   // Retrieve puzzle data
   function getRandomPuzzle() {
+    console.log("YYYY", puzzleData.sudoku)
     console.log("XXXXXX", unsolvedPuzzle.data)
     return unsolvedPuzzle.data;
+    // return puzzleData.soduku;
   };
 
   const [gameBoardState, setGameBoardState] = useState(
