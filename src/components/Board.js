@@ -1,4 +1,5 @@
 import React, {  } from 'react';
+
 import Square from './square.js';
 
 const Board = (props) => {
@@ -37,13 +38,14 @@ const Board = (props) => {
 			};
 			board.push(<div className="Board_RowData" key = {i}>{currRow}</div>);
 		};
+        
 		return board;
 	};
 
     console.log(props);
 
     const board = generateBoard();
-    
+
     return (<div className="Board">{board}</div>);
 };
 
