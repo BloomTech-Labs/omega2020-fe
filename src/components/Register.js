@@ -75,8 +75,8 @@ const Registration = (props) => {
         event.preventDefault();
         // axiosLoginAuth()
         axios
-            .post("https://omega2020.herokuapp.com/auth/register", user)
-            // .post("http://localhost:7777/auth/register", user)
+            // .post("https://omega2020.herokuapp.com/auth/register", user)
+            .post("http://localhost:7777/auth/register", user)
             .then( result => {
               console.log("user", user)
               console.log("result", result)
@@ -87,7 +87,6 @@ const Registration = (props) => {
                 console.log(result)
                 console.log("TOKEN", result.data.data.token);
                 localStorage.setItem("token", result.data.data.token);
-                localStorage.setItem("userId", result.data.data.userId);
                 props.history.push("/puzzle");
                 // setUser({ email: '', password: ''})
                 //           props.history.push("/puzzle")

@@ -46,16 +46,16 @@ const Nav = () => {
             container 
             spacing={24}>
                 <Link href="/puzzle" className={classes.label} label="Play Puzzle">
-                Play Puzzle
+                  Play Puzzle
                 </Link>
                 <Link href="/" className={classes.label} label="Play Puzzle">
-                Home
+                  Home
                 </Link>
-                <Link href="/" onClick={logout} className={classes.label} label="Play Puzzle">
-                Logout
+                <Link href="/" onClick={logout} className={classes.label} label="Logout">
+                  Logout
                 </Link>
                 <Link href="/puzzles" className={classes.label} label="Saved Puzzles">
-                Saved Puzzles
+                  Saved Puzzles
                 </Link>
             </Grid>
                 {/* <Tab className={classes.label} label="Item 2" />

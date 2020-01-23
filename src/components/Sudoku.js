@@ -4,6 +4,7 @@ import GetPuzzles, { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';
 import { ga } from 'react-ga';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const Sudoku = () => {
   // GetPuzzles()
@@ -33,7 +34,9 @@ const Sudoku = () => {
   const [gameBoardState, setGameBoardState] = useState(
   {
           boardState : getFormattedPuzzle(),
-          puzzleId: "",
+          puzzleId: getPuzzle.id,
+          difficulty: getPuzzle.difficulty,
+          time: getPuzzle.time,
           solvedPuzzleState: solvedPuzzle,
           history   : [],
           conflicts : new Set([])  
@@ -91,9 +94,32 @@ const Sudoku = () => {
     });
   };
   
+  const boardStateAsString = (boardState) => {
+    let board = "";
+    for(let i=0; i<boardState.length; i++) {
+      for(let j=0; j<boardState[i].length;j++) {
+        board += boardState[i][j].cellValue;
+      }
+    }
+    return board;
+  }
+
+  // saves sudoku state (data, diffuculty, time) to backend.
   const handleSaveClick = () => {
-    console.log(gameBoardState)
-    
+
+    console.log(gameBoardState);
+    const req = {
+      time: gameBoardState.time,
+      difficulty: gameBoardState.difficulty,
+      data: boardStateAsString(gameBoardState.boardState)};
+
+    const puzzleId = gameBoardState.puzzleId;
+
+    axiosWithAuth()
+    .post(`/user-puzzles/${puzzleId}`, req)
+    .then(res => {
+      console.log(res);
+    });
   };
 
   function handleVerifyClick() {
