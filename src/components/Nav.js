@@ -48,9 +48,6 @@ const Nav = () => {
                 <Link href="/puzzle" className={classes.label} label="Play Puzzle">
                 Play Puzzle
                 </Link>
-                <Link href="/" className={classes.label} label="Play Puzzle">
-                Home
-                </Link>
                 <Link href="/" onClick={logout} className={classes.label} label="Play Puzzle">
                 Logout
                 </Link>

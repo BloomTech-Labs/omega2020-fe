@@ -1,45 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import Board from './Board.js';
-import GetPuzzles, { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
+import { GetPuzzles, solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';
 import { ga } from 'react-ga';
 
 const Sudoku = () => {
-  // GetPuzzles()
-  // using unsolvedPuzzle at start too.
-  const [getPuzzle, setPuzzle] = useState(unsolvedPuzzle);
-
-  useEffect(() => {
-    setPuzzle(unsolvedPuzzle);
-    }, []);
-  
-  const getFormattedPuzzle = () => {
-    console.log("Getting random puzzle");
-
-    const puzzle = getPuzzle;
-    console.log(puzzle);
-    const formattedPuzzle = formatPuzzle(puzzle.data);
-    return formattedPuzzle;
-  };
-
-
-  // Retrieve puzzle data
-  function getRandomPuzzle() {
-    console.log("XXXXXX", unsolvedPuzzle.data)
-    return unsolvedPuzzle.data;
-  };
+  const [win, setWin] = useState("");
 
   const [gameBoardState, setGameBoardState] = useState(
-  {
-          boardState : getFormattedPuzzle(),
-          puzzleId: "",
-          solvedPuzzleState: solvedPuzzle,
-          history   : [],
-          conflicts : new Set([])  
-  });
+    {
+      boardState : "",
+      puzzleId: "",
+      history   : [],
+      conflicts : new Set([])  
+    });
   
-  // console.log("gameBoardState: ", gameBoardState)
+  
+  // Retrieve puzzle data
+  async function getRandomPuzzle() {
+    var puzzles = await GetPuzzles();
+    setWin(puzzles.solution);
+
+    return puzzles.sudoku;
+  };
+  
+  const getFormattedPuzzle = async () => {
+    const puzzle = await getRandomPuzzle();
+    const formattedPuzzle = formatPuzzle(puzzle);
+
+    console.log("GBS in formatted puzzle", gameBoardState)
+      setGameBoardState({
+        ...gameBoardState,
+        boardState: formattedPuzzle
+      });
+  };
+  console.log("GBS in SUD", win)
+  
+  
+  useEffect(() => {
+    getFormattedPuzzle();
+
+  },[]) 
 
   function getDeepCopyOfArray(arr) {
     return JSON.parse(JSON.stringify(arr));
@@ -61,6 +63,7 @@ const Sudoku = () => {
       newHistory.push(prevState.boardState);
 
       return {
+        ...gameBoardState,
         boardState: newBoardState,
         history: newHistory, 
         conflicts: new Set([])
@@ -75,6 +78,7 @@ const Sudoku = () => {
 
       // Now assign the previous board state as the current board state
       return {
+        ...gameBoardState,
         boardState: lastBoardState, 
         history: newHistory,
         conflicts : new Set([])
@@ -97,8 +101,7 @@ const Sudoku = () => {
   };
 
   function handleVerifyClick() {
-    const { boardState } = gameBoardState;
-    // console.log("HANDLE VERIFY CLICK", boardState)
+    const { boardState, solvedPuzzleState } = gameBoardState;
 
     // Assigns id to boxes in two digit format for xy (row column)
     // rows[0]/cols[0] -> first row/column
@@ -140,33 +143,29 @@ const Sudoku = () => {
     const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
     setGameBoardState({...gameBoardState, conflicts: new Set(mergedConflicts)});
 
-    console.log("GBS: ", gameBoardState.boardState[0][0].cellValue);
-    console.log("GBS:BS: ", gameBoardState.boardState)
-    // console.log("SOLVEDPUZZLE: ", solvedPuzzleState)
     // Turn boardState into a string
     var playString = [];
     var playStringNow;
-    for (var i=0; i<gameBoardState.boardState.length; i++) {
-      for (var j=0; j<gameBoardState.boardState.length; j++) {
 
-        // console.log("GBS2", gameBoardState.boardState[i][j].cellValue)
-        playStringNow = gameBoardState.boardState[i][j].cellValue
-        playString.push(playStringNow)
-      }
-    }
-    var activePuzzleString = playString.join('')
-    console.log("activePuzzleString", activePuzzleString)
+    for (var i=0; i<gameBoardState.boardState.length; i++) { // for each row
+      for (var j=0; j<gameBoardState.boardState.length; j++) { // for each column
+        playStringNow = gameBoardState.boardState[i][j].cellValue // the value in each cell
+        playString.push(playStringNow)                // is pushed to playString
+      };
+    };
+
+    // activePuzzleString = single string represents current board state
+    var activePuzzleString = playString.join('');  
+    console.log("activePuzzleString", activePuzzleString);
+    console.log("WIN", win);
     
-    // WIN STATE -> to validate the win. Uncomment line  to replace winning string.
     if (mergedConflicts.length === 0){
-
-      // let boardState = "864371259325849761971265843436192587198657432257483916689734125713528694542916378"
-      if (activePuzzleString === solvedPuzzle.data){
+      if (activePuzzleString === win){
         return (
             // build some animation for win here
             alert('Congratulations! You have solved the puzzle!')
-        )
-    }}
+        )};
+    };
   };
   
   function flatten(a) {
@@ -174,14 +173,11 @@ const Sudoku = () => {
   };
   
   function getConflicts(arrs) {
-    // console.log("ARRSSS: ", getConflicts)
-
     return (arrs.map(arr => getConflictsInArray(arr)));
   };
   
   function getConflictsInArray(arr) {
     const conflictMap = {};
-    // console.log("ARR: ", arr)
 
     for(let i=0; i<arr.length; i++) {
       let curr = arr[i];
@@ -191,7 +187,7 @@ const Sudoku = () => {
           conflictMap[curr.cellValue].push(curr.cellId);
         } else {
           conflictMap[curr.cellValue] = [curr.cellId];
-        }        
+        };      
       };
     };
 
@@ -213,7 +209,6 @@ const Sudoku = () => {
                             editable  : editable
                         };
     };
-    // console.log("Formatted Puzzle", formattedPuzzle);
     return formattedPuzzle;
   };
 
@@ -261,7 +256,6 @@ const Sudoku = () => {
             conflicts = {gameBoardState.conflicts}
             onSquareValueChange = {handleSquareValueChange}
             historyLength = {gameBoardState.history.length}
-            // onVerifyClick = {handleVerifyClick}
             />
         </div>  
        
@@ -278,7 +272,6 @@ function createArray(length) {
         var args = Array.prototype.slice.call(arguments, 1);
         while(i--) arr[length-1 - i] = createArray.apply(this, args);
     };
-    // console.log("Return of arr: ", arr)
     return arr;
 };
 
