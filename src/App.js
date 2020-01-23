@@ -12,6 +12,10 @@ import Login from "./components/Login";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
 import SavedPuzzles from "./components/SavedPuzzles";
+import MediumSudoku from './components/puzzles-by-difficulty/medium/MediumSudoku'
+import HardSudoku from './components/puzzles-by-difficulty/hard/HardSudoku'
+import DiabolicalSudoku from './components/puzzles-by-difficulty/diabolical/DiabolicalSudoku'
+import EasySudoku from './components/puzzles-by-difficulty/easy/EasySudoku'
 
 
 const App = () => {
@@ -25,7 +29,11 @@ const App = () => {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Registration} />
         {/* <Route path="/" exact component={Home} /> */}
-        <Route path="/puzzle" component={Sudoku} />
+        <Route path="/random" component={Sudoku} />
+        <Route path="/medium" component={MediumSudoku} />
+        <Route path="/diabolical" component={DiabolicalSudoku} />
+        <Route path="/easy" component={EasySudoku} />
+        <Route path="/hard" component={HardSudoku} />
         <Route path="/puzzles" component={SavedPuzzles} />
     </Switch>
     <Footer />
