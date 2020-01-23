@@ -15,11 +15,7 @@ import SavedPuzzles from "./components/SavedPuzzles";
 
 
 const App = () => {
-  // const { loading } = useAuth0();
-
-  // if (loading) {
-  //   return <div>Loading..</div>;
-  // }
+  
   return (
     <Router history={history}>
     <div className="App">
