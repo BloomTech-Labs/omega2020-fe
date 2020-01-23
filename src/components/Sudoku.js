@@ -38,16 +38,16 @@ const Sudoku = () => {
   };
 
 
-  const [gameBoardState, setGameBoardState] = useState(
-  {
-          boardState : getFormattedPuzzle(),
-          puzzleId: getPuzzle.id,
-          difficulty: getPuzzle.difficulty,
-          time: getPuzzle.time,
-          solvedPuzzleState: solvedPuzzle,
-          history   : [],
-          conflicts : new Set([])  
-  });
+  // const [gameBoardState, setGameBoardState] = useState(
+  // {
+  //         boardState : getFormattedPuzzle(),
+  //         puzzleId: getPuzzle.id,
+  //         difficulty: getPuzzle.difficulty,
+  //         time: getPuzzle.time,
+  //         solvedPuzzleState: solvedPuzzle,
+  //         history   : [],
+  //         conflicts : new Set([])  
+  // });
   console.log("GBS in SUD", win)
   
 
