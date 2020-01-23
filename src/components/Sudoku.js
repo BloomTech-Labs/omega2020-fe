@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Board from './Board.js';
@@ -17,26 +17,35 @@ const Sudoku = () => {
     var puzzles = await GetPuzzles();
     console.log("puzzles.sudoku", puzzles.sudoku)
     console.log("unsolvedPuzzle.data", unsolvedPuzzle.data)
+
     return puzzles.sudoku;
     return unsolvedPuzzle.data;
   };
   
-  const getFormattedPuzzle = () => {
-    const puzzle = getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle);
-    debugger
-    console.log("formattedPuzzle", formattedPuzzle);
-    return formattedPuzzle;
+  const getFormattedPuzzle = async () => {
+    const puzzle = await getRandomPuzzle();
+      const formattedPuzzle = formatPuzzle(puzzle);
+      console.log("formattedPuzzle", formattedPuzzle);
+      setGameBoardState({
+        ...gameBoardState,
+        boardState: formattedPuzzle
+      });
+
   };
   
   const [gameBoardState, setGameBoardState] = useState(
     {
-      boardState : getFormattedPuzzle(),
+      boardState : "",
       puzzleId: "",
       solvedPuzzleState: solvedPuzzle,
       history   : [],
       conflicts : new Set([])  
     });
+  
+  useEffect(() => {
+    getFormattedPuzzle();
+
+  },[]) 
 
   // console.log("gameBoardState: ", gameBoardState)
 
