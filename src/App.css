@@ -5,6 +5,12 @@
   height: 100vh;
 }
 
+.forest-mode .App {
+  background-image: url("./images/forest.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 .dark-mode .App {
   color: #fff;
 	background-color: #313843;
@@ -12,30 +18,8 @@
 
   }
 
-  .dark-mode__toggle {
-    background: grey;
-    border-radius: 50px;
-    border: 1px solid black;
-    height: 20px;
-    position: relative;
-    width: 40px;
-  }
 
   .dark-mode .formControl {
     color: black;
     }
-
-  .toggle {
-    background: lightblue;
-    border-radius: 50px;
-    height: 18px;
-    left: 0;
-    position: absolute;
-    transition: 0.2s;
-    width: 20px;
-  }
-
-  .toggled {
-    left: 18px;
-  }
 

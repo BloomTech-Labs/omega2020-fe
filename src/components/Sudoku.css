@@ -5,12 +5,13 @@
 	border-color:  black;
   }
 
-
 .Sudoku {
 	height: 100vh;
 	text-align:center;
-    font-family: 'Roboto'; font-size: 22px;
+	font-family: 'Roboto'; font-size: 22px;
+
 }
+
 
 .Board {
 	height:auto;

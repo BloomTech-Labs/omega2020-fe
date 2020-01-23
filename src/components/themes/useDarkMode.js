@@ -2,8 +2,8 @@ import useLocalStorage from './useLocalStorage'
 import { useEffect } from 'react';
 import '../../App.css';
 
-const useDarkMode = (theme, initialValue) => {
-    const [value, setValue] = useLocalStorage(theme, initialValue);
+const useDarkMode = (darktheme, initialValue) => {
+    const [value, setValue] = useLocalStorage(darktheme, initialValue);
 
     useEffect(() => {
         if (value === true) {
@@ -13,6 +13,7 @@ const useDarkMode = (theme, initialValue) => {
             document.querySelector('body').classList.remove('dark-mode')
             console.log('dark mode off')
         }
+        console.log("VALUE", value)
     }, [value]);
 
     return [value, setValue];
