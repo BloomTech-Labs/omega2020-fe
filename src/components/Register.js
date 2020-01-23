@@ -87,7 +87,6 @@ const Registration = (props) => {
                 console.log(result)
                 console.log("TOKEN", result.data.data.token);
                 localStorage.setItem("token", result.data.data.token);
-                localStorage.setItem("userId", result.data.data.userId);
                 props.history.push("/puzzle");
                 // setUser({ email: '', password: ''})
                 //           props.history.push("/puzzle")

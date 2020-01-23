@@ -5,6 +5,7 @@ const axiosLoginAuth = () => {
 
   return axios.create({
     baseURL: "https://omega2020.herokuapp.com",
+    // baseURL: "http://localhost:7777",
     headers: {
       Authorization: token
     }

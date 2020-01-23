@@ -15,7 +15,6 @@ const NewPuzzle = props => {
           console.error('Server Error', error);
         });
     }
-    
     getPuzzles();
   }, []);
   
