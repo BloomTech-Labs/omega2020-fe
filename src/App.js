@@ -11,6 +11,7 @@ import Registration from './components/Register';
 import Login from "./components/Login";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
+import SavedPuzzles from "./components/SavedPuzzles";
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
       <Route path="/register" component={Registration} />
         {/* <Route path="/" exact component={Home} /> */}
         <Route path="/puzzle" component={Sudoku} />
+        <Route path="/puzzles" component={SavedPuzzles} />
     </Switch>
     <Footer />
     </div>

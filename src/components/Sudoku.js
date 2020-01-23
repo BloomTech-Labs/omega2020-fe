@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-
 import Board from './Board.js';
 import { GetPuzzles, solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';
 import { ga } from 'react-ga';
-
 
 const Sudoku = () => {
   const [win, setWin] = useState("");
@@ -23,8 +20,6 @@ const Sudoku = () => {
   // Retrieve puzzle data
   async function getRandomPuzzle() {
     var puzzles = await GetPuzzles();
-    console.log("puzzles.sudoku", puzzles.sudoku);
-    console.log("puzzles.solution", puzzles.solution);
     setWin(puzzles.solution);
 
     return puzzles.sudoku;
@@ -100,6 +95,11 @@ const Sudoku = () => {
     });
   };
   
+  const handleSaveClick = () => {
+    console.log(gameBoardState)
+    
+  };
+
   function handleVerifyClick() {
     const { boardState, solvedPuzzleState } = gameBoardState;
 
@@ -246,6 +246,7 @@ const Sudoku = () => {
             onUndoClick = {handleUndoClick}
             onNewGameClick = {handleNewGameClick}
             onVerifyClick  = {handleVerifyClick}
+            onSaveClick = {handleSaveClick}
             />
         </div>
         <div>

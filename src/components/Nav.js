@@ -51,7 +51,9 @@ const Nav = () => {
                 <Link href="/" onClick={logout} className={classes.label} label="Play Puzzle">
                 Logout
                 </Link>
-
+                <Link href="/puzzles" className={classes.label} label="Saved Puzzles">
+                Saved Puzzles
+                </Link>
             </Grid>
                 {/* <Tab className={classes.label} label="Item 2" />
                 <Tab className={classes.label} label="Item 3" />
