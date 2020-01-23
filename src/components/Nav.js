@@ -97,11 +97,12 @@ const Nav = (props) => {
                       Diabolical
                     </Link>
                 </Menu>
-                <Link href="/" onClick={logout} className={classes.label} label="Play Puzzle">
+          
+                <Link href="/" onClick={logout} className={classes.label} label="Logout">
                 Logout
                 </Link>
                 <Link href="/puzzles" className={classes.label} label="Saved Puzzles">
-                Saved Puzzles
+                  Saved Puzzles
                 </Link>
             </Grid>
                 {/* <Tab className={classes.label} label="Item 2" />
