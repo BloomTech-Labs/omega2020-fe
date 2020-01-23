@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Board from './Board.js';
 import GetPuzzles, { solvedPuzzle, unsolvedPuzzle } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
@@ -6,12 +6,20 @@ import './Sudoku.css';
 import { ga } from 'react-ga';
 
 const Sudoku = () => {
-  GetPuzzles()
+  // GetPuzzles()
+  // using unsolvedPuzzle at start too.
+  const [getPuzzle, setPuzzle] = useState(unsolvedPuzzle);
+
+  useEffect(() => {
+    setPuzzle(unsolvedPuzzle);
+    }, []);
   
   const getFormattedPuzzle = () => {
-    const puzzle = getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle);
-    // console.log("formattedPuzzle", formattedPuzzle);
+    console.log("Getting random puzzle");
+
+    const puzzle = getPuzzle;
+    console.log(puzzle);
+    const formattedPuzzle = formatPuzzle(puzzle.data);
     return formattedPuzzle;
   };
 
@@ -83,6 +91,11 @@ const Sudoku = () => {
     });
   };
   
+  const handleSaveClick = () => {
+    console.log(gameBoardState)
+    
+  };
+
   function handleVerifyClick() {
     const { boardState } = gameBoardState;
     // console.log("HANDLE VERIFY CLICK", boardState)
@@ -238,6 +251,7 @@ const Sudoku = () => {
             onUndoClick = {handleUndoClick}
             onNewGameClick = {handleNewGameClick}
             onVerifyClick  = {handleVerifyClick}
+            onSaveClick = {handleSaveClick}
             />
         </div>
         <div>
