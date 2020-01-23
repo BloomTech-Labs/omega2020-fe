@@ -70,7 +70,7 @@ const Nav = (props) => {
             spacing={24}
             className={classes.grid}>
                 <Link className={classes.label} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                  Open Menu
+                  New Puzzle
                 </Link>
                 <Menu
                   className={classes.menu}
@@ -97,9 +97,6 @@ const Nav = (props) => {
                       Diabolical
                     </Link>
                 </Menu>
-                <Link href="/puzzle" className={classes.label} label="Play Puzzle">
-                Play Puzzle
-                </Link>
                 <Link href="/" onClick={logout} className={classes.label} label="Play Puzzle">
                 Logout
                 </Link>
