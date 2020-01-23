@@ -38,8 +38,9 @@ const SudokuButtons = (props) => {
 		       style     = {btnStyle}
 		       onClick   = {props.onSaveClick}>
 		       Save
-		       </Button>]
+		       </Button>
 			   
+
 		      {/* <Button
 			   size="large"
 		       className = "gameControlBtn"
