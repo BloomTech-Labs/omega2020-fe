@@ -11,22 +11,23 @@ import { ga } from 'react-ga';
 const Sudoku = () => {
 
   
-  const getFormattedPuzzle = () => {
-    const puzzle = getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle);
-    console.log("formattedPuzzle", formattedPuzzle);
-    return formattedPuzzle;
-  };
   
   // Retrieve puzzle data
-  function getRandomPuzzle() {
-    var puzzles = GetPuzzles();
-    console.log("YYYY", puzzles.sudoku)
-    console.log("XXXXXX", unsolvedPuzzle.data)
+  async function getRandomPuzzle() {
+    var puzzles = await GetPuzzles();
+    console.log("puzzles.sudoku", puzzles.sudoku)
+    console.log("unsolvedPuzzle.data", unsolvedPuzzle.data)
     return puzzles.sudoku;
     return unsolvedPuzzle.data;
   };
   
+  const getFormattedPuzzle = () => {
+    const puzzle = getRandomPuzzle();
+    const formattedPuzzle = formatPuzzle(puzzle);
+    debugger
+    console.log("formattedPuzzle", formattedPuzzle);
+    return formattedPuzzle;
+  };
   
   const [gameBoardState, setGameBoardState] = useState(
     {
@@ -192,6 +193,7 @@ const Sudoku = () => {
   };
 
   function formatPuzzle(puzzle) {
+    console.log("FORMAT PUZZLE", puzzle)
     const formattedPuzzle = createArray(9, 9);
     
     for(let i=0; i<puzzle.length; i++) {
