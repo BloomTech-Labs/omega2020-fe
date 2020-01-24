@@ -13,6 +13,7 @@ const Sudoku = () => {
     {
       boardState : "",
       puzzleId: "",
+      // time: 0,
       history   : [],
       conflicts : new Set([])  
     });
@@ -23,33 +24,36 @@ const Sudoku = () => {
     var puzzles = await GetPuzzles();
     setWin(puzzles.solution);
 
-    return puzzles.sudoku;
+    return puzzles;
   };
   
   const getFormattedPuzzle = async () => {
     const puzzle = await getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle);
+    const formattedPuzzle = formatPuzzle(puzzle.sudoku);
 
     console.log("GBS in formatted puzzle", gameBoardState)
+    console.log("Loaded puzzle in formatted puzzle", puzzle)
+    console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
       setGameBoardState({
         ...gameBoardState,
+        puzzleId: puzzle.id,
+        level: puzzle.level,
         boardState: formattedPuzzle
       });
   };
 
 
-  const [gameBoardState, setGameBoardState] = useState(
-  {
-          boardState : getFormattedPuzzle(),
-          puzzleId: getPuzzle.id,
-          difficulty: getPuzzle.difficulty,
-          time: getPuzzle.time,
-          solvedPuzzleState: solvedPuzzle,
-          history   : [],
-          conflicts : new Set([])  
-  });
-  console.log("GBS in SUD", win)
-  
+  // const [gameBoardState, setGameBoardState] = useState(
+  // {
+  //         boardState : getFormattedPuzzle(),
+  //         puzzleId: getPuzzle.id,
+  //         difficulty: getPuzzle.difficulty,
+  //         time: getPuzzle.time,
+  //         solvedPuzzleState: solvedPuzzle,
+  //         history   : [],
+  //         conflicts : new Set([])  
+  // });
+  // console.log("GBS in SUD", win)
 
   
   useEffect(() => {
@@ -124,7 +128,7 @@ const Sudoku = () => {
 
     console.log(gameBoardState);
     const req = {
-      time: gameBoardState.time,
+      // time: gameBoardState.time,
       difficulty: gameBoardState.difficulty,
       data: boardStateAsString(gameBoardState.boardState)};
 
