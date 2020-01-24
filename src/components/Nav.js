@@ -99,8 +99,10 @@ const Nav = (props) => {
                 </Menu>
           
                 <Link href="/" onClick={logout} className={classes.label} label="Logout">
-                Logout
-                </Link>
+
+                  Logout
+</Link>
+           
                 <Link href="/puzzles" className={classes.label} label="Saved Puzzles">
                   Saved Puzzles
                 </Link>

@@ -85,8 +85,8 @@ const Registration = (props) => {
                 .post("/auth/login", user)
                 .then(result => {
                 console.log(result)
-                console.log("TOKEN", result.data.data.token);
-                localStorage.setItem("token", result.data.data.token);
+                console.log("TOKEN", result.data.token);
+                localStorage.setItem("token", result.data.token);
                 props.history.push("/puzzle");
                 // setUser({ email: '', password: ''})
                 //           props.history.push("/puzzle")
