@@ -28,13 +28,13 @@ const App = () => {
       <Route exact path="/" component={Landing} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Registration} />
-        {/* <Route path="/" exact component={Home} /> */}
-        <Route path="/random" component={Sudoku} />
-        <Route path="/medium" component={MediumSudoku} />
-        <Route path="/diabolical" component={DiabolicalSudoku} />
-        <Route path="/easy" component={EasySudoku} />
-        <Route path="/hard" component={HardSudoku} />
-        <Route path="/puzzles" component={SavedPuzzles} />
+      {/* <Route path="/" exact component={Home} /> */}
+      <Route path="/random" component={Sudoku} />
+      <Route path="/medium" component={MediumSudoku} />
+      <Route path="/diabolical" component={DiabolicalSudoku} />
+      <Route path="/easy" component={EasySudoku} />
+      <Route path="/hard" component={HardSudoku} />
+      <Route path="/puzzles" component={SavedPuzzles} />
     </Switch>
     <Footer />
     </div>

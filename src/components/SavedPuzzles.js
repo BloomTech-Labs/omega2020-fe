@@ -18,9 +18,9 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
     useEffect(() => {
       axiosWithAuth()
-          .get("/user-puzzles/")
+          .get("/user-puzzles")
           .then(res => {
-            console.log("AXIOS", res.data);
+            console.log("AXIOS", res);
             setUserPuzzles(res.data);
           })
           .catch(err => console.log(err.response));

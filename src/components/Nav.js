@@ -46,6 +46,8 @@ const Nav = (props) => {
 
     const logout = () => {
       localStorage.removeItem("token");
+      localStorage.removeItem("id");
+
   }
 
     const [anchorEl, setAnchorEl] = React.useState(null);

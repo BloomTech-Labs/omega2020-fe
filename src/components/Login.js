@@ -82,8 +82,9 @@ const Login = (props) => {
             console.log(result);
             console.log("TOKEN", result.data.token);
             localStorage.setItem("token", result.data.token);
-            setUser({ email: '', password: ''})
-              props.history.push("/puzzle")
+            setUser({email: user.email, password: user.password, id: user.id});
+            localStorage.setItem("id", user.email);
+            props.history.push("/random")
         })
         .catch(error => {
           console.log(error)
