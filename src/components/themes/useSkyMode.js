@@ -2,7 +2,7 @@ import useLocalStorage from './useLocalStorage'
 import { useEffect } from 'react';
 // import '../Sudoku.css'
 // import '../../App.css';
-import '../Sudoku.scss';
+import '../Sudoku.css';
 
 const useSkyMode = (skytheme, initialValue) => {
     const [value, setValue] = useLocalStorage(skytheme, initialValue);

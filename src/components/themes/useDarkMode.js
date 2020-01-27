@@ -2,7 +2,7 @@ import useLocalStorage from './useLocalStorage'
 import { useEffect } from 'react';
 // import '../../App.css';
 // import '../Sudoku.css'
-import '../Sudoku.scss';
+import '../Sudoku.css';
 
 const useDarkMode = (darktheme, initialValue) => {
     const [value, setValue] = useLocalStorage(darktheme, initialValue);

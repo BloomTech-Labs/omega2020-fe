@@ -5,6 +5,7 @@ import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';
 import { ga } from 'react-ga';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import Settings from './themes/Settings'
 
 const Sudoku = () => {
   const [win, setWin] = useState("");
@@ -306,6 +307,7 @@ const Sudoku = () => {
             onSaveClick = {handleSaveClick}
             />
         </div>
+        
         <div>
           <Board
             className="Board"
@@ -315,7 +317,7 @@ const Sudoku = () => {
             historyLength = {gameBoardState.history.length}
             />
         </div>  
-       
+        <Settings />
       </div>
     );
     

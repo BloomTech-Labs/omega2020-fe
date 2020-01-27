@@ -5,6 +5,7 @@ import SudokuButtons from '../../SudokuButtons.js';
 import '../../Sudoku.css';
 import { ga } from 'react-ga';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
+import Settings from '../../themes/Settings'
 
 const EasySudoku = () => {
   const [win, setWin] = useState("");
@@ -315,7 +316,8 @@ const EasySudoku = () => {
             historyLength = {gameBoardState.history.length}
             />
         </div>  
-       
+        <Settings />
+
       </div>
     );
     
