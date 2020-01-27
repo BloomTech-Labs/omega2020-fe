@@ -5,6 +5,7 @@ import App from './App';
 import config from "./auth_config.json";
 import history from "./utils/history";
 import { BrowserRouter } from 'react-router-dom';
+import 'normalize.css';
 
 const onRedirectCallback = appState => {
     history.push(
