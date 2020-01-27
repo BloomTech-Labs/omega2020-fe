@@ -80,15 +80,18 @@ const Registration = (props) => {
             .then( result => {
               console.log("user", user)
               console.log("result", result)
+              
               setUser({email: user.email, password: user.password, id: user.id})
+              
               axiosLoginAuth()
                 .post("/auth/login", user)
                 .then(result => {
                 console.log(result)
                 console.log("TOKEN", result.data.token);
                 localStorage.setItem("token", result.data.token);
+
                 props.onChange();
-                props.history.push("/puzzle");
+                props.history.push("/random");
                 // setUser({ email: '', password: ''})
                 //           props.history.push("/puzzle")
                 //   })
@@ -100,9 +103,9 @@ const Registration = (props) => {
                 .catch(error => {
                   console.log(error)
                   alert("Email already exists please login to continue", error)
-                })
+                });
             
-              })
+              });
   }
     
   const classes = useStyles();

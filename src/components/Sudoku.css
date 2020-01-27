@@ -2,14 +2,15 @@
 	background-image: url("../images/Diamonds.jpg");
 	height: 100vh;
 	text-align:center;
-    font-family: 'Roboto'; font-size: 22px;
+	font-family: 'Roboto'; font-size: 22px;
+	height: 100%;
+
 }
 
 .Board {
 	height:auto;
 	width: 30vw;
 	display: inline-block;
-	background-color:red;
 	margin: auto;
 
 }
@@ -49,7 +50,6 @@ input[type="text"]:focus{background: #608CFF;}
 	display: flex;
 	width: 30vw;
 	height: 7vh;
-	background-color: red;
 }
 
 .SudokuButtons {
@@ -66,3 +66,111 @@ input[type="text"]:focus{background: #608CFF;}
 	transition: opacity 0.6s; /* 600ms to fade out */
   }
   
+  .label svg {
+	size:'30em',
+}
+
+.dark-mode .Sudoku {
+	color: #fff;
+	background-color: #313843;
+	background-image: none;
+	height: 100%;
+}
+
+.dark-mode input {
+	color: #fff;
+	background: slategrey;
+	border-color:  black;
+}
+
+.nature-mode .Sudoku {
+	background-image: url("../images/forest.png");
+	background-size: 100%;
+	color: #fff;
+	height: 100%;
+
+}
+
+.nature-mode input {
+	color: #fff;
+	background: slategrey;
+	border-color:  black;
+}
+
+.nature-mode input[type="text"]:enabled {
+	opacity:80%;
+	background-color:#acd052;
+	color:black;
+}
+
+.nature-mode input[type="text"]:disabled {
+	opacity:80%;
+	background-color:#4c712f;
+	color:white;
+}
+
+.nature-mode input[type="text"]:focus {
+	background: #f5f853;
+}
+
+.city-mode .Sudoku {
+	color: #fff;
+	background-image: url("../images/city.png");
+	background-size: 100%;
+	height: 100%;
+
+}
+
+.city-mode input {
+	color: #fff;
+	background: slategrey;
+	border-color:  black;
+}
+
+.city-mode input[type="text"]:enabled {
+	opacity:80%;
+	background-color:#cdd4d9;
+	color:black;
+
+}
+
+.city-mode input[type="text"]:disabled {
+	opacity:80%;
+	background-color:black;
+	color:white;
+}
+
+.city-mode input[type="text"]:focus {
+	background: #608cff;
+}
+
+.sky-mode .Sudoku {
+	color: black;
+	background-image: url("../images/sky.png");
+	background-size: 100%;
+	height: 100%;
+
+}
+
+.sky-mode input {
+	color: #fff;
+	background: slategrey;
+	border-color:  black;
+}
+
+.sky-mode input[type="text"]:enabled {
+	opacity:80%;
+	background-color:#b2ddf3;
+	color:black;
+
+}
+
+.sky-mode input[type="text"]:disabled {
+	opacity:80%;
+	background-color:#163a4e;
+	color:white;
+}
+
+.sky-mode input[type="text"]:focus {
+	background: #45bcf5;
+}

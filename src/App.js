@@ -32,6 +32,7 @@ const App = () => {
     < NavCondition token={token} />
     <Switch>
       <Route exact path="/" component={Landing} />
+
        {/* <Route path="/login" component={Login} /> */}
       <Route path="/login" 
        render={(props) => <Login {...props} onChange={handleLoginStateChanged} /> }

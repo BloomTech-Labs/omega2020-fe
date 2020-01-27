@@ -18,9 +18,9 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
     useEffect(() => {
       axiosWithAuth()
-          .get("/user-puzzles/")
+          .get("/user-puzzles")
           .then(res => {
-            console.log("AXIOS", res.data);
+            console.log("AXIOS", res);
             setUserPuzzles(res.data);
           })
           .catch(err => console.log(err.response));
@@ -30,7 +30,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
         <div className = "PuzzlesList">
           User Puzzles:
    
-          {userPuzzles.map(data =>  <div>ID: {data.id} Difficulty: {data.difficulty} Time: {data.time} PuzzleID: {data.puzzle_id}</div> )}
+          {userPuzzles.map(data =>  <div>ID: {data.id} Difficulty: {data.difficulty} Time: {data.time} Data: {data.data} PuzzleID: {data.puzzle_id}</div> )}
 
         </div>
             )
