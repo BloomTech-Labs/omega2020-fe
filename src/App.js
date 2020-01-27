@@ -12,7 +12,7 @@ import Registration from './components/Register';
 import Login from "./components/Login";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
-import SavedPuzzles from "./components/SavedPuzzles";
+import ResumedPuzzle from "./components/save-resume/ResumedPuzzle";
 import MediumSudoku from './components/puzzles-by-difficulty/medium/MediumSudoku'
 import HardSudoku from './components/puzzles-by-difficulty/hard/HardSudoku'
 import DiabolicalSudoku from './components/puzzles-by-difficulty/diabolical/DiabolicalSudoku'
@@ -43,11 +43,11 @@ const App = () => {
        render={(props) => <Registration {...props} onChange={handleLoginStateChanged} /> }
        />
       <Route path="/random" component={Sudoku} />
-        <Route path="/medium" component={MediumSudoku} />
-        <Route path="/diabolical" component={DiabolicalSudoku} />
-        <Route path="/easy" component={EasySudoku} />
-        <Route path="/hard" component={HardSudoku} />
-        <Route path="/puzzles" component={SavedPuzzles} />
+      <Route path="/medium" component={MediumSudoku} />
+      <Route path="/diabolical" component={DiabolicalSudoku} />
+      <Route path="/easy" component={EasySudoku} />
+      <Route path="/hard" component={HardSudoku} />
+      <Route path="/user-puzzles" component={ResumedPuzzle} />
     </Switch>
     <Footer />
     </div>

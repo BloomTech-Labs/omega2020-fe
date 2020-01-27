@@ -60,6 +60,38 @@ const Nav = (props) => {
       setAnchorEl(null);
     };
 
+    const handleResumeClick = () => {
+      console.log(gameBoardState);
+      
+      // const puzzleId = gameBoardState.puzzleId;
+      
+      // // Turn boardState into a string
+      // var playString = [];
+      // var playStringNow;
+      
+      // for (var i=0; i<gameBoardState.boardState.length; i++) { // for each row
+      //   for (var j=0; j<gameBoardState.boardState.length; j++) { // for each column
+      //     playStringNow = gameBoardState.boardState[i][j].cellValue // the value in each cell
+      //     playString.push(playStringNow)                // is pushed to playString
+      //   };
+      // };
+      // // activePuzzleString = single string represents current board state
+      // var activePuzzleString = playString.join(''); 
+      
+      // const req = {
+      //   // time: gameBoardState.time,
+      //   difficulty: gameBoardState.difficulty,
+      //   data: activePuzzleString};
+        
+      // axiosWithAuth()
+      // .get(`/user-puzzles/`)
+      // .then(res => {
+      //   console.log("REGISTER", res);
+      // });
+    
+    };
+  
+
       return (
         <AppBar position="static" className={classes.nav} title="My App">
           <Tabs>
@@ -96,17 +128,16 @@ const Nav = (props) => {
                       Hard
                     </Link>
                     <Link style={{textDecoration: "none"}} href="/diabolical" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
-                      Diabolical
+                      Diabolicalxxxxx
                     </Link>
                 </Menu>
           
                 <Link href="/" onClick={logout} className={classes.label} label="Logout">
 
-                  Logout
-</Link>
-           
-                <Link href="/puzzles" className={classes.label} label="Saved Puzzles">
-                  Saved Puzzles
+                  Logout1
+                </Link>
+                <Link href="/user-puzzles" className={classes.label} label="Resume Puzzle">
+                  Resume Puzzle
                 </Link>
             </Grid>
                 {/* <Tab className={classes.label} label="Item 2" />

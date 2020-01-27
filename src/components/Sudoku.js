@@ -5,7 +5,8 @@ import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';
 import { ga } from 'react-ga';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import Settings from './themes/Settings'
+import Settings from './themes/Settings';
+import ResumedPuzzle from './save-resume/ResumedPuzzle';
 
 const Sudoku = () => {
   const [win, setWin] = useState("");
@@ -158,7 +159,7 @@ const Sudoku = () => {
     });
   };
 
-
+  
 
 
   function handleVerifyClick() {
