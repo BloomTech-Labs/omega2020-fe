@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { withRouter } from "react-router-dom";
-import history from '../utils/history';
+import history from '../../utils/history';
 
 const useStyles = makeStyles(theme => ({
     nav: {
@@ -41,13 +41,11 @@ const useStyles = makeStyles(theme => ({
   }));
   
 
-const Nav = (props) => { 
+const LoggedOut = (props) => { 
     const classes = useStyles();
 
     const logout = () => {
       localStorage.removeItem("token");
-      localStorage.removeItem("id");
-
   }
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -64,7 +62,7 @@ const Nav = (props) => {
         <AppBar position="static" className={classes.nav} title="My App">
           <Tabs>
           <NavLink style={{textDecoration: "none"}} to="/">
-            <img className={classes.image} src={require('../images/omegalogo.PNG')} />
+            <img className={classes.image} src={require('../../images/omegalogo.PNG')} />
           </NavLink> 
           <Grid
             justify='flex-end' // Add it here :)
@@ -99,22 +97,10 @@ const Nav = (props) => {
                       Diabolical
                     </Link>
                 </Menu>
-          
-                <Link href="/" onClick={logout} className={classes.label} label="Logout">
-
-                  Logout
-</Link>
-           
-                <Link href="/puzzles" className={classes.label} label="Saved Puzzles">
-                  Saved Puzzles
-                </Link>
-            </Grid>
-                {/* <Tab className={classes.label} label="Item 2" />
-                <Tab className={classes.label} label="Item 3" />
-                <Tab className={classes.label} label="Item 4" /> */}
+         </Grid>
           </Tabs>
         </AppBar>
       )
     }
   
-export default Nav;
+export default LoggedOut;

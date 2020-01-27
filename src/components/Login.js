@@ -85,6 +85,9 @@ const Login = (props) => {
             setUser({email: user.email, password: user.password, id: user.id});
             localStorage.setItem("id", user.email);
             props.history.push("/random")
+//             props.onChange();
+//             setUser({ email: '', password: ''})
+//               props.history.push("/puzzle")
         })
         .catch(error => {
           console.log(error)
