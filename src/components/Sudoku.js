@@ -125,6 +125,7 @@ const Sudoku = () => {
     return board;
   }
 
+
   // ************** Saves sudoku state (data, diffuculty, time) to backend *********
 
 
