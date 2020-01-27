@@ -98,13 +98,13 @@ input[type="text"]:focus{background: #608CFF;}
 }
 
 .nature-mode input[type="text"]:enabled {
-	opacity:80% !important;
+	opacity:.8 !important;
 	background-color:#acd052;
 	color:black;
 }
 
 .nature-mode input[type="text"]:disabled {
-	opacity:80% !important;
+	opacity:.8 !important;
 	background-color:#4c712f;
 	color:white;
 }
@@ -128,14 +128,14 @@ input[type="text"]:focus{background: #608CFF;}
 }
 
 .city-mode input[type="text"]:enabled {
-	opacity:80% !important;
+	opacity:.8 !important;
 	background-color:#cdd4d9;
 	color:black;
 
 }
 
 .city-mode input[type="text"]:disabled {
-	opacity:80% !important;
+	opacity:.8 !important;
 	background-color:black;
 	color:white;
 }
@@ -159,14 +159,14 @@ input[type="text"]:focus{background: #608CFF;}
 }
 
 .sky-mode input[type="text"]:enabled {
-	opacity:80% !important;
+	opacity:.8 !important;
 	background-color:#b2ddf3;
 	color:black;
 
 }
 
 .sky-mode input[type="text"]:disabled {
-	opacity:80% !important;
+	opacity:.8 !important;
 	background-color:#163a4e;
 	color:white;
 }
