@@ -24,12 +24,12 @@ const Sudoku = () => {
     var puzzles = await GetPuzzles();
     setWin(puzzles.solution);
 
-    return puzzles;
+    return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
   };
   
   const getFormattedPuzzle = async () => {
     const puzzle = await getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle.sudoku);
+    const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
 
     console.log("GBS in formatted puzzle", gameBoardState)
     console.log("Loaded puzzle in formatted puzzle", puzzle)
@@ -122,10 +122,12 @@ const Sudoku = () => {
     }
     return board;
   }
-  
-  // saves sudoku state (data, diffuculty, time) to backend.
-  const handleSaveClick = () => {
 
+
+  // ************** Saves sudoku state (data, diffuculty, time) to backend *********
+
+
+  const handleSaveClick = () => {
     console.log(gameBoardState);
     
     const puzzleId = gameBoardState.puzzleId;
@@ -155,7 +157,13 @@ const Sudoku = () => {
         console.log("REGISTER", res);
       });
   };
-  
+
+//     .post(`/user-puzzles/${puzzleId}`, req)
+//     .then(res => {
+//       console.log("REGISTER", res);
+//     });
+//   };
+
   function handleVerifyClick() {
     const { boardState, setBoardState } = gameBoardState;
     
