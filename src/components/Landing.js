@@ -28,10 +28,9 @@ const useStyles = makeStyles(theme => ({
   buttonGrid: {
     textAlign: 'center',
     paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(3),
+    paddingBottom: theme.spacing(1),
     display:'flex',
     justifyContent:'space-around',
-    paddingRight: theme.spacing(13.5),
 
   },
   cardGrid: {
@@ -46,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     width:'80%',
-    height: '80%',
+    height: '90%',
     display: 'flex',
     flexDirection: 'column',
     
@@ -61,7 +60,8 @@ const useStyles = makeStyles(theme => ({
   button: {
     width:'80%',
     backgroundColor:'#608cff',
-    color:'white'
+    color:'white',
+    margin: theme.spacing(3),
   },
   icons: {
     textAlign: 'center',
@@ -129,6 +129,11 @@ const Landing = () => {
         {/* Hero unit */}
           <Container maxWidth="lg">
             <img className={classes.image} src={require("../images/omega2020.PNG")}  width="400" height="400" alt="Omega2020 logo" />
+            <Container className={classes.buttonGrid} maxWidth='lg'>
+                <Button variant="contained" color="primary" disableElevation className={classes.button} href="/register">Create Account</Button>
+                <Button variant="contained" color="primary" disableElevation className={classes.button} href="/puzzle">Guest Login</Button>
+                <Button variant="contained" color="primary" disableElevation className={classes.button} href="/login">Sign in</Button>
+              </Container>
             <div className={classes.textDiv} width="400" height="400">
               <div className={classes.topTextDiv}>
                 <div classname={classes.topTitle}>
@@ -168,9 +173,7 @@ const Landing = () => {
           {/* End hero unit */}
           <Grid container spacing={4}>
               <Grid xs={12} sm={6} md={4}>
-              <Container className={classes.buttonGrid} maxWidth='lg'>
-                <Button variant="contained" color="primary" disableElevation className={classes.button} href="/register">Create Account</Button>
-              </Container>
+
                 <Card className={classes.card}>
                 <img className={classes.icons} src={require("../images/solvelarge.PNG")} width="150" height="150" alt="Omega2020 logo" />
                   <CardMedia
@@ -191,9 +194,7 @@ const Landing = () => {
                 </Card>
               </Grid>
               <Grid xs={12} sm={6} md={4}>
-                <Container className={classes.buttonGrid} maxWidth='lg'>
-                  <Button variant="contained" color="primary" disableElevation className={classes.button} href="/puzzle">Guest Login</Button>
-                </Container>
+                 
                 <Card className={classes.card}>
                 <img className={classes.icons} src={require("../images/sudokularge.PNG")}  width="150" height="150" alt="Omega2020 logo" />
                   <CardMedia
@@ -215,9 +216,7 @@ const Landing = () => {
                 </Card>
               </Grid>
               <Grid xs={12} sm={6} md={4}>
-                <Container className={classes.buttonGrid} maxWidth='lg'>
-                  <Button variant="contained" color="primary" disableElevation className={classes.button} href="/login">Sign in</Button>
-                </Container>
+       
                 <Card className={classes.card}>
                 <img className={classes.icons} src={require("../images/learnlarge.PNG")} width="150" height="150" alt="Omega2020 logo" />
                   <CardMedia
