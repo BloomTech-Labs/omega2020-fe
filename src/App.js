@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Sudoku from './components/Sudoku.js';
 
 import './App.css';
 import { Router, Route, Switch } from "react-router-dom";
-import { useAuth0 } from "./react-auth0-spa";
-import Nav from "./components/Nav";
+// import { useAuth0 } from "./react-auth0-spa";
+// import Nav from "./components/Nav";
+import NavCondition from './components/Navs/NavCondition';
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
 import Registration from './components/Register';
@@ -19,17 +20,28 @@ import EasySudoku from './components/puzzles-by-difficulty/easy/EasySudoku'
 
 
 const App = () => {
+  const [token, setToken] = useState(localStorage.getItem("token"))
   
+  const handleLoginStateChanged = () => {
+    setToken(localStorage.getItem("token"))
+  }
+
   return (
     <Router history={history}>
     <div className="App">
-    <Nav />
+    < NavCondition token={token} />
     <Switch>
       <Route exact path="/" component={Landing} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Registration} />
-        {/* <Route path="/" exact component={Home} /> */}
-        <Route path="/random" component={Sudoku} />
+       {/* <Route path="/login" component={Login} /> */}
+      <Route path="/login" 
+       render={(props) => <Login {...props} onChange={handleLoginStateChanged} /> }
+       />
+      
+      {/* <Route path="/register" component={Registration} /> */}
+      <Route path="/register" 
+       render={(props) => <Registration {...props} onChange={handleLoginStateChanged} /> }
+       />
+      <Route path="/random" component={Sudoku} />
         <Route path="/medium" component={MediumSudoku} />
         <Route path="/diabolical" component={DiabolicalSudoku} />
         <Route path="/easy" component={EasySudoku} />

@@ -30,25 +30,21 @@ const SudokuButtons = (props) => {
 		       Get hint
 		      </Button>
 
-			   <Button
-			   size="large"
-		       className = "gameControlBtn"
-		       color     = "primary"
-		       variant   = "contained"
-		       style     = {btnStyle}
-		       onClick   = {props.onSaveClick}>
-		       Save
-		       </Button>
+			{(localStorage.getItem("token") !== null) ?
+				(<Button
+				size="large"
+				className = "gameControlBtn"
+				color     = "primary"
+				variant   = "contained"
+				style     = {btnStyle}
+				onClick   = {props.onSaveClick}>
+				Save
+				</Button>) : (<div />)
+			}
+			
+			   
 
-		      {/* <Button
-			   size="large"
-		       className = "gameControlBtn"
-		       color     = "primary"
-		       variant   = "contained"
-		       style     = {btnStyle}
-		       onClick   = {props.onNewGameClick}>
-		       New game!
-		       </Button> */}
+
 		    </div>
 			);
 	
