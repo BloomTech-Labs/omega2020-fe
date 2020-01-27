@@ -30,7 +30,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
         <div className = "PuzzlesList">
           User Puzzles:
    
-          {userPuzzles.map(data =>  <div>ID: {data.id} Difficulty: {data.difficulty} Time: {data.time} PuzzleID: {data.puzzle_id}</div> )}
+          {userPuzzles.map(data =>  <div>ID: {data.id} Difficulty: {data.difficulty} Time: {data.time} Data: {data.data} PuzzleID: {data.puzzle_id}</div> )}
 
         </div>
             )
