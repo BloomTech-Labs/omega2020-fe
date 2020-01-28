@@ -97,6 +97,7 @@ const LoggedOut = (props) => {
                       Diabolical
                     </Link>
                 </Menu>
+                
          </Grid>
           </Tabs>
         </AppBar>
