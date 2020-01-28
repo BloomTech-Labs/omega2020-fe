@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Board from './Board.js';
-import { GetPuzzles, solvedPuzzle, unsolvedPuzzle } from './Puzzles';
+import { GetPuzzles } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';
 import { ga } from 'react-ga';
@@ -20,6 +20,11 @@ const Sudoku = () => {
       conflicts : new Set([])  
     });
   
+// if logged in, retrieve flag for isPuzSaved and if true, render ResumedPuzzle
+// {}  
+// const checkForSaved() {
+//     Axios.
+//   }
   
   // Retrieve puzzle data
   async function getRandomPuzzle() {
@@ -45,18 +50,7 @@ const Sudoku = () => {
   };
 
 
-  // const [gameBoardState, setGameBoardState] = useState(
-  // {
-  //         boardState : getFormattedPuzzle(),
-  //         puzzleId: getPuzzle.id,
-  //         difficulty: getPuzzle.difficulty,
-  //         time: getPuzzle.time,
-  //         solvedPuzzleState: solvedPuzzle,
-  //         history   : [],
-  //         conflicts : new Set([])  
-  // });
-  // console.log("GBS in SUD", win)
-
+ 
   
   useEffect(() => {
     getFormattedPuzzle();
@@ -115,15 +109,15 @@ const Sudoku = () => {
     });
   };
   
-  const boardStateAsString = (boardState) => {
-    let board = "";
-    for(let i=0; i<boardState.length; i++) {
-      for(let j=0; j<boardState[i].length;j++) {
-        board += boardState[i][j].cellValue;
-      }
-    }
-    return board;
-  }
+  // const boardStateAsString = (boardState) => {
+  //   let board = "";
+  //   for(let i=0; i<boardState.length; i++) {
+  //     for(let j=0; j<boardState[i].length;j++) {
+  //       board += boardState[i][j].cellValue;
+  //     }
+  //   }
+  //   return board;
+  // }
 
 
   // ************** Saves sudoku state (data, diffuculty, time) to backend *********
@@ -150,13 +144,15 @@ const Sudoku = () => {
     const req = {
       // time: gameBoardState.time,
       difficulty: gameBoardState.difficulty,
-      data: activePuzzleString};
+      data: activePuzzleString,
+      solved: win,
+      };
       
     axiosWithAuth()
 
     .post(`/user-puzzles/${puzzleId}`, req)
     .then(res => {
-      console.log("REGISTER", res);
+      console.log("AXIOS FROM SAVE CLICK", res);
     });
   };
 

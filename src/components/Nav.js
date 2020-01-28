@@ -59,37 +59,6 @@ const Nav = (props) => {
     const handleClose = () => {
       setAnchorEl(null);
     };
-
-    const handleResumeClick = () => {
-      console.log(gameBoardState);
-      
-      // const puzzleId = gameBoardState.puzzleId;
-      
-      // // Turn boardState into a string
-      // var playString = [];
-      // var playStringNow;
-      
-      // for (var i=0; i<gameBoardState.boardState.length; i++) { // for each row
-      //   for (var j=0; j<gameBoardState.boardState.length; j++) { // for each column
-      //     playStringNow = gameBoardState.boardState[i][j].cellValue // the value in each cell
-      //     playString.push(playStringNow)                // is pushed to playString
-      //   };
-      // };
-      // // activePuzzleString = single string represents current board state
-      // var activePuzzleString = playString.join(''); 
-      
-      // const req = {
-      //   // time: gameBoardState.time,
-      //   difficulty: gameBoardState.difficulty,
-      //   data: activePuzzleString};
-        
-      // axiosWithAuth()
-      // .get(`/user-puzzles/`)
-      // .then(res => {
-      //   console.log("REGISTER", res);
-      // });
-    
-    };
   
 
       return (

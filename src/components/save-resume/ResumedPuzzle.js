@@ -32,7 +32,7 @@ const ResumedPuzzle = () => {
     
     const getFormattedPuzzle = async () => {
       const puzzle = await getRandomPuzzle();
-      const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
+      const formattedPuzzle = formatPuzzle(puzzle.data); // changed puzzles to puzzle.sudoku
       
       console.log("GBS in formatted puzzle", gameBoardState)
       console.log("Loaded puzzle in formatted puzzle", puzzle)
