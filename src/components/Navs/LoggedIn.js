@@ -100,6 +100,9 @@ const LoggedIn = (props) => {
                 <Link href="/puzzles" className={classes.label} label="Saved Puzzles">
                   Saved Puzzles
                 </Link>
+                <Link href="/upload" className={classes.label} label="Upload Image">
+                  Upload Puzzle
+                </Link>
                 <Link href="/" onClick={logout} className={classes.label} label="Logout">
              Logout
            </Link>

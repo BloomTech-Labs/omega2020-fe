@@ -29,6 +29,8 @@ const SudokuButtons = (props) => {
 		       onClick   = {props.onVerifyClick}>
 		       Get hint
 		      </Button>
+             
+	
 
 			{(localStorage.getItem("token") !== null) ?
 				(<Button
@@ -42,9 +44,6 @@ const SudokuButtons = (props) => {
 				</Button>) : (<div />)
 			}
 			
-			   
-
-
 		    </div>
 			);
 	
