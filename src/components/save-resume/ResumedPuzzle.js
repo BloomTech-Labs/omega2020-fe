@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Board from './Board.js';
-import { GetPuzzles, solvedPuzzle, unsolvedPuzzle } from './Puzzles';
-import SudokuButtons from './SudokuButtons.js';
-import './Sudoku.css';
+import Board from './SavedBoard';
+import GetSavedPuzzle from './getSavedPuzzle';
+import SudokuButtons from '../SudokuButtons';
+import '../Sudoku.css';
 import { ga } from 'react-ga';
-import axiosWithAuth from '../utils/axiosWithAuth';
-import Settings from './themes/Settings'
+import axiosWithAuth from '../../utils/axiosWithAuth';
+import Settings from '../themes/Settings';
 
-const Sudoku = () => {
+const ResumedPuzzle = () => {
   const [win, setWin] = useState(""); //Stores solution string here
   const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
   
-  // Description of gameBoardState below
+  //   ↓ Description of gameBoardState below ↓
   // {
   //   boardState : "", => String of formated board values
   //   puzzleId: "", => Puzzle Id from DS and passed thru BE
@@ -32,7 +32,7 @@ const Sudoku = () => {
   
   // Retrieve puzzle data
   async function getRandomPuzzle() {
-    var puzzles = await GetPuzzles();
+    var puzzles = await GetSavedPuzzle();
     setWin(puzzles.solution);
 
     return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
@@ -42,9 +42,9 @@ const Sudoku = () => {
     const puzzle = await getRandomPuzzle();
     const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
 
-    console.log("GBS in formatted puzzle", gameBoardState)
-    console.log("Loaded puzzle in formatted puzzle", puzzle)
-    console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
+    // console.log("GBS in formatted puzzle", gameBoardState)
+    // console.log("Loaded puzzle in formatted puzzle", puzzle)
+    // console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
       setGameBoardState({
         ...gameBoardState,
         puzzleId: puzzle.id,
@@ -112,16 +112,7 @@ const Sudoku = () => {
       conflicts : new Set([])
     });
   };
-  
-  // const boardStateAsString = (boardState) => {
-  //   let board = "";
-  //   for(let i=0; i<boardState.length; i++) {
-  //     for(let j=0; j<boardState[i].length;j++) {
-  //       board += boardState[i][j].cellValue;
-  //     }
-  //   }
-  //   return board;
-  // }
+
 
   // ************** Saves sudoku state (data, diffuculty, time) to backend *********
 
@@ -337,4 +328,4 @@ const Sudoku = () => {
     return arr;
 };
 
-export default Sudoku;
+export default ResumedPuzzle;
