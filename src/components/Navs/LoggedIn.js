@@ -97,8 +97,8 @@ const LoggedIn = (props) => {
                       Diabolical
                     </Link>
                 </Menu>
-                <Link href="/puzzles" className={classes.label} label="Saved Puzzles">
-                  Saved Puzzles
+                <Link href="/user-puzzles" className={classes.label} label="Resume Puzzle">
+                  Resume Puzzle
                 </Link>
                 <Link href="/upload" className={classes.label} label="Upload Image">
                   Upload Puzzle
