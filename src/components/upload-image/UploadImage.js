@@ -17,10 +17,10 @@ export default function UploadImage() {
     const formData = new FormData()
     formData.append('file', file.raw)
     console.log(file.raw)
-    const config = { headers: { 'content-type': 'multipart/form-data' } }		
+    // const config = { headers: { 'content-type': 'multipart/form-data' } }		
 		
     try {
-      const resp = await axios.post('http://flask-env2.us-east-2.elasticbeanstalk.com/demo_file', {file: file.raw}, config)
+      const resp = await axios.post('http://flask-env2.us-east-2.elasticbeanstalk.com/demo_file', {file: file.raw})
       console.log(resp);
     } catch (error) {                                 
       console.log(error.response)
