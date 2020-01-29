@@ -19,6 +19,7 @@ export default function UploadImage() {
     e.preventDefault()         
     const fileBlob = new Blob([file.raw]);
     const formData = new FormData()
+
     formData.append('file', fileBlob, fileBlob.filename);
     const formConfig = { headers: { 'content-type': 'multipart/form-data' } }		
 		
