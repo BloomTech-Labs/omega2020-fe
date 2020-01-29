@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Board from './SavedBoard';
+import SavedBoard from './SavedBoard';
 import GetSavedPuzzle from './getSavedPuzzle';
 import SudokuButtons from '../SudokuButtons';
 import '../Sudoku.css';
@@ -8,9 +8,10 @@ import axiosWithAuth from '../../utils/axiosWithAuth';
 import Settings from '../themes/Settings';
 
 const ResumedPuzzle = () => {
-  const [win, setWin] = useState(""); //Stores solution string here
   const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
   
+
+
   //   ↓ Description of gameBoardState below ↓
   // {
   //   boardState : "", => String of formated board values
@@ -33,14 +34,13 @@ const ResumedPuzzle = () => {
   // Retrieve puzzle data
   async function getRandomPuzzle() {
     var puzzles = await GetSavedPuzzle();
-    setWin(puzzles.solution);
 
     return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
   };
   
   const getFormattedPuzzle = async () => {
     const puzzle = await getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
+    const formattedPuzzle = formatPuzzle(puzzle.data); // changed puzzles to puzzle.sudoku
 
     // console.log("GBS in formatted puzzle", gameBoardState)
     // console.log("Loaded puzzle in formatted puzzle", puzzle)
@@ -52,7 +52,7 @@ const ResumedPuzzle = () => {
         boardState: formattedPuzzle
       });
   };
-
+  
   // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
@@ -72,7 +72,7 @@ const ResumedPuzzle = () => {
       newBoardState[i][j] = {
           cellValue : newValue,
           cellId    : stringify(i, j),
-          editable  : prevEditable
+          editable  : true
         };
       console.log("newBoardState: ", prevState.newBoardState)
 
@@ -208,17 +208,18 @@ const ResumedPuzzle = () => {
     // activePuzzleString = single string represents current board state
     var activePuzzleString = playString.join(''); 
     console.log("activePuzzleString", activePuzzleString);
-    console.log("WIN", win);
+    // console.log("WIN", win);
     
-    if (mergedConflicts.length === 0){
-      if (activePuzzleString === win){
-        return (
-          // build some animation for win here
-          alert('Congratulations! You have solved the puzzle!')
-          )};
-        };
-      };
-      
+    // if (mergedConflicts.length === 0){
+    //   if (activePuzzleString === win){
+    //     return (
+    //       // build some animation for win here
+    //       alert('Congratulations! You have solved the puzzle!')
+    //       )
+        // };
+    //  };
+    // 
+};     
       function flatten(a) {
         return Array.isArray(a) ? [].concat(...a.map(flatten)) : a;
       };
@@ -303,7 +304,7 @@ const ResumedPuzzle = () => {
         </div>
         
         <div>
-          <Board
+          <SavedBoard
             className="Board"
             boardState = {gameBoardState.boardState}
             conflicts = {gameBoardState.conflicts}
@@ -325,7 +326,7 @@ const ResumedPuzzle = () => {
         var args = Array.prototype.slice.call(arguments, 1);
         while(i--) arr[length-1 - i] = createArray.apply(this, args);
     };
-    return arr;
+    return arr;  
 };
 
 export default ResumedPuzzle;

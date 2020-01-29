@@ -1,12 +1,19 @@
 import React, {  } from 'react';
 
-function Square(props) {
-
+function SavedSquare(props) {
+    console.log("CONNORLOG2: ", props)
+	
 	// console.log(props);
 
 	const generateSquareContent = () => {
+		// 1. axios.get solved puzzle string
+		// 2. compare puzzle string to the saved puzzle string
+		// 3. if = then not editable
+		// 4. if != then not editable
+		console.log("SAVED SQUARE")
+
 		// A Square may only be edited if it's value is "."
-		const disabled = props.editable;
+		const disabled = !props.editable;
 		const squareValue = props.value === '.' ? ""   : props.value;
 
 		// Style validation - if conflicts exist, turn square red if it was edited wrong.
@@ -87,4 +94,4 @@ const isNumeric = (num) => {
 		return !isNaN(num);
 };
 
-export default Square;
+export default SavedSquare;

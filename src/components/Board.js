@@ -4,6 +4,7 @@ import Square from './square.js';
 
 const Board = (props) => {
     console.log("BOARD PROPS: ", props)
+    console.log("AKAKFILES: ", props)
 
 	const handleSquareValueChange = (i, j, newValue) => {
 		props.onSquareValueChange(i, j, newValue);
