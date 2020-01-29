@@ -28,7 +28,8 @@ const ResumedPuzzle = () => {
       puzzleId: "",
       // time: 0,
       history   : [],
-      conflicts : new Set([])  
+      conflicts : new Set([]),  
+     
     });
   
   
@@ -51,12 +52,12 @@ const ResumedPuzzle = () => {
         level: puzzle.level,
         boardState: formattedPuzzle,
         data: puzzle.data,
-        solved: puzzle.solved,
-        original: puzzle.original
+        original: puzzle.original,
+        solved: puzzle.solution
       });
       console.log("FROM SET", gameBoardState)
   };
-  
+  console.log("GBS1", gameBoardState)
   // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
@@ -141,6 +142,7 @@ const ResumedPuzzle = () => {
     
     const req = {
       // time: gameBoardState.time,
+      original: '',
       difficulty: gameBoardState.difficulty,
       data: activePuzzleString};
       
@@ -151,7 +153,6 @@ const ResumedPuzzle = () => {
       console.log("REGISTER", res);
     });
   };
-
 
 
 
@@ -296,7 +297,7 @@ const ResumedPuzzle = () => {
       }
       */  
      
-
+console.log("RESUMED GBS", gameBoardState.boardState)
      return (
        <div className = "Sudoku">
         <div>

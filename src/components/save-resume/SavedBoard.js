@@ -9,6 +9,8 @@ const SavedBoard = (props) => {
     };
     
     const boardState = props.boardState;
+    console.log(props)
+    console.log("BOARD", boardState)
 
 	const generateBoard = () => {
 		const board = [];
@@ -27,7 +29,6 @@ const SavedBoard = (props) => {
                         className="SquareContent"
                         key = {"" + i + j}
                         value = {boardState[i][j].cellValue}
-                        // editable = {changable}
                         editable = {boardState[i][j].editable}
                         conflict = {conflict}
                         rowIndex = {i}
