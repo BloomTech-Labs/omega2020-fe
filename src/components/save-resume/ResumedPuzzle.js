@@ -30,7 +30,8 @@ const ResumedPuzzle = () => {
       history   : [],
       conflicts : new Set([]),  
      
-    });
+    }
+    );
   
   
   // Retrieve puzzle data
@@ -39,29 +40,33 @@ const ResumedPuzzle = () => {
     return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
   };
   
+
   const getFormattedPuzzle = async () => {
     const puzzle = await getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle.data); // changed puzzles to puzzle.sudoku
-
+    const formattedPuzzle = formatPuzzle(puzzle.data, puzzle.original); // changed puzzles to puzzle.sudoku
+    await setGameBoardState({
+      ...gameBoardState,
+      puzzleId: puzzle.id,
+      level: puzzle.level,
+      boardState: formattedPuzzle,
+      data: puzzle.data,
+      original: puzzle.original,
+      solved: puzzle.solution
+    });
+    
+    // setGameBoardState({...gameBoardState, boardState: formattedPuzzle})
     // console.log("GBS in formatted puzzle", gameBoardState)
     // console.log("Loaded puzzle in formatted puzzle", puzzle)
     // console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
-      setGameBoardState({
-        ...gameBoardState,
-        puzzleId: puzzle.id,
-        level: puzzle.level,
-        boardState: formattedPuzzle,
-        data: puzzle.data,
-        original: puzzle.original,
-        solved: puzzle.solution
-      });
-      console.log("FROM SET", gameBoardState)
+    console.log("FROM getFormattedPuzzle ", gameBoardState)
+    // debugger
   };
-  console.log("GBS1", gameBoardState)
+  // console.log("GBS1", gameBoardState)
+
+  const originalStr = gameBoardState.original;  
   // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
-
   },[]) 
 
   function getDeepCopyOfArray(arr) {
@@ -144,13 +149,14 @@ const ResumedPuzzle = () => {
       // time: gameBoardState.time,
       original: '',
       difficulty: gameBoardState.difficulty,
-      data: activePuzzleString};
+      data: activePuzzleString,
+      solved: gameBoardState.solved
+    };
       
     axiosWithAuth()
-
-    .post(`/user-puzzles/${puzzleId}`, req)
-    .then(res => {
-      console.log("REGISTER", res);
+      .post(`/user-puzzles/${puzzleId}`, req)
+      .then(res => {
+        console.log("REGISTER", res);
     });
   };
 
@@ -209,7 +215,7 @@ const ResumedPuzzle = () => {
         playString.push(playStringNow)                // is pushed to playString
       };
     };
-    
+  
     // activePuzzleString = single string represents current board state
     var activePuzzleString = playString.join(''); 
     console.log("activePuzzleString", activePuzzleString);
@@ -224,80 +230,86 @@ const ResumedPuzzle = () => {
         // };
     //  };
     // 
-};     
-      function flatten(a) {
-        return Array.isArray(a) ? [].concat(...a.map(flatten)) : a;
-      };
+  };    
+
+  function flatten(a) {
+    return Array.isArray(a) ? [].concat(...a.map(flatten)) : a;
+  };
+  
+  function getConflicts(arrs) {
+    return (arrs.map(arr => getConflictsInArray(arr)));
+  };
+  
+  function getConflictsInArray(arr) {
+    const conflictMap = {};
+    
+    for(let i=0; i<arr.length; i++) {
+      let curr = arr[i];
       
-      function getConflicts(arrs) {
-        return (arrs.map(arr => getConflictsInArray(arr)));
+      if(curr.cellValue !== ".") {
+        if(conflictMap.hasOwnProperty(curr.cellValue)) {
+          conflictMap[curr.cellValue].push(curr.cellId);
+        } else {
+          conflictMap[curr.cellValue] = [curr.cellId];
+        };      
       };
+    };
+    
+    return Object.values(conflictMap).filter(arr => arr.length>1); 
+  };
+  var orig = gameBoardState.original;
+  console.log("RESUMED GBS", gameBoardState.original)
+
+  function formatPuzzle(puzzle, original) {
+    const formattedPuzzle = createArray(9, 9);
+    console.log("FP GBS *****: ", puzzle)
+    console.log("FP GBS *****: ", orig)
+    
+    for(let i=0; i<puzzle.length; i++) {
+      const rowId = getRowId(i);
+      const colId = getColId(i);
       
-      function getConflictsInArray(arr) {
-        const conflictMap = {};
-        
-        for(let i=0; i<arr.length; i++) {
-          let curr = arr[i];
-          
-          if(curr.cellValue !== ".") {
-            if(conflictMap.hasOwnProperty(curr.cellValue)) {
-              conflictMap[curr.cellValue].push(curr.cellId);
-            } else {
-              conflictMap[curr.cellValue] = [curr.cellId];
-            };      
-          };
-        };
-        
-        return Object.values(conflictMap).filter(arr => arr.length>1); 
-      };
+      const editable = original[i] === '.' ? true : false;
       
-      function formatPuzzle(puzzle) {
-        const formattedPuzzle = createArray(9, 9);
-        
-        for(let i=0; i<puzzle.length; i++) {
-          const rowId = getRowId(i);
-          const colId = getColId(i);
-          
-          const editable = puzzle[i] === '.' ? true : false;
-          
-          formattedPuzzle[rowId][colId] = {
-            cellValue : puzzle[i],
-            cellId    : stringify(rowId, colId),
-            editable  : editable
-          };
-        };
-        return formattedPuzzle;
+      formattedPuzzle[rowId][colId] = {
+        cellValue : puzzle[i],
+        cellId    : stringify(rowId, colId),
+        editable  : editable
       };
+    };
+    // debugger
+    return formattedPuzzle;
+  };
 
  
 
-      function stringify(num1, num2) {
-        return num1 + '' + num2;
-      };
-      
-      function getRowId(i) {
-        return Math.floor(i/9);
-      };
-      
-      function getColId(i) {
-        return (i%9);
-      };
-      
-      /*
-      Returns a puzzle formatted like so:
-      [
-        [ob1, ob2, ob3],
-        [.     .    . ],
-        [.     .    . ],
-      ]
-      
-      Where ob = {
-        cellValue     : value of this cell,
-        editable : true if this cell will be user defined, false otherwise
-      }
-      */  
+  function stringify(num1, num2) {
+    return num1 + '' + num2;
+  };
+  
+  function getRowId(i) {
+    return Math.floor(i/9);
+  };
+  
+  function getColId(i) {
+    return (i%9);
+  };
+  
+  /*
+  Returns a puzzle formatted like so:
+  [
+    [ob1, ob2, ob3],
+    [.     .    . ],
+    [.     .    . ],
+  ]
+  
+  Where ob = {
+    cellValue     : value of this cell,
+    editable : true if this cell will be user defined, false otherwise
+  }
+  */  
      
-console.log("RESUMED GBS", gameBoardState.boardState)
+
      return (
        <div className = "Sudoku">
         <div>
@@ -324,17 +336,17 @@ console.log("RESUMED GBS", gameBoardState.boardState)
       </div>
     );
     
-  };
-  //
-  function createArray(length) {
-    var arr = new Array(length || 0),
-        i = length;
+};
+  
+function createArray(length) {
+  var arr = new Array(length || 0),
+      i = length;
 
-    if (arguments.length > 1) {
-        var args = Array.prototype.slice.call(arguments, 1);
-        while(i--) arr[length-1 - i] = createArray.apply(this, args);
-    };
-    return arr;  
+  if (arguments.length > 1) {
+      var args = Array.prototype.slice.call(arguments, 1);
+      while(i--) arr[length-1 - i] = createArray.apply(this, args);
+  };
+  return arr;  
 };
 
 export default ResumedPuzzle;

@@ -23,13 +23,15 @@ const SavedBoard = (props) => {
                 const conflicts = props.conflicts;
                 // console.log("CONFLICTS: ", conflicts)
                 const conflict = conflicts.has(i+""+j) ? true: false
-                // const changable = props.original.has(".") ? true: boardState[i][j].editable
+                const changable = Array.from(props.original).includes(".") ? true: false
+                console.log("SHEILALOG", props.original)
 				let currSquare = (
                     <SavedSquare
                         className="SquareContent"
                         key = {"" + i + j}
                         value = {boardState[i][j].cellValue}
                         editable = {boardState[i][j].editable}
+                        // editable = {changable}
                         conflict = {conflict}
                         rowIndex = {i}
                         colIndex = {j}
