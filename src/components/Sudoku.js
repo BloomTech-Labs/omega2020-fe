@@ -156,16 +156,17 @@ const Sudoku = () => {
       data: activePuzzleString,
       solved: win,
       };
-      
+    console.log("WIN", win)
     axiosWithAuth()
 
     .post(`/user-puzzles/${puzzleId}`, req)
     .then(res => {
       console.log("AXIOS FROM SAVE CLICK", res);
+      console.log("REQ", res)
     });
   };
-
-  
+  // console.log("REQ2", req)
+  console.log("WIN", win)
 
 
   function handleVerifyClick() {
