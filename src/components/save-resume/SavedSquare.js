@@ -1,7 +1,7 @@
 import React, {  } from 'react';
 
 function SavedSquare(props) {
-    // console.log("CONNORLOG2: ", props)
+    // console.log("CONNORLOG2 squaaaareee: ", props)
 	
 	// console.log(props);
 

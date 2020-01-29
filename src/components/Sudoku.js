@@ -10,7 +10,7 @@ import ResumedPuzzle from './save-resume/ResumedPuzzle';
 
 const Sudoku = () => {
   const [win, setWin] = useState(""); //Stores solution string here
-  const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
+  // const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
   
   // Description of gameBoardState below
   // {
@@ -55,10 +55,11 @@ const Sudoku = () => {
         ...gameBoardState,
         puzzleId: puzzle.id,
         level: puzzle.level,
-        boardState: formattedPuzzle
+        boardState: formattedPuzzle,
+        solved: puzzle.solution
       });
   };
-
+console.log("SOLVED", gameBoardState.solved)
   // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
@@ -148,13 +149,14 @@ const Sudoku = () => {
       };
     };
     // activePuzzleString = single string represents current board state
-    setActivePuzzleString(playString.join('')); 
-    
+    // setActivePuzzleString(playString.join('')); 
+    var activePuzzleString = playString.join(''); 
+
     const req = {
       // time: gameBoardState.time,
-      difficulty: gameBoardState.difficulty,
+      difficulty: gameBoardState.level,
       data: activePuzzleString,
-      solved: win,
+      solved: gameBoardState.solved,
       };
     console.log("WIN", win)
     axiosWithAuth()

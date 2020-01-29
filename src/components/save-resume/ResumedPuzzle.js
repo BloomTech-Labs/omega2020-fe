@@ -41,6 +41,9 @@ const ResumedPuzzle = () => {
   const getFormattedPuzzle = async () => {
     const puzzle = await getRandomPuzzle();
     const formattedPuzzle = formatPuzzle(puzzle.data); // changed puzzles to puzzle.sudoku
+    console.log("FORMATTED", puzzle.data)
+
+    
 
     // console.log("GBS in formatted puzzle", gameBoardState)
     // console.log("Loaded puzzle in formatted puzzle", puzzle)
@@ -49,10 +52,32 @@ const ResumedPuzzle = () => {
         ...gameBoardState,
         puzzleId: puzzle.id,
         level: puzzle.level,
-        boardState: formattedPuzzle
+        boardState: formattedPuzzle,
+        data: puzzle.data,
+        solved: puzzle.solved
       });
   };
+
+  const solved = (`'${gameBoardState.solved}'`)
+  const data = (`'${gameBoardState.data}'`)
+console.log("GBS", gameBoardState)
+console.log("DATA, SAVED", data, solved)
   
+  function compare(data, solved) {
+    const arr =[]
+    var i;
+    for (i = 0; i < data.length; i++) {
+    if (data[i]===solved[i]) {
+      arr.push(solved[i])
+    } else arr.push('.') 
+    }
+    const originalValues = String(arr.join("")).substring(1).slice(0,-1)
+    return originalValues
+    }
+    
+  const originalValues = compare(data, solved)
+  console.log("ORIGINAL VALUES", originalValues)
+
   // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
@@ -64,6 +89,8 @@ const ResumedPuzzle = () => {
     console.log("NOW", now)
     return now;
   };
+
+  
 
   const handleSquareValueChange = (i, j, newValue) => {
     setGameBoardState(prevState => {
@@ -263,7 +290,27 @@ const ResumedPuzzle = () => {
         };
         return formattedPuzzle;
       };
-      
+
+      function formatOriginalPuzzle(originalValues) {
+        const formattedOriginalPuzzle = createArray(9, 9);
+        
+        for(let i=0; i<originalValues.length; i++) {
+          const rowId = getRowId(i);
+          const colId = getColId(i);
+          
+          const editable = originalValues[i] === '.' ? true : false;
+          
+          formattedOriginalPuzzle[rowId][colId] = {
+            cellValue : originalValues[i],
+            cellId    : stringify(rowId, colId),
+            editable  : editable
+          };
+        };
+        return formattedOriginalPuzzle;
+      };
+      const formattedOriginalValues = formatOriginalPuzzle(originalValues)
+      console.log("TO BE FORMATTED", originalValues)
+      console.log("FORMATTED ORIGINAL", formattedOriginalValues)
       function stringify(num1, num2) {
         return num1 + '' + num2;
       };
@@ -289,7 +336,7 @@ const ResumedPuzzle = () => {
         editable : true if this cell will be user defined, false otherwise
       }
       */  
-     
+     console.log(gameBoardState.boardState)
 
      return (
        <div className = "Sudoku">
@@ -306,6 +353,7 @@ const ResumedPuzzle = () => {
         <div>
           <SavedBoard
             className="Board"
+            formattedOriginalValues= {formattedOriginalValues}
             boardState = {gameBoardState.boardState}
             conflicts = {gameBoardState.conflicts}
             onSquareValueChange = {handleSquareValueChange}
