@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Board from '../Board';
+import SavedBoard from './SavedBoard';
 import GetSavedPuzzle from './getSavedPuzzle';
 import SudokuButtons from '../SudokuButtons';
 import '../Sudoku.css';
@@ -7,10 +7,19 @@ import { ga } from 'react-ga';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 import Settings from '../themes/Settings';
 
-
 const ResumedPuzzle = () => {
+  const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
+  
 
-  const [win, setWin] = useState("");
+
+  //   ↓ Description of gameBoardState below ↓
+  // {
+  //   boardState : "", => String of formated board values
+  //   puzzleId: "", => Puzzle Id from DS and passed thru BE
+  //   // time: 0, => Not yet implemented
+  //   history   : [], => The history of current game play
+  //   conflicts : new Set([])   => Array of conflicting values across fields (3x3 grid of cells), rows and columns.
+  // });
   
   const [gameBoardState, setGameBoardState] = useState(
     {
@@ -20,169 +29,161 @@ const ResumedPuzzle = () => {
       history   : [],
       conflicts : new Set([])  
     });
-    
-    
-    // Retrieve puzzle data
-    async function getRandomPuzzle() {
-      var puzzles = await GetSavedPuzzle();
-      setWin(puzzles.solution);
-      
-      return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
-    };
-    
-    const getFormattedPuzzle = async () => {
-      const puzzle = await getRandomPuzzle();
-      const formattedPuzzle = formatPuzzle(puzzle.data); // changed puzzles to puzzle.sudoku
-      
-      console.log("GBS in formatted puzzle", gameBoardState)
-      console.log("Loaded puzzle in formatted puzzle", puzzle)
-      console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
+  
+  
+  // Retrieve puzzle data
+  async function getRandomPuzzle() {
+    var puzzles = await GetSavedPuzzle();
+
+    return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
+  };
+  
+  const getFormattedPuzzle = async () => {
+    const puzzle = await getRandomPuzzle();
+    const formattedPuzzle = formatPuzzle(puzzle.data); // changed puzzles to puzzle.sudoku
+
+    // console.log("GBS in formatted puzzle", gameBoardState)
+    // console.log("Loaded puzzle in formatted puzzle", puzzle)
+    // console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
       setGameBoardState({
         ...gameBoardState,
         puzzleId: puzzle.id,
         level: puzzle.level,
         boardState: formattedPuzzle
       });
-    };
-    
-    useEffect(() => {
-      getFormattedPuzzle();
-      
-    },[]) 
-    
-    function getDeepCopyOfArray(arr) {
-      return JSON.parse(JSON.stringify(arr));
-    };
-    
-    const handleSquareValueChange = (i, j, newValue) => {
-      setGameBoardState(prevState => {
-        const newBoardState = getDeepCopyOfArray(prevState.boardState);
-        const prevEditable = prevState.boardState[i][j].editable;
-        newBoardState[i][j] = {
+  };
+  
+  // Start the game here by getting a formatted puzzle
+  useEffect(() => {
+    getFormattedPuzzle();
+
+  },[]) 
+
+  function getDeepCopyOfArray(arr) {
+    var now = JSON.parse(JSON.stringify(arr));
+    console.log("NOW", now)
+    return now;
+  };
+
+  const handleSquareValueChange = (i, j, newValue) => {
+    setGameBoardState(prevState => {
+      const newBoardState = getDeepCopyOfArray(prevState.boardState);
+      const prevEditable = prevState.boardState[i][j].editable;
+      newBoardState[i][j] = {
           cellValue : newValue,
           cellId    : stringify(i, j),
-          editable  : prevEditable
+          editable  : true
         };
-        console.log("newBoardState: ", prevState.newBoardState)
-        
-        // Now push the previous board state on the history stack
-        const newHistory = getDeepCopyOfArray(prevState.history);
-        newHistory.push(prevState.boardState);
-        
-        return {
-          ...gameBoardState,
-          boardState: newBoardState,
-          history: newHistory, 
-          conflicts: new Set([])
-        };
-      });
-    };
-    
-    const handleUndoClick = () => {
-      setGameBoardState(prevState => {
-        const newHistory = getDeepCopyOfArray(prevState.history);
-        const lastBoardState = newHistory.pop();
-        
-        // Now assign the previous board state as the current board state
-        return {
-          ...gameBoardState,
-          boardState: lastBoardState, 
-          history: newHistory,
-          conflicts : new Set([])
-        };
-      });
-    };
-    
-    const handleNewGameClick = () => {
-      setGameBoardState({
+      console.log("newBoardState: ", prevState.newBoardState)
+
+      // Now push the previous board state on the history stack
+      const newHistory = getDeepCopyOfArray(prevState.history);
+      newHistory.push(prevState.boardState);
+
+      return {
         ...gameBoardState,
-        boardState: getFormattedPuzzle(),
-        history   : [],
+        boardState: newBoardState,
+        history: newHistory, 
+        conflicts: new Set([])
+      };
+    });
+  };
+
+  const handleUndoClick = () => {
+    setGameBoardState(prevState => {
+      const newHistory = getDeepCopyOfArray(prevState.history);
+      const lastBoardState = newHistory.pop();
+
+      // Now assign the previous board state as the current board state
+      return {
+        ...gameBoardState,
+        boardState: lastBoardState, 
+        history: newHistory,
         conflicts : new Set([])
-      });
+      };
+    });
+  };
+  
+  const handleNewGameClick = () => {
+    setGameBoardState({
+      ...gameBoardState,
+      boardState: getFormattedPuzzle(),
+      history   : [],
+      conflicts : new Set([])
+    });
+  };
+
+
+  // ************** Saves sudoku state (data, diffuculty, time) to backend *********
+
+
+  const handleSaveClick = () => {
+    console.log(gameBoardState);
+    
+    const puzzleId = gameBoardState.puzzleId;
+    
+    // Turn boardState into a string
+    var playString = [];
+    var playStringNow;
+    
+    for (var i=0; i<gameBoardState.boardState.length; i++) { // for each row
+      for (var j=0; j<gameBoardState.boardState.length; j++) { // for each column
+        playStringNow = gameBoardState.boardState[i][j].cellValue // the value in each cell
+        playString.push(playStringNow)                // is pushed to playString
+      };
     };
+    // activePuzzleString = single string represents current board state
+    setActivePuzzleString(playString.join('')); 
     
-    const boardStateAsString = (boardState) => {
-      let board = "";
-      for(let i=0; i<boardState.length; i++) {
-        for(let j=0; j<boardState[i].length;j++) {
-          board += boardState[i][j].cellValue;
-        }
-      }
-      return board;
-    }
-    
-    // ************** Saves sudoku state (data, diffuculty, time) to backend *********
-    
-    
-    const handleSaveClick = () => {
-      console.log(gameBoardState);
+    const req = {
+      // time: gameBoardState.time,
+      difficulty: gameBoardState.difficulty,
+      data: activePuzzleString};
       
-      const puzzleId = gameBoardState.puzzleId;
+    axiosWithAuth()
+
+    .post(`/user-puzzles/${puzzleId}`, req)
+    .then(res => {
+      console.log("REGISTER", res);
+    });
+  };
+
+
+
+
+  function handleVerifyClick() {
+    const { boardState, setBoardState } = gameBoardState;
+    
+    // Assigns id to boxes in two digit format for xy (row column)
+    // rows[0]/cols[0] -> first row/column
+    const rows = {};
+    const cols = {};
+    // Example: boxes['00'] -> an array of values in the first box. 
+    const boxes = {};
+    
+    // populating rows
+    for(let i=0; i<boardState.length; i++) {
+      rows[i] = getDeepCopyOfArray(boardState[i]);
+      // console.log("BOX ID: ", "boxId")
       
-      // Turn boardState into a string
-      var playString = [];
-      var playStringNow;
-      
-      for (var i=0; i<gameBoardState.boardState.length; i++) { // for each row
-        for (var j=0; j<gameBoardState.boardState.length; j++) { // for each column
-          playStringNow = gameBoardState.boardState[i][j].cellValue // the value in each cell
-          playString.push(playStringNow)                // is pushed to playString
+      for(let j=0; j<boardState[i].length;j++) {
+        // populating columns
+        if(cols.hasOwnProperty(j)) {
+          cols[j].push(boardState[i][j]); //set a new cell value in the board
+        } else {
+          cols[j] = [boardState[i][j]]; // or keep the value
+        };
+        
+        // populating boxes
+        const boxId = stringify(Math.floor(i/3), Math.floor(j/3));
+        
+        if(boxes.hasOwnProperty(boxId)) {
+          boxes[boxId].push(boardState[i][j]);
+        } else {
+          boxes[boxId] = [boardState[i][j]];
         };
       };
-      // activePuzzleString = single string represents current board state
-      var activePuzzleString = playString.join(''); 
-      
-      const req = {
-        // time: gameBoardState.time,
-        difficulty: gameBoardState.difficulty,
-        data: activePuzzleString};
-        
-        axiosWithAuth()
-        
-        .post(`/user-puzzles/${puzzleId}`, req)
-        .then(res => {
-          console.log("REGISTER", res);
-        });
-      };
-      
-      
-      
-      
-      function handleVerifyClick() {
-        const { boardState, setBoardState } = gameBoardState;
-        
-        // Assigns id to boxes in two digit format for xy (row column)
-        // rows[0]/cols[0] -> first row/column
-        const rows = {};
-        const cols = {};
-        // Example: boxes['00'] -> an array of values in the first box. 
-        const boxes = {};
-        
-        // populating rows
-        for(let i=0; i<boardState.length; i++) {
-          rows[i] = getDeepCopyOfArray(boardState[i]);
-          // console.log("BOX ID: ", "boxId")
-          
-          for(let j=0; j<boardState[i].length;j++) {
-            // populating columns
-            if(cols.hasOwnProperty(j)) {
-              cols[j].push(boardState[i][j]); //set a new cell value in the board
-            } else {
-              cols[j] = [boardState[i][j]]; // or keep the value
-            };
-            
-            // populating boxes
-            const boxId = stringify(Math.floor(i/3), Math.floor(j/3));
-            
-            if(boxes.hasOwnProperty(boxId)) {
-              boxes[boxId].push(boardState[i][j]);
-            } else {
-              boxes[boxId] = [boardState[i][j]];
-            };
-          };
-        };
-      
+    };
     // creates an array of conflicts found by location
     const rowConflicts = flatten(getConflicts(Object.values(rows)));
     const colConflicts = flatten(getConflicts(Object.values(cols)));
@@ -207,17 +208,18 @@ const ResumedPuzzle = () => {
     // activePuzzleString = single string represents current board state
     var activePuzzleString = playString.join(''); 
     console.log("activePuzzleString", activePuzzleString);
-    console.log("WIN", win);
+    // console.log("WIN", win);
     
-    if (mergedConflicts.length === 0){
-      if (activePuzzleString === win){
-        return (
-          // build some animation for win here
-          alert('Congratulations! You have solved the puzzle!')
-          )};
-        };
-      };
-      
+    // if (mergedConflicts.length === 0){
+    //   if (activePuzzleString === win){
+    //     return (
+    //       // build some animation for win here
+    //       alert('Congratulations! You have solved the puzzle!')
+    //       )
+        // };
+    //  };
+    // 
+};     
       function flatten(a) {
         return Array.isArray(a) ? [].concat(...a.map(flatten)) : a;
       };
@@ -302,7 +304,7 @@ const ResumedPuzzle = () => {
         </div>
         
         <div>
-          <Board
+          <SavedBoard
             className="Board"
             boardState = {gameBoardState.boardState}
             conflicts = {gameBoardState.conflicts}
@@ -324,7 +326,7 @@ const ResumedPuzzle = () => {
         var args = Array.prototype.slice.call(arguments, 1);
         while(i--) arr[length-1 - i] = createArray.apply(this, args);
     };
-    return arr;
+    return arr;  
 };
 
-  export default ResumedPuzzle;
+export default ResumedPuzzle;

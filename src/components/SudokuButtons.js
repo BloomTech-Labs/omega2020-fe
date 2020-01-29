@@ -27,7 +27,7 @@ const SudokuButtons = (props) => {
 		       variant   = "contained"
 		       style     = {btnStyle}
 		       onClick   = {props.onVerifyClick}>
-		       Get hint
+		       Get Hint
 		      </Button>
              
 	

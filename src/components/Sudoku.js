@@ -9,8 +9,18 @@ import Settings from './themes/Settings';
 import ResumedPuzzle from './save-resume/ResumedPuzzle';
 
 const Sudoku = () => {
-  const [win, setWin] = useState("");
-
+  const [win, setWin] = useState(""); //Stores solution string here
+  const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
+  
+  // Description of gameBoardState below
+  // {
+  //   boardState : "", => String of formated board values
+  //   puzzleId: "", => Puzzle Id from DS and passed thru BE
+  //   // time: 0, => Not yet implemented
+  //   history   : [], => The history of current game play
+  //   conflicts : new Set([])   => Array of conflicting values across fields (3x3 grid of cells), rows and columns.
+  // });
+  
   const [gameBoardState, setGameBoardState] = useState(
     {
       boardState : "",
@@ -49,16 +59,16 @@ const Sudoku = () => {
       });
   };
 
-
- 
-  
+  // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
 
   },[]) 
 
   function getDeepCopyOfArray(arr) {
-    return JSON.parse(JSON.stringify(arr));
+    var now = JSON.parse(JSON.stringify(arr));
+    console.log("NOW", now)
+    return now;
   };
 
   const handleSquareValueChange = (i, j, newValue) => {
@@ -119,7 +129,6 @@ const Sudoku = () => {
   //   return board;
   // }
 
-
   // ************** Saves sudoku state (data, diffuculty, time) to backend *********
 
 
@@ -139,7 +148,7 @@ const Sudoku = () => {
       };
     };
     // activePuzzleString = single string represents current board state
-    var activePuzzleString = playString.join(''); 
+    setActivePuzzleString(playString.join('')); 
     
     const req = {
       // time: gameBoardState.time,

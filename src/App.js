@@ -3,16 +3,14 @@ import Sudoku from './components/Sudoku.js';
 
 import './App.css';
 import { Router, Route, Switch } from "react-router-dom";
-// import { useAuth0 } from "./react-auth0-spa";
-// import Nav from "./components/Nav";
 import NavCondition from './components/Navs/NavCondition';
 import history from "./utils/history";
-import PrivateRoute from "./components/PrivateRoute";
 import Registration from './components/Register';
 import Login from "./components/Login";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
-import ResumedPuzzle from "./components/save-resume/ResumedPuzzle";
+// import SavedPuzzles from "./components/SavedPuzzles";
+import ResumedPuzzle from "./components/save-resume/ResumedPuzzle"
 import MediumSudoku from './components/puzzles-by-difficulty/medium/MediumSudoku'
 import HardSudoku from './components/puzzles-by-difficulty/hard/HardSudoku'
 import DiabolicalSudoku from './components/puzzles-by-difficulty/diabolical/DiabolicalSudoku'
@@ -48,7 +46,6 @@ const App = () => {
       <Route path="/easy" component={EasySudoku} />
       <Route path="/hard" component={HardSudoku} />
       <Route path="/user-puzzles" component={ResumedPuzzle} />
-      {/* <Route path="/puzzles" component={SavedPuzzles} /> */}
       <Route path="/upload" component={UploadImage} />
 
     </Switch>

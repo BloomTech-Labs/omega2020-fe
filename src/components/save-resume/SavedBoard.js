@@ -1,10 +1,8 @@
 import React, {  } from 'react';
 
-import Square from './square.js';
+import SavedSquare from './SavedSquare';
 
-const Board = (props) => {
-    console.log("BOARD PROPS: ", props)
-    console.log("AKAKFILES: ", props)
+const SavedBoard = (props) => {
 
 	const handleSquareValueChange = (i, j, newValue) => {
 		props.onSquareValueChange(i, j, newValue);
@@ -24,11 +22,11 @@ const Board = (props) => {
                 // console.log("CONFLICTS: ", conflicts)
 				const conflict = conflicts.has(i+""+j) ? true: false
 				let currSquare = (
-                    <Square
+                    <SavedSquare
                         className="SquareContent"
                         key = {"" + i + j}
                         value = {boardState[i][j].cellValue}
-                        editable = {boardState[i][j].editable}
+                        editable = 'true'
                         conflict = {conflict}
                         rowIndex = {i}
                         colIndex = {j}
@@ -44,10 +42,11 @@ const Board = (props) => {
 	};
 
     console.log(props);
+    console.log("CONNORLOG: ", props)
 
     const board = generateBoard();
 
     return (<div className="Board">{board}</div>);
 };
 
-export default Board;
+export default SavedBoard;
