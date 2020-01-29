@@ -11,7 +11,7 @@ export default function UploadImage() {
       raw: e.target.files[0]
     })
   }
-                
+
   const handleUpload = async (e) => {
     e.preventDefault()         
     const formData = new FormData()
@@ -20,7 +20,7 @@ export default function UploadImage() {
     const config = { headers: { 'content-type': 'multipart/form-data' } }		
 		
     try {
-      const resp = await axios.post('http://flask-env2.us-east-2.elasticbeanstalk.com/demo_file', {file: file.raw}, config)
+      const resp = await axios.post('http://flask-env2.us-east-2.elasticbeanstalk.com/demo_file', {file})
       console.log(resp);
     } catch (error) {                                 
       console.log(error.response)
