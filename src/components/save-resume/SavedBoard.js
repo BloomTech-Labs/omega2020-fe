@@ -13,20 +13,22 @@ const SavedBoard = (props) => {
 	const generateBoard = () => {
 		const board = [];
         
-        // console.log("boardState", boardState.length)
+        console.log("boardState", props)
 
 		for(let i=0; i<boardState.length; i++) {
 			let currRow = [];
 			for(let j=0; j<boardState[i].length; j++) {
                 const conflicts = props.conflicts;
                 // console.log("CONFLICTS: ", conflicts)
-				const conflict = conflicts.has(i+""+j) ? true: false
+                const conflict = conflicts.has(i+""+j) ? true: false
+                // const changable = props.original.has(".") ? true: boardState[i][j].editable
 				let currSquare = (
                     <SavedSquare
                         className="SquareContent"
                         key = {"" + i + j}
                         value = {boardState[i][j].cellValue}
-                        editable = 'true'
+                        // editable = {changable}
+                        editable = {boardState[i][j].editable}
                         conflict = {conflict}
                         rowIndex = {i}
                         colIndex = {j}

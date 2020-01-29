@@ -9,6 +9,7 @@ import Settings from '../themes/Settings';
 
 const ResumedPuzzle = () => {
   const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
+  // const [original, setOriginal] = useState(""); //Stores string representation of current state when hints pushed
   
 
 
@@ -34,7 +35,6 @@ const ResumedPuzzle = () => {
   // Retrieve puzzle data
   async function getRandomPuzzle() {
     var puzzles = await GetSavedPuzzle();
-
     return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
   };
   
@@ -49,8 +49,12 @@ const ResumedPuzzle = () => {
         ...gameBoardState,
         puzzleId: puzzle.id,
         level: puzzle.level,
-        boardState: formattedPuzzle
+        boardState: formattedPuzzle,
+        data: puzzle.data,
+        solved: puzzle.solved,
+        original: puzzle.original
       });
+      console.log("FROM SET", gameBoardState)
   };
   
   // Start the game here by getting a formatted puzzle
@@ -72,7 +76,7 @@ const ResumedPuzzle = () => {
       newBoardState[i][j] = {
           cellValue : newValue,
           cellId    : stringify(i, j),
-          editable  : true
+          editable  : prevEditable
         };
       console.log("newBoardState: ", prevState.newBoardState)
 
@@ -263,7 +267,9 @@ const ResumedPuzzle = () => {
         };
         return formattedPuzzle;
       };
-      
+
+ 
+
       function stringify(num1, num2) {
         return num1 + '' + num2;
       };
@@ -310,6 +316,7 @@ const ResumedPuzzle = () => {
             conflicts = {gameBoardState.conflicts}
             onSquareValueChange = {handleSquareValueChange}
             historyLength = {gameBoardState.history.length}
+            original = {gameBoardState.original}
             />
         </div>  
         <Settings />
