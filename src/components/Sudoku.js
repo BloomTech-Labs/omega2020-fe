@@ -56,7 +56,8 @@ const Sudoku = () => {
         puzzleId: puzzle.id,
         level: puzzle.level,
         boardState: formattedPuzzle,
-        solved: puzzle.solution
+        solved: puzzle.solution,
+        original: puzzle.sudoku
       });
   };
 console.log("SOLVED", gameBoardState.solved)
@@ -157,18 +158,20 @@ console.log("SOLVED", gameBoardState.solved)
       difficulty: gameBoardState.level,
       data: activePuzzleString,
       solved: gameBoardState.solved,
+      original: gameBoardState.original
       };
+      console.log("WIN", win)
+      
+      axiosWithAuth()
+      .post(`/user-puzzles/${puzzleId}`, req)
+      .then(res => {
+        console.log("AXIOS FROM SAVE CLICK", res);
+        console.log("REQ", res)
+      });
+    };
+    // console.log("REQ2", req)
     console.log("WIN", win)
-    axiosWithAuth()
-
-    .post(`/user-puzzles/${puzzleId}`, req)
-    .then(res => {
-      console.log("AXIOS FROM SAVE CLICK", res);
-      console.log("REQ", res)
-    });
-  };
-  // console.log("REQ2", req)
-  console.log("WIN", win)
+    console.log("GBS101", gameBoardState)
 
 
   function handleVerifyClick() {
@@ -308,7 +311,7 @@ console.log("SOLVED", gameBoardState.solved)
         editable : true if this cell will be user defined, false otherwise
       }
       */  
-     
+     console.log("BOARD STATE BABYYYYY", gameBoardState)
 
      return (
        <div className = "Sudoku">

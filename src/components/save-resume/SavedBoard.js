@@ -9,21 +9,14 @@ const SavedBoard = (props) => {
     };
     
     const boardState = props.boardState;
-    const formattedOriginalValues = props.formattedOriginalValues;
-console.log(formattedOriginalValues)
-console.log(boardState)
+    console.log(props)
+    console.log("BOARD", boardState)
 
- for(let a=0; a<formattedOriginalValues.length; a++) {
-            for(let b=0; b<formattedOriginalValues[a].length; b++) {
-                const ABconflicts = props.conflicts;
-   };
-    }
 	const generateBoard = () => {
 		const board = [];
         
         // console.log("boardState", boardState.length)
-       
-       
+
 		for(let i=0; i<boardState.length; i++) {
 			let currRow = [];
 			for(let j=0; j<boardState[i].length; j++) {
@@ -35,9 +28,7 @@ console.log(boardState)
                         className="SquareContent"
                         key = {"" + i + j}
                         value = {boardState[i][j].cellValue}
-                        // editable = {formattedOriginalValues[a][b].editable} 
-                        editable = {boardState[i][j].editable} 
-                        // editable = 'true'
+                        editable = {boardState[i][j].editable}
                         conflict = {conflict}
                         rowIndex = {i}
                         colIndex = {j}
@@ -47,13 +38,13 @@ console.log(boardState)
                 currRow.push(currSquare);
 			};
 			board.push(<div className="Board_RowData" key = {i}>{currRow}</div>);
-     
-         };
+		};
+        
 		return board;
 	};
 
     console.log(props);
-    console.log("CONNORLOG346: ", props)
+    console.log("CONNORLOG: ", props)
 
     const board = generateBoard();
 
