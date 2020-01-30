@@ -1,4 +1,3 @@
-// 
 import React, { useState, useEffect } from 'react';
 import SavedBoard from './SavedBoard';
 import GetSavedPuzzle from './getSavedPuzzle';
@@ -9,10 +8,9 @@ import axiosWithAuth from '../../utils/axiosWithAuth';
 import Settings from '../themes/Settings';
 
 const ResumedPuzzle = () => {
-  const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
+  //Stores string representation of current state when hints pushed
+  const [activePuzzleString, setActivePuzzleString] = useState(""); 
   
-
-
   //   ↓ Description of gameBoardState below ↓
   // {
   //   boardState : "", => String of formated board values
@@ -28,41 +26,40 @@ const ResumedPuzzle = () => {
       puzzleId: "",
       // time: 0,
       history   : [],
-      conflicts : new Set([])  
-    });
+      conflicts : new Set([]),  
+     
+    }
+    );
   
   
   // Retrieve puzzle data
   async function getRandomPuzzle() {
     var puzzles = await GetSavedPuzzle();
-
     return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
   };
-  
+
+  // Format the puzzle data after it comes back and set the state with the info
   const getFormattedPuzzle = async () => {
     const puzzle = await getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle.data); // changed puzzles to puzzle.sudoku
-
-    // console.log("GBS in formatted puzzle", gameBoardState)
-    // console.log("Loaded puzzle in formatted puzzle", puzzle)
-    // console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
-      setGameBoardState({
-        ...gameBoardState,
-        puzzleId: puzzle.id,
-        level: puzzle.level,
-        boardState: formattedPuzzle
-      });
+    const formattedPuzzle = formatPuzzle(puzzle.data, puzzle.original); // changed puzzles to puzzle.sudoku
+    await setGameBoardState({
+      ...gameBoardState,
+      puzzleId: puzzle.id,
+      level: puzzle.level,
+      boardState: formattedPuzzle,
+      data: puzzle.data,
+      original: puzzle.original,
+      solved: puzzle.solution
+    });
   };
-  
+
   // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
-
   },[]) 
 
   function getDeepCopyOfArray(arr) {
     var now = JSON.parse(JSON.stringify(arr));
-    console.log("NOW", now)
     return now;
   };
 
@@ -73,7 +70,7 @@ const ResumedPuzzle = () => {
       newBoardState[i][j] = {
           cellValue : newValue,
           cellId    : stringify(i, j),
-          editable  : true
+          editable  : prevEditable
         };
       console.log("newBoardState: ", prevState.newBoardState)
 
@@ -138,17 +135,18 @@ const ResumedPuzzle = () => {
     
     const req = {
       // time: gameBoardState.time,
+      original: '',
       difficulty: gameBoardState.difficulty,
-      data: activePuzzleString};
+      data: activePuzzleString,
+      solved: gameBoardState.solved
+    };
       
     axiosWithAuth()
-
-    .post(`/user-puzzles/${puzzleId}`, req)
-    .then(res => {
-      console.log("REGISTER", res);
+      .post(`/user-puzzles/${puzzleId}`, req)
+      .then(res => {
+        console.log("REGISTER", res);
     });
   };
-
 
 
 
@@ -205,7 +203,7 @@ const ResumedPuzzle = () => {
         playString.push(playStringNow)                // is pushed to playString
       };
     };
-    
+  
     // activePuzzleString = single string represents current board state
     var activePuzzleString = playString.join(''); 
     console.log("activePuzzleString", activePuzzleString);
@@ -220,76 +218,79 @@ const ResumedPuzzle = () => {
         // };
     //  };
     // 
-};     
-      function flatten(a) {
-        return Array.isArray(a) ? [].concat(...a.map(flatten)) : a;
+  };    
+
+  function flatten(a) {
+    return Array.isArray(a) ? [].concat(...a.map(flatten)) : a;
+  };
+  
+  function getConflicts(arrs) {
+    return (arrs.map(arr => getConflictsInArray(arr)));
+  };
+  
+  function getConflictsInArray(arr) {
+    const conflictMap = {};
+    
+    for(let i=0; i<arr.length; i++) {
+      let curr = arr[i];
+      
+      if(curr.cellValue !== ".") {
+        if(conflictMap.hasOwnProperty(curr.cellValue)) {
+          conflictMap[curr.cellValue].push(curr.cellId);
+        } else {
+          conflictMap[curr.cellValue] = [curr.cellId];
+        };      
       };
+    };
+    
+    return Object.values(conflictMap).filter(arr => arr.length>1); 
+  };
+
+  function formatPuzzle(puzzle, original) {
+    const formattedPuzzle = createArray(9, 9);
+    
+    for(let i=0; i<puzzle.length; i++) {
+      const rowId = getRowId(i);
+      const colId = getColId(i);
       
-      function getConflicts(arrs) {
-        return (arrs.map(arr => getConflictsInArray(arr)));
+      const editable = original[i] === '.' ? true : false;
+      
+      formattedPuzzle[rowId][colId] = {
+        cellValue : puzzle[i],
+        cellId    : stringify(rowId, colId),
+        editable  : editable
       };
-      
-      function getConflictsInArray(arr) {
-        const conflictMap = {};
-        
-        for(let i=0; i<arr.length; i++) {
-          let curr = arr[i];
-          
-          if(curr.cellValue !== ".") {
-            if(conflictMap.hasOwnProperty(curr.cellValue)) {
-              conflictMap[curr.cellValue].push(curr.cellId);
-            } else {
-              conflictMap[curr.cellValue] = [curr.cellId];
-            };      
-          };
-        };
-        
-        return Object.values(conflictMap).filter(arr => arr.length>1); 
-      };
-      
-      function formatPuzzle(puzzle) {
-        const formattedPuzzle = createArray(9, 9);
-        
-        for(let i=0; i<puzzle.length; i++) {
-          const rowId = getRowId(i);
-          const colId = getColId(i);
-          
-          const editable = puzzle[i] === '.' ? true : false;
-          
-          formattedPuzzle[rowId][colId] = {
-            cellValue : puzzle[i],
-            cellId    : stringify(rowId, colId),
-            editable  : editable
-          };
-        };
-        return formattedPuzzle;
-      };
-      
-      function stringify(num1, num2) {
-        return num1 + '' + num2;
-      };
-      
-      function getRowId(i) {
-        return Math.floor(i/9);
-      };
-      
-      function getColId(i) {
-        return (i%9);
-      };
-      
-      /*
-      Returns a puzzle formatted like so:
-      [
-        [ob1, ob2, ob3],
-        [.     .    . ],
-        [.     .    . ],
-      ]
-      
-      Where ob = {
-        cellValue     : value of this cell,
-        editable : true if this cell will be user defined, false otherwise
-      }
-      */  
+    };
+    return formattedPuzzle;
+  };
+
+ 
+
+  function stringify(num1, num2) {
+    return num1 + '' + num2;
+  };
+  
+  function getRowId(i) {
+    return Math.floor(i/9);
+  };
+  
+  function getColId(i) {
+    return (i%9);
+  };
+  
+  /*
+  Returns a puzzle formatted like so:
+  [
+    [ob1, ob2, ob3],
+    [.     .    . ],
+    [.     .    . ],
+  ]
+  
+  Where ob = {
+    cellValue     : value of this cell,
+    editable : true if this cell will be user defined, false otherwise
+  }
+  */  
      
 
      return (
@@ -311,23 +312,24 @@ const ResumedPuzzle = () => {
             conflicts = {gameBoardState.conflicts}
             onSquareValueChange = {handleSquareValueChange}
             historyLength = {gameBoardState.history.length}
+            original = {gameBoardState.original}
             />
         </div>  
         <Settings />
       </div>
     );
     
-  };
-  //
-  function createArray(length) {
-    var arr = new Array(length || 0),
-        i = length;
+};
+  
+function createArray(length) {
+  var arr = new Array(length || 0),
+      i = length;
 
-    if (arguments.length > 1) {
-        var args = Array.prototype.slice.call(arguments, 1);
-        while(i--) arr[length-1 - i] = createArray.apply(this, args);
-    };
-    return arr;  
+  if (arguments.length > 1) {
+      var args = Array.prototype.slice.call(arguments, 1);
+      while(i--) arr[length-1 - i] = createArray.apply(this, args);
+  };
+  return arr;  
 };
 
 export default ResumedPuzzle;
