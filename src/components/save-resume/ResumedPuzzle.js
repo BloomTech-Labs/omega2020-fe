@@ -1,4 +1,3 @@
-// 
 import React, { useState, useEffect } from 'react';
 import SavedBoard from './SavedBoard';
 import GetSavedPuzzle from './getSavedPuzzle';
@@ -9,11 +8,9 @@ import axiosWithAuth from '../../utils/axiosWithAuth';
 import Settings from '../themes/Settings';
 
 const ResumedPuzzle = () => {
-  const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
-  // const [original, setOriginal] = useState(""); //Stores string representation of current state when hints pushed
+  //Stores string representation of current state when hints pushed
+  const [activePuzzleString, setActivePuzzleString] = useState(""); 
   
-
-
   //   ↓ Description of gameBoardState below ↓
   // {
   //   boardState : "", => String of formated board values
@@ -40,8 +37,8 @@ const ResumedPuzzle = () => {
     var puzzles = await GetSavedPuzzle();
     return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
   };
-  
 
+  // Format the puzzle data after it comes back and set the state with the info
   const getFormattedPuzzle = async () => {
     const puzzle = await getRandomPuzzle();
     const formattedPuzzle = formatPuzzle(puzzle.data, puzzle.original); // changed puzzles to puzzle.sudoku
@@ -54,17 +51,8 @@ const ResumedPuzzle = () => {
       original: puzzle.original,
       solved: puzzle.solution
     });
-    
-    // setGameBoardState({...gameBoardState, boardState: formattedPuzzle})
-    // console.log("GBS in formatted puzzle", gameBoardState)
-    // console.log("Loaded puzzle in formatted puzzle", puzzle)
-    // console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
-    console.log("FROM getFormattedPuzzle ", gameBoardState)
-    // debugger
   };
-  // console.log("GBS1", gameBoardState)
 
-  const originalStr = gameBoardState.original;  
   // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
@@ -72,7 +60,6 @@ const ResumedPuzzle = () => {
 
   function getDeepCopyOfArray(arr) {
     var now = JSON.parse(JSON.stringify(arr));
-    console.log("NOW", now)
     return now;
   };
 
@@ -258,13 +245,9 @@ const ResumedPuzzle = () => {
     
     return Object.values(conflictMap).filter(arr => arr.length>1); 
   };
-  var orig = gameBoardState.original;
-  console.log("RESUMED GBS", gameBoardState.original)
 
   function formatPuzzle(puzzle, original) {
     const formattedPuzzle = createArray(9, 9);
-    console.log("FP GBS *****: ", puzzle)
-    console.log("FP GBS *****: ", orig)
     
     for(let i=0; i<puzzle.length; i++) {
       const rowId = getRowId(i);
@@ -278,7 +261,6 @@ const ResumedPuzzle = () => {
         editable  : editable
       };
     };
-    // debugger
     return formattedPuzzle;
   };
 
