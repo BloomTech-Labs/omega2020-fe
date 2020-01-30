@@ -14,7 +14,7 @@ export default function UploadImage() {
     })
     console.log("FILE", file)
   }
-                
+
   const handleUpload = async (e) => {
     e.preventDefault()         
     const fileBlob = new Blob([file.raw]);

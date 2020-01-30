@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Board from './Board.js';
-import { GetPuzzles, solvedPuzzle, unsolvedPuzzle } from './Puzzles';
+import { GetPuzzles } from './Puzzles';
 import SudokuButtons from './SudokuButtons.js';
 import './Sudoku.css';
 import { ga } from 'react-ga';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import Settings from './themes/Settings'
+import Settings from './themes/Settings';
+import ResumedPuzzle from './save-resume/ResumedPuzzle';
 
 const Sudoku = () => {
   const [win, setWin] = useState(""); //Stores solution string here
-  const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
+  // const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
   
   // Description of gameBoardState below
   // {
@@ -29,6 +30,11 @@ const Sudoku = () => {
       conflicts : new Set([])  
     });
   
+// if logged in, retrieve flag for isPuzSaved and if true, render ResumedPuzzle
+// {}  
+// const checkForSaved() {
+//     Axios.
+//   }
   
   // Retrieve puzzle data
   async function getRandomPuzzle() {
@@ -49,10 +55,11 @@ const Sudoku = () => {
         ...gameBoardState,
         puzzleId: puzzle.id,
         level: puzzle.level,
-        boardState: formattedPuzzle
+        boardState: formattedPuzzle,
+        solved: puzzle.solution
       });
   };
-
+console.log("SOLVED", gameBoardState.solved)
   // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
@@ -142,22 +149,26 @@ const Sudoku = () => {
       };
     };
     // activePuzzleString = single string represents current board state
-    setActivePuzzleString(playString.join('')); 
-    
+    // setActivePuzzleString(playString.join('')); 
+    var activePuzzleString = playString.join(''); 
+
     const req = {
       // time: gameBoardState.time,
-      difficulty: gameBoardState.difficulty,
-      data: activePuzzleString};
-      
+      difficulty: gameBoardState.level,
+      data: activePuzzleString,
+      solved: gameBoardState.solved,
+      };
+    console.log("WIN", win)
     axiosWithAuth()
 
     .post(`/user-puzzles/${puzzleId}`, req)
     .then(res => {
-      console.log("REGISTER", res);
+      console.log("AXIOS FROM SAVE CLICK", res);
+      console.log("REQ", res)
     });
   };
-
-
+  // console.log("REQ2", req)
+  console.log("WIN", win)
 
 
   function handleVerifyClick() {

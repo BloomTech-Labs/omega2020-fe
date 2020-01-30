@@ -19,7 +19,6 @@ const DiabolicalSudoku = () => {
       conflicts : new Set([])  
     });
   
-  
   // Retrieve puzzle data
   async function getRandomPuzzle() {
     var puzzles = await GetDiabolicalPuzzle();
@@ -27,7 +26,7 @@ const DiabolicalSudoku = () => {
 
     return puzzles;
   };
-  
+
   const getFormattedPuzzle = async () => {
     const puzzle = await getRandomPuzzle();
     const formattedPuzzle = formatPuzzle(puzzle.sudoku);

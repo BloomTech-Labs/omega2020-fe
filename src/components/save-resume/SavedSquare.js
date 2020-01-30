@@ -1,7 +1,7 @@
 import React, {  } from 'react';
 
 function SavedSquare(props) {
-    console.log("CONNORLOG2: ", props)
+    // console.log("CONNORLOG2 squaaaareee: ", props)
 	
 	// console.log(props);
 
@@ -10,7 +10,7 @@ function SavedSquare(props) {
 		// 2. compare puzzle string to the saved puzzle string
 		// 3. if = then not editable
 		// 4. if != then not editable
-		console.log("SAVED SQUARE")
+		// console.log("SAVED SQUARE")
 
 		// A Square may only be edited if it's value is "."
 		const disabled = !props.editable;
