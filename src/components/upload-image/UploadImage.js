@@ -6,7 +6,7 @@ import './UploadImage.css';
 export default function UploadImage() {
   const [file, setFile] = useState({preview: 'file', raw: 'file'})
   const [solution, setSolution] = useState({puzzle_status: '', solution: '', values: ''})
-  const api = 'http://flask-env2.us-east-2.elasticbeanstalk.com/demo_file';
+  const api = 'https://flask-env2.us-east-2.elasticbeanstalk.com/demo_file';
   const handleChange = (e) => {
     setFile({
       preview: URL.createObjectURL(e.target.files[0]),
@@ -36,6 +36,7 @@ export default function UploadImage() {
   return (
 
     <div align="center" style={{ marginTop: "10%" }}>
+      <h2>Your Solved Puzzle</h2>
       <div>{solution.puzzle_status}</div>
       <div>{solution.solution}</div>
       <div>{solution.values}</div>
