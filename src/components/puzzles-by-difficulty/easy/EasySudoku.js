@@ -30,7 +30,7 @@ const EasySudoku = () => {
   
   const getFormattedPuzzle = async () => {
     const puzzle = await getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle.sudoku);
+    const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
 
     console.log("GBS in formatted puzzle", gameBoardState)
     console.log("Loaded puzzle in formatted puzzle", puzzle)
@@ -39,10 +39,11 @@ const EasySudoku = () => {
         ...gameBoardState,
         puzzleId: puzzle.id,
         level: puzzle.level,
-        boardState: formattedPuzzle
+        boardState: formattedPuzzle,
+        solved: puzzle.solution,
+        original: puzzle.sudoku
       });
   };
-
 
   // const [gameBoardState, setGameBoardState] = useState(
   // {
@@ -146,15 +147,18 @@ const EasySudoku = () => {
     
     const req = {
       // time: gameBoardState.time,
-      difficulty: gameBoardState.difficulty,
-      data: activePuzzleString};
-      
+      difficulty: gameBoardState.level,
+      data: activePuzzleString,
+      solved: gameBoardState.solved,
+      original: gameBoardState.original
+    };
+  
+
     axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then(res => {
-        console.log("AXIOSWITHAUTH GET: ", res);
-        console.log("REGISTER", res);
-      });
+        console.log("REQ", res);
+    });
   };
   
   function handleVerifyClick() {

@@ -10,7 +10,7 @@ import Settings from '../themes/Settings';
 const ResumedPuzzle = () => {
   //Stores string representation of current state when hints pushed
   const [activePuzzleString, setActivePuzzleString] = useState(""); 
-  
+
   //   ↓ Description of gameBoardState below ↓
   // {
   //   boardState : "", => String of formated board values
@@ -36,6 +36,8 @@ const ResumedPuzzle = () => {
   async function getRandomPuzzle() {
     var puzzles = await GetSavedPuzzle();
     return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
+    console.log(puzzles.solved)
+
   };
 
   // Format the puzzle data after it comes back and set the state with the info
@@ -49,11 +51,15 @@ const ResumedPuzzle = () => {
       boardState: formattedPuzzle,
       data: puzzle.data,
       original: puzzle.original,
-      solved: puzzle.solution
+      solved: puzzle.solved
     });
   };
+const win = gameBoardState.solved
 
-  // Start the game here by getting a formatted puzzle
+console.log(win)
+console.log(gameBoardState.solved)
+
+// Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
   },[]) 
@@ -141,14 +147,15 @@ const ResumedPuzzle = () => {
       solved: gameBoardState.solved,
       original: gameBoardState.original
     };
-      
+  
+
     axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then(res => {
         console.log("REQ", res);
     });
   };
-
+  console.log("WIN1", win)
 console.log(gameBoardState)
 
   function handleVerifyClick() {
@@ -220,10 +227,21 @@ console.log(gameBoardState)
         // };
     //  };
     // 
-  };    
    console.log("activePuzzleString", activePuzzleString);
     console.log("GBS.BS", gameBoardState.boardState);
     console.log(gameBoardState.boardState.length);
+
+    console.log("WIN", win);
+    
+    if (mergedConflicts.length === 0){
+      if (activePuzzleString === win){
+        return (
+          // build some animation for win here
+          alert('Congratulations! You have solved the puzzle!')
+          )};
+        };
+      };
+
   function flatten(a) {
     return Array.isArray(a) ? [].concat(...a.map(flatten)) : a;
   };
