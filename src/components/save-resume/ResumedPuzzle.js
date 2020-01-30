@@ -127,28 +127,29 @@ const ResumedPuzzle = () => {
     for (var i=0; i<gameBoardState.boardState.length; i++) { // for each row
       for (var j=0; j<gameBoardState.boardState.length; j++) { // for each column
         playStringNow = gameBoardState.boardState[i][j].cellValue // the value in each cell
-        playString.push(playStringNow)                // is pushed to playString
+        playString.push(playStringNow)  
+        console.log("PLAY STRING", playStringNow)              // is pushed to playString
       };
     };
     // activePuzzleString = single string represents current board state
-    setActivePuzzleString(playString.join('')); 
-    
+    var activePuzzleString = playString.join(''); 
+    console.log("activePuzzleString", activePuzzleString)
     const req = {
       // time: gameBoardState.time,
-      original: '',
-      difficulty: gameBoardState.difficulty,
+      difficulty: gameBoardState.level,
       data: activePuzzleString,
-      solved: gameBoardState.solved
+      solved: gameBoardState.solved,
+      original: gameBoardState.original
     };
       
     axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then(res => {
-        console.log("REGISTER", res);
+        console.log("REQ", res);
     });
   };
 
-
+console.log(gameBoardState)
 
   function handleVerifyClick() {
     const { boardState, setBoardState } = gameBoardState;
@@ -204,9 +205,10 @@ const ResumedPuzzle = () => {
       };
     };
   
-    // activePuzzleString = single string represents current board state
+    // // activePuzzleString = single string represents current board state
     var activePuzzleString = playString.join(''); 
-    console.log("activePuzzleString", activePuzzleString);
+ 
+
     // console.log("WIN", win);
     
     // if (mergedConflicts.length === 0){
@@ -219,7 +221,9 @@ const ResumedPuzzle = () => {
     //  };
     // 
   };    
-
+   console.log("activePuzzleString", activePuzzleString);
+    console.log("GBS.BS", gameBoardState.boardState);
+    console.log(gameBoardState.boardState.length);
   function flatten(a) {
     return Array.isArray(a) ? [].concat(...a.map(flatten)) : a;
   };
@@ -291,7 +295,7 @@ const ResumedPuzzle = () => {
     editable : true if this cell will be user defined, false otherwise
   }
   */  
-     
+     console.log("BS b4 prop drill", gameBoardState.boardState)
 
      return (
        <div className = "Sudoku">
