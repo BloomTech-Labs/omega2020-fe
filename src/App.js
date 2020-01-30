@@ -17,6 +17,7 @@ import DiabolicalSudoku from './components/puzzles-by-difficulty/diabolical/Diab
 import EasySudoku from './components/puzzles-by-difficulty/easy/EasySudoku'
 import UploadImage from './components/upload-image/UploadImage'
 
+
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token"))
   
@@ -47,6 +48,9 @@ const App = () => {
       <Route path="/hard" component={HardSudoku} />
       <Route path="/user-puzzles" component={ResumedPuzzle} />
       <Route path="/upload" component={UploadImage} />
+   
+
+
 
     </Switch>
     <Footer />
