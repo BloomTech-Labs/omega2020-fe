@@ -6,7 +6,7 @@ import '../../Sudoku.css';
 import { ga } from 'react-ga';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import Settings from '../../themes/Settings'
-import UploadSudoku from './components/upload-image/Upload/Sudoku'
+
 
 
 const UploadSudoku = () => {
@@ -23,9 +23,9 @@ const UploadSudoku = () => {
   
   // Retrieve puzzle data
   async function getRandomPuzzle() {
-    var puzzles = await GetDiabolicalPuzzle();
-    setWin(puzzles.solution);
-    return puzzles;
+    // var puzzles = await GetDiabolicalPuzzle();
+    // setWin(puzzles.solution);
+    // return puzzles;
   };
   
   const getFormattedPuzzle = async () => {
