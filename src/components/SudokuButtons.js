@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
+
 import './Sudoku.css';
 
 const SudokuButtons = (props) => {
@@ -39,14 +41,16 @@ const SudokuButtons = (props) => {
 				color     = "primary"
 				variant   = "contained"
 				style     = {btnStyle}
+				startIcon={<SaveIcon />}
 				onClick   = {props.onSaveClick}>
 				Save
 				</Button>) : (<div />)
+				  
 			}
-			
 		    </div>
 			);
 	
-};
+};   
+
 
 export default SudokuButtons;

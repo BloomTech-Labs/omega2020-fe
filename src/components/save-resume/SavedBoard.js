@@ -39,8 +39,7 @@ const SavedBoard = (props) => {
 			};
 			board.push(<div className="Board_RowData" key = {i}>{currRow}</div>);
 		};
-        
-		return board;
+        return board;
 	};
 
     console.log(props);

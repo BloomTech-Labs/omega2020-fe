@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Button from '@material-ui/core/Button';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+// import Alert from '@material-ui/lab/Alert';
 import './UploadImage.css';
 import Board from '../Board'
 
 
 export default function UploadImage() {
-  const [file, setFile] = useState({preview: 'file', raw: 'file'})
+  const [file, setFile] = useState({preview: null, raw: null})
   const [solution, setSolution] = useState({puzzle_status: '', solution: '', values: ''})
   // const api = 'https://flask-env2.us-east-2.elasticbeanstalk.com/demo_file';
   const api = 'https://api.lambda-omega2020.com/demo_file';
@@ -24,7 +27,6 @@ export default function UploadImage() {
 
     formData.append('file', fileBlob, fileBlob.filename);
     const formConfig = { headers: { 'content-type': 'multipart/form-data' } }		
-		
     try {
       const resp = await axios.post(api, formData, formConfig)
       setSolution(resp.data);
@@ -55,7 +57,7 @@ export default function UploadImage() {
         });
   // no solution
       } else if (resp.data.puzzle_status === 2) {
-      
+       
       }
       console.log("RESPONSE", resp);
     } catch (error) {                                 
@@ -71,12 +73,11 @@ export default function UploadImage() {
     });
 
   return (
-
-    <div align="center" style={{ marginTop: "10%" }}>
-     <h2>Your Solved Puzzle</h2>
-      <div>{solution.puzzle_status}</div>
+    <div align="center" style={{ marginTop: "15%" }}>
+     {/* <h2>Your Solved Puzzle</h2> */}
+      {/* <div>{solution.puzzle_status}</div>
       <div>{solution.solution}</div>
-      <div>{solution.values}</div>  
+      <div>{solution.values}</div>   */}
       <Board 
                   className="Board"
                   boardState = {gameBoardState.boardState}
@@ -84,17 +85,21 @@ export default function UploadImage() {
                   historyLength = {gameBoardState.history.length}
       />
       <label htmlFor="upload-button">
-        { file.preview ? <img src={ file.preview } width="300" height="300" alt="preview" /> : (
+        { file.preview ? <img src={ file.preview } width="400" height="400"  id="preview" alt="Upload your image" /> : (
          <>
-           <span className="fa-stack fa-2x mt-3 mb-2">
-             <i className="fas fa-circle fa-stack-2x"></i>
-             <i className="fas fa-store fa-stack-1x fa-inverse"></i>
-           </span>
-           <h5 className="text-center"> Upload your image</h5>
          </> )}
       </label>
-      <input type="file" name="file" id="upload-button"  onChange={handleChange}/>
-      <button onClick={handleUpload}>Upload</button>
+      
+      <input type="file" name="file" id="input-file"  onChange={handleChange}/>
+      <Button
+        variant="contained"
+        color="primary"
+        className = "gameControlBtn"
+        onClick={handleUpload}
+        startIcon={<CloudUploadIcon />}
+      >
+        Upload a
+      </Button>
 </div>
   )
 }
