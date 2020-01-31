@@ -98,7 +98,7 @@ export default function UploadImage() {
         onClick={handleUpload}
         startIcon={<CloudUploadIcon />}
       >
-        Upload
+        Upload a
       </Button>
 </div>
   )
