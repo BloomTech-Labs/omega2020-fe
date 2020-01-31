@@ -80,11 +80,11 @@ const Login = (props) => {
             .post("/auth/login", user)
             .then(result => {
             console.log(result);
+            setUser({email: user.email, password: user.password, id: user.id});
             console.log("TOKEN", result.data.token);
             localStorage.setItem("token", result.data.token);
-
-            setUser({email: user.email, password: user.password, id: user.id});
             localStorage.setItem("id", user.email);
+            props.onChange();
             props.history.push("/random")
 
 //             props.onChange();
@@ -94,7 +94,7 @@ const Login = (props) => {
         })
         .catch(error => {
           console.log(error)
-          alert("Email and/or Passwrod not recognized, please try again", error)
+          alert("Email and/or Password not recognized, please try again", error)
       })
     
     }

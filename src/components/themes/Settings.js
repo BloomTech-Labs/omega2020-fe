@@ -94,11 +94,11 @@ const Settings = (theme) => {
         <div className={classes.main}>
             <FormControl className={classes.formControl}>Themes
                 <RadioGroup className={classes.group} aria-label="themes" name="themes" value={value}>
-                    <FormControlLabel value="defaultTheme" label="Default Theme" onClick={toggleOff} control={<Radio color="primary" />} />
-                    <FormControlLabel value="darkMode" label="Dark Mode" onClick={toggleDarkOn} className={darkMode ? 'toggle toggled' : 'toggle'} control={<Radio color="primary" />} />
-                    <FormControlLabel value="natureMode" label="Nature Theme" onClick={toggleNatureOn} className={natureMode ? 'toggle toggled' : 'toggle'} control={<Radio color="primary" />} />
-                    <FormControlLabel value="cityTheme" label="City Theme" onClick={toggleCityOn} className={cityMode ? 'toggle toggled' : 'toggle'} control={<Radio color="primary" />} />
-                    <FormControlLabel value="skyTheme" label="Sky Theme" onClick={toggleSkyOn} className={skyMode ? 'toggle toggled' : 'toggle'} control={<Radio color="primary" />} />
+                    <FormControlLabel value="defaultTheme" label="Default Theme" onClick={toggleOff} checked={!darkMode && !natureMode && !skyMode && !cityMode ? true:false} control={<Radio color="primary" />} />
+                    <FormControlLabel value="darkMode" label="Dark Mode" onClick={toggleDarkOn} checked={darkMode ? true:false} className={darkMode ? 'toggle toggled' : 'toggle'} control={<Radio color="primary" />} />
+                    <FormControlLabel value="natureMode" label="Nature Theme" onClick={toggleNatureOn} checked={natureMode ? true:false} className={natureMode ? 'toggle toggled' : 'toggle'} control={<Radio color="primary" />} />
+                    <FormControlLabel value="cityTheme" label="City Theme" onClick={toggleCityOn} checked={cityMode ? true:false} className={cityMode ? 'toggle toggled' : 'toggle'} control={<Radio color="primary" />} />
+                    <FormControlLabel value="skyTheme" label="Sky Theme" onClick={toggleSkyOn} checked={skyMode ? true:false} className={skyMode ? 'toggle toggled' : 'toggle'} control={<Radio color="primary" />} />
                 </RadioGroup>
             </FormControl>
         </div>

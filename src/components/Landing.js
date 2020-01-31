@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     width:'80%',
-    height: '90%',
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
     
@@ -132,7 +132,7 @@ const Landing = () => {
             <Container className={classes.buttonGrid} maxWidth='lg'>
                 <Button variant="contained" color="primary" disableElevation className={classes.button} href="/register">Create Account</Button>
                 <Button variant="contained" color="primary" disableElevation className={classes.button} href="/login">Sign in</Button>
-                <Button variant="contained" color="primary" disableElevation className={classes.button} href="/puzzle">Play as Guest</Button>
+                <Button variant="contained" color="primary" disableElevation className={classes.button} href="/random">Play as Guest</Button>
               </Container>
             <div className={classes.textDiv} width="400" height="400">
               <div className={classes.topTextDiv}>
