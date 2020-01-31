@@ -148,6 +148,7 @@ console.log("SOLVED", gameBoardState.solved)
         playStringNow = gameBoardState.boardState[i][j].cellValue // the value in each cell
         playString.push(playStringNow)                // is pushed to playString
       };
+      
     };
     // activePuzzleString = single string represents current board state
     // setActivePuzzleString(playString.join('')); 
@@ -165,8 +166,10 @@ console.log("SOLVED", gameBoardState.solved)
       axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then(res => {
+
         console.log("AXIOS FROM SAVE CLICK", res);
-        console.log("REQ", res)
+        console.log("REQ", res);
+        alert('Puzzle saved');
       });
     };
     // console.log("REQ2", req)
