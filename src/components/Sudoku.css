@@ -1,3 +1,4 @@
+
 .Sudoku {
 	background-image: url("../images/Diamonds.jpg");
 	height: 100vh;
@@ -174,3 +175,12 @@ input[type="text"]:focus{background: #608CFF;}
 .sky-mode input[type="text"]:focus {
 	background: #45bcf5;
 }
+
+@media only screen and (max-width: 600px) {
+	.Board {
+	  width: 90%;
+	}
+	.Board_RowData {
+		width: 100%;
+	}
+  }

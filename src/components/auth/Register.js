@@ -1,16 +1,15 @@
 import React, {useState} from 'react';
-import axiosLoginAuth from '../utils/axiosLoginAuth';
+import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
 function Copyright() {
   return (
@@ -48,57 +47,61 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(8, 8, 8),
     display: 'flex',
     flexDirection: 'column',
-    height:'200px',
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
-    
   },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
-
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
 }));
 
-const Login = (props) => {
-    const [user, setUser] = useState({ email: '', password: ''})
-
-
-    const changeHandler = event => {
-        setUser({...user, [event.target.name]: event.target.value})
-    }
-     const handleSubmit = event => {
-         event.preventDefault();
-         console.log(user);
-         
-         axiosLoginAuth()
-            .post("/auth/login", user)
-            .then(result => {
-            console.log(result);
-            setUser({email: user.email, password: user.password, id: user.id});
-            console.log("TOKEN", result.data.token);
-            localStorage.setItem("token", result.data.token);
-            localStorage.setItem("id", user.email);
-            props.onChange();
-            props.history.push("/random")
-
-//             props.onChange();
-//             setUser({ email: '', password: ''})
-//               props.history.push("/puzzle")
-
-        })
-        .catch(error => {
-          console.log(error)
-          alert("Email and/or Password not recognized, please try again", error)
-      })
+const Registration = (props) => {
+    const [user, setUser] = useState({"email": '', "password": ''})
     
+    const changeHandler = event => {
+    
+        event.preventDefault();
+        setUser({...user, [event.target.name]: event.target.value })
     }
-
+    
+    
+    const handleSubmit = event => {
+        event.preventDefault();
+        // axiosWithAuth()
+        axios
+            .post("https://omega2020.herokuapp.com/auth/register", user)
+            // .post("http://localhost:7777/auth/register", user)
+            .then( result => {
+              
+              setUser({email: user.email, password: user.password, id: user.id})
+              
+              axiosWithAuth()
+                .post("/auth/login", user)
+                .then(result => {
+                localStorage.setItem("token", result.data.token);
+                props.onChange();
+                props.history.push("/random");
+                // setUser({ email: '', password: ''})
+                //           props.history.push("/puzzle")
+                //   })
+                //   .catch(error => {
+                //     alert("Email and/or Passwrod not recognized, please try again", error)
+                // })
+                })
+                .catch(error => {
+                  console.log(error)
+                  alert("Email already exists please login to continue", error)
+                });
+            
+              });
+  }
+    
   const classes = useStyles();
 
   
@@ -109,7 +112,7 @@ const Login = (props) => {
       <Grid className={classes.main} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Typography component="h1" variant="h5">
-            Sign in and Start Solving!
+            Create Your Account
           </Typography>
           <form onSubmit={handleSubmit} className={classes.form} noValidate>
             <TextField
@@ -144,7 +147,7 @@ const Login = (props) => {
               color="primary"
               className={classes.submit}
             >
-              Lets Play!
+              Register
             </Button>
             <Box mt={5}>
               <Copyright />
@@ -152,9 +155,9 @@ const Login = (props) => {
           </form>
         </div>
       </Grid>
-      <img className={classes.image} src={require("../images/Mask Group (1).png")} alt="Omega2020 theme" />
+      <img className={classes.image} src={require("../../images/Mask Group.png")} alt="Omega2020 theme" />
     </Grid>
   );
 }
 
-export default Login
+export default Registration

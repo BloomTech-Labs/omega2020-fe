@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Board from '../../Board.js';
-import { GetDiabolicalPuzzle, solvedPuzzle, unsolvedPuzzle } from './DiabolicalPuzzle';
-import SudokuButtons from '../../SudokuButtons.js';
+import Board from '../../puzzle-builder/Board';
+import { GetDiabolicalPuzzle } from './DiabolicalPuzzle';
+import SudokuButtons from '../../puzzle-builder/SudokuButtons';
 import '../../Sudoku.css';
 import { ga } from 'react-ga';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
@@ -31,9 +31,7 @@ const DiabolicalSudoku = () => {
     const puzzle = await getRandomPuzzle();
     const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
 
-    console.log("GBS in formatted puzzle", gameBoardState)
-    console.log("Loaded puzzle in formatted puzzle", puzzle)
-    console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
+
       setGameBoardState({
         ...gameBoardState,
         puzzleId: puzzle.id,
@@ -43,7 +41,6 @@ const DiabolicalSudoku = () => {
         original: puzzle.sudoku
       });
   };
-
 
   // const [gameBoardState, setGameBoardState] = useState(
   // {
@@ -55,8 +52,6 @@ const DiabolicalSudoku = () => {
   //         history   : [],
   //         conflicts : new Set([])  
   // });
-  // console.log("GBS in SUD", win)
-
   
   useEffect(() => {
     getFormattedPuzzle();
@@ -76,7 +71,6 @@ const DiabolicalSudoku = () => {
           cellId    : stringify(i, j),
           editable  : prevEditable
         };
-      console.log("newBoardState: ", prevState.newBoardState)
 
       // Now push the previous board state on the history stack
       const newHistory = getDeepCopyOfArray(prevState.history);
@@ -115,20 +109,8 @@ const DiabolicalSudoku = () => {
     });
   };
   
-  const boardStateAsString = (boardState) => {
-    let board = "";
-    for(let i=0; i<boardState.length; i++) {
-      for(let j=0; j<boardState[i].length;j++) {
-        board += boardState[i][j].cellValue;
-      }
-    }
-    return board;
-  }
-  
   // saves sudoku state (data, diffuculty, time) to backend.
   const handleSaveClick = () => {
-
-    console.log(gameBoardState);
     
     const puzzleId = gameBoardState.puzzleId;
     
@@ -157,7 +139,6 @@ const DiabolicalSudoku = () => {
     axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then(res => {
-        console.log("REQ", res);
     });
   };
   
@@ -174,7 +155,6 @@ const DiabolicalSudoku = () => {
     // populating rows
     for(let i=0; i<boardState.length; i++) {
       rows[i] = getDeepCopyOfArray(boardState[i]);
-      // console.log("BOX ID: ", "boxId")
       
       for(let j=0; j<boardState[i].length;j++) {
         // populating columns
@@ -198,9 +178,7 @@ const DiabolicalSudoku = () => {
     const rowConflicts = flatten(getConflicts(Object.values(rows)));
     const colConflicts = flatten(getConflicts(Object.values(cols)));
     const boxConflicts = flatten(getConflicts(Object.values(boxes)));
-    
-    // console.log("BOX CONFLICTS1: ", boxConflicts)
-    
+        
     const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
     setGameBoardState({...gameBoardState, conflicts: new Set(mergedConflicts)});
     
@@ -217,13 +195,10 @@ const DiabolicalSudoku = () => {
     
     // activePuzzleString = single string represents current board state
     var activePuzzleString = playString.join(''); 
-    console.log("activePuzzleString", activePuzzleString);
-    console.log("WIN", win);
     
     if (mergedConflicts.length === 0){
       if (activePuzzleString === win){
         return (
-          // build some animation for win here
           alert('Congratulations! You have solved the puzzle!')
           )};
         };
@@ -326,7 +301,7 @@ const DiabolicalSudoku = () => {
     );
     
   };
-  //
+
   function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
@@ -337,4 +312,5 @@ const DiabolicalSudoku = () => {
     };
     return arr;
 };
+
 export default DiabolicalSudoku;

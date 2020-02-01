@@ -9,14 +9,10 @@ const SavedBoard = (props) => {
     };
     
     const boardState = props.boardState;
-    console.log(props)
-    console.log("BOARD", boardState)
 
 	const generateBoard = () => {
 		const board = [];
         
-        console.log("boardState", props)
-
 		for(let i=0; i<boardState.length; i++) {
 			let currRow = [];
 			for(let j=0; j<boardState[i].length; j++) {
@@ -41,9 +37,6 @@ const SavedBoard = (props) => {
 		};
         return board;
 	};
-
-    console.log(props);
-    console.log("CONNORLOG: ", props)
 
     const board = generateBoard();
 

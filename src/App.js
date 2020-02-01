@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
-import Sudoku from './components/Sudoku.js';
+import Sudoku from './components/puzzles-by-difficulty/random/Sudoku';
 
 import './App.css';
 import { Router, Route, Switch } from "react-router-dom";
 import NavCondition from './components/Navs/NavCondition';
 import history from "./utils/history";
-import Registration from './components/Register';
-import Login from "./components/Login";
+import Registration from './components/auth/Register';
+import Login from "./components/auth/Login";
 import Landing from "./components/Landing";
-import Footer from "./components/Footer";
+import Footer from "./components/Navs/Footer";
 // import SavedPuzzles from "./components/SavedPuzzles";
 import ResumedPuzzle from "./components/save-resume/ResumedPuzzle"
 import MediumSudoku from './components/puzzles-by-difficulty/medium/MediumSudoku'
@@ -53,7 +53,8 @@ const App = () => {
 
 
     </Switch>
-    <Footer />
+      <Footer />
+  
     </div>
     </Router>
   );

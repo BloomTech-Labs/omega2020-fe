@@ -1,9 +1,7 @@
 import React, {  } from 'react';
-import './Sudoku.css';
+import '../Sudoku.css';
 
 function Square(props) {
-
-	// console.log(props);
 
 	const generateSquareContent = () => {
 		// A Square may only be edited if it's value is "."
@@ -57,14 +55,9 @@ function Square(props) {
 					disabled = {disabled}
 					onChange = {handleSquareValueChange}
 				/>
-				
 			</div>
-
 			);
-
-		
 	};
-
 
 	const handleSquareValueChange = (e) => {
 		const newSquareValue = e.target.value;

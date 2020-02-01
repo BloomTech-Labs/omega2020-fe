@@ -3,7 +3,6 @@ import React, {  } from 'react';
 function SavedSquare(props) {
 	const generateSquareContent = () => {
 
-
 		// A Square may only be edited if it's value is "."
 		const disabled = !props.editable;
 		const squareValue = props.value === '.' ? ""   : props.value;
@@ -55,14 +54,9 @@ function SavedSquare(props) {
 					disabled = {disabled}
 					onChange = {handleSquareValueChange}
 				/>
-				
 			</div>
-
 			);
-
-		
 	};
-
 
 	const handleSquareValueChange = (e) => {
 		const newSquareValue = e.target.value;

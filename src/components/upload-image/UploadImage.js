@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 // import Alert from '@material-ui/lab/Alert';
 import './UploadImage.css';
-import Board from '../Board'
+import Board from '../puzzle-builder/Board'
 
 
 export default function UploadImage() {

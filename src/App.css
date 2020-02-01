@@ -4,3 +4,8 @@
 	font-family: 'Roboto';
 }
 
+@media only screen and (max-width: 600px) {
+	.image {
+		display:hidden;
+	}
+  }
