@@ -1,56 +1,69 @@
 import React, { useState, useEffect } from 'react';
-import Board from '../../Board.js';
-// import { GetDiabolicalPuzzle, solvedPuzzle, unsolvedPuzzle } from './DiabolicalPuzzle';
-import SudokuButtons from '../../SudokuButtons.js';
-import '../../Sudoku.css';
+import Board from '../puzzle-builder/Board';
+import { GetUpload } from './getUpload';
+import SudokuButtons from '../puzzle-builder/SudokuButtons';
+import '../Sudoku.css';
 import { ga } from 'react-ga';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
-import Settings from '../../themes/Settings'
+import axiosWithAuth from '../../utils/axiosWithAuth';
+import Settings from '../themes/Settings';
 
-
-
-const UploadSudoku = () => {
-  const [win, setWin] = useState("");
-
+const UploadSudoku = (formData, formConfig) => {
+  const [win, setWin] = useState(""); //Stores solution string here
+  // const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
+  
+  // Description of gameBoardState below
+  // {
+  //   boardState : "", => String of formated board values
+  //   puzzleId: "", => Puzzle Id from DS and passed thru BE
+  //   // time: 0, => Not yet implemented
+  //   history   : [], => The history of current game play
+  //   conflicts : new Set([])   => Array of conflicting values across fields (3x3 grid of cells), rows and columns.
+  // });
+  
   const [gameBoardState, setGameBoardState] = useState(
     {
       boardState : "",
       puzzleId: "",
+      // time: 0,
       history   : [],
       conflicts : new Set([])  
     });
   
+// if logged in, retrieve flag for isPuzSaved and if true, render ResumedPuzzle
+// {}  
+// const checkForSaved() {
+//     Axios.
+//   }
   
   // Retrieve puzzle data
-  async function getRandomPuzzle() {
-    // var puzzles = await GetDiabolicalPuzzle();
-    // setWin(puzzles.solution);
-    // return puzzles;
+  function getRandomPuzzle() {
+    var puzzles = GetUpload(formData, formConfig);
+    // try {setWin(puzzles.solved)}
+    return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
   };
   
   const getFormattedPuzzle = async () => {
     const puzzle = await getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle.sudoku);
+    const formattedPuzzle = formatPuzzle(puzzle.values); // changed puzzles to puzzle.sudoku
 
-    console.log("GBS in formatted puzzle", gameBoardState)
-    console.log("Loaded puzzle in formatted puzzle", puzzle)
-    console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
       setGameBoardState({
         ...gameBoardState,
         puzzleId: puzzle.id,
         level: puzzle.level,
-        boardState: formattedPuzzle
+        boardState: formattedPuzzle,
+        solved: puzzle.solution,
+        original: puzzle.sudoku
       });
   };
-
-
+  // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
 
   },[]) 
 
   function getDeepCopyOfArray(arr) {
-    return JSON.parse(JSON.stringify(arr));
+    var now = JSON.parse(JSON.stringify(arr));
+    return now;
   };
 
   const handleSquareValueChange = (i, j, newValue) => {
@@ -62,7 +75,6 @@ const UploadSudoku = () => {
           cellId    : stringify(i, j),
           editable  : prevEditable
         };
-      console.log("newBoardState: ", prevState.newBoardState)
 
       // Now push the previous board state on the history stack
       const newHistory = getDeepCopyOfArray(prevState.history);
@@ -101,20 +113,19 @@ const UploadSudoku = () => {
     });
   };
   
-  const boardStateAsString = (boardState) => {
-    let board = "";
-    for(let i=0; i<boardState.length; i++) {
-      for(let j=0; j<boardState[i].length;j++) {
-        board += boardState[i][j].cellValue;
-      }
-    }
-    return board;
-  }
-  
-  // saves sudoku state (data, diffuculty, time) to backend.
-  const handleSaveClick = () => {
+  // const boardStateAsString = (boardState) => {
+  //   let board = "";
+  //   for(let i=0; i<boardState.length; i++) {
+  //     for(let j=0; j<boardState[i].length;j++) {
+  //       board += boardState[i][j].cellValue;
+  //     }
+  //   }
+  //   return board;
+  // }
 
-    console.log(gameBoardState);
+  // ************** Saves sudoku state (data, diffuculty, time) to backend *********
+
+  const handleSaveClick = () => {
     
     const puzzleId = gameBoardState.puzzleId;
     
@@ -127,23 +138,27 @@ const UploadSudoku = () => {
         playStringNow = gameBoardState.boardState[i][j].cellValue // the value in each cell
         playString.push(playStringNow)                // is pushed to playString
       };
+      
     };
     // activePuzzleString = single string represents current board state
+    // setActivePuzzleString(playString.join('')); 
     var activePuzzleString = playString.join(''); 
-    
+
     const req = {
       // time: gameBoardState.time,
-      difficulty: gameBoardState.difficulty,
-      data: activePuzzleString};
+      difficulty: gameBoardState.level,
+      data: activePuzzleString,
+      solved: gameBoardState.solved,
+      original: gameBoardState.original
+      };
       
-    axiosWithAuth()
+      axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then(res => {
-        console.log("AXIOSWITHAUTH GET: ", res);
-        console.log("REGISTER", res);
+      alert('Puzzle saved');
       });
-  };
-  
+    };
+
   function handleVerifyClick() {
     const { boardState, setBoardState } = gameBoardState;
     
@@ -157,7 +172,6 @@ const UploadSudoku = () => {
     // populating rows
     for(let i=0; i<boardState.length; i++) {
       rows[i] = getDeepCopyOfArray(boardState[i]);
-      // console.log("BOX ID: ", "boxId")
       
       for(let j=0; j<boardState[i].length;j++) {
         // populating columns
@@ -181,9 +195,7 @@ const UploadSudoku = () => {
     const rowConflicts = flatten(getConflicts(Object.values(rows)));
     const colConflicts = flatten(getConflicts(Object.values(cols)));
     const boxConflicts = flatten(getConflicts(Object.values(boxes)));
-    
-    // console.log("BOX CONFLICTS1: ", boxConflicts)
-    
+        
     const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
     setGameBoardState({...gameBoardState, conflicts: new Set(mergedConflicts)});
     
@@ -200,8 +212,6 @@ const UploadSudoku = () => {
     
     // activePuzzleString = single string represents current board state
     var activePuzzleString = playString.join(''); 
-    console.log("activePuzzleString", activePuzzleString);
-    console.log("WIN", win);
     
     if (mergedConflicts.length === 0){
       if (activePuzzleString === win){
@@ -281,7 +291,6 @@ const UploadSudoku = () => {
         editable : true if this cell will be user defined, false otherwise
       }
       */  
-     
 
      return (
        <div className = "Sudoku">
@@ -294,6 +303,7 @@ const UploadSudoku = () => {
             onSaveClick = {handleSaveClick}
             />
         </div>
+        
         <div>
           <Board
             className="Board"
@@ -304,12 +314,11 @@ const UploadSudoku = () => {
             />
         </div>  
         <Settings />
-
       </div>
     );
     
   };
-  //
+ 
   function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
@@ -320,4 +329,5 @@ const UploadSudoku = () => {
     };
     return arr;
 };
+
 export default UploadSudoku;
