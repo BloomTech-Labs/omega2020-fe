@@ -49,10 +49,8 @@ const App = () => {
       <Route path="/user-puzzles" component={ResumedPuzzle} />
       <Route path="/upload" component={UploadImage} />
    
-
-
-
     </Switch>
+
     <Footer />
     </div>
     </Router>

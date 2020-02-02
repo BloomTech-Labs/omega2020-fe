@@ -161,7 +161,7 @@ const Registration = (props) => {
           </form>
         </div>
       </Grid>
-      <img className={classes.image} src={require("../images/Mask Group.png")} alt="Omega2020 theme" />
+      <img className={classes.image} className="mediaImage" src={require("../images/Mask Group.png")} alt="Omega2020 theme" />
     </Grid>
   );
 }
