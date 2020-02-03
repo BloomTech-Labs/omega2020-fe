@@ -6,6 +6,7 @@ import '../Sudoku.css';
 import { ga } from 'react-ga';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 import Settings from '../themes/Settings'
+import { postWithAuth } from './postWithAuth.js';
 
 
 
@@ -21,7 +22,6 @@ const UploadSudoku2 = (solution) => {
       conflicts : new Set([])  
     });
   
-    console.log("GBS in formatted puzzle", gameBoardState)
   
   // Retrieve puzzle data
   async function getRandomPuzzle() {
@@ -105,23 +105,17 @@ const UploadSudoku2 = (solution) => {
     });
   };
   
-  const boardStateAsString = (boardState) => {
-    let board = "";
-    for(let i=0; i<boardState.length; i++) {
-      for(let j=0; j<boardState[i].length;j++) {
-        board += boardState[i][j].cellValue;
-      }
-    }
-    return board;
-  }
+
   
   // saves sudoku state (data, diffuculty, time) to backend.
   const handleSaveClick = () => {
 
     console.log(gameBoardState);
     
-    const puzzleId = gameBoardState.puzzleId;
-    
+    // const puzzleId = gameBoardState.puzzleId;
+    const puzzleId = 100;
+
+    console.log(puzzleId)
     // Turn boardState into a string
     var playString = [];
     var playStringNow;
@@ -134,19 +128,20 @@ const UploadSudoku2 = (solution) => {
     };
     // activePuzzleString = single string represents current board state
     var activePuzzleString = playString.join(''); 
+    console.log("GBS in formatted puzzle", gameBoardState.level)
+    console.log("GBS in formatted puzzle", gameBoardState.solved)
+    console.log("GBS in formatted puzzle", gameBoardState.original)
     
     const req = {
-      // time: gameBoardState.time,
-      puzzleId: '',
-      difficulty: gameBoardState.difficulty,
-      data: activePuzzleString};
-      
-    axiosWithAuth()
-      .post(`/user-puzzles/${puzzleId}`, req)
-      .then(res => {
-        console.log("AXIOSWITHAUTH GET: ", res);
-        console.log("REGISTER", res);
-      });
+        // time: gameBoardState.time,
+        difficulty: gameBoardState.solution.level,
+        data: activePuzzleString,
+        solved: gameBoardState.solved,
+        original: gameBoardState.original
+      };
+    
+     postWithAuth(puzzleId, req);
+
   };
   
   function handleVerifyClick() {
