@@ -11,7 +11,16 @@ import Settings from '../themes/Settings'
 
 const UploadSudoku2 = (solution) => {
   const [win, setWin] = useState("");
-    console.log('@@@@@@', solution)
+  
+  //   setSolution(asolution)
+//   const [gameBoardState, setGameBoardState] = useState(
+//     {
+//       boardState : [],
+//       puzzleId: "",
+//       history   : [],
+//       conflicts : new Set([])  
+//     });
+
   const [gameBoardState, setGameBoardState] = useState(
     {
       ...solution,

@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-// import Alert from '@material-ui/lab/Alert';
 import './UploadImage.css';
-import Board from '../Board'
-import { postImage } from './postImage'
-import UploadSudoku2 from './UploadSudoku2'
+import { postImage } from './postImage';
+import UploadSudoku2 from './UploadSudoku2';
 
 
 export default function UploadForm() {
@@ -28,61 +25,26 @@ export default function UploadForm() {
 
     formData.append('file', fileBlob, fileBlob.filename);
     const formConfig = { headers: { 'content-type': 'multipart/form-data' } }		
-    // try {
-      const asolution = await postImage(formData, formConfig);
-      console.log("RESP", asolution);
-      const puzzleStatus = asolution.puzzle_status;
-      const original = asolution.values;
-      const level = asolution.difficulty;
-      const solved = asolution.solution;
+    const asolution = await postImage(formData, formConfig);
+    const puzzleStatus = asolution.puzzle_status;
+    const original = asolution.values;
+    const level = asolution.difficulty;
+    const solved = asolution.solution;
 
-      await setSolution(asolution);
-      await setFile({});
+    await setSolution(asolution);
+    await setFile({});
 
-      if (puzzleStatus === 1) {
-          // valid with solution;
-          const isPuzzle = true
-          setSolution(asolution)
-          return asolution
-        
-          console.log("PuzzleStatus Check: ", solution)
-        // const values = resp.data.values;
-
-        // const puzzle = [];
-        // var row = [];
-        // for (var i = 0; i < solution.length; i++) {
-        //   const editable = (values.charAt(i) === '.')
-        //   const str = solution.charAt(i);
-        //   row.push({editable: editable, cellValue: str});
-        //   if (i > 0 && (i+1) % 9 === 0) {
-        //     puzzle.push(row);
-        //     row = [];
-        //   }
-        // }
-        // setGameBoardState({
-        //   boardState : puzzle,
-        //   puzzleId: "",
-        //   history   : [],
-        //   conflicts : new Set([])  
-        // });
-  // no solution
-      } else if (puzzleStatus === 2) {
-       alert('Puzzle is invalid. Please take another picture and try again.')
-      }
-
-      console.log("RESPONSE", solution);
-    // } catch (error) {                                 
-    //   console.log("ERROR", error)
-    // }
+    if (puzzleStatus === 1) {
+        // valid with solution;
+        const isPuzzle = true
+        setSolution(asolution)
+        return asolution
+      // Else if no solution able to be derived
+    } else if (puzzleStatus === 2) {
+      alert('Puzzle is invalid. Please take another picture and try again.')
+    }
+    console.log("RESPONSE", asolution);
   }
-//   setSolution(asolution)
-//   const [gameBoardState, setGameBoardState] = useState(
-//     {
-//       boardState : [],
-//       puzzleId: "",
-//       history   : [],
-//       conflicts : new Set([])  
-//     });
 
   return (
       <>
