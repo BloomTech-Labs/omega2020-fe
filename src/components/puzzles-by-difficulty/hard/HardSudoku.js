@@ -116,23 +116,14 @@ const HardSudoku = () => {
     });
   };
   
-  const boardStateAsString = (boardState) => {
-    let board = "";
-    for(let i=0; i<boardState.length; i++) {
-      for(let j=0; j<boardState[i].length;j++) {
-        board += boardState[i][j].cellValue;
-      }
-    }
-    return board;
-  }
-  
+
   // saves sudoku state (data, diffuculty, time) to backend.
   const handleSaveClick = () => {
 
     console.log(gameBoardState);
     
     const puzzleId = gameBoardState.puzzleId;
-    
+    console.log(puzzleId)
     // Turn boardState into a string
     var playString = [];
     var playStringNow;
@@ -146,21 +137,24 @@ const HardSudoku = () => {
     // activePuzzleString = single string represents current board state
     var activePuzzleString = playString.join(''); 
     
-    const req = {
-      // time: gameBoardState.time,
-      difficulty: gameBoardState.level,
-      data: activePuzzleString,
-      solved: gameBoardState.solved,
-      original: gameBoardState.original
-    };
-  
 
+
+      const req = {
+        // time: gameBoardState.time,
+        difficulty: gameBoardState.level,
+        data: activePuzzleString,
+        solved: gameBoardState.solved,
+        original: gameBoardState.original
+      };
+    
+  
     axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then(res => {
         console.log("REQ", res);
         alert('Puzzle saved');
     });
+
   };
   
   function handleVerifyClick() {

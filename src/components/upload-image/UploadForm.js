@@ -25,6 +25,7 @@ export default function UploadForm() {
 
     formData.append('file', fileBlob, fileBlob.filename);
     const formConfig = { headers: { 'content-type': 'multipart/form-data' } }		
+
     const asolution = await postImage(formData, formConfig);
     const puzzleStatus = asolution.puzzle_status;
     const original = asolution.values;

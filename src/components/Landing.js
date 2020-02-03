@@ -128,7 +128,7 @@ const Landing = () => {
       <main>
         {/* Hero unit */}
           <Container maxWidth="lg">
-            <img className={classes.image} src={require("../images/omega2020.PNG")}  width="400" height="400" alt="Omega2020 logo" />
+            <img className={classes.image} src={require("../images/Landing-page.png")}  width="400" height="400" alt="Omega2020 logo" />
             <Container className={classes.buttonGrid} maxWidth='lg'>
                 <Button variant="contained" color="primary" disableElevation className={classes.button} href="/register">Create Account</Button>
                 <Button variant="contained" color="primary" disableElevation className={classes.button} href="/login">Sign in</Button>
@@ -136,8 +136,8 @@ const Landing = () => {
               </Container>
             <div className={classes.textDiv} width="400" height="400">
               <div className={classes.topTextDiv}>
-                <div classname={classes.topTitle}>
-                    <Typography variant="h3">
+                <div classname={classes.topTitle} className="h3" >
+                    <Typography variant="h3" >
                           Customize your gameplay!
                     </Typography>
                 </div>

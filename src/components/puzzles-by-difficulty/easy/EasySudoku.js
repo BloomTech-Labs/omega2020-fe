@@ -114,17 +114,7 @@ const EasySudoku = () => {
       conflicts : new Set([])
     });
   };
-  
-  const boardStateAsString = (boardState) => {
-    let board = "";
-    for(let i=0; i<boardState.length; i++) {
-      for(let j=0; j<boardState[i].length;j++) {
-        board += boardState[i][j].cellValue;
-      }
-    }
-    return board;
-  }
-  
+ 
   // saves sudoku state (data, diffuculty, time) to backend.
   const handleSaveClick = () => {
 
@@ -153,7 +143,7 @@ const EasySudoku = () => {
       original: gameBoardState.original
     };
   
-
+console.log("EASY",puzzleId)
     axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then(res => {
