@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-// import Alert from '@material-ui/lab/Alert';
 import './UploadImage.css';
 import Board from '../Board'
 
@@ -73,7 +72,7 @@ export default function UploadImage() {
     });
 
   return (
-    <div align="center" style={{ marginTop: "15%" }}>
+    <div className="upload-image" align="center" style={{ marginTop: "1%" }}>
      {/* <h2>Your Solved Puzzle</h2> */}
       {/* <div>{solution.puzzle_status}</div>
       <div>{solution.solution}</div>
@@ -98,7 +97,7 @@ export default function UploadImage() {
         onClick={handleUpload}
         startIcon={<CloudUploadIcon />}
       >
-        Upload a
+        Upload 
       </Button>
 </div>
   )

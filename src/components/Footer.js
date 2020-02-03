@@ -42,7 +42,6 @@ const useStyles = makeStyles(theme => ({
     },
     icons: {
         marginRight: theme.spacing(2),
-
       },
   }));
   
