@@ -3,15 +3,17 @@
 	font-family: 'Roboto';
 }
 
+/* @media only screen and (max-width: 600px) {
+	.image {
+		display:hidden;
+	}
+  } */
+
 .MuiBottomNavigation-root {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 }
-/* footer {
-	position: absolute;
-    bottom: 0;
-} */
 
 @media only screen and (max-width: 500px) {
 	.mediaImage{

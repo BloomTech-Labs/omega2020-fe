@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
-import axiosLoginAuth from '../utils/axiosLoginAuth';
+import axiosLoginAuth from '../../utils/axiosLoginAuth';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
@@ -23,17 +21,17 @@ function Copyright() {
       {'.'}
     </Typography>
   );
-}
+};
 
 const useStyles = makeStyles(theme => ({
   root: {
     height: '90vh',
     width: '80vw',
     justifyContent: "center",
-    margin: theme.spacing(8, 10, 8, 20),
+    margin: theme.spacing(8, 10, 8, 20)
   },
   main: {
-    height:'60%',
+    height:'60%'
   },
   image: {
     marginLeft:'5%',
@@ -41,27 +39,24 @@ const useStyles = makeStyles(theme => ({
     backgroundColor:
     theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
- },
-
+    backgroundPosition: 'center'
+  },
   paper: {
     margin: theme.spacing(8, 8, 8),
     display: 'flex',
     flexDirection: 'column',
-    height:'200px',
+    height:'200px'
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-    
+    backgroundColor: theme.palette.secondary.main
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-
+    marginTop: theme.spacing(1)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(3, 0, 2)
   },
 }));
 
@@ -72,32 +67,24 @@ const Login = (props) => {
     const changeHandler = event => {
         setUser({...user, [event.target.name]: event.target.value})
     }
-     const handleSubmit = event => {
-         event.preventDefault();
-         console.log(user);
-         
-         axiosLoginAuth()
-            .post("/auth/login", user)
-            .then(result => {
-            console.log(result);
-            setUser({email: user.email, password: user.password, id: user.id});
-            console.log("TOKEN", result.data.token);
-            localStorage.setItem("token", result.data.token);
-            localStorage.setItem("id", user.email);
-            props.onChange();
-            props.history.push("/random")
-
-//             props.onChange();
-//             setUser({ email: '', password: ''})
-//               props.history.push("/puzzle")
-
+    const handleSubmit = event => {
+      event.preventDefault();
+      console.log(user);
+      
+      axiosLoginAuth()
+        .post("/auth/login", user)
+        .then(result => {
+          setUser({email: user.email, password: user.password, id: user.id});
+          localStorage.setItem("token", result.data.token);
+          localStorage.setItem("id", user.email);
+          props.onChange();
+          props.history.push("/random")
         })
         .catch(error => {
           console.log(error)
           alert("Email and/or Password not recognized, please try again", error)
-      })
-    
-    }
+        });
+    };
 
   const classes = useStyles();
 
@@ -152,9 +139,9 @@ const Login = (props) => {
           </form>
         </div>
       </Grid>
-      <img className={classes.image} className="mediaImage" src={require("../images/Mask Group (1).png")} alt="Omega2020 theme" />
+      <img className={classes.image} className="mediaImage" src={require("../../images/Mask Group (1).png")} alt="Omega2020 theme" />
     </Grid>
   );
-}
+};
 
-export default Login
+export default Login;

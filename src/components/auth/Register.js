@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import axiosLoginAuth from '../utils/axiosLoginAuth';
+import axiosLoginAuth from '../../utils/axiosLoginAuth';
 
 function Copyright() {
   return (
@@ -65,47 +65,28 @@ const Registration = (props) => {
     const [user, setUser] = useState({"email": '', "password": ''})
     
     const changeHandler = event => {
-    
         event.preventDefault();
         setUser({...user, [event.target.name]: event.target.value })
-    }
-    
-    
+    };
+  
     const handleSubmit = event => {
         event.preventDefault();
-        // axiosLoginAuth()
         axios
-            .post("https://omega2020.herokuapp.com/auth/register", user)
-            // .post("http://localhost:7777/auth/register", user)
-            .then( result => {
-              console.log("user", user)
-              console.log("result", result)
-              
-              setUser({email: user.email, password: user.password, id: user.id})
-              
-              axiosLoginAuth()
-                .post("/auth/login", user)
-                .then(result => {
-                console.log(result)
-                console.log("TOKEN", result.data.token);
-                localStorage.setItem("token", result.data.token);
-
-                props.onChange();
-                props.history.push("/random");
-                // setUser({ email: '', password: ''})
-                //           props.history.push("/puzzle")
-                //   })
-                //   .catch(error => {
-                //     console.log(error)
-                //     alert("Email and/or Passwrod not recognized, please try again", error)
-                // })
-                })
-                .catch(error => {
-                  console.log(error)
-                  alert("Email already exists please login to continue", error)
-                });
+          .post("https://omega2020.herokuapp.com/auth/register", user)
+          .then( result => {
+            setUser({email: user.email, password: user.password, id: user.id})
             
+            axiosLoginAuth()
+              .post("/auth/login", user)
+              .then(result => {
+              localStorage.setItem("token", result.data.token);
+              props.onChange();
+              props.history.push("/random");
+              })
+              .catch(error => {
+                alert("Email already exists please login to continue", error)
               });
+            });
   }
     
   const classes = useStyles();
@@ -161,9 +142,9 @@ const Registration = (props) => {
           </form>
         </div>
       </Grid>
-      <img className={classes.image} className="mediaImage" src={require("../images/Mask Group.png")} alt="Omega2020 theme" />
+      <img className={classes.image} className="mediaImage" src={require("../../images/Mask Group.png")} alt="Omega2020 theme" />
     </Grid>
   );
-}
+};
 
-export default Registration
+export default Registration;
