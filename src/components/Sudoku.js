@@ -30,11 +30,6 @@ const Sudoku = () => {
       conflicts : new Set([])  
     });
   
-// if logged in, retrieve flag for isPuzSaved and if true, render ResumedPuzzle
-// {}  
-// const checkForSaved() {
-//     Axios.
-//   }
   
   // Retrieve puzzle data
   async function getRandomPuzzle() {
@@ -121,17 +116,7 @@ console.log("SOLVED", gameBoardState.solved)
     });
   };
   
-  // const boardStateAsString = (boardState) => {
-  //   let board = "";
-  //   for(let i=0; i<boardState.length; i++) {
-  //     for(let j=0; j<boardState[i].length;j++) {
-  //       board += boardState[i][j].cellValue;
-  //     }
-  //   }
-  //   return board;
-  // }
-
-  // ************** Saves sudoku state (data, diffuculty, time) to backend *********
+  // ************** Saves sudoku state (data, difficulty, time) to backend *********
 
 
   const handleSaveClick = () => {
@@ -235,6 +220,7 @@ console.log("SOLVED", gameBoardState.solved)
     var activePuzzleString = playString.join(''); 
     console.log("activePuzzleString", activePuzzleString);
     console.log("WIN", win);
+    // Check for Win when no conflicts are there
     
     if (mergedConflicts.length === 0){
       if (activePuzzleString === win){

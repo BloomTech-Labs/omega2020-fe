@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-// import Alert from '@material-ui/lab/Alert';
 import './UploadImage.css';
-import Board from '../Board'
-import { postImage } from './postImage'
-import UploadSudoku2 from './UploadSudoku2'
+import { postImage } from './postImage';
+import UploadSudoku2 from './UploadSudoku2';
 
 
 export default function UploadForm() {
@@ -28,47 +25,33 @@ export default function UploadForm() {
 
     formData.append('file', fileBlob, fileBlob.filename);
     const formConfig = { headers: { 'content-type': 'multipart/form-data' } }		
-    // try {
-      const asolution = await postImage(formData, formConfig);
-      const puzzleStatus = await asolution.puzzle_status;
-      const original = asolution.values;
-      const level = asolution.difficulty;
-      const solved = asolution.solution;
 
-      await setSolution(asolution);
-      await setFile({});
+    const asolution = await postImage(formData, formConfig);
+    const puzzleStatus = asolution.puzzle_status;
+    const original = asolution.values;
+    const level = asolution.difficulty;
+    const solved = asolution.solution;
 
-      if (puzzleStatus === 1) {
-          // valid with solution;
-          const isPuzzle = true
-          setSolution(asolution)
-          return asolution
-        
-   
-  // no solution
-      } else if (puzzleStatus === 2) {
-       alert('Puzzle is invalid. Please take another picture and try again.')
-      }
+    await setSolution(asolution);
+    await setFile({});
 
-      console.log("RESPONSE", solution);
-    // } catch (error) {                                 
-    //   console.log("ERROR", error)
-    // }
+    if (puzzleStatus === 1) {
+        // valid with solution;
+        const isPuzzle = true
+        setSolution(asolution)
+        return asolution
+      // Else if no solution able to be derived
+    } else if (puzzleStatus === 2) {
+      alert('Puzzle is invalid. Please take another picture and try again.')
+    }
+    console.log("RESPONSE", asolution);
   }
-//   setSolution(asolution)
-//   const [gameBoardState, setGameBoardState] = useState(
-//     {
-//       boardState : [],
-//       puzzleId: "",
-//       history   : [],
-//       conflicts : new Set([])  
-//     });
 
   return (
       <>
       {solution.puzzle_status===1 ? <UploadSudoku2 solution={solution} /> 
       :
-      <div align="center" style={{ marginTop: "15%" }}>
+      <div className= "upload-image" align="center" style={{ marginTop: "15%" }}>
 
         <label htmlFor="upload-button">
             { file.preview ? <img src={ file.preview } width="400" height="400"  id="preview" alt="Upload your image" /> : (
