@@ -296,7 +296,7 @@ const UploadSudoku = () => {
         </div>
         <div>
           <Board
-            className="Board"
+            className="Board" id="upload-board"
             boardState = {gameBoardState.boardState}
             conflicts = {gameBoardState.conflicts}
             onSquareValueChange = {handleSquareValueChange}
