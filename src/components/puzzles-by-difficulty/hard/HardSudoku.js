@@ -138,6 +138,7 @@ const HardSudoku = () => {
     var activePuzzleString = playString.join(''); 
     
 
+
       const req = {
         // time: gameBoardState.time,
         difficulty: gameBoardState.level,
@@ -147,12 +148,13 @@ const HardSudoku = () => {
       };
     
   
-      axiosWithAuth()
-        .post(`/user-puzzles/${puzzleId}`, req)
-        .then(res => {
-          console.log("REQ", res);
-      });
-    
+    axiosWithAuth()
+      .post(`/user-puzzles/${puzzleId}`, req)
+      .then(res => {
+        console.log("REQ", res);
+        alert('Puzzle saved');
+    });
+
   };
   
   function handleVerifyClick() {

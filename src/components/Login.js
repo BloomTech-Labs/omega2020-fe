@@ -39,11 +39,11 @@ const useStyles = makeStyles(theme => ({
     marginLeft:'5%',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
-      theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
+    theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+ },
 
-  },
   paper: {
     margin: theme.spacing(8, 8, 8),
     display: 'flex',
@@ -152,7 +152,7 @@ const Login = (props) => {
           </form>
         </div>
       </Grid>
-      <img className={classes.image} src={require("../images/Mask Group (1).png")} alt="Omega2020 theme" />
+      <img className={classes.image} className="mediaImage" src={require("../images/Mask Group (1).png")} alt="Omega2020 theme" />
     </Grid>
   );
 }

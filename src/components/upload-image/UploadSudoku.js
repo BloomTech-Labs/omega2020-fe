@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import Board from '../../Board.js';
-import { GetEasyPuzzle, solvedPuzzle, unsolvedPuzzle } from './EasyPuzzle';
+// import { GetDiabolicalPuzzle, solvedPuzzle, unsolvedPuzzle } from './DiabolicalPuzzle';
 import SudokuButtons from '../../SudokuButtons.js';
 import '../../Sudoku.css';
 import { ga } from 'react-ga';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import Settings from '../../themes/Settings'
 
-const EasySudoku = () => {
+
+
+const UploadSudoku = () => {
   const [win, setWin] = useState("");
 
   const [gameBoardState, setGameBoardState] = useState(
     {
       boardState : "",
       puzzleId: "",
-      // time: 0,
       history   : [],
       conflicts : new Set([])  
     });
@@ -22,15 +23,14 @@ const EasySudoku = () => {
   
   // Retrieve puzzle data
   async function getRandomPuzzle() {
-    var puzzles = await GetEasyPuzzle();
-    setWin(puzzles.solution);
-
-    return puzzles;
+    // var puzzles = await GetDiabolicalPuzzle();
+    // setWin(puzzles.solution);
+    // return puzzles;
   };
   
   const getFormattedPuzzle = async () => {
     const puzzle = await getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
+    const formattedPuzzle = formatPuzzle(puzzle.sudoku);
 
     console.log("GBS in formatted puzzle", gameBoardState)
     console.log("Loaded puzzle in formatted puzzle", puzzle)
@@ -39,25 +39,11 @@ const EasySudoku = () => {
         ...gameBoardState,
         puzzleId: puzzle.id,
         level: puzzle.level,
-        boardState: formattedPuzzle,
-        solved: puzzle.solution,
-        original: puzzle.sudoku
+        boardState: formattedPuzzle
       });
   };
 
-  // const [gameBoardState, setGameBoardState] = useState(
-  // {
-  //         boardState : getFormattedPuzzle(),
-  //         puzzleId: getPuzzle.id,
-  //         difficulty: getPuzzle.difficulty,
-  //         time: getPuzzle.time,
-  //         solvedPuzzleState: solvedPuzzle,
-  //         history   : [],
-  //         conflicts : new Set([])  
-  // });
-  // console.log("GBS in SUD", win)
 
-  
   useEffect(() => {
     getFormattedPuzzle();
 
@@ -114,7 +100,17 @@ const EasySudoku = () => {
       conflicts : new Set([])
     });
   };
- 
+  
+  const boardStateAsString = (boardState) => {
+    let board = "";
+    for(let i=0; i<boardState.length; i++) {
+      for(let j=0; j<boardState[i].length;j++) {
+        board += boardState[i][j].cellValue;
+      }
+    }
+    return board;
+  }
+  
   // saves sudoku state (data, diffuculty, time) to backend.
   const handleSaveClick = () => {
 
@@ -137,19 +133,15 @@ const EasySudoku = () => {
     
     const req = {
       // time: gameBoardState.time,
-      difficulty: gameBoardState.level,
-      data: activePuzzleString,
-      solved: gameBoardState.solved,
-      original: gameBoardState.original
-    };
-  
-console.log("EASY",puzzleId)
+      difficulty: gameBoardState.difficulty,
+      data: activePuzzleString};
+      
     axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then(res => {
-        console.log("REQ", res);
-        alert('Puzzle saved');
-    });
+        console.log("AXIOSWITHAUTH GET: ", res);
+        console.log("REGISTER", res);
+      });
   };
   
   function handleVerifyClick() {
@@ -304,7 +296,7 @@ console.log("EASY",puzzleId)
         </div>
         <div>
           <Board
-            className="Board"
+            className="Board" id="upload-board"
             boardState = {gameBoardState.boardState}
             conflicts = {gameBoardState.conflicts}
             onSquareValueChange = {handleSquareValueChange}
@@ -328,4 +320,4 @@ console.log("EASY",puzzleId)
     };
     return arr;
 };
-export default EasySudoku;
+export default UploadSudoku;

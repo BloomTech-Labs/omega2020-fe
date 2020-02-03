@@ -53,6 +53,7 @@ const App = () => {
         <Route path="/upload" component={UploadForm} />
         <Route path="/upload-save" component={UploadSudoku2} />
       </Switch>
+
     <Footer />
     </div>
     </Router>
