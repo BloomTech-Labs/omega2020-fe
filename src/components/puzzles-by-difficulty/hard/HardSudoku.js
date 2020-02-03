@@ -159,6 +159,7 @@ const HardSudoku = () => {
       .post(`/user-puzzles/${puzzleId}`, req)
       .then(res => {
         console.log("REQ", res);
+        alert('Puzzle saved');
     });
   };
   
