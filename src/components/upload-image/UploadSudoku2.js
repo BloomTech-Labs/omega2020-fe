@@ -137,6 +137,7 @@ const UploadSudoku2 = (solution) => {
     
     const req = {
       // time: gameBoardState.time,
+      puzzleId: '',
       difficulty: gameBoardState.difficulty,
       data: activePuzzleString};
       

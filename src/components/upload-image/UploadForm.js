@@ -30,8 +30,7 @@ export default function UploadForm() {
     const formConfig = { headers: { 'content-type': 'multipart/form-data' } }		
     // try {
       const asolution = await postImage(formData, formConfig);
-      console.log("RESP", asolution);
-      const puzzleStatus = asolution.puzzle_status;
+      const puzzleStatus = await asolution.puzzle_status;
       const original = asolution.values;
       const level = asolution.difficulty;
       const solved = asolution.solution;
@@ -45,26 +44,7 @@ export default function UploadForm() {
           setSolution(asolution)
           return asolution
         
-          console.log("PuzzleStatus Check: ", solution)
-        // const values = resp.data.values;
-
-        // const puzzle = [];
-        // var row = [];
-        // for (var i = 0; i < solution.length; i++) {
-        //   const editable = (values.charAt(i) === '.')
-        //   const str = solution.charAt(i);
-        //   row.push({editable: editable, cellValue: str});
-        //   if (i > 0 && (i+1) % 9 === 0) {
-        //     puzzle.push(row);
-        //     row = [];
-        //   }
-        // }
-        // setGameBoardState({
-        //   boardState : puzzle,
-        //   puzzleId: "",
-        //   history   : [],
-        //   conflicts : new Set([])  
-        // });
+   
   // no solution
       } else if (puzzleStatus === 2) {
        alert('Puzzle is invalid. Please take another picture and try again.')
