@@ -12,30 +12,27 @@ import Settings from '../themes/Settings'
 const UploadSudoku2 = (solution) => {
   const [win, setWin] = useState("");
   
-  //   setSolution(asolution)
-//   const [gameBoardState, setGameBoardState] = useState(
-//     {
-//       boardState : [],
-//       puzzleId: "",
-//       history   : [],
-//       conflicts : new Set([])  
-//     });
+  //// Description of gameBoardState below
+  // {
+  //   boardState : "", => String of formated board values
+  //   puzzleId: "", => Puzzle Id from DS and passed thru BE
+  //   // time: 0, => Not yet implemented
+  //   history   : [], => The history of current game play
+  //   conflicts : new Set([])   => Array of conflicting values across fields (3x3 grid of cells), rows and columns.
+  // });
 
   const [gameBoardState, setGameBoardState] = useState(
-    {
-      ...solution,
-      boardState : "",
-      puzzleId: "",
-      history   : [],
-      conflicts : new Set([])  
-    });
-  
-    console.log("GBS in formatted puzzle", gameBoardState)
+                                  {
+                                    ...solution,
+                                    boardState : "",
+                                    puzzleId: "",
+                                    history   : [],
+                                    conflicts : new Set([])  
+                                  });
   
   // Retrieve puzzle data
   async function getRandomPuzzle() {
     var puzzles = await solution;
-    console.log("PUXXXXs", puzzles.solution)
     setWin(puzzles.solution.solution);
     return puzzles.solution;
   };
@@ -44,23 +41,21 @@ const UploadSudoku2 = (solution) => {
     const puzzle = await getRandomPuzzle();
     const formattedPuzzle = formatPuzzle(puzzle.values);
 
-    console.log("Loaded puzzle in formatted puzzle", puzzle)
-    console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
-      setGameBoardState({
-        ...gameBoardState,
-        puzzleId: '',
-        level: puzzle.difficulty,
-        boardState: formattedPuzzle,
-        original: puzzle.values,
-        solved: puzzle.solution
-      });
+    setGameBoardState({
+      ...gameBoardState,
+      puzzleId: '',
+      level: puzzle.difficulty,
+      boardState: formattedPuzzle,
+      original: puzzle.values,
+      solved: puzzle.solution
+    });
   };
 
-
+  // START HERE  by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
 
-  },[]) 
+  },[]);
 
   function getDeepCopyOfArray(arr) {
     return JSON.parse(JSON.stringify(arr));
@@ -75,9 +70,7 @@ const UploadSudoku2 = (solution) => {
           cellId    : stringify(i, j),
           editable  : prevEditable
         };
-    //   console.log("newBoardState: ", prevState.newBoardState)
-
-      // Now push the previous board state on the history stack
+    // Now push the previous board state on the history stack
       const newHistory = getDeepCopyOfArray(prevState.history);
       newHistory.push(prevState.boardState);
 
@@ -114,21 +107,9 @@ const UploadSudoku2 = (solution) => {
     });
   };
   
-  const boardStateAsString = (boardState) => {
-    let board = "";
-    for(let i=0; i<boardState.length; i++) {
-      for(let j=0; j<boardState[i].length;j++) {
-        board += boardState[i][j].cellValue;
-      }
-    }
-    return board;
-  }
-  
-  // saves sudoku state (data, diffuculty, time) to backend.
-  const handleSaveClick = () => {
+    // ************** Saves sudoku state (data, difficulty, time) to backend *********
 
-    console.log(gameBoardState);
-    
+  const handleSaveClick = () => {
     const puzzleId = gameBoardState.puzzleId;
     
     // Turn boardState into a string
@@ -153,7 +134,6 @@ const UploadSudoku2 = (solution) => {
       .post(`/user-puzzles/${puzzleId}`, req)
       .then(res => {
         console.log("AXIOSWITHAUTH GET: ", res);
-        console.log("REGISTER", res);
       });
   };
   
@@ -170,9 +150,9 @@ const UploadSudoku2 = (solution) => {
     // populating rows
     for(let i=0; i<boardState.length; i++) {
       rows[i] = getDeepCopyOfArray(boardState[i]);
-      // console.log("BOX ID: ", "boxId")
       
       for(let j=0; j<boardState[i].length;j++) {
+        
         // populating columns
         if(cols.hasOwnProperty(j)) {
           cols[j].push(boardState[i][j]); //set a new cell value in the board
@@ -194,11 +174,12 @@ const UploadSudoku2 = (solution) => {
     const rowConflicts = flatten(getConflicts(Object.values(rows)));
     const colConflicts = flatten(getConflicts(Object.values(cols)));
     const boxConflicts = flatten(getConflicts(Object.values(boxes)));
-    
-    // console.log("BOX CONFLICTS1: ", boxConflicts)
-    
     const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
-    setGameBoardState({...gameBoardState, conflicts: new Set(mergedConflicts)});
+
+    setGameBoardState({
+        ...gameBoardState, 
+        conflicts: new Set(mergedConflicts)
+      });
     
     // Turn boardState into a string
     var playString = [];
@@ -213,13 +194,11 @@ const UploadSudoku2 = (solution) => {
     
     // activePuzzleString = single string represents current board state
     var activePuzzleString = playString.join(''); 
-    console.log("activePuzzleString", activePuzzleString);
-    console.log("WIN", win);
     
+    // Check for Win when no conflicts are there
     if (mergedConflicts.length === 0){
       if (activePuzzleString === win){
         return (
-          // build some animation for win here
           alert('Congratulations! You have solved the puzzle!')
           )};
         };
@@ -229,6 +208,7 @@ const UploadSudoku2 = (solution) => {
         return Array.isArray(a) ? [].concat(...a.map(flatten)) : a;
       };
       
+      // Get conflicts from the array of locations from line 173
       function getConflicts(arrs) {
         return (arrs.map(arr => getConflictsInArray(arr)));
       };
@@ -247,10 +227,10 @@ const UploadSudoku2 = (solution) => {
             };      
           };
         };
-        
         return Object.values(conflictMap).filter(arr => arr.length>1); 
       };
       
+      // Takes the puzzle string and formats it into an array of arrays.
       function formatPuzzle(puzzle) {
         const formattedPuzzle = createArray(9, 9);
         
@@ -322,7 +302,7 @@ const UploadSudoku2 = (solution) => {
     );
     
   };
-  //
+  
   function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
@@ -333,4 +313,5 @@ const UploadSudoku2 = (solution) => {
     };
     return arr;
 };
+
 export default UploadSudoku2;

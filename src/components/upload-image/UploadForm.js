@@ -50,7 +50,7 @@ export default function UploadForm() {
       <>
       {solution.puzzle_status===1 ? <UploadSudoku2 solution={solution} /> 
       :
-      <div align="center" style={{ marginTop: "15%" }}>
+      <div className= "upload-image" align="center" style={{ marginTop: "15%" }}>
 
         <label htmlFor="upload-button">
             { file.preview ? <img src={ file.preview } width="400" height="400"  id="preview" alt="Upload your image" /> : (
