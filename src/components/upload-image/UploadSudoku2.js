@@ -139,6 +139,7 @@ const [win, setWin] = useState("");
       };
     
      postWithAuth(puzzleId, req);
+  
   };
   
   function handleVerifyClick() {
