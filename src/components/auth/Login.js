@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(8, 8, 8),
     display: 'flex',
     flexDirection: 'column',
-    height:'200px'
+    height:'auto'
   },
   avatar: {
     margin: theme.spacing(1),
@@ -67,6 +67,7 @@ const Login = (props) => {
     const changeHandler = event => {
         setUser({...user, [event.target.name]: event.target.value})
     }
+    
     const handleSubmit = event => {
       event.preventDefault();
       console.log(user);
