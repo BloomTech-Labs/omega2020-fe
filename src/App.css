@@ -3,12 +3,6 @@
 	font-family: 'Roboto';
 }
 
-/* @media only screen and (max-width: 600px) {
-	.image {
-		display:hidden;
-	}
-  } */
-
 .MuiBottomNavigation-root {
 	position: absolute;
 	bottom: 0;
@@ -30,3 +24,21 @@
 		flex-flow: row wrap;
 	}
 } 
+
+.team-list {
+	border: 0;
+	padding: 1rem;
+	cursor: pointer;
+	position: relative;
+	margin: 1rem auto;
+	width: 95%;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.about {
+	text-align: center;
+	font-size: 2rem;
+}

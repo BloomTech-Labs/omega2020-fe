@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import axiosLoginAuth from '../../utils/axiosLoginAuth';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     height:'60%'
   },
   image: {
-    marginLeft:'5%',
+    marginLeft:'1%',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
     theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],

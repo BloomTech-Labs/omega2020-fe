@@ -98,6 +98,9 @@ const LoggedIn = (props) => {
                 <Link href="/upload" className={classes.label} label="Upload Image">
                   Upload Puzzle
                 </Link>
+                <Link href="/about" className={classes.label} label="About Team">
+                  About Us
+                </Link>
                 <Link href="/" onClick={logout} className={classes.label} label="Logout">
              Logout
            </Link>
