@@ -1,5 +1,5 @@
 import React, {  } from 'react';
-import './Sudoku.css';
+import '../Sudoku.css';
 
 function Square(props) {
 

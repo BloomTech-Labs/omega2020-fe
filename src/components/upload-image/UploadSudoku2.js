@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Board from '../Board.js';
-import UploadForm from './UploadForm';
+import Board from '../puzzle-builder/Board';
 import SudokuButtons from '../SudokuButtons.js';
-import '../Sudoku.css';
-import { ga } from 'react-ga';
-import axiosWithAuth from '../../utils/axiosWithAuth';
 import Settings from '../themes/Settings'
 import { postWithAuth } from './postWithAuth.js';
+import '../Sudoku.css';
 
 
 

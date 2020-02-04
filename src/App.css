@@ -3,34 +3,30 @@
 	font-family: 'Roboto';
 }
 
+/* @media only screen and (max-width: 600px) {
+	.image {
+		display:hidden;
+	}
+  } */
+
 .MuiBottomNavigation-root {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 }
-/* footer {
-	position: absolute;
-    bottom: 0;
-} */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
+	.image {
+		display:hidden;
+	}
 	.mediaImage{
 	  display: none;
 	}
-
 	main  {
 		justify-self: center;
 		margin: 64px 40px 64px 40px;
 	}
-
 	.MuiContainer-root {
 		flex-flow: row wrap;
 	}
-	/* .makeStyles-root-198 {
-		margin: 64px 10px 64px 10px;
-	} */
-}
-
-
-  
-
+} 

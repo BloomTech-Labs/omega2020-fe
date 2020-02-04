@@ -1,6 +1,6 @@
 import React, {  } from 'react';
 
-import Square from './square.js';
+import Square from '../puzzle-builder/square';
 
 const Board = (props) => {
     console.log("BOARD PROPS: ", props)

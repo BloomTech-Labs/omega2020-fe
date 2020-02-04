@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Board from '../../Board.js';
-import { GetEasyPuzzle, solvedPuzzle, unsolvedPuzzle } from './EasyPuzzle';
+import Board from '../../puzzle-builder/Board';
+import { GetEasyPuzzle } from './EasyPuzzle';
 import SudokuButtons from '../../SudokuButtons.js';
-import '../../Sudoku.css';
-import { ga } from 'react-ga';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import Settings from '../../themes/Settings'
+import '../../Sudoku.css';
 
 const EasySudoku = () => {
   const [win, setWin] = useState("");

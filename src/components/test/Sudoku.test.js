@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import App from '../../App.js'
-import Sudoku from '../Sudoku.js';
+import Sudoku from '../puzzles-by-difficulty/random/Sudoku';
 import SudokuButtons from '../SudokuButtons';
 
 
