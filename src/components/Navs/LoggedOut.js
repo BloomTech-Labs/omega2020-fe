@@ -97,7 +97,9 @@ const LoggedOut = (props) => {
                       Diabolical
                     </Link>
                 </Menu>
-                
+                <Link href="/about" className={classes.label} label="About Team">
+                About Us
+                </Link>
          </Grid>
           </Tabs>
         </AppBar>
