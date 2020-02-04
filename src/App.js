@@ -18,6 +18,7 @@ import EasySudoku from './components/puzzles-by-difficulty/easy/EasySudoku'
 // import UploadImage from './components/upload-image/UploadImage'
 import UploadForm from './components/upload-image/UploadForm'
 import UploadSudoku2 from './components/upload-image/UploadSudoku2'
+import TeamList from './components/about-team/TeamList'
 
 
 const App = () => {
@@ -52,6 +53,7 @@ const App = () => {
         {/* <Route path="/upload" component={UploadImage} /> */}
         <Route path="/upload" component={UploadForm} />
         <Route path="/upload-save" component={UploadSudoku2} />
+        <Route path="/about" component={TeamList} />
       </Switch>
 
     <Footer />
