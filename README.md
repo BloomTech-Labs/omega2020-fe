@@ -163,3 +163,11 @@ Better overall security would be offered via a third party, Auth0 for example. H
 - Benefits
   - The complex structure of the board and the functions that operate it and its features benefits from utilizing a simple, hands on form of styling
 ---
+
+### Known Bugs and Issues
+
+ 1. CORS - Upload Image functionlity doesn't work wihtout browser CORS extension. 
+ (example: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en)
+ 2. Media Queries - The usage of multiple style libraries (Material UI, React Style Components) have it's effects in overiding some of media query styles
+
+ 

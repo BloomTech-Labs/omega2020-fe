@@ -6,7 +6,7 @@ const TeamList = () =>  {
         {
             name: "Hira Khan",
             image: "https://ca.slack-edge.com/T4JUEB3ME-UG8U1EMQC-23707ef54cc3-512",
-            title: "Data Science",
+            title: "Data Scientist",
             linkedin:"https://www.linkedin.com/in/hira-shahid-991b1583/",
             github: "Hira63S"
         },
