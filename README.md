@@ -9,7 +9,7 @@ https://github.com/Lambda-School-Labs/omega2020-be
 # MISSION 
 
 **What problem does this application solve?**  
-Current Web-based Sudoku puzzles are clumsy, hard to use, and not visually stimulating or rewarding. Furthermore, few if any offer the able to register on the site and save your puzzle to come back to later.
+Current Web-based Sudoku puzzles are clumsy, hard to use, and not visually stimulating or rewarding. Furthermore, few if any offer the able to register on the site and save your puzzle to come back to later. Also options to choose a theme (darkmode,)
 
 **Who are your competitors and how do they solve this problem?**  
 

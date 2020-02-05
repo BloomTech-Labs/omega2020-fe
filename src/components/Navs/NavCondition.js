@@ -5,10 +5,7 @@ import LoggedOut from './LoggedOut';
 
 const NavCondition = (props) => {
 
-    // useEffect(() => {
-    //     setToken(localStorage.getItem("token"));
-    // });
-
+  
     if (props.token === null) {
         return <LoggedOut />
     } else {
