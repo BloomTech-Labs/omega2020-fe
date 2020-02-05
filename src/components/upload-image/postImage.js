@@ -9,3 +9,4 @@ export const postImage = (formData, formConfig) => {
         })
         .catch(err => console.log(err.response));
 };
+
