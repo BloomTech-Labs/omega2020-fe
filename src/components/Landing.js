@@ -179,7 +179,7 @@ const Landing = () => {
                     Solve
                     </Typography>
                     <Typography>
-                    Complete every puzzle you begin with our "Solve Square" option. Everyone is a winner! (coming soon).
+                    Complete every puzzle you begin with our "Solve Square" option. Everyone is a winner.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -193,15 +193,14 @@ const Landing = () => {
                 
                     title="Image title"
                   >
-                    {/* <img>{card.imgFile}</img> */}
-                   
+  
                   </CardMedia>
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
                     Play
                     </Typography>
                     <Typography>
-                    Create an account and enjoy different play modes. Guest play is also welcomed! (coming soon).
+                    Create an account and enjoy different play modes. Guest play is also welcomed.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -215,7 +214,6 @@ const Landing = () => {
                 
                     title="Image title"
                   >
-                    {/* <img>{card.imgFile}</img> */}
                    
                   </CardMedia>
                   <CardContent className={classes.cardContent}>
