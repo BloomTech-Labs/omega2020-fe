@@ -9,7 +9,7 @@ https://github.com/Lambda-School-Labs/omega2020-be
 # MISSION 
 
 **What problem does this application solve?**  
-Current Web-based Sudoku puzzles are clumsy, hard to use, and not visually stimulating or rewarding. Furthermore, few if any offer the able to register on the site and save your puzzle to come back to later. Also options to choose a theme (darkmode,)
+Current Web-based Sudoku puzzles are clumsy, hard to use, and not visually stimulating or rewarding. Furthermore, few if any offer the able to register on the site and save your puzzle to come back to later. Or choose a difficulty(rendom, easy, medium etc..) and theme (darkmode,city mode etc..) for your puzzle page. Also no other Sudoku Web apps have option to upload a paper sudoku image, bring whole puzzle over to the web and continue playing. 
 
 **Who are your competitors and how do they solve this problem?**  
 
@@ -37,7 +37,7 @@ Current Web-based Sudoku puzzles are clumsy, hard to use, and not visually stimu
 - Folder structure can get complicated 
 
 **What will you be using for styling and presentation?**  
-- Material UI and some 'vanilla' CSS
+- Material UI, React Styling Components and some 'vanilla' CSS
 
 ## Back End
 
@@ -94,7 +94,7 @@ An existing user wishes to login
 **Name:** ​Registration Page  
 **User type:** ​All  
 **Description:** Allows for creation of new users
-**Use Case:** ​A new user needs to create an account to have access to extended functionality like saving settings, saving a puzzle, or challenging a friend
+**Use Case:** ​A new user needs to create an account to have access to extended functionality like saving settings, saving a puzzle, or uploading and paper sudoku image and continue playing on the web. 
 
 ---
 
@@ -107,10 +107,30 @@ An existing user wishes to login
 
 **Name:** ​Puzzle Page
 **User type:** ​All  
-**Description:** ​A Sudoku board populates with data from our backend, providing 
-a user (logged in or not) with the ability to immediately play a game of Sudoku
+**Description:** ​A Sudoku board populates with data from our DS API with choice of over 5000 puzzles, providing 
+a user (logged in or not) with the ability to immediately play a game of Sudoku by choosing puzzle levels by difficulty and different themes. 
 **Use Case:** ​A user wants to quickly access the site and get into a game
 **Known Issue:** If a user enters multiple invalid inputs, shows hints, and then manually deletes those invalid inputs and shows hints again *without* hitting undo', the empty cells will trigger a red conflict status 
+
+---
+
+**Name:** ​Resume Puzzle Page
+**User type:** ​Logged in user
+**Description:** A resume puzzle functionality resumes the puzzle previosly saved on puzzle page. 
+**Use Case:** If a user needs to leave the web app before finishing the sudoku and wants to save it for later.
+---
+
+**Name:** ​Upload Puzzle
+**User type:** ​Logged in user
+**Description:** Upload puzzle feature let's a user upload paper sudoku puzzle and turn it to digital version of the same puzzle. 
+**Use Case:** If a user wants to play digital version of the paper puzzle and needs some validation hints.
+
+---
+
+**Name:** ​About us
+**User type:** ​All
+**Description:** This page is about our team. 
+**Use Case:** 
 
 ---
 
