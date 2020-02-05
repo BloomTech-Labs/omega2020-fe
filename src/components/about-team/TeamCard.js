@@ -13,8 +13,8 @@ import { blue } from '@material-ui/core/colors';
 
 const useStyles = makeStyles({
   root: {
-    width: 345,
-    marginTop: "20px",
+    width: 280,
+    marginTop: "25px",
   },
   media: {
     height: 200,
@@ -35,13 +35,13 @@ export default function TeamCard(props) {
           title={title}
         />
         <CardContent>
-          <Typography gutterBottom variant="h4" component="h2">
+          <Typography gutterBottom variant="h5" component="h2">
             {name}
           </Typography>
           <Typography gutterBottom variant="h6" color="textSecondary" component="p">
             {title}
           </Typography>
-          <Typography gutterBottom variant="h6" component="h2">
+          <Typography gutterBottom variant="h7" component="h2">
             GitHub Handle: {github}
           </Typography>
         </CardContent>
@@ -51,9 +51,7 @@ export default function TeamCard(props) {
             <Button color="primary" >LinkedIn
             </Button>
         </Link>
-        {/* <Button size="small" color="primary">
-          LinkedIn
-        </Button> */}
+
       </CardActions>
     </Card>
   );

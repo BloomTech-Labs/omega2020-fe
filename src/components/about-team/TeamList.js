@@ -11,11 +11,11 @@ const TeamList = () =>  {
             github: "Hira63S"
         },
         {
-            name: "Levi Simpson" ,
-            image: "https://ca.slack-edge.com/T4JUEB3ME-UDCJB03RD-0e87fb5029cc-512",
-            title: "Team Lead",
-            linkedin: "n/a",
-            github: "Levi-Huynh"
+            name: "Rob Hamilton",
+            image: "https://ca.slack-edge.com/T4JUEB3ME-ULJ9DTDKL-246bfe8730a9-512",
+            title: "Data Scientist",
+            linkedin: "https://www.linkedin.com/in/rob1ham/",
+            github: "Rob1Ham"
         },
         {
             name: "Sheila Eichenberger",
@@ -24,6 +24,7 @@ const TeamList = () =>  {
             linkedin: "N/A",
             github: "EpiceneDev"
         },
+ 
         {
             name: "Connor R Sullivan",
             image: "https://ca.slack-edge.com/T4JUEB3ME-ULVE6L3TJ-5b9eaad31d15-512",
@@ -39,11 +40,11 @@ const TeamList = () =>  {
             github: "n/a"
         },
         {
-            name: "Rob Hamilton",
-            image: "https://ca.slack-edge.com/T4JUEB3ME-ULJ9DTDKL-246bfe8730a9-512",
-            title: "Data Scientist",
-            linkedin: "https://www.linkedin.com/in/rob1ham/",
-            github: "Rob1Ham"
+            name: "Levi Simpson" ,
+            image: "https://ca.slack-edge.com/T4JUEB3ME-UDCJB03RD-0e87fb5029cc-512",
+            title: "Team Lead",
+            linkedin: "n/a",
+            github: "Levi-Huynh"
         },
         {
             name: "Rudy Enriquez",
@@ -69,7 +70,7 @@ const TeamList = () =>  {
     ];
 
         return (
-            <div>
+            <div className="about-container">
                 <h2 className="about">Meet Our Team</h2>
                 <div className="team-list">
                     {team.map(member => (
