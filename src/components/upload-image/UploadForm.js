@@ -6,7 +6,7 @@ import { postImage } from './postImage';
 import UploadSudoku2 from './UploadSudoku2';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Backdrop from '@material-ui/core/Backdrop';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -81,10 +81,8 @@ export default function UploadForm() {
       :
 
       <div  align="center">
-        
-        <ProgressIndicator isUploading={isUploading}/>
-
-        <div className= "upload-image" align="center" style={{ marginTop: "15%" }}>
+         <ProgressIndicator isUploading={isUploading}/>
+      <div className= "upload-image" align="center" style={{ marginTop: "5%" }}>
 
         <label htmlFor="upload-button">
             { file.preview ? <img src={ file.preview } width="400" height="400"  id="preview" alt="Upload your image" /> : (
@@ -102,7 +100,6 @@ export default function UploadForm() {
         </Button>
       </div>
       </div>
-      
-        }
+       }
         </>)
 }
