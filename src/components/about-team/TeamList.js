@@ -33,7 +33,7 @@ const TeamList = () =>  {
             github: "crsullivan"
         },
         {
-            name: "Gabrial Romero",
+            name: "Gabriel Romero",
             image: "https://ca.slack-edge.com/T4JUEB3ME-UEFKRMPCP-4d6c51049ae9-512",
             title: "UX Designer",
             linkedin: "www.linkedin.com/in/gabe-romero-design",
