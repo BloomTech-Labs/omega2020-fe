@@ -4,22 +4,47 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import './UploadImage.css';
 import { postImage } from './postImage';
 import UploadSudoku2 from './UploadSudoku2';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Backdrop from '@material-ui/core/Backdrop';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1,
+      color: '#fff',
+    },
+  }),
+);
+
+function ProgressIndicator(props) {
+  const classes = useStyles();
+  const isUploading = props.isUploading;
+    return (
+      <Backdrop className={classes.backdrop} open={isUploading}>
+        <CircularProgress color="inherit"/>
+      </Backdrop>
+    );
+  
+}
 
 export default function UploadForm() {
   const [file, setFile] = useState({preview: null, raw: null})
   const [solution, setSolution] = useState({puzzle_status: '', solution: '', values: ''})
+  const [isUploading, setUploading] = useState(false);
 
   const handleChange = (e) => {
     setFile({
       preview: URL.createObjectURL(e.target.files[0]),
       raw: e.target.files[0]
     })
-    console.log("FILE", file)
   }
 
   const handleUpload = async (e) => {
-    e.preventDefault()         
+
+    e.preventDefault();
+    // show progress component      
+    setUploading(true);
     const fileBlob = new Blob([file.raw]);
     const formData = new FormData()
 
@@ -34,6 +59,7 @@ export default function UploadForm() {
 
     await setSolution(asolution);
     await setFile({});
+    
 
     if (puzzleStatus === 1) {
         // valid with solution;
@@ -44,6 +70,8 @@ export default function UploadForm() {
     } else if (puzzleStatus === 2) {
       alert('Puzzle is invalid. Please take another picture and try again.')
     }
+    // hide progress component
+    setUploading(false);
     console.log("RESPONSE", asolution);
   }
 
@@ -51,14 +79,18 @@ export default function UploadForm() {
       <>
       {solution.puzzle_status===1 ? <UploadSudoku2 solution={solution} /> 
       :
-      <div className= "upload-image" align="center" style={{ marginTop: "15%" }}>
+
+      <div  align="center">
+        
+        <ProgressIndicator isUploading={isUploading}/>
+
+        <div className= "upload-image" align="center" style={{ marginTop: "15%" }}>
 
         <label htmlFor="upload-button">
             { file.preview ? <img src={ file.preview } width="400" height="400"  id="preview" alt="Upload your image" /> : (
             <>
             </> )}
         </label>
-      
         <input type="file" name="file" id="input-file"  onChange={handleChange}/>
         <Button
             variant="contained"
@@ -69,6 +101,8 @@ export default function UploadForm() {
         >Upload
         </Button>
       </div>
+      </div>
+      
         }
         </>)
 }
