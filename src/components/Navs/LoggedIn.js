@@ -1,16 +1,11 @@
 import React from 'react'
+import {NavLink} from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
-import {NavLink} from "react-router-dom";
-import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import { withRouter } from "react-router-dom";
-import history from '../../utils/history';
 
 const useStyles = makeStyles(theme => ({
     nav: {
@@ -103,6 +98,9 @@ const LoggedIn = (props) => {
                 <Link href="/upload" className={classes.label} label="Upload Image">
                   Upload Puzzle
                 </Link>
+                <Link href="/about" className={classes.label} label="About Team">
+                  About Us
+                </Link>
                 <Link href="/" onClick={logout} className={classes.label} label="Logout">
              Logout
            </Link>
@@ -110,6 +108,6 @@ const LoggedIn = (props) => {
           </Tabs>
         </AppBar>
       )
-    }
+}
   
 export default LoggedIn;

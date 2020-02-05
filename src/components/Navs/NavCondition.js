@@ -4,8 +4,6 @@ import LoggedIn from './LoggedIn';
 import LoggedOut from './LoggedOut';
 
 const NavCondition = (props) => {
-
-  
     if (props.token === null) {
         return <LoggedOut />
     } else {

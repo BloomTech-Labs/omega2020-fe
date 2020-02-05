@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Board from './Board.js';
+import Board from '../../puzzle-builder/Board';
 import { GetPuzzles } from './Puzzles';
-import SudokuButtons from './SudokuButtons.js';
-import './Sudoku.css';
-import { ga } from 'react-ga';
-import axiosWithAuth from '../utils/axiosWithAuth';
-import Settings from './themes/Settings';
-import ResumedPuzzle from './save-resume/ResumedPuzzle';
+import SudokuButtons from '../../SudokuButtons';
+import axiosWithAuth from '../../../utils/axiosWithAuth';
+import Settings from './../../themes/Settings';
+import '../../Sudoku.css';
 
 const Sudoku = () => {
   const [win, setWin] = useState(""); //Stores solution string here
-  // const [activePuzzleString, setActivePuzzleString] = useState(""); //Stores string representation of current state when hints pushed
-  
+
   // Description of gameBoardState below
   // {
   //   boardState : "", => String of formated board values
@@ -55,7 +52,6 @@ const Sudoku = () => {
         original: puzzle.sudoku
       });
   };
-console.log("SOLVED", gameBoardState.solved)
   // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
@@ -77,7 +73,6 @@ console.log("SOLVED", gameBoardState.solved)
           cellId    : stringify(i, j),
           editable  : prevEditable
         };
-      console.log("newBoardState: ", prevState.newBoardState)
 
       // Now push the previous board state on the history stack
       const newHistory = getDeepCopyOfArray(prevState.history);

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Board from '../../Board.js';
-import { GetHardPuzzle, solvedPuzzle, unsolvedPuzzle } from './HardPuzzle';
+import Board from '../../puzzle-builder/Board';
+import { GetHardPuzzle } from './HardPuzzle';
 import SudokuButtons from '../../SudokuButtons.js';
-import '../../Sudoku.css';
-import { ga } from 'react-ga';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import Settings from '../../themes/Settings'
+import '../../Sudoku.css';
 
 const HardSudoku = () => {
   const [win, setWin] = useState("");
@@ -14,7 +13,6 @@ const HardSudoku = () => {
     {
       boardState : "",
       puzzleId: "",
-      // time: 0,
       history   : [],
       conflicts : new Set([])  
     });
