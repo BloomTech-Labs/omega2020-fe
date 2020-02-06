@@ -1,5 +1,8 @@
 ### API Documentation  
 
+## Deployed Url
+https://omega2020.netlify.com/
+
 **Deployed Backend for this project**
 https://omega2020.herokuapp.com/
 
@@ -31,7 +34,7 @@ Current Web-based Sudoku puzzles are clumsy, hard to use, and not visually stimu
 
 # Technology
 
-## Front End
+## Front End 
 
 ### Solution: React & React Router  
 
@@ -102,6 +105,8 @@ project?**
 ## Deployment
 
 ## Solution: Netlify & Heroku  
+
+- Login Omega2020 google account
 
 **What problems does this solution solve for this specific project?**
 
