@@ -1,4 +1,5 @@
 ### API Documentation  
+[![Maintainability](https://api.codeclimate.com/v1/badges/a8ac2afebe3339176f28/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/omega2020-fe/maintainability)
 
 ## Deployed Url
 https://omega2020.netlify.com/
