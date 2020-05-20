@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import App from '../../App.js'
-import Sudoku from '../puzzles-by-difficulty/random/Sudoku';
-import SudokuButtons from '../SudokuButtons';
+import App from '../App.js'
+import Sudoku from '../components/puzzles-by-difficulty/random/Sudoku';
+import SudokuButtons from '../components/SudokuButtons';
 
 
 test('Landing page renders Omega2020', () => {
