@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Menu from '@material-ui/core/Menu';
-import Button from '@material-ui/core/Button';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   },
     label: {
         style:'none',
-        margin: theme.spacing(3,3,3,3),
+        margin: theme.spacing(2,2,2,2),
         color:'white',
         
     },
@@ -31,8 +31,8 @@ const useStyles = makeStyles(theme => ({
       border: '2px solid #dcdcdc',
       cursor: 'pointer',
       color: '#1e85e0',
-      fontFamily: 'Arial',
-      fontSize: '16px',
+      fontFamily: 'Julius Sans One',
+      fontSize: '12px',
       fontWeight: 'bold',
       padding: '4px 22px',
       textDecoration: 'none',
@@ -93,8 +93,30 @@ const LoggedIn = (props) => {
             container 
             spacing={24}
             className={classes.grid}>
-                <Link className={classes.label} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                  New Puzzle
+                <Link href="/user-puzzles" className={classes.label} label="Resume Puzzle">
+                  Resume Puzzle
+                </Link>
+                <Link style={{textDecoration: "none"}} href="/upload" className={classes.label} label="Upload Image">
+                  Upload Puzzle
+                </Link>
+                {/* href='/archive' */}
+                <Link style={{textDecoration: "none"}} href='/archive' className={classes.label} label='Archive'>
+                  Archive
+                </Link>
+                {/* href='/leaderboard' */}
+                <Link style={{textDecoration: "none"}} href='/leaderboard' className={classes.label} label='Leaderboard'>
+                  Leaderboard
+                </Link> 
+                {/* href='/instructions' */}
+                <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Instructions'>
+                  What is Sudoku?
+                </Link>
+                <Link style={{textDecoration: "none"}} href="/about" className={classes.label} label="About Team">
+                    About Us
+                </Link>
+                {/* href='/play' */}
+                <Link style={{textDecoration: "none"}} className={classes.Button} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} label='Play'>
+                  Play
                 </Link>
                 <Menu
                   className={classes.menu}
@@ -115,33 +137,7 @@ const LoggedIn = (props) => {
                       Hard
                     </Link>
                 </Menu>
-                
-                <Link href="/user-puzzles" className={classes.label} label="Resume Puzzle">
-                  Resume Puzzle
-                </Link>
-                <Link href="/upload" className={classes.label} label="Upload Image">
-                  Upload Puzzle
-                </Link>
-                {/* href='/archive' */}
-                <Link style={{textDecoration: "none"}} href='/archive' className={classes.label} label='Archive'>
-                  Archive
-                </Link>
-                {/* href='/leaderboard' */}
-                <Link style={{textDecoration: "none"}} href='/leaderboard' className={classes.label} label='Leaderboard'>
-                  Leaderboard
-                </Link> 
-                {/* href='/instructions' */}
-                <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Instructions'>
-                  What is Sudoku?
-                </Link>
-                <Link href="/about" className={classes.label} label="About Team">
-                    About Us
-                </Link>
-                {/* href='/play' */}
-                <Link href='/easy' className={classes.Button} label='Play'>
-                  Play
-                </Link>
-                <Link href="/" onClick={logout} className={classes.label} label="Logout">
+                <Link style={{textDecoration: "none"}} href="/" onClick={logout} className={classes.label} label="Logout">
              Logout
            </Link>
             </Grid>
