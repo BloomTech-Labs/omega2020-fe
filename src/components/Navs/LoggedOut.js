@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
     label: {
         style:'none',
-        margin: theme.spacing(2,2,2,2),
+        margin: theme.spacing(3,2,2,2),
         color:'white',
         
         
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     image: {
         width: '180px',
         height: 'auto',
-        margin: '10px',
+        margin: '8px',
     },
     menu: {
     },
@@ -92,17 +92,15 @@ const LoggedOut = (props) => {
           <NavLink style={{textDecoration: "none"}} to="/">
             <img className={classes.image} src={require('../../images/omegalogo.PNG')} />
           </NavLink> 
+          <Link style={{textDecoration: "none"}} href="/about" className={classes.label} label="About Team">
+                    About Us
+          </Link>
           <Grid
             justify='flex-end' // Add it here :)
             container 
             spacing={24}
             className={classes.grid}>
-                <Link href="/user-puzzles" className={classes.label} label="Resume Puzzle">
-                  Resume Puzzle
-                </Link>
-                <Link style={{textDecoration: "none"}} href="/upload" className={classes.label} label="Upload Image">
-                  Upload Puzzle
-                </Link>
+
                 {/* href='/archive' */}
                 <Link style={{textDecoration: "none"}} href='/archive' className={classes.label} label='Archive'>
                   Archive
@@ -114,9 +112,6 @@ const LoggedOut = (props) => {
                 {/* href='/instructions' */}
                 <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Instructions'>
                   What is Sudoku?
-                </Link>
-                <Link style={{textDecoration: "none"}} href="/about" className={classes.label} label="About Team">
-                    About Us
                 </Link>
                 {/* href='/play' */}
                 <Link style={{textDecoration: "none"}} className={classes.Button} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} label='Play'>

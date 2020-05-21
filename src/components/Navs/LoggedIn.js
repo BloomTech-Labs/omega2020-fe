@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   },
     label: {
         style:'none',
-        margin: theme.spacing(2,2,2,2),
+        margin: theme.spacing(3,2,2,2),
         color:'white',
         
     },
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
       padding: '4px 22px',
       textDecoration: 'none',
       textShadow: '0px 1px 0px #ffffff',
-      margin: theme.spacing(3,5,3,5),
+      margin: theme.spacing(2,2,2,2),
     
       '&:hover': {
       background: 'linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%)',
@@ -49,9 +49,9 @@ const useStyles = makeStyles(theme => ({
       }
     },
     image: {
-        width: '180px',
-        height: 'auto',
-        margin: '10px',
+      width: '180px',
+      height: 'auto',
+      margin: '8px',
     },
     menu: {
     },
@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
       color:'black',
       display: 'flex',
       flexDirection: 'column',
-      margin: theme.spacing(3,5,3,5),
+      margin: theme.spacing(2,2,2,2),
     },
   }));
   
