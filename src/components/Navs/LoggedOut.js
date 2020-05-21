@@ -81,9 +81,6 @@ const LoggedOut = (props) => {
                   onClose={handleClose}
                   width="75%"                
                   > 
-                    <Link style={{textDecoration: "none"}} href="/random" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
-                      Random
-                    </Link>
                     <Link style={{textDecoration: "none"}} href="/easy" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
                       Easy
                     </Link>
@@ -92,9 +89,6 @@ const LoggedOut = (props) => {
                     </Link>
                     <Link style={{textDecoration: "none"}} href="/hard" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
                       Hard
-                    </Link>
-                    <Link style={{textDecoration: "none"}} href="/diabolical" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
-                      Diabolical
                     </Link>
                 </Menu>
                 <Link href="/about" className={classes.label} label="About Team">

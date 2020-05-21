@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Menu from '@material-ui/core/Menu';
+import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles(theme => ({
     nav: {
@@ -16,9 +18,35 @@ const useStyles = makeStyles(theme => ({
   },
     label: {
         style:'none',
-        margin: theme.spacing(3,5,3,5),
+        margin: theme.spacing(3,3,3,3),
         color:'white',
         
+    },
+    Button: {
+      display: 'inline-block',
+      boxShadow: '0px 1px 0px 0px #ffffff',
+      background: 'linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%)',
+      backgroundColor: '#ffffff',
+      borderRadius: '4px',
+      border: '2px solid #dcdcdc',
+      cursor: 'pointer',
+      color: '#1e85e0',
+      fontFamily: 'Arial',
+      fontSize: '16px',
+      fontWeight: 'bold',
+      padding: '4px 22px',
+      textDecoration: 'none',
+      textShadow: '0px 1px 0px #ffffff',
+      margin: theme.spacing(3,5,3,5),
+    
+      '&:hover': {
+      background: 'linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%)',
+      backgroundColor: '#f6f6f6',
+      },
+      '&:active': {
+      position: 'relative',
+      top: '1px'
+      }
     },
     image: {
         width: '180px',
@@ -59,6 +87,7 @@ const LoggedIn = (props) => {
           <NavLink style={{textDecoration: "none"}} to="/">
             <img className={classes.image} src={require('../../images/omegalogo.PNG')} />
           </NavLink> 
+          
           <Grid
             justify='flex-end' // Add it here :)
             container 
@@ -76,9 +105,6 @@ const LoggedIn = (props) => {
                   onClose={handleClose}
                   width="75%"                
                   > 
-                    <Link style={{textDecoration: "none"}} href="/random" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
-                      Random
-                    </Link>
                     <Link style={{textDecoration: "none"}} href="/easy" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
                       Easy
                     </Link>
@@ -88,18 +114,32 @@ const LoggedIn = (props) => {
                     <Link style={{textDecoration: "none"}} href="/hard" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
                       Hard
                     </Link>
-                    <Link style={{textDecoration: "none"}} href="/diabolical" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
-                      Diabolical
-                    </Link>
                 </Menu>
+                
                 <Link href="/user-puzzles" className={classes.label} label="Resume Puzzle">
                   Resume Puzzle
                 </Link>
                 <Link href="/upload" className={classes.label} label="Upload Image">
                   Upload Puzzle
                 </Link>
+                {/* href='/archive' */}
+                <Link style={{textDecoration: "none"}} href='/archive' className={classes.label} label='Archive'>
+                  Archive
+                </Link>
+                {/* href='/leaderboard' */}
+                <Link style={{textDecoration: "none"}} href='/leaderboard' className={classes.label} label='Leaderboard'>
+                  Leaderboard
+                </Link> 
+                {/* href='/instructions' */}
+                <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Instructions'>
+                  What is Sudoku?
+                </Link>
                 <Link href="/about" className={classes.label} label="About Team">
-                  About Us
+                    About Us
+                </Link>
+                {/* href='/play' */}
+                <Link href='/easy' className={classes.Button} label='Play'>
+                  Play
                 </Link>
                 <Link href="/" onClick={logout} className={classes.label} label="Logout">
              Logout
