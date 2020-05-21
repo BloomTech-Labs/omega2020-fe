@@ -8,7 +8,7 @@ import Link from '@material-ui/core/Link';
 import {NavLink} from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import menuItem from '@material-ui/core/MenuItem';
 import { withRouter } from "react-router-dom";
 import history from '../../utils/history';
 
@@ -21,8 +21,9 @@ const useStyles = makeStyles(theme => ({
   },
     label: {
         style:'none',
-        margin: theme.spacing(3,5,3,5),
+        margin: theme.spacing(2,2,2,2),
         color:'white',
+        
         
     },
     image: {
@@ -36,7 +37,34 @@ const useStyles = makeStyles(theme => ({
       color:'black',
       display: 'flex',
       flexDirection: 'column',
-      margin: theme.spacing(3,5,3,5),
+      margin: theme.spacing(2,2,2,2),
+    },
+    Button: {
+      display: 'inline-block',
+      boxShadow: '0px 1px 0px 0px #ffffff',
+      background: 'linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%)',
+      backgroundColor: '#ffffff',
+      borderRadius: '4px',
+      border: '2px solid #dcdcdc',
+      cursor: 'pointer',
+      color: '#1e85e0',
+      fontFamily: 'Helvetica Neue',
+      fontSize: '16px',
+      fontWeight: 'bold',
+      padding: '2px 22px',
+      height: '20px',
+      textDecoration: 'none',
+      textShadow: '0px 1px 0px #ffffff',
+      margin: theme.spacing(2,2,2,2),
+    
+      '&:hover': {
+      background: 'linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%)',
+      backgroundColor: '#f6f6f6',
+      },
+      '&:active': {
+      position: 'relative',
+      top: '1px'
+      }
     },
   }));
   
@@ -69,8 +97,30 @@ const LoggedOut = (props) => {
             container 
             spacing={24}
             className={classes.grid}>
-                <Link className={classes.label} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                  New Puzzle
+                <Link href="/user-puzzles" className={classes.label} label="Resume Puzzle">
+                  Resume Puzzle
+                </Link>
+                <Link style={{textDecoration: "none"}} href="/upload" className={classes.label} label="Upload Image">
+                  Upload Puzzle
+                </Link>
+                {/* href='/archive' */}
+                <Link style={{textDecoration: "none"}} href='/archive' className={classes.label} label='Archive'>
+                  Archive
+                </Link>
+                {/* href='/leaderboard' */}
+                <Link style={{textDecoration: "none"}} href='/leaderboard' className={classes.label} label='Leaderboard'>
+                  Leaderboard
+                </Link> 
+                {/* href='/instructions' */}
+                <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Instructions'>
+                  What is Sudoku?
+                </Link>
+                <Link style={{textDecoration: "none"}} href="/about" className={classes.label} label="About Team">
+                    About Us
+                </Link>
+                {/* href='/play' */}
+                <Link style={{textDecoration: "none"}} className={classes.Button} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} label='Play'>
+                  Play
                 </Link>
                 <Menu
                   className={classes.menu}
@@ -91,10 +141,7 @@ const LoggedOut = (props) => {
                       Hard
                     </Link>
                 </Menu>
-                <Link href="/about" className={classes.label} label="About Team">
-                About Us
-                </Link>
-         </Grid>
+            </Grid>
           </Tabs>
         </AppBar>
       )
