@@ -12,6 +12,7 @@ import Menu from '@material-ui/core/Menu';
 const useStyles = makeStyles(theme => ({
     nav: {
         backgroundColor: "#1d1c1d",
+        height: 'auto',
 
     },
     grid: {
@@ -32,9 +33,10 @@ const useStyles = makeStyles(theme => ({
       cursor: 'pointer',
       color: '#1e85e0',
       fontFamily: 'Julius Sans One',
-      fontSize: '12px',
+      fontSize: '16px',
       fontWeight: 'bold',
       padding: '4px 22px',
+      height: '18px',
       textDecoration: 'none',
       textShadow: '0px 1px 0px #ffffff',
       margin: theme.spacing(2,2,2,2),
@@ -87,13 +89,15 @@ const LoggedIn = (props) => {
           <NavLink style={{textDecoration: "none"}} to="/">
             <img className={classes.image} src={require('../../images/omegalogo.PNG')} />
           </NavLink> 
-          
+          <Link style={{textDecoration: "none"}} href="/about" className={classes.label} label="About Team">
+                    About Us
+                </Link>
           <Grid
             justify='flex-end' // Add it here :)
             container 
             spacing={24}
             className={classes.grid}>
-                <Link href="/user-puzzles" className={classes.label} label="Resume Puzzle">
+                <Link style={{textDecoration: "none"}} href="/user-puzzles" className={classes.label} label="Resume Puzzle">
                   Resume Puzzle
                 </Link>
                 <Link style={{textDecoration: "none"}} href="/upload" className={classes.label} label="Upload Image">
@@ -110,9 +114,6 @@ const LoggedIn = (props) => {
                 {/* href='/instructions' */}
                 <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Instructions'>
                   What is Sudoku?
-                </Link>
-                <Link style={{textDecoration: "none"}} href="/about" className={classes.label} label="About Team">
-                    About Us
                 </Link>
                 {/* href='/play' */}
                 <Link style={{textDecoration: "none"}} className={classes.Button} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} label='Play'>

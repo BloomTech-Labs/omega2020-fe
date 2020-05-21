@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
     footer: {
         padding: theme.spacing(1),
         display: 'flex',
+        height: 'auto'
         
     },
     image: {
