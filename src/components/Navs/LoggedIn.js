@@ -88,7 +88,7 @@ const LoggedIn = (props) => {
         <AppBar position="static" className={classes.nav} title="My App">
           <Tabs>
           <NavLink style={{textDecoration: "none"}} to="/">
-            <img className={classes.image} src={require('../../images/omegalogo.PNG')} />
+            <img className={classes.image} src={require('../../images/omegalogo.PNG')} alt="omega2020 logo" />
           </NavLink> 
           <Link style={{textDecoration: "none"}} href="/about" className={classes.label} label="About Team">
                     About Us
@@ -140,7 +140,7 @@ const LoggedIn = (props) => {
                     </Link>
                 </Menu>
                 <NavLink style={{textDecoration: "none"}} to="/dashboard">
-                  <img className={classes.label} style={{margin:'16px'}} src={require('../../images/account-icon.png')} />
+                  <img className={classes.label} style={{margin:'16px'}} src={require('../../images/account-icon.png')} alt="account icon" />
                 </NavLink>
                 {/* will be used in later code for dashboard  */}
                 <Link style={{textDecoration: "none"}} href="/" onClick={logout} className={classes.label} label="Logout">
