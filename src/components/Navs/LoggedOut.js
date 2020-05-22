@@ -136,6 +136,9 @@ const LoggedOut = (props) => {
                       Hard
                     </Link>
                 </Menu>
+                <NavLink style={{textDecoration: "none"}} to="/login">
+                  <img className={classes.label} style={{margin:'16px'}} src={require('../../images/account-icon.png')} />
+                </NavLink>
             </Grid>
           </Tabs>
         </AppBar>

@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Menu from '@material-ui/core/Menu';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -36,7 +37,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: '16px',
       fontWeight: 'bold',
       padding: '4px 22px',
-      height: '18px',
+      height: 'auto',
       textDecoration: 'none',
       textShadow: '0px 1px 0px #ffffff',
       margin: theme.spacing(2,2,2,2),
@@ -91,7 +92,7 @@ const LoggedIn = (props) => {
           </NavLink> 
           <Link style={{textDecoration: "none"}} href="/about" className={classes.label} label="About Team">
                     About Us
-                </Link>
+          </Link>
           <Grid
             justify='flex-end' // Add it here :)
             container 
@@ -116,9 +117,9 @@ const LoggedIn = (props) => {
                   What is Sudoku?
                 </Link>
                 {/* href='/play' */}
-                <Link style={{textDecoration: "none"}} className={classes.Button} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} label='Play'>
+                <NavLink style={{textDecoration: "none"}} className={classes.Button} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} label='Play'>
                   Play
-                </Link>
+                </NavLink>
                 <Menu
                   className={classes.menu}
                   id="simple-menu"
@@ -138,9 +139,13 @@ const LoggedIn = (props) => {
                       Hard
                     </Link>
                 </Menu>
+                <NavLink style={{textDecoration: "none"}} to="/dashboard">
+                  <img className={classes.label} style={{margin:'16px'}} src={require('../../images/account-icon.png')} />
+                </NavLink>
+                {/* will be used in later code for dashboard  */}
                 <Link style={{textDecoration: "none"}} href="/" onClick={logout} className={classes.label} label="Logout">
              Logout
-           </Link>
+           </Link> 
             </Grid>
           </Tabs>
         </AppBar>
