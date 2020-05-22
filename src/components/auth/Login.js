@@ -79,7 +79,7 @@ const Login = (props) => {
           localStorage.setItem("token", result.data.token);
           localStorage.setItem("id", user.email);
           props.onChange();
-          props.history.push("/random")
+          props.history.push("/")
         })
         .catch(error => {
           console.log(error)

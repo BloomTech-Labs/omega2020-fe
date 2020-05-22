@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: '16px',
       fontWeight: 'bold',
       padding: '4px 22px',
-      height: 'auto',
+      height: '18px',
       textDecoration: 'none',
       textShadow: '0px 1px 0px #ffffff',
       margin: theme.spacing(2,2,2,2),
@@ -87,9 +87,9 @@ const LoggedIn = (props) => {
       return (
         <AppBar position="static" className={classes.nav} title="My App">
           <Tabs>
-          <NavLink style={{textDecoration: "none"}} to="/">
+          <Button style={{textDecoration: "none"}} to="/">
             <img className={classes.image} src={require('../../images/omegalogo.PNG')} alt="omega2020 logo" />
-          </NavLink> 
+          </Button> 
           <Link style={{textDecoration: "none"}} href="/about" className={classes.label} label="About Team">
                     About Us
           </Link>
@@ -117,9 +117,9 @@ const LoggedIn = (props) => {
                   What is Sudoku?
                 </Link>
                 {/* href='/play' */}
-                <NavLink style={{textDecoration: "none"}} className={classes.Button} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} label='Play'>
+                <Link style={{textDecoration: "none"}} className={classes.Button} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} label='Play'>
                   Play
-                </NavLink>
+                </Link>
                 <Menu
                   className={classes.menu}
                   id="simple-menu"
