@@ -102,11 +102,11 @@ const LoggedOut = (props) => {
             className={classes.grid}>
 
                 {/* href='/archive' */}
-                <Link style={{textDecoration: "none"}} href='/archive' className={classes.label} label='Archive'>
+                <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Archive'>
                   Archive
                 </Link>
                 {/* href='/leaderboard' */}
-                <Link style={{textDecoration: "none"}} href='/leaderboard' className={classes.label} label='Leaderboard'>
+                <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Leaderboard'>
                   Leaderboard
                 </Link> 
                 {/* href='/instructions' */}
