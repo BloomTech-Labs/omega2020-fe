@@ -26,16 +26,33 @@ const Home = (props) => {
                 height={600}
               />
             ) : (
-              <Typography variant='h4' style={{ width: '70%' }}>
-                OMEGA 2020 is an online sudoku app. <br /> Learn how to play,
-                upload your own sudoku games, and compete with friends :&#41;
-              </Typography>
+              <Box>
+                <img src={banner} alt='banner' />
+              </Box>
             )
           }
         />
       </Box>
       <Box className={classes.rightContainer}>
         <Box className={classes.container}>
+          <CardHeader
+            title={
+              loading ? (
+                <Skeleton
+                  className={classes.title}
+                  width={600}
+                  height={100}
+                  m={0}
+                  p={0}
+                />
+              ) : (
+                <Typography variant='h4'>
+                  OMEGA 2020 is an online sudoku app. <br /> Learn how to play,
+                  upload your own sudoku games, and compete with friends :&#41;
+                </Typography>
+              )
+            }
+          />
           <CardHeader
             title={
               loading ? (
@@ -79,7 +96,6 @@ const Home = (props) => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
@@ -88,14 +104,13 @@ const useStyles = makeStyles((theme) => ({
     padding: 90,
   },
   leftContainer: {
-    width: '40%',
-    height: '80vh',
+    width: '30%',
+    height: 'auto',
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'center',
-    backgroundImage: `url(${banner})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
+    alignItems: 'center',
+    // border: '2px solid red',
   },
   rightContainer: {
     width: '40%',
@@ -108,9 +123,11 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   title: {
-    width: '15%',
-    height: 30,
-    margin: '5px',
+    width: '40%',
+    display: 'flex',
+    flexFlow: 'column wrap',
+    justifyContent: 'center',
+    border: '2px solid red',
   },
 }));
 
