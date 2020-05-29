@@ -13,7 +13,7 @@ on:
 jobs:
   # A job to generate and publish code coverage
   coverage:
-		# A more descriptive name of the job
+	# A more descriptive name of the job
     name: Test and publish test coverage
 
     # The OS on which the job will run
@@ -21,8 +21,8 @@ jobs:
 
     # The steps for the job, executed in sequence
     steps:
-			
-      # A GitHub action for checking out the current branch
+		
+			# A GitHub action for checking out the current branch
       - uses: actions/checkout@master
 
       # A GitHub action to setup Node.js
