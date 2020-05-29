@@ -79,7 +79,7 @@ const Login = (props) => {
           localStorage.setItem("token", result.data.token);
           localStorage.setItem("id", user.email);
           props.onChange();
-          props.history.push("/random")
+          props.history.push("/")
         })
         .catch(error => {
           console.log(error)
@@ -93,7 +93,7 @@ const Login = (props) => {
 
   return (
     <Grid container component="main" className={classes.root}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Grid className={classes.main} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Typography component="h1" variant="h5">
