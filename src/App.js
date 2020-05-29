@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
+
 import Sudoku from './oldComponents/puzzles-by-difficulty/random/Sudoku';
 import NavCondition from './oldComponents/Navs/NavCondition';
 import history from './utils/history';
