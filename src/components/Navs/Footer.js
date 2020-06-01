@@ -16,7 +16,7 @@ function Copyright() {
     return (
       <Typography variant="body2" color="white" align="left">
         {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
+        <Link style={{textDecoration: "none"}} color="inherit" href="https://material-ui.com/">
           Omega2020
         </Link>{' '}
         {new Date().getFullYear()}
@@ -32,13 +32,16 @@ const useStyles = makeStyles(theme => ({
     label: {
     },
     footer: {
-        padding: theme.spacing(2),
+        padding: theme.spacing(1),
         display: 'flex',
+        height: 'auto'
+        
     },
     image: {
         width: '180px',
         height: 'auto',
         margin: '10px',
+        fontFamily: 'Julius Sans One',
     },
     icons: {
         marginRight: theme.spacing(2),
@@ -52,11 +55,7 @@ const Nav = () => {
       return (
         <AppBar position="static" className={classes.nav} title="My App">
             <footer className={classes.footer}>
-                <Typography variant="h6" align="center" gutterBottom>
-                </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                </Typography>
-                <Copyright />
+                <Copyright className={classes.footer} />
                 <Grid 
                 justify='flex-end'
                 container 
