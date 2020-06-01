@@ -4,10 +4,10 @@ import Info from './Info';
 
 const LandingPage = () => {
   return (
-    <React.Fragment>
+    <div>
       <Banner />
       <Info />
-    </React.Fragment>
+    </div>
   );
 };
 
