@@ -5,7 +5,6 @@ import App from './App';
 import config from './auth_config.json';
 import history from './utils/history';
 import { BrowserRouter } from 'react-router-dom';
-require('dotenv').config();
 
 const onRedirectCallback = (appState) => {
   history.push(
