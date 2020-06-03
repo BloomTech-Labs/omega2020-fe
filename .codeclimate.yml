@@ -19,3 +19,5 @@ exclude_patterns:
   - "**/*.spec.tsx"
   - "**/vendor/"
   - "**/node_modules/"
+
+  coverage_directory: "./coverage/"
