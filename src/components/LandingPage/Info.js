@@ -3,6 +3,9 @@ import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
+import videoGame from '../../images/video-game-icon.png';
+import puzzle from '../../images/puzzle-icon.png';
+import upload from '../../images/inbox-icon.png';
 import { makeStyles } from '@material-ui/core/styles';
 
 const Info = (props) => {
@@ -19,13 +22,18 @@ const Info = (props) => {
                 loading ? (
                   <Skeleton
                     className={classes.title}
-                    width={400}
-                    height={100}
-                    m={0}
-                    p={0}
+                    width={200}
+                    height={200}
                   />
                 ) : (
-                  'Customize your game play!'
+                  <Box>
+                    <Box className={classes.img}>
+                      <img src={videoGame} alt='' />
+                    </Box>
+                    <Typography variant={'h5'}>
+                      Customize your game play!
+                    </Typography>
+                  </Box>
                 )
               }
             />
@@ -52,13 +60,18 @@ const Info = (props) => {
                 loading ? (
                   <Skeleton
                     className={classes.title}
-                    width={400}
-                    height={100}
-                    m={0}
-                    p={0}
+                    width={200}
+                    height={200}
                   />
                 ) : (
-                  'What is Sudoku? — Origins'
+                  <Box>
+                    <Box className={classes.img}>
+                      <img src={puzzle} alt='' />
+                    </Box>
+                    <Typography variant={'h5'}>
+                      What is Sudoku? — Origins
+                    </Typography>
+                  </Box>
                 )
               }
             />
@@ -87,11 +100,18 @@ const Info = (props) => {
                 loading ? (
                   <Skeleton
                     className={classes.title}
-                    width={400}
-                    height={100}
+                    width={200}
+                    height={200}
                   />
                 ) : (
-                  'Upload your puzzles online and play!'
+                  <Box>
+                    <Box className={classes.img}>
+                      <img src={upload} alt='' />
+                    </Box>
+                    <Typography variant={'h5'}>
+                      Upload your puzzles online and play
+                    </Typography>
+                  </Box>
                 )
               }
             />
