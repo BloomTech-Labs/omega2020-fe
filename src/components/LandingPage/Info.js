@@ -123,7 +123,7 @@ const useStyles = makeStyles(() => ({
     background: '#F8F8F8',
   },
   mainContainer: {
-    width: 'auto',
+    width: '100%',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
@@ -131,22 +131,25 @@ const useStyles = makeStyles(() => ({
     marginBottom: 150,
   },
   leftContainer: {
-    width: '20%',
+    width: '500px',
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'flex-start',
+    margin: 20,
   },
   centerContainer: {
-    width: '20%',
+    width: '500px',
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'flex-start',
+    margin: 20,
   },
   rightContainer: {
-    width: '20%',
+    width: '500px',
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'flex-start',
+    margin: 20,
   },
   container: {
     width: '100%',
