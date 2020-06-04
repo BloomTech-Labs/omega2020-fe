@@ -32,8 +32,7 @@ const App = () => {
       <div className='App'>
         <NavCondition token={token} />
         <Switch>
-          <Route exact path='/' component={Landing} />
-          <Route exact path='/LandingPage' component={LandingPage} />
+          <Route exact path='/' component={LandingPage} />
           {/* <Route path="/login" component={Login} /> */}
           <Route
             path='/login'
