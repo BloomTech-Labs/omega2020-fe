@@ -84,7 +84,7 @@ const Banner = (props) => {
                 loading ? (
                   <Skeleton className={classes.text_4} width={60} height={55} />
                 ) : (
-                  <ColorButton variant='contained' color='primary'>
+                  <ColorButton variant='contained' color='primary' size='large'>
                     <Typography variant='subtitle2'>Get Started</Typography>
                   </ColorButton>
                 )
