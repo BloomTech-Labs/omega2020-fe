@@ -3,6 +3,7 @@ import Box from '@material-ui/core/Box';
 import Banner from './Banner';
 import Info from './Info';
 import Ad from './Advertisement';
+import InstructionsPage from '../InstructionsPage/InstructionsPage';
 
 const LandingPage = () => {
   return (
@@ -10,6 +11,7 @@ const LandingPage = () => {
       <Banner />
       <Info />
       <Ad />
+      <InstructionsPage />
     </Box>
   );
 };
