@@ -3,11 +3,10 @@ import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import BlueButton from '../assets/BlueButton';
 import banner from '../../images/banner-img.png';
 import puzzle from '../../images/game.png';
-import { blue } from '@material-ui/core/colors';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const Banner = (props) => {
   const classes = useStyles();
@@ -84,9 +83,7 @@ const Banner = (props) => {
                 loading ? (
                   <Skeleton className={classes.text_4} width={60} height={55} />
                 ) : (
-                  <ColorButton variant='contained' color='primary' size='large'>
-                    <Typography variant='subtitle2'>Get Started</Typography>
-                  </ColorButton>
+                  <BlueButton title={'Get Started'} href={'#'} />
                 )
               }
             />
@@ -144,17 +141,5 @@ const useStyles = makeStyles(() => ({
     height: 'auto',
   },
 }));
-
-const ColorButton = withStyles((theme) => ({
-  root: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    color: theme.palette.getContrastText(blue[600]),
-    backgroundColor: blue[600],
-    '&:hover': {
-      backgroundColor: blue[800],
-    },
-  },
-}))(Button);
 
 export default Banner;

@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import AppIcon from '../../images/omega-mobile-icon.png';
 import BG1 from '../../images/BG1.png';
+import BlueButton from './BlueButton';
 import { blue } from '@material-ui/core/colors';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 
@@ -51,14 +52,10 @@ const Advertisement = (props) => {
               loading ? (
                 <Skeleton className={classes.text_4} width={60} height={55} />
               ) : (
-                <ColorButton
-                  variant='contained'
-                  color='primary'
-                  size='large'
-                  href='https://github.com/Lambda-School-Labs/omega2020-fe'
-                >
-                  <Typography variant='subtitle2'>GitHub</Typography>
-                </ColorButton>
+                <BlueButton
+                  title={'GitHub'}
+                  href={'https://github.com/Lambda-School-Labs/omega2020-fe'}
+                />
               )
             }
           />
@@ -71,7 +68,7 @@ const Advertisement = (props) => {
 const useStyles = makeStyles(() => ({
   root: {
     width: '100%',
-    height: '65vh',
+    height: '800px',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'center',
@@ -101,17 +98,5 @@ const useStyles = makeStyles(() => ({
     margin: '5px',
   },
 }));
-
-const ColorButton = withStyles((theme) => ({
-  root: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    color: theme.palette.getContrastText(blue[600]),
-    backgroundColor: blue[600],
-    '&:hover': {
-      backgroundColor: blue[800],
-    },
-  },
-}))(Button);
 
 export default Advertisement;
