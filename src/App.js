@@ -10,6 +10,7 @@ import Registration from './components/auth/Register';
 import Login from './components/auth/Login';
 import LandingPage from './components/LandingPage/LandingPage';
 import SoonPage from './components/soonPage/soon';
+import AboutUsPage from './components/AboutUsPage/AboutUsPage';
 import Footer from './components/Navs/Footer';
 
 // What is left to update
@@ -22,7 +23,6 @@ import DiabolicalSudoku from './components/puzzles-by-difficulty/diabolical/Diab
 import EasySudoku from './components/puzzles-by-difficulty/easy/EasySudoku';
 import UploadForm from './components/upload-image/UploadForm';
 import UploadSudoku2 from './components/upload-image/UploadSudoku2';
-import TeamList from './components/about-team/TeamList';
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -36,20 +36,24 @@ const App = () => {
       <div className='App'>
         <NavCondition token={token} />
         <Switch>
-          <Route exact path='/' component={LandingPage} />
           <Route
             path='/login'
             render={(props) => (
               <Login {...props} onChange={handleLoginStateChanged} />
             )}
           />
-
           <Route
             path='/register'
             render={(props) => (
               <Registration {...props} onChange={handleLoginStateChanged} />
             )}
           />
+          <Route exact path='/' component={LandingPage} />
+          <Route path='/soon' component={SoonPage} />
+          <Route path='/about' component={AboutUsPage} />
+
+          {/* ---------------------------------------------- */}
+
           <Route path='/random' component={Sudoku} />
           <Route path='/medium' component={MediumSudoku} />
           <Route path='/diabolical' component={DiabolicalSudoku} />
@@ -58,8 +62,6 @@ const App = () => {
           <Route path='/user-puzzles' component={ResumedPuzzle} />
           <Route path='/upload' component={UploadForm} />
           <Route path='/upload-save' component={UploadSudoku2} />
-          <Route path='/about' component={TeamList} />
-          <Route path='/soon' component={SoonPage} />
         </Switch>
 
         <Footer />
