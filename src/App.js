@@ -7,8 +7,9 @@ import './App.css';
 
 // What we've updated
 import NavCondition from './components/Navigation/NavCondition';
-import Registration from './components/auth/Register';
-import Login from './components/auth/Login';
+// Register and Loging require form validation
+import Registration from './components/Authentication/RegisterForm';
+import Login from './components/Authentication/LoginForm';
 import LandingPage from './components/LandingPage/LandingPage';
 import SoonPage from './components/soonPage/soon';
 import AboutUsPage from './components/AboutUsPage/AboutUsPage';
