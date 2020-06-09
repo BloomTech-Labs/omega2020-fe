@@ -3,42 +3,74 @@ import { Link } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
-import Typography from '@material-ui/core/Typography';
+import VerticalSplitIcon from '@material-ui/icons/VerticalSplit';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
 import FiberManualRecordTwoToneIcon from '@material-ui/icons/FiberManualRecordTwoTone';
 import { makeStyles } from '@material-ui/core/styles';
 import WhiteButton from '../../assets/WhiteButton';
+import logo from '../../../images/omega-logo.png';
 import AvatarElement from './AvatarElement';
 
-const NavBarWeb = (props) => {
+const NavBarWebApp = (props) => {
   const classes = useStyles();
   const { loading = false } = props;
 
   return (
-    <Box className={classes.root} boxShadow={1}>
+    <Box className={classes.root} boxShadow={4}>
       <dark className={classes.root}>
         <Box className={classes.leftContainer}>
           <CardHeader
-            title={
+            action={
               loading ? (
                 <Skeleton className={classes.text} width={60} height={55} />
               ) : (
                 <Link to='/' className={(classes.root, classes.Link)}>
                   <dark className={classes.root}>
-                    <Typography variant='h5'>Omega 2020</Typography>
+                    <VerticalSplitIcon
+                      style={{ fontSize: 30, paddingTop: 10 }}
+                    />
                   </dark>
                 </Link>
               )
             }
           />
           <CardHeader
-            subheader={
+            action={
               loading ? (
                 <Skeleton className={classes.text} width={60} height={55} />
               ) : (
-                <Link to='/about' className={(classes.root, classes.Link)}>
+                <Link to='/' className={(classes.root, classes.Link)}>
                   <dark className={classes.root}>
-                    <Typography variant='subtitle2'>ABOUT US</Typography>
+                    <BookmarkIcon style={{ fontSize: 30, paddingTop: 10 }} />
                   </dark>
+                </Link>
+              )
+            }
+          />
+          <CardHeader
+            action={
+              loading ? (
+                <Skeleton className={classes.text} width={60} height={55} />
+              ) : (
+                <Link to='/' className={(classes.root, classes.Link)}>
+                  <dark className={classes.root}>
+                    <EqualizerIcon style={{ fontSize: 30, paddingTop: 10 }} />
+                  </dark>
+                </Link>
+              )
+            }
+          />
+        </Box>
+
+        <Box className={classes.centerContainer}>
+          <CardHeader
+            avatar={
+              loading ? (
+                <Skeleton className={classes.text} width={40} height={40} />
+              ) : (
+                <Link to='/' className={(classes.root, classes.Link)}>
+                  <img src={logo} alt='Logo' width='35' height='40' />
                 </Link>
               )
             }
@@ -48,48 +80,9 @@ const NavBarWeb = (props) => {
         <Box className={classes.rightContainer}>
           <Box className={classes.links}>
             <CardHeader
-              subheader={
-                loading ? (
-                  <Skeleton className={classes.text} width={60} height={55} />
-                ) : (
-                  <Link to='/' className={(classes.root, classes.Link)}>
-                    <dark className={classes.root}>
-                      <Typography variant='subtitle2'>GET STARTED</Typography>
-                    </dark>
-                  </Link>
-                )
-              }
-            />
-            <CardHeader
-              subheader={
-                loading ? (
-                  <Skeleton className={classes.text} width={60} height={55} />
-                ) : (
-                  <Link to='/' className={(classes.root, classes.Link)}>
-                    <dark className={classes.root}>
-                      <Typography variant='subtitle2'>ARCHIVE</Typography>
-                    </dark>
-                  </Link>
-                )
-              }
-            />
-            <CardHeader
-              subheader={
-                loading ? (
-                  <Skeleton className={classes.text} width={60} height={55} />
-                ) : (
-                  <Link to='/' className={(classes.root, classes.Link)}>
-                    <dark className={classes.root}>
-                      <Typography variant='subtitle2'>LEADERBOARD</Typography>
-                    </dark>
-                  </Link>
-                )
-              }
-            />
-            <CardHeader
               action={
                 loading ? (
-                  <Skeleton className={classes.text_4} width={60} height={55} />
+                  <Skeleton className={classes.text} width={60} height={55} />
                 ) : (
                   <WhiteButton title={'Play'} />
                 )
@@ -115,6 +108,7 @@ const NavBarWeb = (props) => {
                 )
               }
             />
+
             <CardHeader
               avatar={
                 loading ? (
@@ -150,7 +144,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   leftContainer: {
-    width: '49%',
+    width: '40%',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'left',
@@ -158,24 +152,28 @@ const useStyles = makeStyles(() => ({
     marginLeft: '10px',
   },
   rightContainer: {
-    width: '50%',
+    width: '40%',
     display: 'flex',
     flexFlow: 'row wrap',
-    justifyContent: 'left',
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  Link: {
-    textDecoration: 'none',
+  centerContainer: {
+    width: '10%',
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   links: {
-    width: '75%',
+    width: '55%',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
   icons: {
-    width: '25%',
+    width: '45%',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'center',
@@ -187,4 +185,4 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default NavBarWeb;
+export default NavBarWebApp;
