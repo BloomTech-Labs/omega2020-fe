@@ -6,16 +6,16 @@ import history from './utils/history';
 import './App.css';
 
 // What we've updated
+import NavCondition from './components/Navigation/NavCondition';
 import Registration from './components/auth/Register';
 import Login from './components/auth/Login';
 import LandingPage from './components/LandingPage/LandingPage';
 import SoonPage from './components/soonPage/soon';
 import AboutUsPage from './components/AboutUsPage/AboutUsPage';
-import Footer from './components/Navs/Footer';
+import FooterCondition from './components/Navigation/FooterCondition';
 
 // What is left to update
 import Sudoku from './components/puzzles-by-difficulty/random/Sudoku';
-import NavCondition from './components/Navs/NavCondition';
 import ResumedPuzzle from './components/save-resume/ResumedPuzzle';
 import MediumSudoku from './components/puzzles-by-difficulty/medium/MediumSudoku';
 import HardSudoku from './components/puzzles-by-difficulty/hard/HardSudoku';
@@ -64,7 +64,7 @@ const App = () => {
           <Route path='/upload-save' component={UploadSudoku2} />
         </Switch>
 
-        <Footer />
+        <FooterCondition />
       </div>
     </Router>
   );

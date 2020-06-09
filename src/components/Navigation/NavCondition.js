@@ -1,8 +1,8 @@
 import React from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import NavBarMobile from './NarvBar/NavBar-mobile';
-import NavBarWebApp from './NarvBar/NavBar-web_app';
-import NavBarWeb from './NarvBar/NavBar-web';
+import NavBarMobile from './NavBar/NavBar-mobile';
+import NavBarWebApp from './NavBar/NavBar-web_app';
+import NavBarWeb from './NavBar/NavBar-web';
 
 const NavCondition = () => {
   const viewPort = false;
