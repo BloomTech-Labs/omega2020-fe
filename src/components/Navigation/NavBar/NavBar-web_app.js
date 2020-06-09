@@ -7,10 +7,30 @@ import VerticalSplitIcon from '@material-ui/icons/VerticalSplit';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import FiberManualRecordTwoToneIcon from '@material-ui/icons/FiberManualRecordTwoTone';
+import Tooltip from '@material-ui/core/Tooltip';
+import IconButton from '@material-ui/core/IconButton';
+import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import WhiteButton from '../../assets/WhiteButton';
 import logo from '../../../images/omega-logo.png';
 import AvatarElement from './AvatarElement';
+
+const useStylesBootstrap = makeStyles((theme) => ({
+  arrow: {
+    // color: theme.palette.common.black,
+    color: blue.A700,
+  },
+  tooltip: {
+    // backgroundColor: theme.palette.common.black,
+    backgroundColor: blue.A700,
+  },
+}));
+
+function BootstrapTooltip(props) {
+  const classes = useStylesBootstrap();
+
+  return <Tooltip arrow classes={classes} {...props} />;
+}
 
 const NavBarWebApp = (props) => {
   const classes = useStyles();
@@ -25,13 +45,15 @@ const NavBarWebApp = (props) => {
               loading ? (
                 <Skeleton className={classes.text} width={60} height={55} />
               ) : (
-                <Link to='/' className={(classes.root, classes.Link)}>
-                  <dark className={classes.root}>
-                    <VerticalSplitIcon
-                      style={{ fontSize: 30, paddingTop: 10 }}
-                    />
-                  </dark>
-                </Link>
+                <BootstrapTooltip title='Get Satrted'>
+                  <IconButton href='#' className={(classes.root, classes.Link)}>
+                    <dark className={classes.root}>
+                      <VerticalSplitIcon
+                        style={{ fontSize: 30, paddingTop: 10 }}
+                      />
+                    </dark>
+                  </IconButton>
+                </BootstrapTooltip>
               )
             }
           />
@@ -40,11 +62,13 @@ const NavBarWebApp = (props) => {
               loading ? (
                 <Skeleton className={classes.text} width={60} height={55} />
               ) : (
-                <Link to='/' className={(classes.root, classes.Link)}>
-                  <dark className={classes.root}>
-                    <BookmarkIcon style={{ fontSize: 30, paddingTop: 10 }} />
-                  </dark>
-                </Link>
+                <BootstrapTooltip title='Archive'>
+                  <IconButton href='#' className={(classes.root, classes.Link)}>
+                    <dark className={classes.root}>
+                      <BookmarkIcon style={{ fontSize: 30, paddingTop: 10 }} />
+                    </dark>
+                  </IconButton>
+                </BootstrapTooltip>
               )
             }
           />
@@ -53,11 +77,13 @@ const NavBarWebApp = (props) => {
               loading ? (
                 <Skeleton className={classes.text} width={60} height={55} />
               ) : (
-                <Link to='/' className={(classes.root, classes.Link)}>
-                  <dark className={classes.root}>
-                    <EqualizerIcon style={{ fontSize: 30, paddingTop: 10 }} />
-                  </dark>
-                </Link>
+                <BootstrapTooltip title='Leaderboard'>
+                  <IconButton href='#' className={(classes.root, classes.Link)}>
+                    <dark className={classes.root}>
+                      <EqualizerIcon style={{ fontSize: 30, paddingTop: 10 }} />
+                    </dark>
+                  </IconButton>
+                </BootstrapTooltip>
               )
             }
           />
