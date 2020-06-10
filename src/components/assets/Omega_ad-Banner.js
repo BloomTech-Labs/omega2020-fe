@@ -2,13 +2,11 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 import AppIcon from '../../images/omega-mobile-icon.png';
 import BG1 from '../../images/BG1.png';
 import BlueButton from './BlueButton';
-import { blue } from '@material-ui/core/colors';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 const Advertisement = (props) => {
   const classes = useStyles();
@@ -23,7 +21,7 @@ const Advertisement = (props) => {
               loading ? (
                 <Skeleton className={classes.title} width={600} />
               ) : (
-                <img src={AppIcon} alt='App Icon' />
+                <img src={AppIcon} alt='App Icon' style={{ width: '150px' }} />
               )
             }
           />
@@ -50,7 +48,7 @@ const Advertisement = (props) => {
           <CardHeader
             subheader={
               loading ? (
-                <Skeleton className={classes.text_4} width={60} height={55} />
+                <Skeleton className={classes.text} width={60} height={55} />
               ) : (
                 <BlueButton
                   title={'GitHub'}
@@ -68,7 +66,7 @@ const Advertisement = (props) => {
 const useStyles = makeStyles(() => ({
   root: {
     width: '100%',
-    height: '800px',
+    height: '700px',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'center',
@@ -91,11 +89,6 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     alignContent: 'center',
     color: 'white',
-  },
-  title: {
-    width: '15%',
-    height: 30,
-    margin: '5px',
   },
 }));
 
