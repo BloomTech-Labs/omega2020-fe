@@ -110,7 +110,7 @@ const LoggedOut = (props) => {
                   Leaderboard
                 </Link> 
                 {/* href='/instructions' */}
-                <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Instructions'>
+                <Link style={{textDecoration: "none"}} href='/tutorial' className={classes.label} label='Instructions'>
                   What is Sudoku?
                 </Link>
                 {/* href='/play' */}

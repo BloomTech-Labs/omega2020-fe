@@ -7,7 +7,7 @@ import './App.css';
 
 // What we've updated
 import NavCondition from './components/Navigation/NavCondition';
-// Register and Loging require form validation
+// Register and Login require form validation
 import Registration from './components/Authentication/RegisterForm';
 import Login from './components/Authentication/LoginForm';
 import LandingPage from './components/LandingPage/LandingPage';
@@ -24,6 +24,7 @@ import DiabolicalSudoku from './components/puzzles-by-difficulty/diabolical/Diab
 import EasySudoku from './components/puzzles-by-difficulty/easy/EasySudoku';
 import UploadForm from './components/upload-image/UploadForm';
 import UploadSudoku2 from './components/upload-image/UploadSudoku2';
+import Tutorial from './components/Tutorial/tutorial-page';
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -63,6 +64,7 @@ const App = () => {
           <Route path='/user-puzzles' component={ResumedPuzzle} />
           <Route path='/upload' component={UploadForm} />
           <Route path='/upload-save' component={UploadSudoku2} />
+          <Route path='/tutorial' component={Tutorial}/>
         </Switch>
 
         <FooterCondition />
