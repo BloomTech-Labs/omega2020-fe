@@ -34,14 +34,13 @@ const useStyles = makeStyles((theme) => ({
 
   },
   image: {
-    width: '50%',
-    height: '50%',
+    width: '100%',
+    height: '100%',
   },
   sudokuImage: {
-    width: 'auto',
-    height: 'auto',
-    marginLeft: '15%',
-    marginRight: '15%',
+    width: '40%',
+    height: '40%',
+    marginLeft: '30%'
   },
   card: {
     width: '80%',
@@ -57,8 +56,8 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '20px',
     paddingRight: '20px',
     backgroundColor: '#2962ff',
-    marginLeft:'30%',
-    marginRight: '30%',
+    marginLeft:'40%',
+    marginRight: '40%',
     '&:hover': {
       color: '#2962ff',
       backgroundColor: 'white',
@@ -187,8 +186,8 @@ const Tutorial = () => {
                   <img className={classes.sudokuImage} src={require('../../images/popupcard_2.png')} alt="6x6 sudoku" />
                 </Container>
               </div>
-              <Typography className={classes.topTextDiv} variant="h6">
-                You're basically a pro now! Go try your hand at a 9x9 puzzle!
+              <Typography className={classes.bottomText} variant="h6">
+                You're basically a pro now! Try your hand at a 9x9 puzzle, or upload your own!
               </Typography>
               <Button className={classes.button} href='/soon'>
                 Get Started!
