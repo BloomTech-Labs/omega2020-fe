@@ -51,12 +51,13 @@ const Sudoku = () => {
         solved: puzzle.solution,
         original: puzzle.sudoku
       });
+      
   };
   // Start the game here by getting a formatted puzzle
-  useEffect(() => {
-    getFormattedPuzzle();
-
-  },[]) 
+  
+useEffect(() => {
+        getFormattedPuzzle();
+      },[getFormattedPuzzle]);
 
   function getDeepCopyOfArray(arr) {
     var now = JSON.parse(JSON.stringify(arr));
@@ -158,7 +159,7 @@ const Sudoku = () => {
 
 
   function handleVerifyClick() {
-    const { boardState, setBoardState } = gameBoardState;
+    const { boardState } = gameBoardState;
     
     // Assigns id to boxes in two digit format for xy (row column)
     // rows[0]/cols[0] -> first row/column

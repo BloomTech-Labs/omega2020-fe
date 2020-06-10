@@ -53,9 +53,7 @@ export default function UploadForm() {
 
     const asolution = await postImage(formData, formConfig);
     const puzzleStatus = asolution.puzzle_status;
-    const original = asolution.values;
-    const level = asolution.difficulty;
-    const solved = asolution.solution;
+
 
     await setSolution(asolution);
     await setFile({});
@@ -63,7 +61,6 @@ export default function UploadForm() {
 
     if (puzzleStatus === 1) {
         // valid with solution;
-        const isPuzzle = true
         setSolution(asolution)
         return asolution
       // Else if no solution able to be derived
@@ -85,7 +82,7 @@ export default function UploadForm() {
       <div className= "upload-image" align="center" style={{ marginTop: "5%" }}>
 
         <label htmlFor="upload-button">
-            { file.preview ? <img src={ file.preview } width="400" height="400"  id="preview" alt="Upload your image" /> : (
+            { file.preview ? <img src={ file.preview } width="400" height="400"  id="preview" alt="Preview" /> : (
             <>
             </> )}
         </label>

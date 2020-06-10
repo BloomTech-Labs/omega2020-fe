@@ -3,28 +3,17 @@ import SavedBoard from './SavedBoard';
 import GetSavedPuzzle from './getSavedPuzzle';
 import SudokuButtons from '../SudokuButtons';
 import '../Sudoku.css';
-import { ga } from 'react-ga';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 import Settings from '../themes/Settings';
 
 const ResumedPuzzle = () => {
-  //Stores string representation of current state when hints pushed
-  const [activePuzzleString, setActivePuzzleString] = useState(""); 
 
-  //   ↓ Description of gameBoardState below ↓
-  // {
-  //   boardState : "", => String of formated board values
-  //   puzzleId: "", => Puzzle Id from DS and passed thru BE
-  //   // time: 0, => Not yet implemented
-  //   history   : [], => The history of current game play
-  //   conflicts : new Set([])   => Array of conflicting values across fields (3x3 grid of cells), rows and columns.
-  // });
+
   
   const [gameBoardState, setGameBoardState] = useState(
     {
       boardState : "",
       puzzleId: "",
-      // time: 0,
       history   : [],
       conflicts : new Set([]),  
      
@@ -36,7 +25,6 @@ const ResumedPuzzle = () => {
   async function getRandomPuzzle() {
     var puzzles = await GetSavedPuzzle();
     return puzzles;   // changed puzzle.sudoku to puzzles to return all the puzzles 
-    console.log(puzzles.solved)
 
   };
 
@@ -62,7 +50,7 @@ console.log(gameBoardState.solved)
 // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
-  },[]) 
+  },[getFormattedPuzzle]) 
 
   function getDeepCopyOfArray(arr) {
     var now = JSON.parse(JSON.stringify(arr));
@@ -159,7 +147,7 @@ console.log(gameBoardState.solved)
 console.log(gameBoardState)
 
   function handleVerifyClick() {
-    const { boardState, setBoardState } = gameBoardState;
+    const { boardState } = gameBoardState;
     
     // Assigns id to boxes in two digit format for xy (row column)
     // rows[0]/cols[0] -> first row/column

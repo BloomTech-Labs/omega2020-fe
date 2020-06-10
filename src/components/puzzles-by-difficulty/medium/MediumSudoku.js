@@ -60,7 +60,7 @@ const MediumSudoku = () => {
   useEffect(() => {
     getFormattedPuzzle();
 
-  },[]) 
+  },[getFormattedPuzzle]) 
 
   function getDeepCopyOfArray(arr) {
     return JSON.parse(JSON.stringify(arr));
@@ -114,15 +114,15 @@ const MediumSudoku = () => {
     });
   };
   
-  const boardStateAsString = (boardState) => {
-    let board = "";
-    for(let i=0; i<boardState.length; i++) {
-      for(let j=0; j<boardState[i].length;j++) {
-        board += boardState[i][j].cellValue;
-      }
-    }
-    return board;
-  }
+  // const boardStateAsString = (boardState) => {
+  //   let board = "";
+  //   for(let i=0; i<boardState.length; i++) {
+  //     for(let j=0; j<boardState[i].length;j++) {
+  //       board += boardState[i][j].cellValue;
+  //     }
+  //   }
+  //   return board;
+  // }
   
   // saves sudoku state (data, diffuculty, time) to backend.
   const handleSaveClick = () => {
@@ -162,7 +162,7 @@ const MediumSudoku = () => {
   };
   
   function handleVerifyClick() {
-    const { boardState, setBoardState } = gameBoardState;
+    const { boardState } = gameBoardState;
     
     // Assigns id to boxes in two digit format for xy (row column)
     // rows[0]/cols[0] -> first row/column

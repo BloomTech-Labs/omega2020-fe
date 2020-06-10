@@ -60,7 +60,7 @@ const HardSudoku = () => {
   useEffect(() => {
     getFormattedPuzzle();
 
-  },[]) 
+  },[getFormattedPuzzle]) 
 
   function getDeepCopyOfArray(arr) {
     return JSON.parse(JSON.stringify(arr));
@@ -156,7 +156,7 @@ const HardSudoku = () => {
   };
   
   function handleVerifyClick() {
-    const { boardState, setBoardState } = gameBoardState;
+    const { boardState } = gameBoardState;
     
     // Assigns id to boxes in two digit format for xy (row column)
     // rows[0]/cols[0] -> first row/column

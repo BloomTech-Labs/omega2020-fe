@@ -81,7 +81,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-var myImage1 = 'src\images\Vector.png';
+// var myImage1 = 'src\images\Vector.png';
 
 var myImage2 = new Image(100, 200);
 myImage2.src = require("../images/sudoku 1.png");
@@ -90,26 +90,26 @@ var myImage3 = new Image(100, 200);
 myImage3.src = require("../images/solve.PNG");
 // document.body.appendChild(myImage3);
 
-const cards = [
-    {
-        id:1,
-        title:'Learn',
-        description:'Read our tutorials and learn the best practices for solving almost any sudoku puzzle (coming soon).',
-        imgFile:myImage1
-    },
-    {
-        id:2,
-        title:'Play',
-        description:'Create an account and enjoy different play modes. Guest play is also welcomed! (coming soon).',
-        imgFile: '../images/sudoku 1.png'
-    },
-    {
-        id:3,
-        title:'Solve',
-        description:'Complete every puzzle you begin with our "Solve Square" option. Everyone is a winner! (coming soon).',
-        imgFile:"../images/solve.PNG"
-    }
-];
+// const cards = [
+//     {
+//         id:1,
+//         title:'Learn',
+//         description:'Read our tutorials and learn the best practices for solving almost any sudoku puzzle (coming soon).',
+//         imgFile:myImage1
+//     },
+//     {
+//         id:2,
+//         title:'Play',
+//         description:'Create an account and enjoy different play modes. Guest play is also welcomed! (coming soon).',
+//         imgFile: '../images/sudoku 1.png'
+//     },
+//     {
+//         id:3,
+//         title:'Solve',
+//         description:'Complete every puzzle you begin with our "Solve Square" option. Everyone is a winner! (coming soon).',
+//         imgFile:"../images/solve.PNG"
+//     }
+// ];
 
 const Landing = () => {
   const classes = useStyles();

@@ -1,16 +1,16 @@
 import React from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+// import Tab from '@material-ui/core/Tab';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import {NavLink} from "react-router-dom";
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import menuItem from '@material-ui/core/MenuItem';
-import { withRouter } from "react-router-dom";
-import history from '../../utils/history';
+// import menuItem from '@material-ui/core/MenuItem';
+// import { withRouter } from "react-router-dom";
+// import history from '../../utils/history';
 
 const useStyles = makeStyles(theme => ({
     nav: {
@@ -72,9 +72,9 @@ const useStyles = makeStyles(theme => ({
 const LoggedOut = (props) => { 
     const classes = useStyles();
 
-    const logout = () => {
-      localStorage.removeItem("token");
-  }
+  //   const logout = () => {
+  //     localStorage.removeItem("token");
+  // }
 
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -90,7 +90,7 @@ const LoggedOut = (props) => {
         <AppBar position="static" className={classes.nav} title="My App">
           <Tabs>
           <NavLink style={{textDecoration: "none"}} to="/">
-            <img className={classes.image} src={require('../../images/omegalogo.PNG')} />
+            <img className={classes.image} alt='logo' src={require('../../images/omegalogo.PNG')} />
           </NavLink> 
           <Link style={{textDecoration: "none"}} href="/about" className={classes.label} label="About Team">
                     About Us
@@ -101,19 +101,16 @@ const LoggedOut = (props) => {
             spacing={24}
             className={classes.grid}>
 
-                {/* href='/archive' */}
                 <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Archive'>
                   Archive
                 </Link>
-                {/* href='/leaderboard' */}
+ 
                 <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Leaderboard'>
                   Leaderboard
                 </Link> 
-                {/* href='/instructions' */}
                 <Link style={{textDecoration: "none"}} href='/' className={classes.label} label='Instructions'>
                   What is Sudoku?
                 </Link>
-                {/* href='/play' */}
                 <Link style={{textDecoration: "none"}} className={classes.Button} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} label='Play'>
                   Play
                 </Link>
@@ -137,7 +134,7 @@ const LoggedOut = (props) => {
                     </Link>
                 </Menu>
                 <NavLink style={{textDecoration: "none"}} to="/login">
-                  <img className={classes.label} style={{margin:'16px'}} src={require('../../images/account-icon.png')} />
+                  <img className={classes.label} alt='label' style={{margin:'16px'}} src={require('../../images/account-icon.png')} />
                 </NavLink>
             </Grid>
           </Tabs>
