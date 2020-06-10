@@ -3,6 +3,10 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, rgbToHex, responsiveFontSizes } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import BlueButton from '../assets/BlueButton';
+import { Button } from '@material-ui/core';
+
+
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -30,14 +34,14 @@ const useStyles = makeStyles((theme) => ({
 
   },
   image: {
-    width: '100%',
-    height: '100%',
+    width: '50%',
+    height: '50%',
   },
   sudokuImage: {
     width: 'auto',
     height: 'auto',
-    marginLeft: '20%',
-    marginRight: '20%',
+    marginLeft: '15%',
+    marginRight: '15%',
   },
   card: {
     width: '80%',
@@ -49,10 +53,16 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   button: {
-    width: '80%',
-    backgroundColor: '#608cff',
-    color: 'white',
-    margin: theme.spacing(3),
+    color: '#fff',
+    paddingLeft: '20px',
+    paddingRight: '20px',
+    backgroundColor: '#2962ff',
+    marginLeft:'30%',
+    marginRight: '30%',
+    '&:hover': {
+      color: '#2962ff',
+      backgroundColor: 'white',
+    },
   },
   icons: {
     textAlign: 'center',
@@ -132,7 +142,7 @@ const Tutorial = () => {
                 <Typography className={classes.topTextDiv} variant="h6">
                             Originally Sudoku is played on a 9 x 9 grid. Within the rows and columns are 9 “squares” (made up of 3 x 3 spaces). Each row, column, and square (9 spaces each) needs to be filled out with the numbers 1-9 without repeating any numbers within the row, column, or square. Does it sound complicated? Well, not to worry. Sudoku grid comes with a few spaces already filled in; the more spaces filled in, the easier the game — the more difficult Sudoku puzzles have very few spaces that are already filled in.
                 </Typography>
-                <img className={classes.sudokuImage} src={require('../../images/sudoku1.png')} alt='sudoku puzzle' />
+                  <img className={classes.sudokuImage} src={require('../../images/sudoku1.png')} alt='sudoku puzzle' />
                 <Typography className={classes.topTextDiv} variant="h6">
                             By seeing which numbers are missing from each square, row, or column, we can use the process of elimination and deductive reasoning to decide which numbers need to go in each blank space.
                 </Typography>
@@ -177,6 +187,12 @@ const Tutorial = () => {
                   <img className={classes.sudokuImage} src={require('../../images/popupcard_2.png')} alt="6x6 sudoku" />
                 </Container>
               </div>
+              <Typography className={classes.topTextDiv} variant="h6">
+                You're basically a pro now! Go try your hand at a 9x9 puzzle!
+              </Typography>
+              <Button className={classes.button} href='/soon'>
+                Get Started!
+              </Button>
             </div>
           </div>
         </Container>
