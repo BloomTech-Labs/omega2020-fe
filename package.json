@@ -54,7 +54,7 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
+    "eslint": "^7.2.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -64,5 +64,17 @@
     "prettier": "2.0.5",
     "react-test-renderer": "^16.12.0",
     "react-testing-library": "^8.0.1"
-  }
+  },
+  "description": "[![Maintainability](https://api.codeclimate.com/v1/badges/a8ac2afebe3339176f28/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/omega2020-fe/maintainability)\r [![Test Coverage](https://api.codeclimate.com/v1/badges/a8ac2afebe3339176f28/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/omega2020-fe/test_coverage)",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lambda-School-Labs/omega2020-fe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lambda-School-Labs/omega2020-fe/issues"
+  },
+  "homepage": "https://github.com/Lambda-School-Labs/omega2020-fe#readme"
 }
