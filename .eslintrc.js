@@ -23,6 +23,6 @@ module.exports = {
     'react',
   ],
   rules: {
-    'linebreak-style': 0
+    'linebreak-style': 0,
   },
 };
