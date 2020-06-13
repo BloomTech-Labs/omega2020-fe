@@ -125,7 +125,7 @@ const DiabolicalSudoku = () => {
   // }
   
   // saves sudoku state (data, diffuculty, time) to backend.
-  const handleSaveClick = () => {
+  const diabolicSave = () => {
 
     console.log(gameBoardState);
     
@@ -308,7 +308,7 @@ const DiabolicalSudoku = () => {
             onUndoClick = {handleUndoClick}
             onNewGameClick = {handleNewGameClick}
             onVerifyClick  = {handleVerifyClick}
-            onSaveClick = {handleSaveClick}
+            onSaveClick = {diabolicSave}
             />
         </div>
         <div>
