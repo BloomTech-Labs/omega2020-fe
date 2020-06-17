@@ -39,9 +39,6 @@
     ]
   },
   "proxy": "http://flask-env2.us-east-2.elasticbeanstalk.com:80",
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -55,12 +52,6 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^2.5.1",
     "jest": "^24.9.0",
     "prettier": "2.0.5",
     "react-test-renderer": "^16.12.0",
