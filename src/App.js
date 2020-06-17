@@ -64,7 +64,7 @@ const App = () => {
           <Route path='/user-puzzles' component={ResumedPuzzle} />
           <Route path='/upload' component={UploadForm} />
           <Route path='/upload-save' component={UploadSudoku2} />
-          <Route path='/tutorial' component={Tutorial}/>
+          <Route path='/tutorial' component={Tutorial} />
         </Switch>
 
         <FooterCondition />
