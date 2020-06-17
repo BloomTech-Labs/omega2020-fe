@@ -54,7 +54,7 @@ const App = () => {
           <Route path='/soon' component={SoonPage} />
           <Route path='/about' component={AboutUsPage} />
 
-          {/* ---------------------------------------------- */}
+          {/* ----------------------------------------------- */}
 
           <Route path='/random' component={Sudoku} />
           <Route path='/medium' component={MediumSudoku} />
