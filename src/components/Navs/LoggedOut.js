@@ -9,13 +9,11 @@ import { NavLink, withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import menuItem from '@material-ui/core/MenuItem';
-
 import history from '../../utils/history';
 
 const useStyles = makeStyles((theme) => ({
   nav: {
     backgroundColor: '#1d1c1d',
-
   },
   grid: {
   },
@@ -23,8 +21,6 @@ const useStyles = makeStyles((theme) => ({
     style: 'none',
     margin: theme.spacing(3, 2, 2, 2),
     color: 'white',
-
-
   },
   image: {
     width: '180px',
@@ -56,7 +52,6 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
     textShadow: '0px 1px 0px #ffffff',
     margin: theme.spacing(2, 2, 2, 2),
-
     '&:hover': {
       background: 'linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%)',
       backgroundColor: '#f6f6f6',
@@ -67,33 +62,26 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-
 const LoggedOut = (props) => {
   const classes = useStyles();
-
   const logout = () => {
     localStorage.removeItem('token');
   };
-
   const [anchorEl, setAnchorEl] = React.useState(null);
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   return (
     <AppBar position="static" className={classes.nav} title="My App">
       <Tabs>
         <NavLink style={{ textDecoration: 'none' }} to="/">
-          <img className={classes.image} src={require('../../images/omegalogo.PNG')} />
+          <img className={classes.image} src={require('../../images/omegalogo.PNG')} alt='omega logo' />
         </NavLink>
         <Link style={{ textDecoration: 'none' }} href="/about" className={classes.label} label="About Team">
-                    About Us
+          About Us
         </Link>
         <Grid
           justify="flex-end" // Add it here :)
@@ -101,22 +89,21 @@ const LoggedOut = (props) => {
           spacing={24}
           className={classes.grid}
         >
-
           {/* href='/archive' */}
           <Link style={{ textDecoration: 'none' }} href="/" className={classes.label} label="Archive">
-                  Archive
+            Archive
           </Link>
           {/* href='/leaderboard' */}
           <Link style={{ textDecoration: 'none' }} href="/" className={classes.label} label="Leaderboard">
-                  Leaderboard
+            Leaderboard
           </Link>
           {/* href='/instructions' */}
           <Link style={{ textDecoration: 'none' }} href="/tutorial" className={classes.label} label="Instructions">
-                  What is Sudoku?
+            What is Sudoku?
           </Link>
           {/* href='/play' */}
           <Link style={{ textDecoration: 'none' }} className={classes.Button} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} label="Play">
-                  Play
+            Play
           </Link>
           <Menu
             className={classes.menu}
@@ -128,13 +115,13 @@ const LoggedOut = (props) => {
             width="75%"
           >
             <Link style={{ textDecoration: 'none' }} href="/easy" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
-                      Easy
+              Easy
             </Link>
             <Link style={{ textDecoration: 'none' }} href="/medium" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
-                      Medium
+              Medium
             </Link>
             <Link style={{ textDecoration: 'none' }} href="/hard" onClick={handleClose} className={classes.menuItem} label="Play Puzzle">
-                      Hard
+              Hard
             </Link>
           </Menu>
           <NavLink style={{ textDecoration: 'none' }} to="/login">
@@ -145,5 +132,4 @@ const LoggedOut = (props) => {
     </AppBar>
   );
 };
-
 export default LoggedOut;
