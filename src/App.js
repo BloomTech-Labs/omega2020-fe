@@ -13,6 +13,7 @@ import Login from './components/Authentication/LoginForm';
 import LandingPage from './components/LandingPage/LandingPage';
 import SoonPage from './components/soonPage/soon';
 import AboutUsPage from './components/AboutUsPage/AboutUsPage';
+import Tutorial from './components/Tutorial/tutorial-page';
 import FooterCondition from './components/Navigation/FooterCondition';
 
 // What is left to update
@@ -24,7 +25,6 @@ import DiabolicalSudoku from './components/puzzles-by-difficulty/diabolical/Diab
 import EasySudoku from './components/puzzles-by-difficulty/easy/EasySudoku';
 import UploadForm from './components/upload-image/UploadForm';
 import UploadSudoku2 from './components/upload-image/UploadSudoku2';
-import Tutorial from './components/Tutorial/tutorial-page';
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -53,8 +53,9 @@ const App = () => {
           <Route exact path='/' component={LandingPage} />
           <Route path='/soon' component={SoonPage} />
           <Route path='/about' component={AboutUsPage} />
+          <Route path='/tutorial' component={Tutorial} />
 
-          {/* ----------------------------------------------- */}
+          {/* ---------------------------------------------- */}
 
           <Route path='/random' component={Sudoku} />
           <Route path='/medium' component={MediumSudoku} />
@@ -64,9 +65,7 @@ const App = () => {
           <Route path='/user-puzzles' component={ResumedPuzzle} />
           <Route path='/upload' component={UploadForm} />
           <Route path='/upload-save' component={UploadSudoku2} />
-          <Route path='/tutorial' component={Tutorial} />
         </Switch>
-
         <FooterCondition />
       </div>
     </Router>
