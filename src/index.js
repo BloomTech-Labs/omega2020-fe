@@ -5,6 +5,7 @@ import App from './App';
 import config from './auth_config.json';
 import history from './utils/history';
 import { BrowserRouter } from 'react-router-dom';
+import * as serviceWorker from './serviceWorker';
 
 const onRedirectCallback = (appState) => {
   history.push(
@@ -25,3 +26,5 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 );
+
+serviceWorker.unregister();
