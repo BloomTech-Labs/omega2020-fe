@@ -11,14 +11,12 @@ console.log(Get4x4());
 function puzzleHandler() {
   const [win, setWin] = useState('');
 
-  const [gameBoardState, setGameBoardState] = useState(
-    {
-      boardState: '',
-      puzzleId: '',
-      history: [],
-      conflicts: new Set([]),
-    },
-  );
+  const [gameBoardState, setGameBoardState] = useState({
+    boardState: '',
+    puzzleId: '',
+    history: [],
+    conflicts: new Set([]),
+  });
   //   to do: add the 4x4/6x6/9x9 switch
   async function getRandomPuzzle() {
     // const puzzles = await GetEasyPuzzle();
@@ -26,144 +24,147 @@ function puzzleHandler() {
     setWin(puzzles.solution);
 
     return puzzles;
-  }};
-  // retrieve puzzle data// possibly refactor more?
-  const getFormattedPuzzle = async () => {
-    const puzzle = await getRandomPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
-
-    console.log('GBS in formatted puzzle', gameBoardState);
-    // GBS= Game Board State
-    console.log('Loaded puzzle in formatted puzzle', puzzle);
-    console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
-    setGameBoardState({
-      ...gameBoardState,
-      puzzleId: puzzle.id,
-      level: puzzle.level,
-      boardState: formattedPuzzle,
-      solved: puzzle.solution,
-      original: puzzle.sudoku,
-    });
-  };
-
-  useEffect(() => {
-    getFormattedPuzzle();
-  }, []);
-
-  function getDeepCopyOfArray(arr) {
-    return JSON.parse(JSON.stringify(arr));
   }
+}
+// retrieve puzzle data// possibly refactor more?
+const getFormattedPuzzle = async () => {
+  const puzzle = await getRandomPuzzle();
+  const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
 
-  const handleSquareValueChange = (i, j, newValue) => {
-    setGameBoardState((prevState) => {
-      const newBoardState = getDeepCopyOfArray(prevState.boardState);
-      const prevEditable = prevState.boardState[i][j].editable;
-      newBoardState[i][j] = {
-        cellValue: newValue,
-        cellId: stringify(i, j),
-        editable: prevEditable,
-      };
-      console.log('newBoardState: ', prevState.newBoardState);
+  console.log('GBS in formatted puzzle', gameBoardState);
+  // GBS= Game Board State
+  console.log('Loaded puzzle in formatted puzzle', puzzle);
+  console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
+  setGameBoardState({
+    ...gameBoardState,
+    puzzleId: puzzle.id,
+    level: puzzle.level,
+    boardState: formattedPuzzle,
+    solved: puzzle.solution,
+    original: puzzle.sudoku,
+  });
+};
 
-      // Now push the previous board state on the history stack
-      const newHistory = getDeepCopyOfArray(prevState.history);
-      newHistory.push(prevState.boardState);
+useEffect(() => {
+  getFormattedPuzzle();
+}, []);
 
-      return {
-        ...gameBoardState,
-        boardState: newBoardState,
-        history: newHistory,
-        conflicts: new Set([]),
-      };
-    });
-  };
-  const handleUndoClick = () => {
-    setGameBoardState(prevState => {
-      const newHistory = getDeepCopyOfArray(prevState.history);
-      const lastBoardState = newHistory.pop();
+function getDeepCopyOfArray(arr) {
+  return JSON.parse(JSON.stringify(arr));
+}
 
-      // Now assign the previous board state as the current board state
-      return {
-        ...gameBoardState,
-        boardState: lastBoardState, 
-        history: newHistory,
-        conflicts : new Set([])
-      };
-    });
-  };
-  
-  const handleNewGameClick = () => {
-    setGameBoardState({
-      ...gameBoardState,
-      boardState: getFormattedPuzzle(),
-      history   : [],
-      conflicts : new Set([])
-    });
-  };
- 
-  // saves sudoku state (data, diffuculty, time) to backend.
-  const handleSaveClick = () => {
-
-    console.log(gameBoardState);
-    
-    const puzzleId = gameBoardState.puzzleId;
-    
-    // Turn boardState into a string
-    var playString = [];
-    var playStringNow;
-    
-    for (var i=0; i<gameBoardState.boardState.length; i++) { // for each row
-      for (var j=0; j<gameBoardState.boardState.length; j++) { // for each column
-        playStringNow = gameBoardState.boardState[i][j].cellValue // the value in each cell
-        playString.push(playStringNow)                // is pushed to playString
-      };
+const handleSquareValueChange = (i, j, newValue) => {
+  setGameBoardState((prevState) => {
+    const newBoardState = getDeepCopyOfArray(prevState.boardState);
+    const prevEditable = prevState.boardState[i][j].editable;
+    newBoardState[i][j] = {
+      cellValue: newValue,
+      cellId: stringify(i, j),
+      editable: prevEditable,
     };
-    // activePuzzleString = single string represents current board state
-    var activePuzzleString = playString.join(''); 
-    
-    const req = {
-      // time: gameBoardState.time,
-      difficulty: gameBoardState.level,
-      data: activePuzzleString,
-      solved: gameBoardState.solved,
-      original: gameBoardState.original
-    }};
+    console.log('newBoardState: ', prevState.newBoardState);
+
+    // Now push the previous board state on the history stack
+    const newHistory = getDeepCopyOfArray(prevState.history);
+    newHistory.push(prevState.boardState);
+
+    return {
+      ...gameBoardState,
+      boardState: newBoardState,
+      history: newHistory,
+      conflicts: new Set([]),
+    };
+  });
+};
+const handleUndoClick = () => {
+  setGameBoardState((prevState) => {
+    const newHistory = getDeepCopyOfArray(prevState.history);
+    const lastBoardState = newHistory.pop();
+
+    // Now assign the previous board state as the current board state
+    return {
+      ...gameBoardState,
+      boardState: lastBoardState,
+      history: newHistory,
+      conflicts: new Set([]),
+    };
+  });
+};
+
+const handleNewGameClick = () => {
+  setGameBoardState({
+    ...gameBoardState,
+    boardState: getFormattedPuzzle(),
+    history: [],
+    conflicts: new Set([]),
+  });
+};
+
+// saves sudoku state (data, diffuculty, time) to backend.
+const handleSaveClick = () => {
+  console.log(gameBoardState);
+
+  const puzzleId = gameBoardState.puzzleId;
+
+  // Turn boardState into a string
+  var playString = [];
+  var playStringNow;
+
+  for (var i = 0; i < gameBoardState.boardState.length; i++) {
+    // for each row
+    for (var j = 0; j < gameBoardState.boardState.length; j++) {
+      // for each column
+      playStringNow = gameBoardState.boardState[i][j].cellValue; // the value in each cell
+      playString.push(playStringNow); // is pushed to playString
+    }
+  }
+  // activePuzzleString = single string represents current board state
+  var activePuzzleString = playString.join('');
+
+  const req = {
+    // time: gameBoardState.time,
+    difficulty: gameBoardState.level,
+    data: activePuzzleString,
+    solved: gameBoardState.solved,
+    original: gameBoardState.original,
+  };
+};
 // come back to this and add it later! line 144 from original EasySudoku.js file
 
 function handleVerifyClick() {
-    const { boardState, setBoardState } = gameBoardState;
-    
-    // Assigns id to boxes in two digit format for xy (row column)
-    // rows[0]/cols[0] -> first row/column
-    const rows = {};
-    const cols = {};
-    // Example: boxes['00'] -> an array of values in the first box. 
-    const boxes = {};
-    
-    // populating rows
-    for(let i=0; i<boardState.length; i++) {
-      rows[i] = getDeepCopyOfArray(boardState[i]);
-      // console.log("BOX ID: ", "boxId")
-      
-      for(let j=0; j<boardState[i].length;j++) {
-        // populating columns
-        if(cols.hasOwnProperty(j)) {
-          cols[j].push(boardState[i][j]); //set a new cell value in the board
-        } else {
-          cols[j] = [boardState[i][j]]; // or keep the value
-        };
-        
-        // populating boxes// come back to this! 
-        const boxId = stringify(Math.floor(i/3, Math.floor(j/3)));
-        
-        if(boxes.hasOwnProperty(boxId)) {
-          boxes[boxId].push(boardState[i][j]);
-        } else {
-          boxes[boxId] = [boardState[i][j]];
-        };
-      };
+  const { boardState, setBoardState } = gameBoardState;
 
-       // creates an array of conflicts found by location
+  // Assigns id to boxes in two digit format for xy (row column)
+  // rows[0]/cols[0] -> first row/column
+  const rows = {};
+  const cols = {};
+  // Example: boxes['00'] -> an array of values in the first box.
+  const boxes = {};
+
+  // populating rows
+  for (let i = 0; i < boardState.length; i++) {
+    rows[i] = getDeepCopyOfArray(boardState[i]);
+    // console.log("BOX ID: ", "boxId")
+
+    for (let j = 0; j < boardState[i].length; j++) {
+      // populating columns
+      if (cols.hasOwnProperty(j)) {
+        cols[j].push(boardState[i][j]); //set a new cell value in the board
+      } else {
+        cols[j] = [boardState[i][j]]; // or keep the value
+      }
+
+      // populating boxes// come back to this!
+      const boxId = stringify(Math.floor(i / 3, Math.floor(j / 3)));
+
+      if (boxes.hasOwnProperty(boxId)) {
+        boxes[boxId].push(boardState[i][j]);
+      } else {
+        boxes[boxId] = [boardState[i][j]];
+      }
+    }
+
+    // creates an array of conflicts found by location
     const rowConflicts = flatten(getConflicts(Object.values(rows)));
     const colConflicts = flatten(getConflicts(Object.values(cols)));
     const boxConflicts = flatten(getConflicts(Object.values(boxes)));
@@ -171,14 +172,19 @@ function handleVerifyClick() {
     // console.log("BOX CONFLICTS1: ", boxConflicts)
 
     const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
-    setGameBoardState({ ...gameBoardState, conflicts: new Set(mergedConflicts) });
+    setGameBoardState({
+      ...gameBoardState,
+      conflicts: new Set(mergedConflicts),
+    });
 
     // Turn boardState into a string
     const playString = [];
     let playStringNow;
 
-    for (let i = 0; i < gameBoardState.boardState.length; i++) { // for each row
-      for (let j = 0; j < gameBoardState.boardState.length; j++) { // for each column
+    for (let i = 0; i < gameBoardState.boardState.length; i++) {
+      // for each row
+      for (let j = 0; j < gameBoardState.boardState.length; j++) {
+        // for each column
         playStringNow = gameBoardState.boardState[i][j].cellValue; // the value in each cell
         playString.push(playStringNow); // is pushed to playString
       }
@@ -204,7 +210,7 @@ function handleVerifyClick() {
   }
 
   function getConflicts(arrs) {
-    return (arrs.map((arr) => getConflictsInArray(arr)));
+    return arrs.map((arr) => getConflictsInArray(arr));
   }
 
   function getConflictsInArray(arr) {
@@ -224,7 +230,7 @@ function handleVerifyClick() {
 
     return Object.values(conflictMap).filter((arr) => arr.length > 1);
   }
-// come back and change this to variables. line 227, 249, 253
+  // come back and change this to variables. line 227, 249, 253
   function formatPuzzle(puzzle) {
     const formattedPuzzle = createArray(9, 9);
 
@@ -252,15 +258,15 @@ function handleVerifyClick() {
   }
 
   function getColId(i) {
-    return (i % 9);
+    return i % 9;
   }
 
   return (
     //   change these values to styled
-    <div className="Sudoku">
+    <div className='Sudoku'>
       <div>
         <Board
-          className="Board"
+          className='Board'
           boardState={gameBoardState.boardState}
           conflicts={gameBoardState.conflicts}
           onSquareValueChange={handleSquareValueChange}
@@ -270,16 +276,15 @@ function handleVerifyClick() {
       <Settings />
     </div>
   );
-  
-};
-  function createArray(length) {
-    const arr = new Array(length || 0);
-    let i = length;
-  
-    if (arguments.length > 1) {
-      const args = Array.prototype.slice.call(arguments, 1);
-      while (i--) arr[length - 1 - i] = createArray.apply(this, args);
-    }
-    return arr;
+}
+function createArray(length) {
+  const arr = new Array(length || 0);
+  let i = length;
+
+  if (arguments.length > 1) {
+    const args = Array.prototype.slice.call(arguments, 1);
+    while (i--) arr[length - 1 - i] = createArray.apply(this, args);
   }
-  export default puzzleHandler;
+  return arr;
+}
+export default puzzleHandler;
