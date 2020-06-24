@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Sudoku.css';
 
-function Square(props) {
+function Grid(props) {
   // console.log(props);
 
   const generateSquareContent = () => {
@@ -15,11 +15,33 @@ function Square(props) {
     const ri = props.rowIndex;
     const ci = props.colIndex;
 
-    /*
-    
-    if statments
-    
-    */
+    // -------------------------------------------------------------
+
+    let conditionRow = 3;
+    let conditionCol = 3;
+
+    // -------------------------------------------------------------
+
+    let border = '3px solid black';
+
+    if (ri === 0) {
+      style['borderTop'] = border;
+    } // Lines top of grid
+    if (ri > 0 && ri % conditionRow === 0) {
+      style['borderTop'] = border;
+    } // Lines to seperate middle rows
+    if (ci === 0) {
+      style['borderLeft'] = border;
+    } // Line left of grid
+    if (ci > 0 && ci % conditionCol === 0) {
+      style['borderLeft'] = border;
+    } // Lines to seperate middle colums
+    if (ci > 0 && ci % 1 === 0) {
+      style['borderRight'] = border;
+    } // Line right of grid
+    if (ri > 0 && ri % 1 === 0) {
+      style['borderBottom'] = border;
+    } // Line bottom of grid
 
     return (
       <div className='Square_Input'>
@@ -58,4 +80,4 @@ const isNumeric = (num) => {
   return !isNaN(num);
 };
 
-export default Square;
+export default Grid;

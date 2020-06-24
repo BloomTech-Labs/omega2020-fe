@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Square from '../puzzle-builder/square';
-// import grid //
+// import Square from '../puzzle-builder/square';
+import Grid from './Grid';
 
 const Board = (props) => {
   console.log('BOARD PROPS: ', props);
@@ -26,7 +26,7 @@ const Board = (props) => {
         const conflict = conflicts.has(i + '' + j) ? true : false;
         let currSquare = (
           // ******  rename square to grid ******************* //
-          <Square
+          <Grid
             className='SquareContent'
             key={'' + i + j}
             value={boardState[i][j].cellValue}
