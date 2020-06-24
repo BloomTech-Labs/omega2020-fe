@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import Board from '../puzzle-builder/Board';
-import { Get4x4 } from './grid-axios-call/4x4';
-import { Get6x6 } from './grid-axios-call/6x6';
+// import { Get4x4 } from './grid-axios-call/4x4';
+// import { Get6x6 } from './grid-axios-call/6x6';
 import { Get9x9 } from './grid-axios-call/9x9';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import gridCondiditions from '../Seeds';
 import { makeStyles } from '@material-ui/core/styles';
+
+// -------------------------------------------------------------
+
+// replce line 162 with conditionRow & conditionCol
+// replce line 242, 264 & line 268 with gridLength
+let conditionRow = 3;
+let conditionCol = 3;
+let gridLength = 9;
+
+// -------------------------------------------------------------
 
 console.log(Get4x4());
 function puzzleHandler() {
@@ -19,8 +29,7 @@ function puzzleHandler() {
   });
   //   to do: add the 4x4/6x6/9x9 switch
   async function getRandomPuzzle() {
-    // const puzzles = await GetEasyPuzzle();
-    const puzzles = await Get4x4();
+    const puzzles = await Get9x9();
     setWin(puzzles.solution);
 
     return puzzles;
@@ -155,7 +164,9 @@ function handleVerifyClick() {
       }
 
       // populating boxes// come back to this!
-      const boxId = stringify(Math.floor(i / 3, Math.floor(j / 3)));
+      const boxId = stringify(
+        Math.floor(i / conditionRow, Math.floor(j / conditionCol))
+      );
 
       if (boxes.hasOwnProperty(boxId)) {
         boxes[boxId].push(boardState[i][j]);
@@ -230,9 +241,9 @@ function handleVerifyClick() {
 
     return Object.values(conflictMap).filter((arr) => arr.length > 1);
   }
-  // come back and change this to variables. line 227, 249, 253
+
   function formatPuzzle(puzzle) {
-    const formattedPuzzle = createArray(9, 9);
+    const formattedPuzzle = createArray(gridLength, gridLength);
 
     for (let i = 0; i < puzzle.length; i++) {
       const rowId = getRowId(i);
@@ -254,11 +265,11 @@ function handleVerifyClick() {
   }
 
   function getRowId(i) {
-    return Math.floor(i / 9);
+    return Math.floor(i / gridLength);
   }
 
   function getColId(i) {
-    return i % 9;
+    return i % gridLength;
   }
 
   return (

@@ -17,6 +17,7 @@ import Tutorial from './components/Tutorial/tutorial-page';
 import FooterCondition from './components/Navigation/FooterCondition';
 
 // What is left to update
+
 import Sudoku from './components/puzzles-by-difficulty/random/Sudoku';
 import ResumedPuzzle from './components/save-resume/ResumedPuzzle';
 import MediumSudoku from './components/puzzles-by-difficulty/medium/MediumSudoku';
@@ -55,7 +56,7 @@ const App = () => {
           <Route path='/about' component={AboutUsPage} />
           <Route path='/tutorial' component={Tutorial} />
 
-          {/* ---------------------------------------------- */}
+          {/* ----------------------------------------------- */}
 
           <Route path='/random' component={Sudoku} />
           <Route path='/medium' component={MediumSudoku} />
