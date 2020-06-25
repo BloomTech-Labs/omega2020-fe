@@ -4,12 +4,12 @@ import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
+import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
+import Simulation4x4 from './Simulation4x4';
+import Simulation6x6 from './Simulation6x6';
 
-import BlueButton from '../assets/BlueButton';
-import games from '../../images/games.png';
-
-const Banner = (props) => {
+const GameSimulation = (props) => {
   const classes = useStyles();
   const { loading = false } = props;
 
@@ -44,15 +44,13 @@ const Banner = (props) => {
                             className={classes.header}
                             style={{ fontSize: '1.3rem' }}
                           >
-                            Improve Your Skills
-                            <br />
-                            By Understanding Game Strategies
+                            Learn The Game Play
                           </Typography>
                           <br />
                           <Typography className={classes.subheader}>
-                            Learn to recognize key patterns and methods
+                            Start off with something easy
                             <br />
-                            to improve your speed and skill level
+                            then kick it up a notch
                           </Typography>
                           <br />
                           <br />
@@ -62,17 +60,17 @@ const Banner = (props) => {
                       );
                     default:
                       return (
-                        <Box>
+                        <Box className={classes.container}>
                           <Typography variant='h4' className={classes.header}>
-                            Improve Your Skills By Understanding Game Strategies
+                            Learn The Game Play
                           </Typography>
                           <br />
                           <Typography
                             variant='h6'
                             className={classes.subheader}
                           >
-                            Learn to recognize key patterns and methods to
-                            improve your speed and skill level
+                            Start off with something easy then kick it up a
+                            notch
                           </Typography>
                           <br />
                           <br />
@@ -87,39 +85,19 @@ const Banner = (props) => {
           }
         />
         <CardHeader
-          action={
+          avatar={
             loading ? (
-              <Skeleton className={classes.text} width={60} height={55} />
+              <Skeleton
+                className='bannerIMG'
+                variant='rect'
+                width={600}
+                height={600}
+              />
             ) : (
-              <Box>
-                <BlueButton title={'Get Started Today'} />
-              </Box>
-            )
-          }
-        />
-
-        <CardHeader
-          action={
-            loading ? (
-              <Skeleton className={classes.text} width={60} height={55} />
-            ) : (
-              <Box className={classes.gameBoard}>
-                {(() => {
-                  switch (viewPort) {
-                    case true:
-                      return (
-                        <Box className={classes.img}>
-                          {/* <img src={games} alt='games' width='300' /> */}
-                        </Box>
-                      );
-                    default:
-                      return (
-                        <Box className={classes.img}>
-                          {/* <img src={games} alt='games' /> */}
-                        </Box>
-                      );
-                  }
-                })()}
+              <Box className={classes.Simulation}>
+                <Simulation4x4 />
+                <br />
+                <Simulation6x6 />
               </Box>
             )
           }
@@ -129,7 +107,7 @@ const Banner = (props) => {
   );
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     width: '100%',
     display: 'flex',
@@ -139,6 +117,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 100,
   },
   mainContainer: {
+    width: '100%',
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'center',
@@ -149,23 +128,9 @@ const useStyles = makeStyles((theme) => ({
     // opacity: 0.3,
     color: '#A2A2A2',
   },
-  img: {
-    width: '90vw',
-    height: '50vh',
-    backgroundImage: `url(${games})`,
-    backgroundRepeat: 'no-repeat',
-    // backgroundSize: 'contain, cover',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  gameBoard: {
-    marginTop: 200,
-  },
-  space: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
+  Simulation: {
+    width: '100%',
   },
 }));
 
-export default Banner;
+export default GameSimulation;

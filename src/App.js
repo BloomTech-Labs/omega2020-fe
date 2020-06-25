@@ -58,7 +58,11 @@ const App = () => {
                 <Registration {...props} onChange={handleLoginStateChanged} />
               )}
             />
-            <Route exact path='/' component={LandingPage} />
+            <Route
+              exact
+              path='/'
+              component={() => <LandingPage theme={theme} />}
+            />
             <Route path='/soon' component={SoonPage} />
             <Route path='/about' component={AboutUsPage} />
             <Route path='/tutorial' component={Tutorial} />
