@@ -7,7 +7,6 @@ import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from './store/Mode/useDarkMode';
 import { darkMode, lightMode } from './store/Mode/theme';
 import { GlobalStyles } from './store/Mode/global';
-import './App.css';
 
 // What we've updated
 import NavCondition from './components/Navigation/NavBarCondition';
