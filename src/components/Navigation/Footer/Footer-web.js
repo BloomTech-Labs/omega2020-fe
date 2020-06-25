@@ -61,14 +61,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'center',
-    '& dark': {
-      background: '#141414',
-      color: '#FFFFFF',
-    },
-    '& light': {
-      background: '#FFFFFF',
-      color: '#141414',
-    },
   },
   leftContainer: {
     width: '49%',
