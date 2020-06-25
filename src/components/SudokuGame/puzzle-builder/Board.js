@@ -24,6 +24,7 @@ const Board = (props) => {
         const conflict = conflicts.has(i + '' + j) ? true : false;
         let currSquare = (
           <Grid
+            theme={props.theme}
             key={'' + i + j}
             value={boardState[i][j].cellValue}
             editable={boardState[i][j].editable}
@@ -45,8 +46,6 @@ const Board = (props) => {
     return board;
   };
 
-  console.log(props);
-
   const board = generateBoard();
 
   return <div className={classes.board}>{board}</div>;
@@ -56,12 +55,15 @@ const useStyles = makeStyles(() => ({
   board: {
     display: 'felx',
     flexFlow: 'column wrap',
-    border: '2px solid green',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
   },
   boardRow: {
     display: 'flex',
-    width: '500px',
-    height: '60px',
+    width: '450px',
+    height: '55px',
   },
 }));
 

@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+
 *,
   *::after,
   *::before {
@@ -18,7 +19,7 @@ body {
     padding: 0;
 }
 
-div{
+div {
   background: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
 }

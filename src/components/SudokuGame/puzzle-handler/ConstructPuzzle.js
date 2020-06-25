@@ -26,7 +26,9 @@ let gridLength = 9;
 
 // -------------------------------------------------------------
 
-const ConstructPuzzle = () => {
+const ConstructPuzzle = (props) => {
+  console.log(`theme in puzzle: ${props.themes}`);
+
   const classes = useStyles();
 
   const [win, setWin] = useState('');
@@ -34,7 +36,6 @@ const ConstructPuzzle = () => {
   const [gameBoardState, setGameBoardState] = useState({
     boardState: '',
     puzzleId: '',
-    // time: 0,
     history: [],
     conflicts: new Set([]),
   });
@@ -51,9 +52,9 @@ const ConstructPuzzle = () => {
     const puzzle = await getPuzzle();
     const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
 
-    console.log('GBS in formatted puzzle', gameBoardState);
-    console.log('Loaded puzzle in formatted puzzle', puzzle);
-    console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
+    // console.log('GBS in formatted puzzle', gameBoardState);
+    // console.log('Loaded puzzle in formatted puzzle', puzzle);
+    // console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
     setGameBoardState({
       ...gameBoardState,
       puzzleId: puzzle.id,
@@ -235,6 +236,7 @@ const ConstructPuzzle = () => {
     <div className={classes.root}>
       <div>
         <Board
+          theme={props.theme}
           boardState={gameBoardState.boardState}
           conflicts={gameBoardState.conflicts}
           onSquareValueChange={handleSquareValueChange}
@@ -253,7 +255,6 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    border: '2px solid red',
   },
 }));
 

@@ -38,6 +38,9 @@ const App = () => {
     return <div />;
   }
 
+  let themes = 'dark';
+  console.log(`theme in app ${theme}`);
+
   return (
     <Router history={history}>
       <ThemeProvider theme={themeMode}>
@@ -68,7 +71,10 @@ const App = () => {
 
             {/* ----------------------------------------------- */}
 
-            <Route path='/easy' component={ConstructPuzzle} />
+            <Route
+              path='/easy'
+              component={() => <ConstructPuzzle theme={themes} />}
+            />
           </Switch>
           <FooterCondition />
         </div>

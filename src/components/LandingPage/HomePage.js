@@ -123,23 +123,18 @@ const HomePage = (props) => {
           }
         />
 
-        {/* <Box>
-          <ConstructPuzzle />
-        </Box> */}
-
         <CardHeader
           action={
             loading ? (
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
               <Box className={classes.gameBoard}>
-                {(() => {
+                <ConstructPuzzle />
+                {/* {(() => {
                   switch (viewPort) {
                     case true:
                       return (
                         <Box>
-                          {/* <GridOnIcon style={{ fontSize: 400 }} /> */}
-                          {/* <img src={game} alt='game of the day' width='300' /> */}
                           {(() => {
                             switch (props.theme) {
                               case 'dark':
@@ -165,7 +160,6 @@ const HomePage = (props) => {
                     default:
                       return (
                         <Box>
-                          {/* <GridOnIcon style={{ fontSize: 400 }} /> */}
                           {(() => {
                             switch (props.theme) {
                               case 'dark':
@@ -189,7 +183,7 @@ const HomePage = (props) => {
                         </Box>
                       );
                   }
-                })()}
+                })()} */}
               </Box>
             )
           }
