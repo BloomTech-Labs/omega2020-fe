@@ -1,9 +1,10 @@
 import React from 'react';
-
-// import Square from '../puzzle-builder/square';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from './Grid';
 
 const Board = (props) => {
+  const classes = useStyles();
+
   console.log('BOARD PROPS: ', props);
   console.log('AKAKFILES: ', props);
 
@@ -16,18 +17,13 @@ const Board = (props) => {
   const generateBoard = () => {
     const board = [];
 
-    // console.log("boardState", boardState.length)
-
     for (let i = 0; i < boardState.length; i++) {
       let currRow = [];
       for (let j = 0; j < boardState[i].length; j++) {
         const conflicts = props.conflicts;
-        // console.log("CONFLICTS: ", conflicts)
         const conflict = conflicts.has(i + '' + j) ? true : false;
         let currSquare = (
-          // ******  rename square to grid ******************* //
           <Grid
-            className='SquareContent'
             key={'' + i + j}
             value={boardState[i][j].cellValue}
             editable={boardState[i][j].editable}
@@ -40,7 +36,7 @@ const Board = (props) => {
         currRow.push(currSquare);
       }
       board.push(
-        <div className='Board_RowData' key={i}>
+        <div className={classes.boardRow} key={i}>
           {currRow}
         </div>
       );
@@ -53,7 +49,20 @@ const Board = (props) => {
 
   const board = generateBoard();
 
-  return <div className='Board'>{board}</div>;
+  return <div className={classes.board}>{board}</div>;
 };
+
+const useStyles = makeStyles(() => ({
+  board: {
+    display: 'felx',
+    flexFlow: 'column wrap',
+    border: '2px solid green',
+  },
+  boardRow: {
+    display: 'flex',
+    width: '500px',
+    height: '60px',
+  },
+}));
 
 export default Board;

@@ -1,8 +1,8 @@
 import React from 'react';
-import '../Sudoku.css';
+import { makeStyles } from '@material-ui/core/styles';
 
 function Grid(props) {
-  // console.log(props);
+  const classes = useStyles();
 
   const generateSquareContent = () => {
     // A Square may only be edited if it's value is "."
@@ -46,6 +46,7 @@ function Grid(props) {
     return (
       <div className='Square_Input'>
         <input
+          className={classes.input}
           id={props.key}
           className='Square'
           style={style}
@@ -79,5 +80,11 @@ function Grid(props) {
 const isNumeric = (num) => {
   return !isNaN(num);
 };
+
+const useStyles = makeStyles(() => ({
+  input: {
+    //TBD
+  },
+}));
 
 export default Grid;
