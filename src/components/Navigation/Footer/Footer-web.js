@@ -24,9 +24,7 @@ const FooterWeb = (props) => {
                 <Skeleton className={classes.text} width={100} height={55} />
               ) : (
                 <Typography variant='subtitle1'>
-                  Copyright © Omega2020
-                  <br />
-                  2020.
+                  Copyright © SUDOMEGA 2020.
                 </Typography>
               )
             }

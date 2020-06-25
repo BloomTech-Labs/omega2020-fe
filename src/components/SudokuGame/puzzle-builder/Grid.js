@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import '../../Sudoku.css';
 
 function Grid(props) {
   const classes = useStyles();

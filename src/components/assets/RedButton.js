@@ -1,28 +1,28 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { blue, grey } from '@material-ui/core/colors';
+import { red } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
 
-const WhiteButton = (props) => {
+const RedButton = (props) => {
   return (
-    <ColorButton size='large' variant='outlined' color={blue.A700}>
+    <ColorButton size='large' href={props.href}>
       <Typography variant='caption'>{props.title}</Typography>
     </ColorButton>
   );
 };
 
-const ColorButton = withStyles(() => ({
+const ColorButton = withStyles((theme) => ({
   root: {
     paddingLeft: 20,
     paddingRight: 20,
-    color: blue.A700,
-    backgroundColor: grey[50],
-    '&:hover': {
-      backgroundColor: grey[300],
-    },
     textTransform: 'none',
+    color: theme.palette.getContrastText(red[500]),
+    backgroundColor: red[500],
+    '&:hover': {
+      backgroundColor: red[300],
+    },
   },
 }))(Button);
 
-export default WhiteButton;
+export default RedButton;

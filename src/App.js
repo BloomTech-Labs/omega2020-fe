@@ -6,7 +6,7 @@ import history from './utils/history';
 import './App.css';
 
 // What we've updated
-import NavCondition from './components/Navigation/NavCondition';
+import NavCondition from './components/Navigation/NavBarCondition';
 // Register and Login require form validation
 import Registration from './components/Authentication/RegisterForm';
 import Login from './components/Authentication/LoginForm';
