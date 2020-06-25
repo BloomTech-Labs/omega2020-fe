@@ -19,13 +19,6 @@ import FooterCondition from './components/Navigation/FooterCondition';
 // What is left to update
 
 import Sudoku from './components/puzzles-by-difficulty/random/Sudoku';
-import ResumedPuzzle from './components/save-resume/ResumedPuzzle';
-import MediumSudoku from './components/puzzles-by-difficulty/medium/MediumSudoku';
-import HardSudoku from './components/puzzles-by-difficulty/hard/HardSudoku';
-import DiabolicalSudoku from './components/puzzles-by-difficulty/diabolical/DiabolicalSudoku';
-import EasySudoku from './components/puzzles-by-difficulty/easy/EasySudoku';
-import UploadForm from './components/upload-image/UploadForm';
-import UploadSudoku2 from './components/upload-image/UploadSudoku2';
 
 import ConstructPuzzle from './components/SudokuGame/puzzle-handler/ConstructPuzzle';
 
@@ -61,13 +54,7 @@ const App = () => {
           {/* ----------------------------------------------- */}
 
           <Route path='/random' component={Sudoku} />
-          <Route path='/medium' component={MediumSudoku} />
-          <Route path='/diabolical' component={DiabolicalSudoku} />
           <Route path='/easy' component={ConstructPuzzle} />
-          <Route path='/hard' component={HardSudoku} />
-          <Route path='/user-puzzles' component={ResumedPuzzle} />
-          <Route path='/upload' component={UploadForm} />
-          <Route path='/upload-save' component={UploadSudoku2} />
         </Switch>
         <FooterCondition />
       </div>
