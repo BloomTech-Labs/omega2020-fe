@@ -3,12 +3,10 @@ import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
-
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
 import GroupIcon from '@material-ui/icons/Group';
-import AppsIcon from '@material-ui/icons/Apps';
-import CategoryIcon from '@material-ui/icons/Category';
 import { makeStyles } from '@material-ui/core/styles';
+import { TeamVersion1, TeamVersion2 } from './TeamList';
 
 const AboutUs = (props) => {
   const classes = useStyles();
@@ -22,7 +20,10 @@ const AboutUs = (props) => {
             loading ? (
               <Skeleton className={classes.title} width={400} height={100} />
             ) : (
-              <Typography variant='h4'>About Omega 2020</Typography>
+              <Box>
+                <Typography variant='h4'>About Sudomega</Typography>
+                <TeamVersion2 />
+              </Box>
             )
           }
         />
@@ -113,6 +114,11 @@ const AboutUs = (props) => {
           </Box>
         </Box>
       </Box>
+
+      <hr width='100%' />
+      <TeamVersion1 />
+      <br />
+      <br />
     </Box>
   );
 };
@@ -120,8 +126,11 @@ const AboutUs = (props) => {
 const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'space-evenly',
+    flexFlow: 'column wrap',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
     marginTop: 150,
   },
   mainContainer: {
@@ -129,7 +138,7 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
-    marginTop: 150,
+    // marginTop: 150,
     marginBottom: 150,
   },
   leftContainer: {
