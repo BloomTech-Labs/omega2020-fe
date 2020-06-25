@@ -18,7 +18,7 @@ import FooterCondition from './components/Navigation/FooterCondition';
 
 // What is left to update
 
-import Sudoku from './components/puzzles-by-difficulty/random/Sudoku';
+// import Sudoku from './components/puzzles-by-difficulty/random/Sudoku';
 
 import ConstructPuzzle from './components/SudokuGame/puzzle-handler/ConstructPuzzle';
 
@@ -53,7 +53,7 @@ const App = () => {
 
           {/* ----------------------------------------------- */}
 
-          <Route path='/random' component={Sudoku} />
+          {/* <Route path='/random' component={Sudoku} /> */}
           <Route path='/easy' component={ConstructPuzzle} />
         </Switch>
         <FooterCondition />
