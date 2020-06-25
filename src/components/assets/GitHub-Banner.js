@@ -10,27 +10,20 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const GitHubBanner = (props) => {
   const classes = useStyles();
-  const { loading = false } = props;
 
   return (
     <Box className={classes.root}>
       <Box className={classes.banner}>
-        <CardHeader
-          title={
-            loading ? (
-              <Skeleton className={classes.title} width={400} height={100} />
-            ) : (
-              <Box className={classes.icon}>
-                <IconButton href='https://github.com/Lambda-School-Labs/omega2020-fe'>
-                  <GitHubIcon
-                    style={{ fontSize: 40, padding: 20, color: '#FFFFFF' }}
-                  />
-                </IconButton>
-                <Typography variant='h6'> Find us on GitHub</Typography>
-              </Box>
-            )
-          }
-        />
+        <Box className={classes.icon}>
+          <IconButton
+            href='https://github.com/Lambda-School-Labs/omega2020-fe'
+            color='inherit'
+          >
+            <GitHubIcon style={{ fontSize: 40, padding: 20 }} />
+          </IconButton>
+
+          <Typography variant='h6'> Find us on GitHub</Typography>
+        </Box>
       </Box>
     </Box>
   );
@@ -41,13 +34,13 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
-    background: '#FFFFFF',
   },
   icon: {
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
     alignItems: 'center',
+    background: blue[300],
   },
   banner: {
     width: '100vw',
@@ -56,7 +49,7 @@ const useStyles = makeStyles(() => ({
     flexFlow: 'row wrap',
     justifyContent: 'center',
     background: blue[300],
-    color: '#FFFFFF',
+    // color: '#FFFFFF',
   },
 }));
 

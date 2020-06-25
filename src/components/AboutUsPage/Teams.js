@@ -110,13 +110,15 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
-    background: '#FFFFFF',
   },
   mainContainer: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    // width: '100vw',
+    // flexGrow: 1,
+    // backgroundColor: theme.palette.background.paper,
+    border: '2px solid red',
   },
   tab: {
+    width: '100%',
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'center',

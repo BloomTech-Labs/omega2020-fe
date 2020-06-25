@@ -50,11 +50,11 @@ const ConstructPuzzle = (props) => {
 
   const getFormattedPuzzle = async () => {
     const puzzle = await getPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
+    const formattedPuzzle = formatPuzzle(puzzle.sudoku);
 
-    // console.log('GBS in formatted puzzle', gameBoardState);
-    // console.log('Loaded puzzle in formatted puzzle', puzzle);
-    // console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
+    console.log('Game Board State in formatted puzzle', gameBoardState);
+    console.log('Loaded puzzle in formatted puzzle', puzzle);
+    console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
     setGameBoardState({
       ...gameBoardState,
       puzzleId: puzzle.id,
@@ -65,6 +65,7 @@ const ConstructPuzzle = (props) => {
     });
   };
 
+  // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
   }, []);
@@ -139,14 +140,13 @@ const ConstructPuzzle = (props) => {
     var activePuzzleString = playString.join('');
 
     const req = {
-      // time: gameBoardState.time,
       difficulty: gameBoardState.level,
       data: activePuzzleString,
       solved: gameBoardState.solved,
       original: gameBoardState.original,
     };
 
-    console.log('EASY', puzzleId);
+    console.log('GridNumxNum', puzzleId);
     axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then((res) => {
@@ -154,6 +154,9 @@ const ConstructPuzzle = (props) => {
         alert('Puzzle saved');
       });
   };
+
+  console.log('WIN', win);
+  console.log('GBS101', gameBoardState);
 
   function handleVerifyClick() {
     const { boardState, setBoardState } = gameBoardState;
@@ -168,7 +171,6 @@ const ConstructPuzzle = (props) => {
     // populating rows
     for (let i = 0; i < boardState.length; i++) {
       rows[i] = getDeepCopyOfArray(boardState[i]);
-      // console.log("BOX ID: ", "boxId")
 
       for (let j = 0; j < boardState[i].length; j++) {
         // populating columns
@@ -195,8 +197,6 @@ const ConstructPuzzle = (props) => {
     const rowConflicts = flatten(getConflicts(Object.values(rows)));
     const colConflicts = flatten(getConflicts(Object.values(cols)));
     const boxConflicts = flatten(getConflicts(Object.values(boxes)));
-
-    // console.log("BOX CONFLICTS1: ", boxConflicts)
 
     const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
     setGameBoardState({
@@ -243,6 +243,15 @@ const ConstructPuzzle = (props) => {
           historyLength={gameBoardState.history.length}
         />
       </div>
+
+      {/* 
+      in the KeyPad add: 
+          historyLength  = {gameBoardState.history.length}
+          onUndoClick = {handleUndoClick}
+          onNewGameClick = {handleNewGameClick}
+          onVerifyClick  = {handleVerifyClick}
+          onSaveClick = {handleSaveClick}
+      */}
     </div>
   );
 };

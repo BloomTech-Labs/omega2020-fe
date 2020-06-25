@@ -14,7 +14,7 @@ const TeamCard = (props) => {
   const { name, image, title, linkedin, github } = props.member;
 
   return (
-    <Card className={classes.root}>
+    <Box className={classes.root} boxShadow={3}>
       <Box>
         <img alt={name} src={image} className={classes.img} />
       </Box>
@@ -30,7 +30,7 @@ const TeamCard = (props) => {
           </IconButton>
         </Box>
       </Box>
-    </Card>
+    </Box>
   );
 };
 
@@ -40,7 +40,7 @@ const useStyles = makeStyles(() => ({
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    background: '#FFFFFF',
+    // background: '#FFFFFF',
     padding: 20,
     margin: 20,
   },

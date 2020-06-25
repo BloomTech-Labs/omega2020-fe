@@ -10,9 +10,6 @@ import { GlobalStyles } from './store/Mode/global';
 
 // What we've updated
 import NavCondition from './components/Navigation/NavBarCondition';
-// Register and Login require form validation
-import Registration from './components/Authentication/RegisterForm';
-import Login from './components/Authentication/LoginForm';
 import LandingPage from './components/LandingPage/LandingPage';
 import SoonPage from './components/soonPage/soon';
 import AboutUsPage from './components/AboutUsPage/AboutUsPage';
@@ -20,20 +17,19 @@ import Tutorial from './components/Tutorial/tutorial-page';
 import FooterCondition from './components/Navigation/FooterCondition';
 
 // What is left to update
-
-import ConstructPuzzle from './components/SudokuGame/puzzle-handler/ConstructPuzzle';
+import Registration from './components/Authentication/RegisterForm'; // add form validation
+import Login from './components/Authentication/LoginForm'; // add form validation
+import ConstructPuzzle from './components/SudokuGame/puzzle-handler/ConstructPuzzle'; // render 4x4 6x6 9x9
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
-
   const handleLoginStateChanged = () => {
     setToken(localStorage.getItem('token'));
   };
 
+  // darkMode / lightMode state
   const [theme, toggleTheme, componentMounted] = useDarkMode();
-
   const themeMode = theme === 'dark' ? darkMode : lightMode;
-
   if (!componentMounted) {
     return <div />;
   }
@@ -65,14 +61,15 @@ const App = () => {
               path='/'
               component={() => <LandingPage theme={theme} />}
             />
-            <Route path='/coming-soon' component={SoonPage} />
+
             <Route path='/about' component={AboutUsPage} />
             <Route path='/tutorial' component={Tutorial} />
+            <Route path='/coming-soon' component={SoonPage} />
 
             {/* ----------------------------------------------- */}
 
             <Route
-              path='/easy'
+              path='/9x9Game'
               component={() => <ConstructPuzzle theme={themes} />}
             />
           </Switch>

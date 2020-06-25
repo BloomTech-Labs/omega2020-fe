@@ -1,7 +1,7 @@
 import React from 'react';
 import './soon.css';
-// import logo from './logo.svg';
 import sudoku from './sudoku.png';
+import BlueButton from '../assets/BlueButton';
 
 function Soon() {
   return (
@@ -11,15 +11,13 @@ function Soon() {
       <p className='secondFont'>Omega 2020 sudoku is </p>
       <h1 className='thirdFont'> COMING SOON </h1>
       <p className='fourthFont'>
-        {' '}
         In the meantime <b>subscribe</b> to get alerted when the game is
-        available{' '}
+        available
       </p>
 
       <section className='button'>
-        <p className='sub'> subscribe </p>
-
-        <p className='learn'> learn how to play! </p>
+        <BlueButton title={'subscribe'} />
+        <BlueButton title={'learn how to play!'} />
       </section>
     </div>
   );

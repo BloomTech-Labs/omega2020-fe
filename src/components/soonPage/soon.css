@@ -1,5 +1,5 @@
 .sudoku {
-  height: 85vh;
+  height: 100vh;
   text-align: center;
 }
 
@@ -12,7 +12,7 @@
   width: 15%;
   display: inline-flex;
   text-align: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .firstFont {
