@@ -3,6 +3,10 @@ import { Router, Route, Switch } from 'react-router-dom';
 
 // General utilities
 import history from './utils/history';
+import { ThemeProvider } from 'styled-components';
+import { useDarkMode } from './store/Mode/useDarkMode';
+import { darkMode, lightMode } from './store/Mode/theme';
+import { GlobalStyles } from './store/Mode/global';
 import './App.css';
 
 // What we've updated
@@ -27,34 +31,45 @@ const App = () => {
     setToken(localStorage.getItem('token'));
   };
 
+  const [theme, toggleTheme, componentMounted] = useDarkMode();
+
+  const themeMode = theme === 'dark' ? darkMode : lightMode;
+
+  if (!componentMounted) {
+    return <div />;
+  }
+
   return (
     <Router history={history}>
-      <div className='App'>
-        <NavCondition token={token} />
-        <Switch>
-          <Route
-            path='/login'
-            render={(props) => (
-              <Login {...props} onChange={handleLoginStateChanged} />
-            )}
-          />
-          <Route
-            path='/register'
-            render={(props) => (
-              <Registration {...props} onChange={handleLoginStateChanged} />
-            )}
-          />
-          <Route exact path='/' component={LandingPage} />
-          <Route path='/soon' component={SoonPage} />
-          <Route path='/about' component={AboutUsPage} />
-          <Route path='/tutorial' component={Tutorial} />
+      <ThemeProvider theme={themeMode}>
+        <div className='App'>
+          <GlobalStyles />
+          <NavCondition token={token} toggleTheme={toggleTheme} />
+          <Switch>
+            <Route
+              path='/login'
+              render={(props) => (
+                <Login {...props} onChange={handleLoginStateChanged} />
+              )}
+            />
+            <Route
+              path='/register'
+              render={(props) => (
+                <Registration {...props} onChange={handleLoginStateChanged} />
+              )}
+            />
+            <Route exact path='/' component={LandingPage} />
+            <Route path='/soon' component={SoonPage} />
+            <Route path='/about' component={AboutUsPage} />
+            <Route path='/tutorial' component={Tutorial} />
 
-          {/* ----------------------------------------------- */}
+            {/* ----------------------------------------------- */}
 
-          <Route path='/easy' component={ConstructPuzzle} />
-        </Switch>
-        <FooterCondition />
-      </div>
+            <Route path='/easy' component={ConstructPuzzle} />
+          </Switch>
+          <FooterCondition />
+        </div>
+      </ThemeProvider>
     </Router>
   );
 };
