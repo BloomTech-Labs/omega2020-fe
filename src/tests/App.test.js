@@ -11,9 +11,11 @@ it('App renders without crashing', () => {
   ReactDOM.render(<App />, div);
 });
 
+
 it('App.js contains text Omega 2020', () => {
   const { getByText } = render(<App />);
   const element = getByText('Omega 2020');
   expect(element).toBeInTheDocument();
   expect(element).toBeVisible();
 });
+
