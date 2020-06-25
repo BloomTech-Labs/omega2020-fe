@@ -1,23 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as rtl from '@testing-library/react';
 import { render } from '@testing-library/react';
-import App from '../App';
-import NavCondition from '../components/Navigation/NavCondition';
-import NavBarWeb from '../components/Navigation/NavBar/NavBar-web';
+import '@testing-library/jest-dom/extend-expect';
+
+import App from '../App.js';
 
 it('App renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
 });
 
-// test('render component', async () => {
-//   const { getByText } = render(<App />);
-//   const title = getByText(/Omega 2020/i);
-//   expect(title).toBeInTheDocument();
-//   get
-// });
 
-// it('App renders NavCondition', () => {
-//   const div = document.createElement('div');
-//   ReactDOM.render(<NavCondition />, div);
-// });
+it('App.js contains text Omega 2020', () => {
+  const { getByText } = render(<App />);
+  const element = getByText('Omega 2020');
+  expect(element).toBeInTheDocument();
+  expect(element).toBeVisible();
+});
+
