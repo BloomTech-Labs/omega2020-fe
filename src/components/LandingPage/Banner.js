@@ -92,7 +92,7 @@ const Banner = (props) => {
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
               <Box>
-                <BlueButton title={'Get Started Today'} />
+                <BlueButton title={'Get Started Today'} href={'/tutorial'} />
               </Box>
             )
           }

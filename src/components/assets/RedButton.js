@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const RedButton = (props) => {
   return (
-    <ColorButton size='large' href={props.href}>
+    <ColorButton href={props.href} size='large'>
       <Typography variant='caption'>{props.title}</Typography>
     </ColorButton>
   );

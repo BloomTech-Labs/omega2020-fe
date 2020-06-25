@@ -24,7 +24,7 @@ const NavBarWeb = (props) => {
             loading ? (
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
-              <Link to='/' className={classes.root} color='inherit'>
+              <Link href='/' className={classes.root} color='inherit'>
                 <GridOnIcon style={{ color: blue.A700, marginRight: 10 }} />
                 <Typography variant='subtitle2' style={{ fontWeight: 600 }}>
                   SUDOMEGA
@@ -38,7 +38,7 @@ const NavBarWeb = (props) => {
             loading ? (
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
-              <Link to='/about' className={classes.root} color='inherit'>
+              <Link href='/about' className={classes.root} color='inherit'>
                 <Typography variant='caption'>About Us</Typography>
               </Link>
             )
@@ -53,7 +53,7 @@ const NavBarWeb = (props) => {
               loading ? (
                 <Skeleton className={classes.text} width={60} height={55} />
               ) : (
-                <Link to='/' className={classes.root} color='inherit'>
+                <Link href='/tutorial' className={classes.root} color='inherit'>
                   <Typography variant='caption'>Get Started</Typography>
                 </Link>
               )
@@ -64,7 +64,11 @@ const NavBarWeb = (props) => {
               loading ? (
                 <Skeleton className={classes.text} width={60} height={55} />
               ) : (
-                <Link to='/' className={classes.root} color='inherit'>
+                <Link
+                  href='/coming-soon'
+                  className={classes.root}
+                  color='inherit'
+                >
                   <Typography variant='caption'>Archive</Typography>
                 </Link>
               )
@@ -75,7 +79,11 @@ const NavBarWeb = (props) => {
               loading ? (
                 <Skeleton className={classes.text} width={60} height={55} />
               ) : (
-                <Link to='/' className={classes.root} color='inherit'>
+                <Link
+                  href='coming-soon'
+                  className={classes.root}
+                  color='inherit'
+                >
                   <Typography variant='caption'>Leaderboard</Typography>
                 </Link>
               )
@@ -86,7 +94,7 @@ const NavBarWeb = (props) => {
               loading ? (
                 <Skeleton className={classes.text_4} width={60} height={55} />
               ) : (
-                <WhiteButton title={'Play'} />
+                <WhiteButton title={'Play'} href={'/coming-soon'} />
               )
             }
           />

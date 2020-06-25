@@ -62,7 +62,7 @@ const App = () => {
               path='/'
               component={() => <LandingPage theme={theme} />}
             />
-            <Route path='/soon' component={SoonPage} />
+            <Route path='/coming-soon' component={SoonPage} />
             <Route path='/about' component={AboutUsPage} />
             <Route path='/tutorial' component={Tutorial} />
 
