@@ -1,12 +1,23 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import ReactDOM from 'react-dom';
 import { render } from '@testing-library/react';
-import MemoryRouter from 'react-router-dom';
-
-
 import App from '../App';
+import NavCondition from '../components/Navigation/NavCondition';
+import NavBarWeb from '../components/Navigation/NavBar/NavBar-web';
 
-test('There is Omega2020 in the app', () => {
-    expect('Omega2020').toMatch(/meg/);
+it('App renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
 });
 
+// test('render component', async () => {
+//   const { getByText } = render(<App />);
+//   const title = getByText(/Omega 2020/i);
+//   expect(title).toBeInTheDocument();
+//   get
+// });
+
+// it('App renders NavCondition', () => {
+//   const div = document.createElement('div');
+//   ReactDOM.render(<NavCondition />, div);
+// });
