@@ -15,6 +15,7 @@ import GridOnIcon from '@material-ui/icons/GridOn';
 import BlueButton from '../assets/BlueButton';
 import game from '../../images/gameOfTheDay.png';
 import game2 from '../../images/gameOfTheDay2.png';
+import ConstructPuzzle from '../SudokuGame/puzzle-handler/ConstructPuzzle';
 
 const HomePage = (props) => {
   const classes = useStyles();
@@ -52,7 +53,7 @@ const HomePage = (props) => {
                             className={classes.header}
                             style={{ fontSize: '1.3rem' }}
                           >
-                            Omega 2020 Interactive Sudoku
+                            Sudomega Interactive Sudoku
                           </Typography>
                           <br />
                           <Typography className={classes.subheader}>
@@ -66,7 +67,7 @@ const HomePage = (props) => {
                       return (
                         <Box>
                           <Typography variant='h3' className={classes.header}>
-                            Omega 2020 Interactive Sudoku
+                            Sudomega Interactive Sudoku
                           </Typography>
                           <br />
                           <Typography
@@ -121,6 +122,10 @@ const HomePage = (props) => {
             )
           }
         />
+
+        {/* <Box>
+          <ConstructPuzzle />
+        </Box> */}
 
         <CardHeader
           action={

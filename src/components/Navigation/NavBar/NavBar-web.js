@@ -11,6 +11,7 @@ import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import WhiteButton from '../../assets/WhiteButton';
 import AvatarElement from './AvatarElement';
+import Logo from '../../../images/omega-logo.png';
 
 const NavBarWeb = (props) => {
   const classes = useStyles();
@@ -24,8 +25,9 @@ const NavBarWeb = (props) => {
             loading ? (
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
-              <Link href='/' className={classes.root} color='inherit'>
-                <GridOnIcon style={{ color: blue.A700, marginRight: 10 }} />
+              <Link href='/' className={classes.img} color='inherit'>
+                {/* <GridOnIcon style={{ color: blue.A700, marginRight: 10 }} /> */}
+                <img src={Logo} alt='logo' style={{ width: 20, height: 20 }} />
                 <Typography variant='subtitle2' style={{ fontWeight: 600 }}>
                   SUDOMEGA
                 </Typography>
@@ -132,7 +134,7 @@ const NavBarWeb = (props) => {
   );
 };
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     display: 'flex',
@@ -173,6 +175,16 @@ const useStyles = makeStyles(() => ({
   mode: {
     marginRight: '25px',
     marginLeft: '10px',
+  },
+  img: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+    width: '100%',
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'space-between',
+    textDecoration: 'none',
   },
 }));
 

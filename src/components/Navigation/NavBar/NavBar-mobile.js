@@ -9,7 +9,7 @@ import FiberManualRecordTwoToneIcon from '@material-ui/icons/FiberManualRecordTw
 import GridOnIcon from '@material-ui/icons/GridOn';
 import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
-// import logo from '../../../images/omega-logo.png';
+import Logo from '../../../images/omega-logo.png';
 
 import AvatarElement from './AvatarElement';
 
@@ -41,8 +41,8 @@ const NavBarMobile = (props) => {
               <Skeleton className={classes.text} width={40} height={40} />
             ) : (
               <Link to='/' className={classes.root}>
-                {/* <img src={'logo'} alt='Logo' width='35' height='40' /> */}
-                <GridOnIcon style={{ color: blue.A700 }} />
+                {/* <GridOnIcon style={{ color: blue.A700 }} /> */}
+                <img src={Logo} alt='logo' style={{ width: 30, height: 30 }} />
               </Link>
             )
           }
