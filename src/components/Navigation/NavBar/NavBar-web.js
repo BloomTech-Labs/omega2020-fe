@@ -4,10 +4,8 @@ import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
-import GridOnIcon from '@material-ui/icons/GridOn';
 import { IconButton } from '@material-ui/core';
 import FiberManualRecordTwoToneIcon from '@material-ui/icons/FiberManualRecordTwoTone';
-import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import WhiteButton from '../../assets/WhiteButton';
 import AvatarElement from './AvatarElement';
@@ -26,7 +24,6 @@ const NavBarWeb = (props) => {
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
               <Link href='/' className={classes.img} color='inherit'>
-                {/* <GridOnIcon style={{ color: blue.A700, marginRight: 10 }} /> */}
                 <img src={Logo} alt='logo' style={{ width: 20, height: 20 }} />
                 <Typography variant='subtitle2' style={{ fontWeight: 600 }}>
                   SUDOMEGA
@@ -141,10 +138,8 @@ const useStyles = makeStyles((theme) => ({
     flexFlow: 'row wrap',
     justifyContent: 'space-between',
     textDecoration: 'none',
-    // textTransform: 'uppercase',
   },
   leftContainer: {
-    // width: '30%',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'left',
