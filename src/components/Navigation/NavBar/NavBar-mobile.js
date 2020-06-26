@@ -3,11 +3,8 @@ import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
-import MenuIcon from '@material-ui/icons/Menu';
 import { IconButton } from '@material-ui/core';
 import FiberManualRecordTwoToneIcon from '@material-ui/icons/FiberManualRecordTwoTone';
-import GridOnIcon from '@material-ui/icons/GridOn';
-import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import Logo from '../../../images/omega-logo.png';
 
@@ -25,7 +22,6 @@ const NavBarMobile = (props) => {
             loading ? (
               <Skeleton className={classes.text} width={40} height={40} />
             ) : (
-              // <MenuIcon style={{ fontSize: 30, paddingTop: 10 }} />
               <IconButton color='inherit' onClick={props.toggleTheme}>
                 <FiberManualRecordTwoToneIcon style={{ fontSize: 30 }} />
               </IconButton>
@@ -41,7 +37,6 @@ const NavBarMobile = (props) => {
               <Skeleton className={classes.text} width={40} height={40} />
             ) : (
               <Link to='/' className={classes.root}>
-                {/* <GridOnIcon style={{ color: blue.A700 }} /> */}
                 <img src={Logo} alt='logo' style={{ width: 30, height: 30 }} />
               </Link>
             )
