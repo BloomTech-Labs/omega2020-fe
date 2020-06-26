@@ -1,156 +1,150 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
+import GridOnIcon from '@material-ui/icons/GridOn';
+import { IconButton } from '@material-ui/core';
 import FiberManualRecordTwoToneIcon from '@material-ui/icons/FiberManualRecordTwoTone';
+import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import WhiteButton from '../../assets/WhiteButton';
 import AvatarElement from './AvatarElement';
+import Logo from '../../../images/omega-logo.png';
 
 const NavBarWeb = (props) => {
   const classes = useStyles();
   const { loading = false } = props;
 
   return (
-    <Box className={classes.root} boxShadow={1}>
-      <dark className={classes.root}>
-        <Box className={classes.leftContainer}>
+    <Box className={classes.root}>
+      <Box className={classes.leftContainer}>
+        <CardHeader
+          title={
+            loading ? (
+              <Skeleton className={classes.text} width={60} height={55} />
+            ) : (
+              <Link href='/' className={classes.img} color='inherit'>
+                {/* <GridOnIcon style={{ color: blue.A700, marginRight: 10 }} /> */}
+                <img src={Logo} alt='logo' style={{ width: 20, height: 20 }} />
+                <Typography variant='subtitle2' style={{ fontWeight: 600 }}>
+                  SUDOMEGA
+                </Typography>
+              </Link>
+            )
+          }
+        />
+        <CardHeader
+          title={
+            loading ? (
+              <Skeleton className={classes.text} width={60} height={55} />
+            ) : (
+              <Link href='/about' className={classes.root} color='inherit'>
+                <Typography variant='caption'>About Us</Typography>
+              </Link>
+            )
+          }
+        />
+      </Box>
+
+      <Box className={classes.rightContainer}>
+        <Box className={classes.links}>
           <CardHeader
             title={
               loading ? (
                 <Skeleton className={classes.text} width={60} height={55} />
               ) : (
-                <Link to='/' className={(classes.root, classes.Link)}>
-                  <dark className={classes.root}>
-                    <Typography variant='h5'>Omega 2020</Typography>
-                  </dark>
+                <Link href='/tutorial' className={classes.root} color='inherit'>
+                  <Typography variant='caption'>Get Started</Typography>
                 </Link>
               )
             }
           />
           <CardHeader
-            subheader={
+            title={
               loading ? (
                 <Skeleton className={classes.text} width={60} height={55} />
               ) : (
-                <Link to='/about' className={(classes.root, classes.Link)}>
-                  <dark className={classes.root}>
-                    <Typography variant='subtitle2'>ABOUT US</Typography>
-                  </dark>
+                <Link
+                  href='/coming-soon'
+                  className={classes.root}
+                  color='inherit'
+                >
+                  <Typography variant='caption'>Archive</Typography>
                 </Link>
+              )
+            }
+          />
+          <CardHeader
+            title={
+              loading ? (
+                <Skeleton className={classes.text} width={60} height={55} />
+              ) : (
+                <Link
+                  href='coming-soon'
+                  className={classes.root}
+                  color='inherit'
+                >
+                  <Typography variant='caption'>Leaderboard</Typography>
+                </Link>
+              )
+            }
+          />
+          <CardHeader
+            action={
+              loading ? (
+                <Skeleton className={classes.text_4} width={60} height={55} />
+              ) : (
+                <WhiteButton title={'Play'} href={'/coming-soon'} />
               )
             }
           />
         </Box>
 
-        <Box className={classes.rightContainer}>
-          <Box className={classes.links}>
-            <CardHeader
-              subheader={
-                loading ? (
-                  <Skeleton className={classes.text} width={60} height={55} />
-                ) : (
-                  <Link to='/' className={(classes.root, classes.Link)}>
-                    <dark className={classes.root}>
-                      <Typography variant='subtitle2'>GET STARTED</Typography>
-                    </dark>
-                  </Link>
-                )
-              }
-            />
-            <CardHeader
-              subheader={
-                loading ? (
-                  <Skeleton className={classes.text} width={60} height={55} />
-                ) : (
-                  <Link to='/' className={(classes.root, classes.Link)}>
-                    <dark className={classes.root}>
-                      <Typography variant='subtitle2'>ARCHIVE</Typography>
-                    </dark>
-                  </Link>
-                )
-              }
-            />
-            <CardHeader
-              subheader={
-                loading ? (
-                  <Skeleton className={classes.text} width={60} height={55} />
-                ) : (
-                  <Link to='/' className={(classes.root, classes.Link)}>
-                    <dark className={classes.root}>
-                      <Typography variant='subtitle2'>LEADERBOARD</Typography>
-                    </dark>
-                  </Link>
-                )
-              }
-            />
-            <CardHeader
-              action={
-                loading ? (
-                  <Skeleton className={classes.text_4} width={60} height={55} />
-                ) : (
-                  <WhiteButton title={'Play'} />
-                )
-              }
-            />
-          </Box>
-
-          <Box className={classes.icons}>
-            <CardHeader
-              action={
-                loading ? (
-                  <Skeleton
-                    className={classes.mode}
-                    variant='circle'
-                    width={25}
-                    height={25}
-                  />
-                ) : (
-                  <FiberManualRecordTwoToneIcon
-                    className={classes.mode}
-                    style={{ fontSize: 25, paddingTop: 10 }}
-                  />
-                )
-              }
-            />
-            <CardHeader
-              avatar={
-                loading ? (
-                  <Skeleton variant='circle' width={40} height={40} />
-                ) : (
-                  <AvatarElement />
-                )
-              }
-            />
-          </Box>
+        <Box className={classes.icons}>
+          <CardHeader
+            action={
+              loading ? (
+                <Skeleton
+                  className={classes.mode}
+                  variant='circle'
+                  width={25}
+                  height={25}
+                />
+              ) : (
+                <IconButton color='inherit' onClick={props.toggleTheme}>
+                  <FiberManualRecordTwoToneIcon style={{ fontSize: 30 }} />
+                </IconButton>
+              )
+            }
+          />
+          <CardHeader
+            avatar={
+              loading ? (
+                <Skeleton variant='circle' width={40} height={40} />
+              ) : (
+                <AvatarElement />
+              )
+            }
+          />
         </Box>
-      </dark>
+      </Box>
     </Box>
   );
 };
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     display: 'flex',
     flexFlow: 'row wrap',
-    justifyContent: 'center',
-    position: 'sticky',
-    top: 0,
-    left: 0,
-    '& dark': {
-      background: '#141414',
-      color: '#FFFFFF',
-    },
-    '& light': {
-      background: '#FFFFFF',
-      color: '#141414',
-    },
+    justifyContent: 'space-between',
+    textDecoration: 'none',
+    // textTransform: 'uppercase',
   },
   leftContainer: {
-    width: '49%',
+    // width: '30%',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'left',
@@ -158,14 +152,11 @@ const useStyles = makeStyles(() => ({
     marginLeft: '10px',
   },
   rightContainer: {
-    width: '50%',
+    width: '70%',
     display: 'flex',
     flexFlow: 'row wrap',
-    justifyContent: 'left',
+    justifyContent: 'flex-end',
     alignItems: 'center',
-  },
-  Link: {
-    textDecoration: 'none',
   },
   links: {
     width: '75%',
@@ -178,12 +169,22 @@ const useStyles = makeStyles(() => ({
     width: '25%',
     display: 'flex',
     flexFlow: 'row wrap',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
   mode: {
     marginRight: '25px',
     marginLeft: '10px',
+  },
+  img: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+    width: '100%',
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'space-between',
+    textDecoration: 'none',
   },
 }));
 

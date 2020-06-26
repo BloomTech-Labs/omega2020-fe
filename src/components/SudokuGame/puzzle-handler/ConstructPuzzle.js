@@ -26,7 +26,9 @@ let gridLength = 9;
 
 // -------------------------------------------------------------
 
-const ConstructPuzzle = () => {
+const ConstructPuzzle = (props) => {
+  console.log(`theme in puzzle: ${props.themes}`);
+
   const classes = useStyles();
 
   const [win, setWin] = useState('');
@@ -34,7 +36,6 @@ const ConstructPuzzle = () => {
   const [gameBoardState, setGameBoardState] = useState({
     boardState: '',
     puzzleId: '',
-    // time: 0,
     history: [],
     conflicts: new Set([]),
   });
@@ -49,9 +50,9 @@ const ConstructPuzzle = () => {
 
   const getFormattedPuzzle = async () => {
     const puzzle = await getPuzzle();
-    const formattedPuzzle = formatPuzzle(puzzle.sudoku); // changed puzzles to puzzle.sudoku
+    const formattedPuzzle = formatPuzzle(puzzle.sudoku);
 
-    console.log('GBS in formatted puzzle', gameBoardState);
+    console.log('Game Board State in formatted puzzle', gameBoardState);
     console.log('Loaded puzzle in formatted puzzle', puzzle);
     console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
     setGameBoardState({
@@ -64,6 +65,7 @@ const ConstructPuzzle = () => {
     });
   };
 
+  // Start the game here by getting a formatted puzzle
   useEffect(() => {
     getFormattedPuzzle();
   }, []);
@@ -138,14 +140,13 @@ const ConstructPuzzle = () => {
     var activePuzzleString = playString.join('');
 
     const req = {
-      // time: gameBoardState.time,
       difficulty: gameBoardState.level,
       data: activePuzzleString,
       solved: gameBoardState.solved,
       original: gameBoardState.original,
     };
 
-    console.log('EASY', puzzleId);
+    console.log('GridNumxNum', puzzleId);
     axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then((res) => {
@@ -153,6 +154,9 @@ const ConstructPuzzle = () => {
         alert('Puzzle saved');
       });
   };
+
+  console.log('WIN', win);
+  console.log('GBS101', gameBoardState);
 
   function handleVerifyClick() {
     const { boardState, setBoardState } = gameBoardState;
@@ -167,7 +171,6 @@ const ConstructPuzzle = () => {
     // populating rows
     for (let i = 0; i < boardState.length; i++) {
       rows[i] = getDeepCopyOfArray(boardState[i]);
-      // console.log("BOX ID: ", "boxId")
 
       for (let j = 0; j < boardState[i].length; j++) {
         // populating columns
@@ -194,8 +197,6 @@ const ConstructPuzzle = () => {
     const rowConflicts = flatten(getConflicts(Object.values(rows)));
     const colConflicts = flatten(getConflicts(Object.values(cols)));
     const boxConflicts = flatten(getConflicts(Object.values(boxes)));
-
-    // console.log("BOX CONFLICTS1: ", boxConflicts)
 
     const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
     setGameBoardState({
@@ -235,12 +236,22 @@ const ConstructPuzzle = () => {
     <div className={classes.root}>
       <div>
         <Board
+          theme={props.theme}
           boardState={gameBoardState.boardState}
           conflicts={gameBoardState.conflicts}
           onSquareValueChange={handleSquareValueChange}
           historyLength={gameBoardState.history.length}
         />
       </div>
+
+      {/* 
+      in the KeyPad add: 
+          historyLength  = {gameBoardState.history.length}
+          onUndoClick = {handleUndoClick}
+          onNewGameClick = {handleNewGameClick}
+          onVerifyClick  = {handleVerifyClick}
+          onSaveClick = {handleSaveClick}
+      */}
     </div>
   );
 };
@@ -253,7 +264,6 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    border: '2px solid red',
   },
 }));
 

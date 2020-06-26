@@ -134,11 +134,10 @@ const RegisterForm = (props) => {
 
 const useStyles = makeStyles(() => ({
   root: {
-    height: '90vh',
+    height: '100vh',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
-    background: '#FFFFFF',
   },
   mainContainer: {
     width: '450px',
@@ -181,7 +180,8 @@ const CssTextField = withStyles({
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'default',
+        // borderColor: 'default',
+        borderColor: 'grey',
       },
       '&:hover fieldset': {
         borderColor: blue.A100,

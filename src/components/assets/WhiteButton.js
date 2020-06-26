@@ -6,22 +6,27 @@ import { withStyles } from '@material-ui/core/styles';
 
 const WhiteButton = (props) => {
   return (
-    <ColorButton size='large' variant='outlined' color={blue.A700}>
-      <Typography variant='body2'>{props.title}</Typography>
+    <ColorButton
+      href={props.href}
+      size='large'
+      variant='outlined'
+      color={blue.A700}
+    >
+      <Typography variant='caption'>{props.title}</Typography>
     </ColorButton>
   );
 };
 
 const ColorButton = withStyles(() => ({
   root: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    // color: theme.palette.getContrastText(grey[50]),
+    paddingLeft: 30,
+    paddingRight: 30,
     color: blue.A700,
     backgroundColor: grey[50],
     '&:hover': {
       backgroundColor: grey[300],
     },
+    textTransform: 'none',
   },
 }))(Button);
 

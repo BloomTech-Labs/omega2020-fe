@@ -24,9 +24,7 @@ const FooterWeb = (props) => {
                 <Skeleton className={classes.text} width={100} height={55} />
               ) : (
                 <Typography variant='subtitle1'>
-                  Copyright © Omega2020
-                  <br />
-                  2020.
+                  Copyright © SUDOMEGA 2020.
                 </Typography>
               )
             }
@@ -63,14 +61,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'center',
-    '& dark': {
-      background: '#141414',
-      color: '#FFFFFF',
-    },
-    '& light': {
-      background: '#FFFFFF',
-      color: '#141414',
-    },
   },
   leftContainer: {
     width: '49%',

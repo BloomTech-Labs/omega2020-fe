@@ -6,10 +6,11 @@ import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuList from '@material-ui/core/MenuList';
-import { blueGrey } from '@material-ui/core/colors';
+import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import AvatarLogin from '../MenuItems/AvatarLogin';
 import AvatarLogout from '../MenuItems/AvatarLogout';
+import PersonIcon from '@material-ui/icons/Person';
 
 const AvatarElement = () => {
   const classes = useStyles();
@@ -48,13 +49,13 @@ const AvatarElement = () => {
   return (
     <Box>
       <Avatar
-        className={classes.blueGrey}
+        className={classes.color}
         ref={anchorRef}
         aria-controls={open ? 'menu-list-grow' : undefined}
         aria-haspopup='true'
         onClick={handleToggle}
       >
-        A
+        <PersonIcon />
       </Avatar>
       <Popper
         placement='bottom-end'
@@ -80,7 +81,7 @@ const AvatarElement = () => {
                   onKeyDown={handleListKeyDown}
                 >
                   {/* <AvatarLogout handleClose={handleClose} /> */}
-                  <AvatarLogin handleClose={handleClose} />
+                  {/* <AvatarLogin handleClose={handleClose} /> */}
                 </MenuList>
               </ClickAwayListener>
             </Paper>
@@ -114,9 +115,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-start',
     paddingRight: 120,
   },
-  blueGrey: {
-    color: theme.palette.getContrastText(blueGrey[400]),
-    backgroundColor: blueGrey[400],
+  color: {
+    color: theme.palette.getContrastText(blue.A700),
+    backgroundColor: blue.A700,
   },
 }));
 
