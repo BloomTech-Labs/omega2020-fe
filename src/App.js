@@ -66,7 +66,7 @@ const App = () => {
             <Route path='/tutorial' component={Tutorial} />
             <Route path='/coming-soon' component={SoonPage} />
 
-            {/* ----------------------------------------------- */}
+            {/* ---------------------------------------------- */}
 
             <Route
               path='/9x9Game'
