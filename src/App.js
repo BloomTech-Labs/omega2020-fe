@@ -59,7 +59,6 @@ const App = () => {
             <Route
               exact
               path='/'
-              // component={() => <LandingPage theme={theme} />}
               render={() => <LandingPage theme={theme} />}
             />
 
@@ -71,7 +70,6 @@ const App = () => {
 
             <Route
               path='/9x9Game'
-              // component={() => <ConstructPuzzle theme={themes} />}
               render={() => <ConstructPuzzle theme={themes} />}
             />
           </Switch>
