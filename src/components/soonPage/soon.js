@@ -17,6 +17,6 @@ function Soon() {
                <BlueButton data-testid='sudo-learn' title={'learn how to play!'} />
           </section>
     </div>
-)}
+)};
 
 export default Soon;
