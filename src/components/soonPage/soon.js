@@ -1,7 +1,7 @@
 import React from 'react';
 import './soon.css';
 import sudoku from './sudoku.jpg';
-
+import BlueButton from '../assets/BlueButton';
 
 function Soon() {
   return (
@@ -18,8 +18,12 @@ function Soon() {
 
 
             <p data-testid='sudo-learn' className="learn"> learn how to play! </p>
-
+            <section className='button'>
+               <BlueButton title={'subscribe'} />
+               <BlueButton title={'learn how to play!'} />
+            </section>
           </section>
+    </div>
 }
 
 export default Soon;
