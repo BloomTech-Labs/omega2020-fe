@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
-import userIcon from '../../../images/user-icon.png';
+import PersonIcon from '@material-ui/icons/Person';
 
 const AvatarLogout = (props) => {
   const classes = useStyles();
@@ -14,7 +14,7 @@ const AvatarLogout = (props) => {
       <MenuItem className={classes.MenuItem}>
         Welcome to Omega 2020 <Typography>User Name</Typography>
         <br />
-        <img src={userIcon} alt='user icon' width={70} />
+        <img src={PersonIcon} alt='user icon' width={70} />
         <br />
       </MenuItem>
       <hr style={{ height: '1px' }} />

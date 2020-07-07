@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 
 function Grid(props) {
@@ -22,7 +23,10 @@ function Grid(props) {
 
     // -------------------------------------------------------------
 
-    let border = '3px solid black';
+    console.log(`theme in grid: ${props.theme}`);
+
+    let border = `3px solid ${({ theme }) => theme.text}`;
+    // let border = `3px solid black`;
 
     if (ri === 0) {
       style['borderTop'] = border;
@@ -44,11 +48,10 @@ function Grid(props) {
     } // Line bottom of grid
 
     return (
-      <div className='Square_Input'>
-        <input
-          className={classes.input}
+      <div className={classes.grid}>
+        <Input
+          className={classes.square}
           id={props.key}
-          className='Square'
           style={style}
           type='text'
           value={squareValue}
@@ -82,9 +85,36 @@ const isNumeric = (num) => {
 };
 
 const useStyles = makeStyles(() => ({
-  input: {
-    //TBD
+  grid: {
+    height: '100%',
+    width: '100%',
+  },
+  square: {
+    border: '0.5px solid grey',
+    width: '100%',
+    height: '100%',
+    textAlign: 'center',
   },
 }));
+
+const Input = styled.input`
+  // background-color: #2B2B2B;
+  background-color: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+
+  input {
+    height: 40px;
+    width: 40px;
+  }
+  &[type='text']:disabled {
+    background-color: #cdcac9;
+  }
+  &[type='text']:disabled {
+    color: ${({ theme }) => theme.text};
+  }
+  &[type='text']:focus {
+    background: #608cff;
+  }
+`;
 
 export default Grid;

@@ -3,10 +3,10 @@ import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
-import BG1 from '../../images/BG1.png';
-import shapes from '../../images/shapes.png';
-import shapes2 from '../../images/shapes2.png';
+import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import GroupIcon from '@material-ui/icons/Group';
 import { makeStyles } from '@material-ui/core/styles';
+import { TeamVersion1, TeamVersion2 } from './TeamList';
 
 const AboutUs = (props) => {
   const classes = useStyles();
@@ -20,7 +20,10 @@ const AboutUs = (props) => {
             loading ? (
               <Skeleton className={classes.title} width={400} height={100} />
             ) : (
-              <Typography variant='h4'>About Omega 2020</Typography>
+              <Box>
+                <Typography variant='h4'>About Sudomega</Typography>
+                <TeamVersion2 />
+              </Box>
             )
           }
         />
@@ -40,7 +43,7 @@ const AboutUs = (props) => {
                 ) : (
                   <Box>
                     <Box className={classes.img}>
-                      <img src={shapes2} alt='' />
+                      <AccessibilityNewIcon style={{ fontSize: 100 }} />
                     </Box>
                     <br />
                     <Typography variant={'h5'}>Our Story</Typography>
@@ -82,7 +85,7 @@ const AboutUs = (props) => {
                 ) : (
                   <Box>
                     <Box className={classes.img}>
-                      <img src={shapes} alt='' />
+                      <GroupIcon style={{ fontSize: 100 }} />
                     </Box>
                     <br />
                     <Typography variant={'h5'}>About Our Teams</Typography>
@@ -97,11 +100,10 @@ const AboutUs = (props) => {
                 ) : (
                   <Typography>
                     An overview of the founding team and core contributors to
-                    Omega 2020. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in
+                    Omega 2020. eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in
                     voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum.
@@ -112,6 +114,11 @@ const AboutUs = (props) => {
           </Box>
         </Box>
       </Box>
+
+      <hr width='100%' />
+      <TeamVersion1 />
+      <br />
+      <br />
     </Box>
   );
 };
@@ -119,41 +126,36 @@ const AboutUs = (props) => {
 const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'space-evenly',
-    background: '#FFFFFF',
-  },
-  banner: {
-    width: '100%',
-    height: '200px',
-    display: 'flex',
-    flexFlow: 'row wrap',
+    flexFlow: 'column wrap',
     justifyContent: 'center',
-    backgroundImage: `url(${BG1})`,
-    backgroundSize: 'cover',
-    color: '#FFFFFF',
+    alignContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    marginTop: 150,
   },
   mainContainer: {
     width: '100%',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
-    marginTop: 150,
+    // marginTop: 150,
     marginBottom: 150,
   },
   leftContainer: {
-    width: '700px',
+    width: '600px',
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'center',
     padding: 30,
+    textAlign: 'center',
   },
   rightContainer: {
-    width: '700px',
+    width: '600px',
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'center',
     padding: 30,
+    textAlign: 'center',
   },
 }));
 

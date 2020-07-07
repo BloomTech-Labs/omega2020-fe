@@ -64,15 +64,6 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     position: 'sticky',
     bottom: 0,
-    left: 0,
-    '& dark': {
-      background: '#141414',
-      color: '#FFFFFF',
-    },
-    '& light': {
-      background: '#FFFFFF',
-      color: '#141414',
-    },
   },
   leftContainer: {
     width: '40%',
