@@ -12,16 +12,9 @@ function Soon() {
           <h1 data-testid='sudo-thirdFont' className="thirdFont"> COMING SOON </h1>
           <p data-testid='sudo-fourthFont' className="fourthFont"> In the meantime <b>subscribe</b> to get alerted when the game is available </p>
 
-          <section data-testid='sudo-button' className="button"> 
-
-            <p data-testid='sudo-sub' className="sub"> subscribe </p>
-
-
-            <p data-testid='sudo-learn' className="learn"> learn how to play! </p>
-            <section className='button'>
-               <BlueButton title={'subscribe'} />
-               <BlueButton title={'learn how to play!'} />
-            </section>
+          <section data-testid='sudo-button' className='button'> 
+               <BlueButton data-testid='sudo-sub' title={'subscribe'} />
+               <BlueButton data-testid='sudo-learn' title={'learn how to play!'} />
           </section>
     </div>
 }
