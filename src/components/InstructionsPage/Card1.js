@@ -38,7 +38,7 @@ const Card1 = (props) => {
                       row, column or square.
                     </Typography>
 
-                    <img src={puzzle4x4_s} alt='game' />
+                    <img src={puzzle4x4_s} alt='game1' />
                   </Box>
                   <br />
                   <Typography variant='h5'>Instructions:</Typography>
@@ -65,7 +65,7 @@ const Card1 = (props) => {
               loading ? (
                 <Skeleton className={classes.title} width={400} height={100} />
               ) : (
-                <img src={puzzle4x4} alt='game' />
+                <img src={puzzle4x4} alt='game2' />
               )
             }
           />
