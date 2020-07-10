@@ -4,12 +4,13 @@
 }
 
 .sudoku-logo {
-  width: 25%;
-  margin-top: 1%;
+  width: 200px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .button {
-  width: 15%;
+  /* width: 15%; */
   display: inline-flex;
   text-align: center;
   justify-content: space-evenly;
@@ -19,26 +20,26 @@
   font-family: Helvetica Neue;
   font-weight: bold;
   color: #bc75ff;
-  font-size: 69px;
+  /* font-size: 60px; */
 }
 
 .secondFont {
   height: 0;
   font-family: Helvetica Neue;
   font-weight: bold;
-  font-size: 25px;
+  /* font-size: 25px; */
 }
 
 .thirdFont {
   font-family: Helvetica Neue;
   font-weight: bold;
-  font-size: 62px;
+  /* font-size: 62px; */
   margin: 1px;
 }
 
 .fourthFont {
   font-family: Helvetica Neue;
-  font-size: 25px;
+  /* font-size: 25px; */
   margin-bottom: 40px;
 }
 

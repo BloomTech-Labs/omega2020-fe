@@ -130,60 +130,6 @@ const HomePage = (props) => {
             ) : (
               <Box className={classes.gameBoard}>
                 <ConstructPuzzle />
-                {/* {(() => {
-                  switch (viewPort) {
-                    case true:
-                      return (
-                        <Box>
-                          {(() => {
-                            switch (props.theme) {
-                              case 'dark':
-                                return (
-                                  <img
-                                    src={game}
-                                    alt='game of the day'
-                                    width='300'
-                                  />
-                                );
-                              default:
-                                return (
-                                  <img
-                                    src={game2}
-                                    alt='game of the day'
-                                    width='300'
-                                  />
-                                );
-                            }
-                          })()}
-                        </Box>
-                      );
-                    default:
-                      return (
-                        <Box>
-                          {(() => {
-                            switch (props.theme) {
-                              case 'dark':
-                                return (
-                                  <img
-                                    src={game}
-                                    alt='game of the day'
-                                    width='600'
-                                  />
-                                );
-                              default:
-                                return (
-                                  <img
-                                    src={game2}
-                                    alt='game of the day'
-                                    width='600'
-                                  />
-                                );
-                            }
-                          })()}
-                        </Box>
-                      );
-                  }
-                })()} */}
               </Box>
             )
           }
@@ -201,7 +147,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 100,
-    // border: '2px solid red',
   },
   mainContainer: {
     display: 'flex',
@@ -209,7 +154,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    // border: '2px solid orange',
   },
   subheader: {
     // opacity: 0.3,
