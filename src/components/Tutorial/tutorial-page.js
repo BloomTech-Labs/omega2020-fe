@@ -211,13 +211,13 @@ const Tutorial = () => {
                     [Citation](https://www.sudokudragon.com/sudokuhistory.htm)
                   </Link>
                 </Typography>
-                <Typography className={classes.topTextDiv} variant='h6'>
+                {/* <Typography className={classes.topTextDiv} variant='h6'>
                   Sudoku can seem a little intimidating, so in this tutorial,
                   let’s start off with something a little easier like a 4x4 grid
                   to get you started.
-                </Typography>
+                </Typography> */}
               </div>
-              <div className={classes.bottomTitle}>
+              {/* <div className={classes.bottomTitle}>
                 <Typography
                   variant='h3'
                   classname={classes.bottomTitle}
@@ -248,7 +248,7 @@ const Tutorial = () => {
                     alt='6x6 sudoku'
                   />
                 </Container>
-              </div>
+              </div> */}
               <Typography className={classes.bottomText} variant='h6'>
                 You're basically a pro now! Try your hand at a 9x9 puzzle, or
                 upload your own!
