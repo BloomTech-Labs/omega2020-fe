@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
 function Grid(props) {
@@ -11,7 +12,7 @@ function Grid(props) {
     const squareValue = props.value === '.' ? '' : props.value;
 
     // Style validation - if conflicts exist, turn square red if it was edited wrong.
-    //  		  - turn border red of conflicting squares for hint as to why.
+    // turn border red of conflicting squares for hint as to why.
     const style = {};
     const ri = props.rowIndex;
     const ci = props.colIndex;
@@ -23,29 +24,14 @@ function Grid(props) {
 
     // -------------------------------------------------------------
 
-    console.log(`theme in grid: ${props.theme}`);
+    let border = `3px solid ${blue.A700}`;
 
-    let border = `3px solid ${({ theme }) => theme.text}`;
-    // let border = `3px solid black`;
-
-    if (ri === 0) {
-      style['borderTop'] = border;
-    } // Lines top of grid
     if (ri > 0 && ri % conditionRow === 0) {
       style['borderTop'] = border;
     } // Lines to seperate middle rows
-    if (ci === 0) {
-      style['borderLeft'] = border;
-    } // Line left of grid
     if (ci > 0 && ci % conditionCol === 0) {
       style['borderLeft'] = border;
     } // Lines to seperate middle colums
-    if (ci > 0 && ci % 1 === 0) {
-      style['borderRight'] = border;
-    } // Line right of grid
-    if (ri > 0 && ri % 1 === 0) {
-      style['borderBottom'] = border;
-    } // Line bottom of grid
 
     return (
       <div className={classes.grid}>
@@ -98,19 +84,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Input = styled.input`
-  // background-color: #2B2B2B;
   background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
 
-  input {
-    height: 40px;
-    width: 40px;
-  }
   &[type='text']:disabled {
     background-color: #cdcac9;
-  }
-  &[type='text']:disabled {
-    color: ${({ theme }) => theme.text};
+    color: black;
   }
   &[type='text']:focus {
     background: #608cff;

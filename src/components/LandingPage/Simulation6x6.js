@@ -35,7 +35,7 @@ const Simulation6x6 = (props) => {
                   <Typography className={classes.subheader}>
                     Each row, column and square needs to be filled
                     <br />
-                    out with the numbers 1-4, without repeating any
+                    out with the numbers 1-6, without repeating any
                     <br />
                     numbers within the row, column or square.
                   </Typography>
@@ -88,7 +88,7 @@ const Simulation6x6 = (props) => {
                     <br />
                     <Box className={classes.space}>
                       <Typography variant='caption'>Need more help?</Typography>
-                      <RedButton title={'Reveal Next answer'} />
+                      <RedButton title={'Tutorial Coming Soon'} />
                     </Box>
                   </Box>
                   <Box className={classes.leftContainer}>

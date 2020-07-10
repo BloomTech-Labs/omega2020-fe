@@ -62,8 +62,8 @@ const useStyles = makeStyles(() => ({
   },
   boardRow: {
     display: 'flex',
-    width: '450px',
-    height: '55px',
+    width: '400px',
+    height: '50px',
   },
 }));
 

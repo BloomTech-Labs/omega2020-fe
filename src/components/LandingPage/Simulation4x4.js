@@ -91,7 +91,7 @@ const Simulation4x4 = (props) => {
                     <br />
                     <Box className={classes.space}>
                       <Typography variant='caption'>Need more help?</Typography>
-                      <RedButton title={'Reveal Next answer'} />
+                      <RedButton title={'Tutorial Coming Soon'} />
                     </Box>
                   </Box>
                 </Box>
