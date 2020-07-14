@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
   topTextDiv: {
     margin: theme.spacing(3, 0, 3, 0),
     
+
     textAlign: 'justify',
     paddingLeft: '32px',
     paddingRight: '32px',
@@ -86,21 +87,18 @@ const useStyles = makeStyles((theme) => ({
   topTitle: {
     margin: theme.spacing(5, 0, 5, 0),
     fontSize: '40px',
-    
   },
   bottomTitle: {
     margin: theme.spacing(5, 0, 5, 0),
     fontSize: '40px',
-    
     color: '#62A4FF',
   },
   topText: {
     margin: theme.spacing(5, 0, 5, 5),
-    
+
   },
   bottomText: {
     margin: theme.spacing(3, 0, 3, 0),
-    
     paddingLeft: '32px',
     paddingRight: '32px',
   },
@@ -183,6 +181,7 @@ const Tutorial = () => {
                     src={require('../../images/sudoku1.png')}
                     alt='sudoku puzzle'
                   />
+
                   <Typography className={classes.topTextDiv} variant='h6'>
                     By seeing which numbers are missing from each square, row, or
                     column, we can use the process of elimination and deductive
