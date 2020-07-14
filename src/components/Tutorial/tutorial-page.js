@@ -68,37 +68,30 @@ const useStyles = makeStyles((theme) => ({
   },
   textDiv: {
     margin: theme.spacing(5, 0, 5, 10),
-    // fontFamily: 'Julius Sans One',
   },
   topTextDiv: {
     margin: theme.spacing(3, 0, 3, 0),
-    // fontFamily: 'Julius Sans One',
     textAlign: 'justify',
     paddingLeft: '32px',
     paddingRight: '32px',
   },
   bottomTextDiv: {
-    // fontFamily: 'Julius Sans One',
     fontWeight: 'bold',
   },
   topTitle: {
     margin: theme.spacing(5, 0, 5, 0),
     fontSize: '40px',
-    // fontFamily: 'Julius Sans One',
   },
   bottomTitle: {
     margin: theme.spacing(5, 0, 5, 0),
     fontSize: '40px',
-    // fontFamily: 'Julius Sans One',
     color: '#62A4FF',
   },
   topText: {
     margin: theme.spacing(5, 0, 5, 5),
-    // fontFamily: 'Julius Sans One',
   },
   bottomText: {
     margin: theme.spacing(3, 0, 3, 0),
-    // fontFamily: 'Julius Sans One',
     paddingLeft: '32px',
     paddingRight: '32px',
   },

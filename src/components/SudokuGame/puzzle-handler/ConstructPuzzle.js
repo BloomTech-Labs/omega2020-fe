@@ -41,7 +41,7 @@ const ConstructPuzzle = (props) => {
   });
 
   // Retrieve puzzle data
-  async function getPuzzle() {
+  async function getPuzzle9x9() {
     var puzzles = await Get9x9();
     setWin(puzzles.solution);
 
@@ -49,7 +49,7 @@ const ConstructPuzzle = (props) => {
   }
 
   const getFormattedPuzzle = async () => {
-    const puzzle = await getPuzzle();
+    const puzzle = await getPuzzle9x9();
     const formattedPuzzle = formatPuzzle(puzzle.sudoku);
 
     console.log('Game Board State in formatted puzzle', gameBoardState);

@@ -145,7 +145,7 @@ const TeamV2 = [
     github: 'https://github.com/brucebra000',
   },
 
-  // DS + TL
+  // DS + TL 1
   {
     version: '2',
     name: 'Marvin Davila',
@@ -153,6 +153,15 @@ const TeamV2 = [
     title: 'Team Lead',
     linkedin: 'https://www.linkedin.com/in/marvin-davila/',
     github: 'https://github.com/malexmad',
+  },
+  // WEB + TL 2
+  {
+    version: '2',
+    name: 'Richard Lawson',
+    image: 'https://ca.slack-edge.com/ESZCHB482-W012X6T9KT3-443632831451-512',
+    title: 'Team Lead',
+    linkedin: 'https://www.linkedin.com/in/lawsonarichard/',
+    github: 'https://github.com/lawsonarichard',
   },
 ];
 
