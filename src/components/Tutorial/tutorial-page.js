@@ -270,7 +270,7 @@ const Tutorial = () => {
                   You're basically a pro now! Try your hand at a 9x9 puzzle, or
                   upload your own!
                 </Typography>
-                <Button className={classes.button} href='/soon'>
+                <Button className={classes.button} href='/coming-soon'>
                   Get Started!
                 </Button>
               </div>
@@ -423,7 +423,7 @@ const Tutorial = () => {
                     You're basically a pro now! Try your hand at a 9x9 puzzle, or
                     upload your own!
                   </Typography>
-                  <Button className={classes.button} href='/soon'>
+                  <Button className={classes.button} href='/coming-soon'>
                     Get Started!
                   </Button>
                 </div>
