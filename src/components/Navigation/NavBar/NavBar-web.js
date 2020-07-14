@@ -23,12 +23,20 @@ const NavBarWeb = (props) => {
             loading ? (
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
-              <Link href='/' className={classes.img} color='inherit'>
-                <img src={Logo} alt='logo' style={{ width: 20, height: 20 }} />
-                <Typography variant='subtitle2' style={{ fontWeight: 600 }}>
-                  SUDOMEGA
-                </Typography>
-              </Link>
+              <Box className={classes.leftContainer}>
+                <Link href='/menu' className={classes.logo}>
+                  <img
+                    src={Logo}
+                    alt='logo'
+                    style={{ width: 20, height: 20 }}
+                  />
+                </Link>
+                <Link href='/' className={classes.title} color='inherit'>
+                  <Typography variant='subtitle2' style={{ fontWeight: 600 }}>
+                    SUDOMEGA
+                  </Typography>
+                </Link>
+              </Box>
             )
           }
         />
@@ -171,11 +179,11 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '25px',
     marginLeft: '10px',
   },
-  img: {
+  title: {
     '& > *': {
       margin: theme.spacing(1),
     },
-    width: '100%',
+    width: '70%',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-between',

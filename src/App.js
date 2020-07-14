@@ -10,6 +10,7 @@ import { GlobalStyles } from './store/Mode/global';
 
 // What we've updated
 import NavCondition from './components/Navigation/NavBarCondition';
+import MenuPage from './components/Navigation/MenuPage';
 import LandingPage from './components/LandingPage/LandingPage';
 import SoonPage from './components/soonPage/soon';
 import AboutUsPage from './components/AboutUsPage/AboutUsPage';
@@ -65,6 +66,7 @@ const App = () => {
             <Route path='/about' component={AboutUsPage} />
             <Route path='/tutorial' component={Tutorial} />
             <Route path='/coming-soon' component={SoonPage} />
+            <Route path='/menu' component={MenuPage} />
 
             {/* ---------------------------------------------- */}
 
