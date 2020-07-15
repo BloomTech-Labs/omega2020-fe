@@ -21,7 +21,7 @@ const AboutUs = (props) => {
               <Skeleton className={classes.title} width={400} height={100} />
             ) : (
               <Box>
-                <Typography variant='h4'>About Sudomega</Typography>
+                <Typography variant='h4' data-testid='head1'>About Sudomega</Typography>
                 <TeamVersion2 />
               </Box>
             )
@@ -46,7 +46,7 @@ const AboutUs = (props) => {
                       <AccessibilityNewIcon style={{ fontSize: 100 }} />
                     </Box>
                     <br />
-                    <Typography variant={'h5'}>Our Story</Typography>
+                    <Typography variant={'h5'} data-testid='head2'>Our Story</Typography>
                   </Box>
                 )
               }
@@ -56,7 +56,7 @@ const AboutUs = (props) => {
                 loading ? (
                   <Skeleton width={400} height={400} />
                 ) : (
-                  <Typography>
+                  <Typography data-testid='subheader'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -88,7 +88,7 @@ const AboutUs = (props) => {
                       <GroupIcon style={{ fontSize: 100 }} />
                     </Box>
                     <br />
-                    <Typography variant={'h5'}>About Our Teams</Typography>
+                    <Typography variant={'h5'} data-testid='head2'>About Our Teams</Typography>
                   </Box>
                 )
               }
@@ -98,7 +98,7 @@ const AboutUs = (props) => {
                 loading ? (
                   <Skeleton width={400} height={400} />
                 ) : (
-                  <Typography>
+                  <Typography data-testid='subheader'>
                     An overview of the founding team and core contributors to
                     Omega 2020. eiusmod tempor incididunt ut labore et dolore
                     magna aliqua. Ut enim ad minim veniam, quis nostrud

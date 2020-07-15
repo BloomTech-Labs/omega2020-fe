@@ -54,6 +54,7 @@ const TeamCard = (props) => {
       <Avatar
         alt={name}
         src={image}
+        data-testid='image'
         className={classes.large}
         ref={anchorRef}
         aria-controls={open ? 'menu-list-grow' : undefined}
@@ -86,15 +87,15 @@ const TeamCard = (props) => {
                     id='menu-list-grow'
                     onKeyDown={handleListKeyDown}
                   >
-                    <Typography variant='subtitle2'>{name}</Typography>
-                    <Typography variant='caption'>{title}</Typography>
+                    <Typography variant='subtitle2' data-testid='name'>{name}</Typography>
+                    <Typography variant='caption' data-testid='title'>{title}</Typography>
                     <Box className={classes.icons}>
-                      <IconButton href={github}>
+                      <IconButton href={github} data-testid='github'>
                         <GitHubIcon
                           style={{ fontSize: 25, color: blueGrey[300] }}
                         />
                       </IconButton>
-                      <IconButton href={linkedin}>
+                      <IconButton href={linkedin} data-testid='linkedin'>
                         <LinkedInIcon
                           style={{ fontSize: 25, color: blueGrey[300] }}
                         />
