@@ -1,8 +1,6 @@
 import React from 'react';
 import { stringify } from './stringify';
 
-let conditionRow = 3;
-let conditionCol = 3;
 let gridLength = 9;
 
 export function formatPuzzle(puzzle) {

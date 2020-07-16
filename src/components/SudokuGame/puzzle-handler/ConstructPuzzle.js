@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Board from '../puzzle-builder/Board';
-// import { Get4x4 } from './grid-axios-call/4x4';
-// import { Get6x6 } from './grid-axios-call/6x6';
+import { Get4x4 } from './grid-axios-call/4x4';
+import { Get6x6 } from './grid-axios-call/6x6';
 import { Get9x9 } from './grid-axios-call/9x9';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
@@ -15,14 +15,6 @@ import {
   getConflicts,
   getConflictsInArray,
 } from './functions/conflicts';
-
-// -------------------------------------------------------------
-
-// replce line 171 with conditionRow & conditionCol
-// replce line 242, 270 & line 274 with gridLength
-let conditionRow = 3;
-let conditionCol = 3;
-let gridLength = 9;
 
 // -------------------------------------------------------------
 
@@ -41,6 +33,20 @@ const ConstructPuzzle = (props) => {
   });
 
   // Retrieve puzzle data
+  async function getPuzzle4x4() {
+    var puzzles = await Get4x4();
+    setWin(puzzles.solution);
+
+    return puzzles;
+  }
+
+  async function getPuzzle6x6() {
+    var puzzles = await Get6x6();
+    setWin(puzzles.solution);
+
+    return puzzles;
+  }
+
   async function getPuzzle9x9() {
     var puzzles = await Get9x9();
     setWin(puzzles.solution);
@@ -50,13 +56,19 @@ const ConstructPuzzle = (props) => {
 
   const getFormattedPuzzle = async () => {
     const puzzle = await getPuzzle9x9();
-    const formattedPuzzle = formatPuzzle(puzzle.sudoku);
+    const formattedPuzzle = formatPuzzle(
+      puzzle.sudoku,
+      gameBoardState.gridlength
+    );
 
     console.log('Game Board State in formatted puzzle', gameBoardState);
     console.log('Loaded puzzle in formatted puzzle', puzzle);
     console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
     setGameBoardState({
       ...gameBoardState,
+      gridlength: puzzle.gridlength,
+      row: puzzle.row,
+      col: puzzle.col,
       puzzleId: puzzle.id,
       level: puzzle.level,
       boardState: formattedPuzzle,
@@ -157,6 +169,7 @@ const ConstructPuzzle = (props) => {
 
   console.log('WIN', win);
   console.log('GBS101', gameBoardState);
+  console.log('GBS101 9x9 puzzleId', gameBoardState.puzzleId);
 
   function handleVerifyClick() {
     const { boardState, setBoardState } = gameBoardState;
@@ -182,8 +195,8 @@ const ConstructPuzzle = (props) => {
 
         // populating boxes
         const boxId = stringify(
-          Math.floor(i / conditionRow),
-          Math.floor(j / conditionCol)
+          Math.floor(i / gameBoardState.row),
+          Math.floor(j / gameBoardState.col)
         );
 
         if (boxes.hasOwnProperty(boxId)) {

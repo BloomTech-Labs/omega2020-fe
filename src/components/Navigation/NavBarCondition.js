@@ -40,6 +40,7 @@ const useStyles = makeStyles(() => ({
     position: 'sticky',
     top: 0,
     left: 0,
+    zIndex: 2,
   },
 }));
 
