@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Omega 2020</h1>
+<h1 align="center">Welcome to Sudomega</h1>
 <p align="center">The online sudoku website.</p>
 
 <div align="center">
@@ -9,7 +9,7 @@
 
 </div>
 
-<p align="center"> 🛠 This is home to Omega 2020, an online sudoku app geared towards sudoku lovers and people who want to improve their sudoku skills. Learn how to play, upload your own sudoku games, and compete with friends :) </p>
+<p align="center"> 🛠 This is home to Sudomega, an online sudoku app geared towards sudoku lovers and people who want to improve their sudoku skills. Learn how to play, upload your own sudoku games, and compete with friends :) </p>
 
 <br/>
 
@@ -17,10 +17,10 @@
 
 This repo hosts:
 
-- The [Omega 2020](#) frontend and server code
+- The [Sudomega](#) frontend and server code
 - A Web development environment
 
-:desktop_computer: Deployed URL: \***\*\_\_\_\*\*** [![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](https://omega2020.netlify.app/)
+:desktop_computer: Deployed URL: [Sudomega.com](https://www.sudomega.com/)
 
 ## Contributors
 
