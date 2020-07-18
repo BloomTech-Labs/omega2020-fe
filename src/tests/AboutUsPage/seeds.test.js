@@ -4,7 +4,6 @@ import  { configure, shallow, mount } from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
 import Seeds from '../../components/AboutUsPage/seeds';
 import Adapter from 'enzyme-adapter-react-16';
-import { assert } from 'chai'
 
 configure({ adapter: new Adapter() });
 
