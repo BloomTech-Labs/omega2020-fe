@@ -43,6 +43,7 @@ const Banner = (props) => {
                           <Typography
                             className={classes.header}
                             style={{ fontSize: '1.3rem' }}
+                            data-testid='improve'
                           >
                             Improve Your Skills
                             <br />

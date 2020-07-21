@@ -10,9 +10,9 @@ const TeamVersion1 = () => {
   return (
     <div className={classes.root}>
       <Typography>Version 1 Team</Typography>
-      <div className={classes.team}>
+      <div data-testid='member' className={classes.team}>
         {TeamV1.map((member) => (
-          <TeamCard member={member} />
+          <TeamCard data-testid='members' member={member} />
         ))}
       </div>
     </div>

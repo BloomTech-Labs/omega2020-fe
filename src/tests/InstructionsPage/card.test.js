@@ -13,6 +13,8 @@ configure({adapter: new Adapter()})
 describe('image', () => {
     it('renders the image with src', () => {
         const img = shallow(<Card1/>)
+        expect(img.find('img').prop('src')).toEqual(puzzle4x4_s)
+
     })
 })
 

@@ -15,7 +15,7 @@ import MenuList from '@material-ui/core/MenuList';
 const TeamCard = (props) => {
   const classes = useStyles();
 
-  const { name, image, title, linkedin, github } = props.member;
+  const { name, image, title, linkedin, github } = props.member || {};
 
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -50,7 +50,9 @@ const TeamCard = (props) => {
   }, [open]);
 
   return (
+
     <Box className={classes.root}>
+      {console.log(name, 'members')}
       <Avatar
         alt={name}
         src={image}
@@ -82,20 +84,21 @@ const TeamCard = (props) => {
             >
               <Box className={classes.info}>
                 <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
+                  <MenuList 
                     autoFocusItem={open}
                     id='menu-list-grow'
                     onKeyDown={handleListKeyDown}
+                    data-testid='container'
                   >
-                    <Typography variant='subtitle2'>{name}</Typography>
-                    <Typography variant='caption'>{title}</Typography>
+                    <Typography variant='subtitle2' data-testid='name'>{name}</Typography>
+                    <Typography variant='caption' data-testid='title'>{title}</Typography>
                     <Box className={classes.icons}>
-                      <IconButton href={github}>
+                      <IconButton href={github} data-testid='github'>
                         <GitHubIcon
                           style={{ fontSize: 25, color: blueGrey[300] }}
                         />
                       </IconButton>
-                      <IconButton href={linkedin}>
+                      <IconButton href={linkedin} data-testid='linkedin'>
                         <LinkedInIcon
                           style={{ fontSize: 25, color: blueGrey[300] }}
                         />
