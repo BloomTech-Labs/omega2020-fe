@@ -36,7 +36,7 @@ const NavBarMobile = (props) => {
             loading ? (
               <Skeleton className={classes.text} width={40} height={40} />
             ) : (
-              <Link to='/' className={classes.root}>
+              <Link href='/menu' className={classes.root}>
                 <img src={Logo} alt='logo' style={{ width: 30, height: 30 }} />
               </Link>
             )

@@ -72,6 +72,7 @@ const TeamCard = (props) => {
           role={undefined}
           transition
           disablePortal
+          style={{ zIndex: 1 }}
         >
           {({ TransitionProps, placement }) => (
             <Grow
