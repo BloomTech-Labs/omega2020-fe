@@ -25,8 +25,8 @@ describe('the blue button content', () => {
     it('renders the mock info, and the length of the typography', () => {
         expect(ReactWrapper.find(Typography)).toHaveLength(1);
         let wrapper = ReactWrapper.props().mockInfo.title
-        console.log(wrapper).toEqual(mockinfo.title)
-        // expect(wrapper.find(Typography).text()).toEqual(mockInfo.title)
+        expect(wrapper).toEqual(mockInfo.title)
+        expect(ReactWrapper.find(Typography).text()).toEqual("")
         
     })
 })

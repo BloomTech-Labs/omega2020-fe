@@ -87,7 +87,7 @@ exports[`the Github banner  snapshot the components 1`] = `
                 className="MuiButton-label"
               >
                 <p
-                  className="MuiTypography-root MuiTypography-body2"
+                  className="MuiTypography-root title MuiTypography-body2"
                 >
                   GitHub
                 </p>

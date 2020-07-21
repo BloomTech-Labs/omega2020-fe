@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the blue button content snapshot the components 1`] = `
+exports[`the white button content snapshot the components 1`] = `
 <button
-  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-1 MuiButton-text href MuiButton-textSizeLarge MuiButton-sizeLarge"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-1 MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
   disabled={false}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -21,8 +21,8 @@ exports[`the blue button content snapshot the components 1`] = `
   <span
     className="MuiButton-label"
   >
-    <p
-      className="MuiTypography-root title MuiTypography-body2"
+    <span
+      className="MuiTypography-root MuiTypography-caption"
     />
   </span>
 </button>
