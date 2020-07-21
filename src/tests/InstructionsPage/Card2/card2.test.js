@@ -2,27 +2,26 @@ import React from 'react';
 import {render} from '@testing-library/react';
 import { configure, shallow } from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
-import InstructionPage from '../components/InstructionsPage/Card2/Card2';
+import Card2 from '../../../components/InstructionsPage/Card2/Card2'
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() })
 
 it('renders debugs/show/console.log() the wrapper content', () => {
     const wrapper = render(
-        <InstructionPage />
+        <Card2 />
     );
 })
 
 describe('it shows all the tags length and it className', () => {
     const tags = shallow(
-        <InstructionPage />
+        <Card2 />
     );
-
 
 
     it('it render the length of the paragraph tag and it"s className ', () => {  
         const { getByTestId } = render(
-            <InstructionPage />
+            <Card2 />
         )
 
         //  The First Paragraph tag
@@ -86,7 +85,7 @@ describe('it shows all the tags length and it className', () => {
     
     it('it render the length of the h2 tag', () => {
         const { getByTestId } = render(
-            <InstructionPage />
+            <Card2 />
         );
 
         //First h2 tag

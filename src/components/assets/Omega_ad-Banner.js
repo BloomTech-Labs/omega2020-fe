@@ -5,7 +5,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import AppIcon from '../../images/omega-mobile-icon.png';
-import BG1 from '../../images/BG1.png';
+import BG1 from '../../images/omega-logo.png'; //Changed BG1.png to omega-logo.png because BG1.png doesn't exist
 import BlueButton from './BlueButton';
 
 const Advertisement = (props) => {
@@ -21,7 +21,7 @@ const Advertisement = (props) => {
               loading ? (
                 <Skeleton className={classes.title} width={600} />
               ) : (
-                <img src={AppIcon} alt='App Icon' style={{ width: '150px' }} />
+                <img src={AppIcon} alt='App Icon' style={{ width: '150px' }} className='img' />
               )
             }
           />

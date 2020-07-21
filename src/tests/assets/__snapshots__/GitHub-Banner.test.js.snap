@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the Github banner  snapshot the components 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-7 makeStyles-root-1"
+>
+  <div
+    className="MuiBox-root MuiBox-root-8 makeStyles-banner-3"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-9 makeStyles-icon-2"
+    >
+      <a
+        aria-disabled={false}
+        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+        href="https://github.com/Lambda-School-Labs/omega2020-fe"
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            style={
+              Object {
+                "fontSize": 40,
+                "padding": 20,
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"
+            />
+          </svg>
+        </span>
+      </a>
+      <h6
+        className="MuiTypography-root MuiTypography-h6"
+      >
+         Find us on GitHub
+      </h6>
+    </div>
+  </div>
+</div>
+`;

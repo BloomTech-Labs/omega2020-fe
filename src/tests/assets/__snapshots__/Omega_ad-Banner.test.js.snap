@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the Github banner  snapshot the components 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-8 makeStyles-root-1"
+>
+  <div
+    className="MuiBox-root MuiBox-root-9 makeStyles-centerContainer-2"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-10 makeStyles-container-3"
+    >
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-avatar"
+        >
+          <img
+            alt="App Icon"
+            className="img"
+            src="omega-mobile-icon.png"
+            style={
+              Object {
+                "width": "150px",
+              }
+            }
+          />
+        </div>
+        <div
+          className="MuiCardHeader-content"
+        />
+      </div>
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-content"
+        >
+          <h4
+            className="MuiTypography-root MuiTypography-h4"
+          >
+            Omega 2020
+          </h4>
+        </div>
+      </div>
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-content"
+        >
+          <h5
+            className="MuiTypography-root MuiTypography-h5"
+          >
+            Coming soon to app stores near you :)
+          </h5>
+        </div>
+      </div>
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+          >
+            <a
+              aria-disabled={false}
+              className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-7 MuiButton-text href MuiButton-textSizeLarge MuiButton-sizeLarge"
+              href="https://github.com/Lambda-School-Labs/omega2020-fe"
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+            >
+              <span
+                className="MuiButton-label"
+              >
+                <p
+                  className="MuiTypography-root title MuiTypography-body2"
+                >
+                  GitHub
+                </p>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
