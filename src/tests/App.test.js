@@ -14,7 +14,7 @@ it('App renders without crashing', () => {
 
 it('App.js contains text Omega 2020', () => {
   const { getByText } = render(<App />);
-  const element = getByText('Omega 2020');
+  const element = getByText('Sudomega 2020');
   expect(element).toBeInTheDocument();
   expect(element).toBeVisible();
 });
