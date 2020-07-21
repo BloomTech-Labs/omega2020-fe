@@ -38,14 +38,13 @@ describe('The content in the AboutUs component', () => {
 
         expect(wrapper.containsMatchingElement(
             <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit
-                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.
+                Sudomega started as a Lambda School Labs project, 
+                meaning we were given an idea and told to run with it! 
+                Currently we are the second team to work on Sudomega, 
+                previously known as Omega2020. 
+                Our goal is to bring Sudoku to everyone. 
+                We want to make it easy and fun to learn while still 
+                challenging more experienced users.
             </Typography>
         )).toBeTruthy();
 
@@ -55,14 +54,9 @@ describe('The content in the AboutUs component', () => {
 
         expect(wrapper.containsMatchingElement(
             <Typography>
-                An overview of the founding team and core contributors to
-                Omega 2020. eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
+                An overview of the founding team and core contributors to Sudomega. 
+                Teams are composed of Web Developers, Ux Designers, and Data Scientists. 
+                Feel free to click on each members picture to learn more about them!
             </Typography>
         )).toBeTruthy();
 
