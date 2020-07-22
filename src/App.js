@@ -22,6 +22,9 @@ import Registration from './components/Authentication/RegisterForm'; // add form
 import Login from './components/Authentication/LoginForm'; // add form validation
 import ConstructPuzzle from './components/SudokuGame/puzzle-handler/ConstructPuzzle'; // render 4x4 6x6 9x9
 
+import UploadForm from './components/SudokuGame/Upload-image/UploadForm';
+import UploadSudoku2 from './components/SudokuGame/Upload-image/UploadSudoku2';
+
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
   const handleLoginStateChanged = () => {
@@ -74,6 +77,8 @@ const App = () => {
               path='/9x9Game'
               render={() => <ConstructPuzzle theme={themes} />}
             />
+            <Route path='/upload' component={UploadForm} />
+            <Route path='/upload-save' component={UploadSudoku2} />
           </Switch>
           <FooterCondition />
         </div>

@@ -1,10 +1,10 @@
-import axiosWithAuth from '../../utils/axiosWithAuth';
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 export const postWithAuth = (puzzleId, req) => {
-    axiosWithAuth()
+  axiosWithAuth()
     .post(`/user-puzzles/${puzzleId}`, req)
-    .then(res => {
+    .then((res) => {
       alert('Puzzle saved successfully');
       return puzzleId;
-  });
+    });
 };
