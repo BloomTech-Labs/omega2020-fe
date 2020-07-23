@@ -4,7 +4,10 @@ import Board from '../puzzle-builder/Board';
 import { Get4x4 } from './grid-axios-call/4x4';
 import { Get6x6 } from './grid-axios-call/6x6';
 import { Get9x9 } from './grid-axios-call/9x9';
+
+// Authentication
 import axiosWithAuth from '../../../utils/axiosWithAuth';
+import { postWithAuth } from '../Upload-image/postWithAuth';
 
 // FUNCTIONS
 import { formatPuzzle } from './functions/formatPuzzle';
@@ -16,16 +19,22 @@ import {
   getConflictsInArray,
 } from './functions/conflicts';
 
-// -------------------------------------------------------------
+// -------------------------------
+/* 
+    Comments in the line break style are diffrences
+    between the UploadSudoku2 and ConstructPuzzle state
+*/
+// --------------------------------
 
 const ConstructPuzzle = (props) => {
-  console.log(`theme in puzzle: ${props.themes}`);
-
   const classes = useStyles();
 
   const [win, setWin] = useState('');
 
   const [gameBoardState, setGameBoardState] = useState({
+    // -------------------------------------
+    // ...solution,
+    // -------------------------------------
     boardState: '',
     puzzleId: '',
     history: [],
@@ -36,21 +45,18 @@ const ConstructPuzzle = (props) => {
   async function getPuzzle4x4() {
     var puzzles = await Get4x4();
     setWin(puzzles.solution);
-
     return puzzles;
   }
 
   async function getPuzzle6x6() {
     var puzzles = await Get6x6();
     setWin(puzzles.solution);
-
     return puzzles;
   }
 
   async function getPuzzle9x9() {
     var puzzles = await Get9x9();
     setWin(puzzles.solution);
-
     return puzzles;
   }
 
@@ -59,11 +65,16 @@ const ConstructPuzzle = (props) => {
     const formattedPuzzle = formatPuzzle(
       puzzle.sudoku,
       gameBoardState.gridlength
+      // -------------------------------------
+      // setWin(puzzles.solution.solution);
+      // return puzzles.solution;
+      // -------------------------------------
     );
 
     console.log('Game Board State in formatted puzzle', gameBoardState);
     console.log('Loaded puzzle in formatted puzzle', puzzle);
     console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
+
     setGameBoardState({
       ...gameBoardState,
       gridlength: puzzle.gridlength,
@@ -75,6 +86,19 @@ const ConstructPuzzle = (props) => {
       solved: puzzle.solution,
       original: puzzle.sudoku,
     });
+
+    // -------------------------------------
+    /*
+    setGameBoardState({
+      ...gameBoardState,
+      puzzleId: '',
+      level: puzzle.difficulty,
+      boardState: formattedPuzzle,
+      original: puzzle.values,
+      solved: puzzle.solution,
+    });
+    */
+    // -------------------------------------
   };
 
   // Start the game here by getting a formatted puzzle
@@ -157,6 +181,10 @@ const ConstructPuzzle = (props) => {
       solved: gameBoardState.solved,
       original: gameBoardState.original,
     };
+
+    // -------------------------------------
+    // postWithAuth(puzzleId, req);
+    // -------------------------------------
 
     console.log('GridNumxNum', puzzleId);
     axiosWithAuth()
