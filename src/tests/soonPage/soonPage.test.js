@@ -89,9 +89,6 @@ describe('renders the image info such as alt and the src', () => {
         expect(rootSoonPage.findByType(BlueButton).props.href).toBe('/tutorial')
 
 
-    })
-
-    it('shows the instance of the component', () => {
         expect(iSoonPage).toBe(null)
     })
 })

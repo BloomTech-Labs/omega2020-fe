@@ -14,17 +14,22 @@ describe('the blue button content', () => {
     href: 'https://github.com/Lambda-School-Labs/omega2020-fe',
   };
 
-  const ReactWrapper = mount(<Button />);
+  const ReactWrapper = mount(<Button mockInfo={mockInfo}/>);
+  const instanceWrapper = ReactWrapper.instance()
 
   it('snapshot the components', () => {
     const button = renderer.create(<Button />).toJSON();
     expect(button).toMatchSnapshot();
   });
 
+  it('shows the instance to be null since there"s no state', () => {
+    expect(instanceWrapper).toBe(null)
+  })
+
   it('renders the mock info, and the length of the typography', () => {
     expect(ReactWrapper.find(Typography)).toHaveLength(1);
-    console.log(ReactWrapper.instance());
-    expect(ReactWrapper.find());
-    // expect(ReactWrapper.props().mockInfo.title).toEqual(mockInfo.title)
+    expect(ReactWrapper.props().mockInfo.title).toEqual(mockInfo.title)
+    expect(ReactWrapper.props().mockInfo.href).toEqual(mockInfo.href)
+
   });
 });
