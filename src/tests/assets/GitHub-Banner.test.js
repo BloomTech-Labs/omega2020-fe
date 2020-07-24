@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, shallow, mount } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom/extend-expect';
 import Banner from '../../components/assets/GitHub-Banner';

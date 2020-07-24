@@ -22,7 +22,16 @@ describe('the Github banner ', () => {
     // expect(iBanner.findByProps({ className: 'title' }).children).toEqual(['Github']);
   });
 
-  it.skip('renders the material ui length correctly, and the text content', () => {
+  it('render the props', () => {
+    const renderOBanner = renderer.create(<OBanner />); 
+    const rootOBanner = renderOBanner.root;
+
+    expect(rootOBanner.findByType(BlueButton).props.title).toBe('GitHub')
+    expect(rootOBanner.findByType(BlueButton).props.href).toBe('https://github.com/Lambda-School-Labs/omega2020-fe')
+})
+
+
+  it('renders the material ui length correctly, and the text content', () => {
     expect(ReactWrapper.find(Typography)).toHaveLength(4);
     expect(ReactWrapper.find('h4').text()).toEqual('Omega 2020');
     expect(ReactWrapper.find('h5').text()).toEqual(
@@ -32,7 +41,7 @@ describe('the Github banner ', () => {
     expect(ReactWrapper.find(Box)).toHaveLength(3);
   });
 
-  it.skip('render the image in the component', () => {
+  it('render the image in the component', () => {
     expect(ReactWrapper.find('img')).toHaveLength(1);
     expect(ReactWrapper.find('img').prop('src')).toEqual(AppIcon);
   });
