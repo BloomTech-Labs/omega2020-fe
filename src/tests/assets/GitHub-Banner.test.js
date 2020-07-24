@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, mount } from 'enzyme';
+import { configure, shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom/extend-expect';
 import Banner from '../../components/assets/GitHub-Banner';
@@ -10,7 +10,10 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 configure({ adapter: new Adapter() });
 
 describe('the Github banner ', () => {
-  const ReactWrapper = mount(<Banner />);
+  const ReactWrapper = shallow(<Banner />);
+  
+  const renderGitBanner = renderer.create(<Banner />); 
+  const rootGitBanner = renderGitBanner.root;
 
   it('snapshot the components', () => {
     const banner = renderer.create(<Banner />).toJSON();
@@ -24,4 +27,8 @@ describe('the Github banner ', () => {
     expect(ReactWrapper.find(GitHubIcon)).toHaveLength(1);
     expect(ReactWrapper.find(Box)).toHaveLength(3);
   });
+
+  it('shows the props in the GitHubIcon', () => {
+    expect(rootGitBanner.findByType(GitHubIcon).props.style).toMatchObject({"fontSize": 40, "padding": 20});
+  })
 });
