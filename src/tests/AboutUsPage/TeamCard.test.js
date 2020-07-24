@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import  { configure, shallow, mount } from 'enzyme';
+import  { configure, shallow } from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
 import List from '../../components/AboutUsPage/TeamCard';
 import Adapter from 'enzyme-adapter-react-16';
