@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`all elements snapshot the info of the soon page component 1`] = `
+<div
+  className="sudoku"
+  data-testid="sudo-container"
+>
+  <br />
+  <br />
+  <img
+    alt="sudoku"
+    className="sudoku-logo"
+    data-testid="sudo-logo"
+    src="sudoku.png"
+  />
+  <h1
+    className="firstFont"
+    data-testid="sudo-firstFont"
+  >
+    WE KNOW YOU'RE EXCITED!
+  </h1>
+  <p
+    className="secondFont"
+    data-testid="sudo-secondFont"
+  >
+    Sudomega sudoku games are
+  </p>
+  <br />
+  <br />
+  <h1
+    className="thirdFont"
+    data-testid="sudo-thirdFont"
+  >
+    COMING SOON
+  </h1>
+  <br />
+  <br />
+  <section
+    className="button"
+    data-testid="sudo-button"
+  >
+    <a
+      aria-disabled={false}
+      className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-1 MuiButton-text href MuiButton-textSizeLarge MuiButton-sizeLarge"
+      href="/tutorial"
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+    >
+      <span
+        className="MuiButton-label"
+      >
+        <p
+          className="MuiTypography-root title MuiTypography-body2"
+        >
+          learn how to play!
+        </p>
+      </span>
+    </a>
+  </section>
+</div>
+`;

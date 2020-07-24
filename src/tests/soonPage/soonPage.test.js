@@ -1,30 +1,24 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { configure, shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
+import { configure, shallow, mount } from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
-import SoonPage from '../components/soonPage/soon'
+import SoonPage from '../../components/soonPage/soon';
 import Adapter from 'enzyme-adapter-react-16';
-import Sudoku from '../components/soonPage/sudoku.jpg'
-
+import Sudoku from '../../components/soonPage/sudoku.png';
+import BlueButton from '../../components/assets/BlueButton';
 
 configure({ adapter: new Adapter() })
 
-
-it('renders all tags length', () => {
-    const soonPage = shallow(
-        <SoonPage />
-    );
-
-    expect(soonPage.find("div").length).toEqual(1)
-    expect(soonPage.find("section").length).toEqual(1)
-    expect(soonPage.find("h1").length).toEqual(2)
-    expect(soonPage.find("p").length).toEqual(4)
-})
-
 describe('all elements', () => {
-    const soonPage = shallow(
+    const soonPage = mount(
         <SoonPage />
     );
+
+    it('snapshot the info of the soon page component', () => {
+        const soonPageShot = renderer.create(<SoonPage />).toJSON();
+        expect(soonPageShot).toMatchSnapshot();
+      });
 
     it('renders firstFont element', () => {
         expect(
@@ -37,7 +31,7 @@ describe('all elements', () => {
     it('renders the secondFont element', () => {
         expect(
             soonPage.containsMatchingElement(
-                <p className="secondFont">Omega 2020 sudoku is </p>
+                <p className="secondFont">Sudomega sudoku games are </p>
             )
         ).toBeTruthy()
     });
@@ -49,36 +43,25 @@ describe('all elements', () => {
             )
         ).toBeTruthy()
     })
-
-    it('renders the fourthFont element', () => {
-        expect(
-            soonPage.containsMatchingElement(
-                <p className="fourthFont"> In the meantime <b>subscribe</b> to get alerted when the game is available </p>
-            )
-        ).toBeTruthy()
-    })
-
-    it('renders the subscribe element', () => {
-        expect(
-            soonPage.containsMatchingElement(
-                <p className="sub"> subscribe </p>
-            )
-        ).toBeTruthy()
-    })
-
-    it('renders the learn element', () => {
-        expect(
-            soonPage.containsMatchingElement(
-            <p className="learn"> learn how to play! </p>
-            )
-        ).toEqual(true)
-    })
 })
 
 describe('renders the image info such as alt and the src', () => {
-    const soonPage = shallow(
+    const soonPage = mount(
         <SoonPage />
     );
+
+    const iSoonPage = soonPage.instance();
+
+    it('renders all tags length', () => {
+        const soonPage = shallow(
+            <SoonPage />
+        );
+        expect(soonPage.find("div").length).toEqual(1)
+        expect(soonPage.find("section").length).toEqual(1)
+        expect(soonPage.find("h1").length).toEqual(2)
+        expect(soonPage.find("p").length).toEqual(1)
+    })
+
 
     it('renders the image', () => { 
         expect(soonPage.find("img").prop("src")).toEqual(Sudoku)
@@ -97,6 +80,20 @@ describe('renders the image info such as alt and the src', () => {
         expect(alt).toBeVisible()
         expect(alt).toBeTruthy()
     })
+
+    it('shows button props', () => {
+        const renderSoonPage = renderer.create(<SoonPage />); 
+        const rootSoonPage = renderSoonPage.root;
+
+        expect(rootSoonPage.findByType(BlueButton).props.title).toBe('learn how to play!')
+        expect(rootSoonPage.findByType(BlueButton).props.href).toBe('/tutorial')
+
+
+    })
+
+    it('shows the instance of the component', () => {
+        expect(iSoonPage).toBe(null)
+    })
 })
 
 it('render all className', () => {
@@ -108,9 +105,5 @@ it('render all className', () => {
     expect(getByTestId('sudo-firstFont')).toHaveClass('firstFont');
     expect(getByTestId('sudo-secondFont')).toHaveClass('secondFont');
     expect(getByTestId('sudo-thirdFont')).toHaveClass('thirdFont');
-    expect(getByTestId('sudo-fourthFont')).toHaveClass('fourthFont');
     expect(getByTestId('sudo-button')).toHaveClass('button');
-    expect(getByTestId('sudo-sub')).toHaveClass('sub');
-    expect(getByTestId('sudo-learn')).toHaveClass('learn')
-
 })
