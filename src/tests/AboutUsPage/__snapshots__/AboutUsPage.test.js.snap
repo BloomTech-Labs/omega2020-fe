@@ -1,0 +1,661 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Makes a snapshot of the component 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-1"
+>
+  <div
+    className="MuiContainer-root MuiContainer-maxWidthLg"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-6 makeStyles-root-2"
+    >
+      <div
+        className="MuiBox-root MuiBox-root-7"
+      >
+        <div
+          className="MuiCardHeader-root"
+        >
+          <div
+            className="MuiCardHeader-content"
+          >
+            <span
+              className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+            >
+              <div
+                className="MuiBox-root MuiBox-root-8"
+              >
+                <h4
+                  className="MuiTypography-root MuiTypography-h4"
+                  data-testid="head1"
+                >
+                  About Sudomega
+                </h4>
+                <div
+                  className="makeStyles-root-9"
+                >
+                  <p
+                    className="MuiTypography-root MuiTypography-body1"
+                  >
+                    Active Team
+                  </p>
+                  <div
+                    className="makeStyles-team-10"
+                  >
+                    <div
+                      className="MuiBox-root MuiBox-root-14 makeStyles-root-11"
+                    >
+                      <div
+                        aria-haspopup="true"
+                        className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "cursor": "pointer",
+                          }
+                        }
+                      >
+                        <img
+                          alt="Jessica Dosseh"
+                          className="MuiAvatar-img"
+                          src="https://avatars2.githubusercontent.com/u/24831198?s=460&u=4e2d7a78a8d4ba798589a59075bb98cd1b0e7e26&v=4"
+                        />
+                      </div>
+                      <br />
+                      <div
+                        className="MuiBox-root MuiBox-root-15"
+                      />
+                    </div>
+                    <div
+                      className="MuiBox-root MuiBox-root-16 makeStyles-root-11"
+                    >
+                      <div
+                        aria-haspopup="true"
+                        className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "cursor": "pointer",
+                          }
+                        }
+                      >
+                        <img
+                          alt="Tara Sherman"
+                          className="MuiAvatar-img"
+                          src="https://avatars1.githubusercontent.com/u/44125075?s=460&u=0d892d66ffa3913439ffd4badbc0d4875f5ecd32&v=4"
+                        />
+                      </div>
+                      <br />
+                      <div
+                        className="MuiBox-root MuiBox-root-17"
+                      />
+                    </div>
+                    <div
+                      className="MuiBox-root MuiBox-root-18 makeStyles-root-11"
+                    >
+                      <div
+                        aria-haspopup="true"
+                        className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "cursor": "pointer",
+                          }
+                        }
+                      >
+                        <img
+                          alt="Carlos Turcios"
+                          className="MuiAvatar-img"
+                          src="https://ca.slack-edge.com/ESZCHB482-W0138D436D6-e0838d1d105e-512"
+                        />
+                      </div>
+                      <br />
+                      <div
+                        className="MuiBox-root MuiBox-root-19"
+                      />
+                    </div>
+                    <div
+                      className="MuiBox-root MuiBox-root-20 makeStyles-root-11"
+                    >
+                      <div
+                        aria-haspopup="true"
+                        className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "cursor": "pointer",
+                          }
+                        }
+                      >
+                        <img
+                          alt="Alexis Anderson"
+                          className="MuiAvatar-img"
+                          src="https://ca.slack-edge.com/ESZCHB482-W012BRNRD9C-a2e830df8d7f-512"
+                        />
+                      </div>
+                      <br />
+                      <div
+                        className="MuiBox-root MuiBox-root-21"
+                      />
+                    </div>
+                    <div
+                      className="MuiBox-root MuiBox-root-22 makeStyles-root-11"
+                    >
+                      <div
+                        aria-haspopup="true"
+                        className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "cursor": "pointer",
+                          }
+                        }
+                      >
+                        <img
+                          alt="Vincent Adeniji"
+                          className="MuiAvatar-img"
+                          src="https://avatars2.githubusercontent.com/u/54925113?s=460&v=4"
+                        />
+                      </div>
+                      <br />
+                      <div
+                        className="MuiBox-root MuiBox-root-23"
+                      />
+                    </div>
+                    <div
+                      className="MuiBox-root MuiBox-root-24 makeStyles-root-11"
+                    >
+                      <div
+                        aria-haspopup="true"
+                        className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "cursor": "pointer",
+                          }
+                        }
+                      >
+                        <img
+                          alt="Stephen Plainte"
+                          className="MuiAvatar-img"
+                          src="https://ca.slack-edge.com/ESZCHB482-W012QNTLJ2Y-eded290f44d6-512"
+                        />
+                      </div>
+                      <br />
+                      <div
+                        className="MuiBox-root MuiBox-root-25"
+                      />
+                    </div>
+                    <div
+                      className="MuiBox-root MuiBox-root-26 makeStyles-root-11"
+                    >
+                      <div
+                        aria-haspopup="true"
+                        className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "cursor": "pointer",
+                          }
+                        }
+                      >
+                        <img
+                          alt="Ivan Santos"
+                          className="MuiAvatar-img"
+                          src="https://ca.slack-edge.com/ESZCHB482-W0138D56KRN-8828cd79a091-512"
+                        />
+                      </div>
+                      <br />
+                      <div
+                        className="MuiBox-root MuiBox-root-27"
+                      />
+                    </div>
+                    <div
+                      className="MuiBox-root MuiBox-root-28 makeStyles-root-11"
+                    >
+                      <div
+                        aria-haspopup="true"
+                        className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "cursor": "pointer",
+                          }
+                        }
+                      >
+                        <img
+                          alt="Brandon Bruce"
+                          className="MuiAvatar-img"
+                          src="https://ca.slack-edge.com/ESZCHB482-W012H6NP04V-449729fd2101-512"
+                        />
+                      </div>
+                      <br />
+                      <div
+                        className="MuiBox-root MuiBox-root-29"
+                      />
+                    </div>
+                    <div
+                      className="MuiBox-root MuiBox-root-30 makeStyles-root-11"
+                    >
+                      <div
+                        aria-haspopup="true"
+                        className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "cursor": "pointer",
+                          }
+                        }
+                      >
+                        <img
+                          alt="Marvin Davila"
+                          className="MuiAvatar-img"
+                          src="https://ca.slack-edge.com/ESZCHB482-W012X6PSYDP-ec35dbf6dfdb-512"
+                        />
+                      </div>
+                      <br />
+                      <div
+                        className="MuiBox-root MuiBox-root-31"
+                      />
+                    </div>
+                    <div
+                      className="MuiBox-root MuiBox-root-32 makeStyles-root-11"
+                    >
+                      <div
+                        aria-haspopup="true"
+                        className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "cursor": "pointer",
+                          }
+                        }
+                      >
+                        <img
+                          alt="Richard Lawson"
+                          className="MuiAvatar-img"
+                          src="https://ca.slack-edge.com/ESZCHB482-W012X6T9KT3-443632831451-512"
+                        />
+                      </div>
+                      <br />
+                      <div
+                        className="MuiBox-root MuiBox-root-33"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiBox-root MuiBox-root-34 makeStyles-mainContainer-3"
+      >
+        <div
+          className="MuiBox-root MuiBox-root-35 makeStyles-leftContainer-4"
+        >
+          <div
+            className="MuiBox-root MuiBox-root-36"
+          >
+            <div
+              className="MuiCardHeader-root"
+            >
+              <div
+                className="MuiCardHeader-content"
+              >
+                <span
+                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                >
+                  <div
+                    className="MuiBox-root MuiBox-root-37"
+                  >
+                    <div
+                      className="MuiBox-root MuiBox-root-38"
+                    >
+                      <svg
+                        aria-hidden={true}
+                        className="MuiSvgIcon-root"
+                        focusable="false"
+                        style={
+                          Object {
+                            "fontSize": 100,
+                          }
+                        }
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
+                        />
+                      </svg>
+                    </div>
+                    <br />
+                    <h5
+                      className="MuiTypography-root MuiTypography-h5"
+                      data-testid="head2"
+                    >
+                      Our Story
+                    </h5>
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div
+              className="MuiCardHeader-root"
+            >
+              <div
+                className="MuiCardHeader-content"
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1"
+                >
+                  Sudomega started as a Lambda School Labs project, meaning we were given an idea and told to run with it! Currently we are the second team to work on Sudomega, previously known as Omega2020. Our goal is to bring Sudoku to everyone. We want to make it easy and fun to learn while still challenging more experienced users.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="MuiBox-root MuiBox-root-39 makeStyles-rightContainer-5"
+        >
+          <div
+            className="MuiBox-root MuiBox-root-40"
+          >
+            <div
+              className="MuiCardHeader-root"
+            >
+              <div
+                className="MuiCardHeader-content"
+              >
+                <span
+                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                >
+                  <div
+                    className="MuiBox-root MuiBox-root-41"
+                  >
+                    <div
+                      className="MuiBox-root MuiBox-root-42"
+                    >
+                      <svg
+                        aria-hidden={true}
+                        className="MuiSvgIcon-root"
+                        focusable="false"
+                        style={
+                          Object {
+                            "fontSize": 100,
+                          }
+                        }
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+                        />
+                      </svg>
+                    </div>
+                    <br />
+                    <h5
+                      className="MuiTypography-root MuiTypography-h5"
+                      data-testid="head2"
+                    >
+                      About Our Teams
+                    </h5>
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div
+              className="MuiCardHeader-root"
+            >
+              <div
+                className="MuiCardHeader-content"
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1"
+                  data-testid="subheader"
+                >
+                  An overview of the founding team and core contributors to Sudomega. Teams are composed of Web Developers, Ux Designers, and Data Scientists. Feel free to click on each members picture to learn more about them!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr
+        width="100%"
+      />
+      <div
+        className="makeStyles-root-9"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          Version 1 Team
+        </p>
+        <div
+          className="makeStyles-team-10"
+          data-testid="member"
+        >
+          <div
+            className="MuiBox-root MuiBox-root-43 makeStyles-root-11"
+          >
+            <div
+              aria-haspopup="true"
+              className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+              onClick={[Function]}
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+            >
+              <img
+                alt="Hira Khan"
+                className="MuiAvatar-img"
+                src="https://ca.slack-edge.com/T4JUEB3ME-UG8U1EMQC-23707ef54cc3-512"
+              />
+            </div>
+            <br />
+            <div
+              className="MuiBox-root MuiBox-root-44"
+            />
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-45 makeStyles-root-11"
+          >
+            <div
+              aria-haspopup="true"
+              className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+              onClick={[Function]}
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+            >
+              <img
+                alt="Rob Hamilton"
+                className="MuiAvatar-img"
+                src="https://ca.slack-edge.com/T4JUEB3ME-ULJ9DTDKL-246bfe8730a9-512"
+              />
+            </div>
+            <br />
+            <div
+              className="MuiBox-root MuiBox-root-46"
+            />
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-47 makeStyles-root-11"
+          >
+            <div
+              aria-haspopup="true"
+              className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+              onClick={[Function]}
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+            >
+              <img
+                alt="Sheila Eichenberger"
+                className="MuiAvatar-img"
+                src="https://ca.slack-edge.com/T4JUEB3ME-UHZCNQY3Y-a25cb56e80d9-512"
+              />
+            </div>
+            <br />
+            <div
+              className="MuiBox-root MuiBox-root-48"
+            />
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-49 makeStyles-root-11"
+          >
+            <div
+              aria-haspopup="true"
+              className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+              onClick={[Function]}
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+            >
+              <img
+                alt="Connor R Sullivan"
+                className="MuiAvatar-img"
+                src="https://ca.slack-edge.com/T4JUEB3ME-ULVE6L3TJ-5b9eaad31d15-512"
+              />
+            </div>
+            <br />
+            <div
+              className="MuiBox-root MuiBox-root-50"
+            />
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-51 makeStyles-root-11"
+          >
+            <div
+              aria-haspopup="true"
+              className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+              onClick={[Function]}
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+            >
+              <img
+                alt="Gabriel Romero"
+                className="MuiAvatar-img"
+                src="https://ca.slack-edge.com/T4JUEB3ME-UEFKRMPCP-4d6c51049ae9-512"
+              />
+            </div>
+            <br />
+            <div
+              className="MuiBox-root MuiBox-root-52"
+            />
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-53 makeStyles-root-11"
+          >
+            <div
+              aria-haspopup="true"
+              className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+              onClick={[Function]}
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+            >
+              <img
+                alt="Levi Simpson"
+                className="MuiAvatar-img"
+                src="https://ca.slack-edge.com/T4JUEB3ME-UDCJB03RD-0e87fb5029cc-512"
+              />
+            </div>
+            <br />
+            <div
+              className="MuiBox-root MuiBox-root-54"
+            />
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-55 makeStyles-root-11"
+          >
+            <div
+              aria-haspopup="true"
+              className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+              onClick={[Function]}
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+            >
+              <img
+                alt="Rudy Enriquez"
+                className="MuiAvatar-img"
+                src="https://ca.slack-edge.com/T4JUEB3ME-UD2LGR18A-7c6caf1a9c21-512"
+              />
+            </div>
+            <br />
+            <div
+              className="MuiBox-root MuiBox-root-56"
+            />
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-57 makeStyles-root-11"
+          >
+            <div
+              aria-haspopup="true"
+              className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+              onClick={[Function]}
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+            >
+              <img
+                alt="Johana Luna"
+                className="MuiAvatar-img"
+                src="https://ca.slack-edge.com/T4JUEB3ME-ULJAKAQ66-88214d54e62a-512"
+              />
+            </div>
+            <br />
+            <div
+              className="MuiBox-root MuiBox-root-58"
+            />
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-59 makeStyles-root-11"
+          >
+            <div
+              aria-haspopup="true"
+              className="MuiAvatar-root MuiAvatar-circle makeStyles-large-12"
+              onClick={[Function]}
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+            >
+              <img
+                alt="Akak Almaz"
+                className="MuiAvatar-img"
+                src="https://ca.slack-edge.com/T4JUEB3ME-ULK6ULQ0J-b2b2713290b3-512"
+              />
+            </div>
+            <br />
+            <div
+              className="MuiBox-root MuiBox-root-60"
+            />
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+    </div>
+  </div>
+</div>
+`;
