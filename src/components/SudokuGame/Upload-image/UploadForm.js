@@ -80,7 +80,7 @@ export default function UploadForm() {
   return (
     <>
       {solution.puzzle_status === 1 ? (
-        <ConstructPuzzle solution={solution} />
+        <UploadSudoku2 solution={solution} />
       ) : (
         <div align='center'>
           <ProgressIndicator isUploading={isUploading} />
