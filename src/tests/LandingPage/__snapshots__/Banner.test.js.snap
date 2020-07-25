@@ -2,10 +2,10 @@
 
 exports[`the information on the banner snapshot the info on th banner 1`] = `
 <div
-  className="MuiBox-root MuiBox-root-7 makeStyles-root-1"
+  className="MuiBox-root MuiBox-root-22 makeStyles-root-1"
 >
   <div
-    className="MuiBox-root MuiBox-root-8 makeStyles-mainContainer-2"
+    className="MuiBox-root MuiBox-root-23 makeStyles-mainContainer-2"
   >
     <div
       className="MuiCardHeader-root"
@@ -14,10 +14,10 @@ exports[`the information on the banner snapshot the info on th banner 1`] = `
         className="MuiCardHeader-avatar"
       >
         <div
-          className="MuiBox-root MuiBox-root-9"
+          className="MuiBox-root MuiBox-root-24"
         >
           <div
-            className="MuiBox-root MuiBox-root-10"
+            className="MuiBox-root MuiBox-root-25"
             style={
               Object {
                 "textAlign": "center",
@@ -26,7 +26,7 @@ exports[`the information on the banner snapshot the info on th banner 1`] = `
           >
             <p
               className="MuiTypography-root MuiTypography-body1"
-              data-testid="improve"
+              id="improve1"
               style={
                 Object {
                   "fontSize": "1.3rem",
@@ -40,6 +40,7 @@ exports[`the information on the banner snapshot the info on th banner 1`] = `
             <br />
             <p
               className="MuiTypography-root makeStyles-subheader-3 MuiTypography-body1"
+              id="improve2"
             >
               Learn to recognize key patterns and methods
               <br />
@@ -66,7 +67,7 @@ exports[`the information on the banner snapshot the info on th banner 1`] = `
         className="MuiCardHeader-action"
       >
         <div
-          className="MuiBox-root MuiBox-root-11"
+          className="MuiBox-root MuiBox-root-26"
         >
           <a
             aria-disabled={false}
@@ -94,6 +95,9 @@ exports[`the information on the banner snapshot the info on th banner 1`] = `
                 Get Started Today
               </p>
             </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
           </a>
         </div>
       </div>
@@ -108,10 +112,10 @@ exports[`the information on the banner snapshot the info on th banner 1`] = `
         className="MuiCardHeader-action"
       >
         <div
-          className="MuiBox-root MuiBox-root-13 makeStyles-gameBoard-5"
+          className="MuiBox-root MuiBox-root-27 makeStyles-gameBoard-5"
         >
           <div
-            className="MuiBox-root MuiBox-root-14 makeStyles-img-4"
+            className="MuiBox-root MuiBox-root-28 makeStyles-img-4"
           />
         </div>
       </div>
