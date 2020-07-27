@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import  { configure, shallow } from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
 import AboutUsPage from '../../components/AboutUsPage/AboutUsPage';
@@ -10,12 +11,18 @@ import { createMount } from '@material-ui/core/test-utils';
 
 configure({ adapter: new Adapter() });
 
-it('renders the typography elements, and contains matching element', () => {
+it('Makes a snapshot of the component', () => {
+    const aboutUsPage = renderer.create(<AboutUsPage />).toJSON()
+    expect(aboutUsPage).toMatchSnapshot();
+})
+
+
+it('renders the material ui elements', () => {
 
     const mount =  createMount();
     const wrapper = mount(<AboutUsPage /> )
 
-    expect(wrapper.find(Box)).toHaveLength(49)
+    expect(wrapper.find(Box)).toHaveLength(51)
     expect(wrapper.find(Container)).toHaveLength(1)
 
 

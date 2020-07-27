@@ -47,6 +47,9 @@ exports[`the Github banner  snapshot the components 1`] = `
             />
           </svg>
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </a>
       <h6
         className="MuiTypography-root MuiTypography-h6"

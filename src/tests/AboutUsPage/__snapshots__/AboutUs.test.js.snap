@@ -252,6 +252,30 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
                     className="MuiBox-root MuiBox-root-30"
                   />
                 </div>
+                <div
+                  className="MuiBox-root MuiBox-root-31 makeStyles-root-10"
+                >
+                  <div
+                    aria-haspopup="true"
+                    className="MuiAvatar-root MuiAvatar-circle makeStyles-large-11"
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "cursor": "pointer",
+                      }
+                    }
+                  >
+                    <img
+                      alt="Richard Lawson"
+                      className="MuiAvatar-img"
+                      src="https://ca.slack-edge.com/ESZCHB482-W012X6T9KT3-443632831451-512"
+                    />
+                  </div>
+                  <br />
+                  <div
+                    className="MuiBox-root MuiBox-root-32"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -260,13 +284,13 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
     </div>
   </div>
   <div
-    className="MuiBox-root MuiBox-root-31 makeStyles-mainContainer-2"
+    className="MuiBox-root MuiBox-root-33 makeStyles-mainContainer-2"
   >
     <div
-      className="MuiBox-root MuiBox-root-32 makeStyles-leftContainer-3"
+      className="MuiBox-root MuiBox-root-34 makeStyles-leftContainer-3"
     >
       <div
-        className="MuiBox-root MuiBox-root-33"
+        className="MuiBox-root MuiBox-root-35"
       >
         <div
           className="MuiCardHeader-root"
@@ -278,10 +302,10 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
               className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
             >
               <div
-                className="MuiBox-root MuiBox-root-34"
+                className="MuiBox-root MuiBox-root-36"
               >
                 <div
-                  className="MuiBox-root MuiBox-root-35"
+                  className="MuiBox-root MuiBox-root-37"
                 >
                   <svg
                     aria-hidden={true}
@@ -318,19 +342,18 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
           >
             <p
               className="MuiTypography-root MuiTypography-body1"
-              data-testid="subheader"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Sudomega started as a Lambda School Labs project, meaning we were given an idea and told to run with it! Currently we are the second team to work on Sudomega, previously known as Omega2020. Our goal is to bring Sudoku to everyone. We want to make it easy and fun to learn while still challenging more experienced users.
             </p>
           </div>
         </div>
       </div>
     </div>
     <div
-      className="MuiBox-root MuiBox-root-36 makeStyles-rightContainer-4"
+      className="MuiBox-root MuiBox-root-38 makeStyles-rightContainer-4"
     >
       <div
-        className="MuiBox-root MuiBox-root-37"
+        className="MuiBox-root MuiBox-root-39"
       >
         <div
           className="MuiCardHeader-root"
@@ -342,10 +365,10 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
               className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
             >
               <div
-                className="MuiBox-root MuiBox-root-38"
+                className="MuiBox-root MuiBox-root-40"
               >
                 <div
-                  className="MuiBox-root MuiBox-root-39"
+                  className="MuiBox-root MuiBox-root-41"
                 >
                   <svg
                     aria-hidden={true}
@@ -384,7 +407,7 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
               className="MuiTypography-root MuiTypography-body1"
               data-testid="subheader"
             >
-              An overview of the founding team and core contributors to Omega 2020. eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              An overview of the founding team and core contributors to Sudomega. Teams are composed of Web Developers, Ux Designers, and Data Scientists. Feel free to click on each members picture to learn more about them!
             </p>
           </div>
         </div>
@@ -404,9 +427,10 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
     </p>
     <div
       className="makeStyles-team-9"
+      data-testid="member"
     >
       <div
-        className="MuiBox-root MuiBox-root-40 makeStyles-root-10"
+        className="MuiBox-root MuiBox-root-42 makeStyles-root-10"
       >
         <div
           aria-haspopup="true"
@@ -422,30 +446,6 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
             alt="Hira Khan"
             className="MuiAvatar-img"
             src="https://ca.slack-edge.com/T4JUEB3ME-UG8U1EMQC-23707ef54cc3-512"
-          />
-        </div>
-        <br />
-        <div
-          className="MuiBox-root MuiBox-root-41"
-        />
-      </div>
-      <div
-        className="MuiBox-root MuiBox-root-42 makeStyles-root-10"
-      >
-        <div
-          aria-haspopup="true"
-          className="MuiAvatar-root MuiAvatar-circle makeStyles-large-11"
-          onClick={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
-        >
-          <img
-            alt="Rob Hamilton"
-            className="MuiAvatar-img"
-            src="https://ca.slack-edge.com/T4JUEB3ME-ULJ9DTDKL-246bfe8730a9-512"
           />
         </div>
         <br />
@@ -467,9 +467,9 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
           }
         >
           <img
-            alt="Sheila Eichenberger"
+            alt="Rob Hamilton"
             className="MuiAvatar-img"
-            src="https://ca.slack-edge.com/T4JUEB3ME-UHZCNQY3Y-a25cb56e80d9-512"
+            src="https://ca.slack-edge.com/T4JUEB3ME-ULJ9DTDKL-246bfe8730a9-512"
           />
         </div>
         <br />
@@ -491,9 +491,9 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
           }
         >
           <img
-            alt="Connor R Sullivan"
+            alt="Sheila Eichenberger"
             className="MuiAvatar-img"
-            src="https://ca.slack-edge.com/T4JUEB3ME-ULVE6L3TJ-5b9eaad31d15-512"
+            src="https://ca.slack-edge.com/T4JUEB3ME-UHZCNQY3Y-a25cb56e80d9-512"
           />
         </div>
         <br />
@@ -515,9 +515,9 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
           }
         >
           <img
-            alt="Gabriel Romero"
+            alt="Connor R Sullivan"
             className="MuiAvatar-img"
-            src="https://ca.slack-edge.com/T4JUEB3ME-UEFKRMPCP-4d6c51049ae9-512"
+            src="https://ca.slack-edge.com/T4JUEB3ME-ULVE6L3TJ-5b9eaad31d15-512"
           />
         </div>
         <br />
@@ -539,9 +539,9 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
           }
         >
           <img
-            alt="Levi Simpson"
+            alt="Gabriel Romero"
             className="MuiAvatar-img"
-            src="https://ca.slack-edge.com/T4JUEB3ME-UDCJB03RD-0e87fb5029cc-512"
+            src="https://ca.slack-edge.com/T4JUEB3ME-UEFKRMPCP-4d6c51049ae9-512"
           />
         </div>
         <br />
@@ -563,9 +563,9 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
           }
         >
           <img
-            alt="Rudy Enriquez"
+            alt="Levi Simpson"
             className="MuiAvatar-img"
-            src="https://ca.slack-edge.com/T4JUEB3ME-UD2LGR18A-7c6caf1a9c21-512"
+            src="https://ca.slack-edge.com/T4JUEB3ME-UDCJB03RD-0e87fb5029cc-512"
           />
         </div>
         <br />
@@ -587,9 +587,9 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
           }
         >
           <img
-            alt="Johana Luna"
+            alt="Rudy Enriquez"
             className="MuiAvatar-img"
-            src="https://ca.slack-edge.com/T4JUEB3ME-ULJAKAQ66-88214d54e62a-512"
+            src="https://ca.slack-edge.com/T4JUEB3ME-UD2LGR18A-7c6caf1a9c21-512"
           />
         </div>
         <br />
@@ -611,6 +611,30 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
           }
         >
           <img
+            alt="Johana Luna"
+            className="MuiAvatar-img"
+            src="https://ca.slack-edge.com/T4JUEB3ME-ULJAKAQ66-88214d54e62a-512"
+          />
+        </div>
+        <br />
+        <div
+          className="MuiBox-root MuiBox-root-57"
+        />
+      </div>
+      <div
+        className="MuiBox-root MuiBox-root-58 makeStyles-root-10"
+      >
+        <div
+          aria-haspopup="true"
+          className="MuiAvatar-root MuiAvatar-circle makeStyles-large-11"
+          onClick={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <img
             alt="Akak Almaz"
             className="MuiAvatar-img"
             src="https://ca.slack-edge.com/T4JUEB3ME-ULK6ULQ0J-b2b2713290b3-512"
@@ -618,7 +642,7 @@ exports[`The content in the AboutUs component Makes a snapshot of the component 
         </div>
         <br />
         <div
-          className="MuiBox-root MuiBox-root-57"
+          className="MuiBox-root MuiBox-root-59"
         />
       </div>
     </div>

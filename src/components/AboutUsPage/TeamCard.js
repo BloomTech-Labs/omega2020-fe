@@ -52,7 +52,6 @@ const TeamCard = (props) => {
   return (
 
     <Box className={classes.root}>
-      {console.log(name, 'members')}
       <Avatar
         alt={name}
         src={image}

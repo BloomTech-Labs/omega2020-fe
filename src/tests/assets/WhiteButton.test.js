@@ -26,8 +26,9 @@ describe('the white button content', () => {
         expect(ReactWrapper.find(Typography)).toHaveLength(1);
         expect(ReactWrapper.find(Button)).toHaveLength(1);
         let wrapper = ReactWrapper.props().mockInfo.title
-        expect(wrapper).toEqual(mockInfo.title)
-        // expect(ReactWrapper.find(Typography).text()).toEqual("Play")
-        
+        expect(wrapper).toEqual(mockInfo.title)        
     })
+
+
+    
 })

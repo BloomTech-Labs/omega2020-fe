@@ -1,20 +1,22 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import {mount, configure, shallow} from 'enzyme';
+import { configure, mount } from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
-import Card1 from '../components/InstructionsPage/Card1';
+import Card1 from '../../components/InstructionsPage/Card1';
 import Adapter from 'enzyme-adapter-react-16';
-import puzzle4x4_s from '../images/game_4x4small.png'
-import Button from '@material-ui/core/Button';
+import puzzle4x4_s from '../../images/game_4x4small.png';
+import puzzle4x4 from '../../images/game_4x4.png';
+
 
 
 configure({adapter: new Adapter()})
 
 describe('image', () => {
-    it('renders the image with src', () => {
-        const img = shallow(<Card1/>)
-        expect(img.find('img').prop('src')).toEqual(puzzle4x4_s)
-
+    it('renders the image with src prop', () => {
+        const img = mount(<Card1/>)
+        expect(img.find('img').length).toEqual(2)
+        expect(img.find('img').first().prop('src')).toEqual(puzzle4x4_s)
+        expect(img.find('img').last().prop('src')).toEqual(puzzle4x4)
     })
 })
 
