@@ -3,6 +3,8 @@ import { Router, Route, Switch } from 'react-router-dom';
 
 // General utilities
 import history from './utils/history';
+import GridContext from './store/contexts/GridContext';
+import { reducer, initialState } from './store/reducers/index';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from './store/Mode/useDarkMode';
 import { darkMode, lightMode } from './store/Mode/theme';
