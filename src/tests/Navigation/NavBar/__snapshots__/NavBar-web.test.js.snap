@@ -1,0 +1,291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the length of the material ui and match the snapshot of the foot mobile component snapshot the component 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-21 makeStyles-root-1"
+>
+  <div
+    className="MuiBox-root MuiBox-root-22 makeStyles-leftContainer-2"
+  >
+    <div
+      className="MuiCardHeader-root"
+    >
+      <div
+        className="MuiCardHeader-content"
+      >
+        <span
+          className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+        >
+          <div
+            className="MuiBox-root MuiBox-root-23 makeStyles-leftContainer-2"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="/menu"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              <img
+                alt="logo"
+                src="omega-logo.png"
+                style={
+                  Object {
+                    "height": 20,
+                    "width": 20,
+                  }
+                }
+              />
+            </a>
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-title-7 MuiTypography-colorInherit"
+              href="/"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              <h6
+                className="MuiTypography-root MuiTypography-subtitle2"
+                style={
+                  Object {
+                    "fontWeight": 600,
+                  }
+                }
+              >
+                SUDOMEGA
+              </h6>
+            </a>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div
+      className="MuiCardHeader-root"
+    >
+      <div
+        className="MuiCardHeader-content"
+      >
+        <span
+          className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+        >
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-root-1 MuiTypography-colorInherit"
+            href="/about"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            <span
+              className="MuiTypography-root MuiTypography-caption"
+            >
+              About Us
+            </span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="MuiBox-root MuiBox-root-24 makeStyles-rightContainer-3"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-25 makeStyles-links-4"
+    >
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-root-1 MuiTypography-colorInherit"
+              href="/tutorial"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              <span
+                className="MuiTypography-root MuiTypography-caption"
+              >
+                Get Started
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-root-1 MuiTypography-colorInherit"
+              href="/coming-soon"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              <span
+                className="MuiTypography-root MuiTypography-caption"
+              >
+                Archive
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-root-1 MuiTypography-colorInherit"
+              href="coming-soon"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              <span
+                className="MuiTypography-root MuiTypography-caption"
+              >
+                Leaderboard
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-content"
+        />
+        <div
+          className="MuiCardHeader-action"
+        >
+          <a
+            aria-disabled={false}
+            className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-13 MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
+            href="/coming-soon"
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+          >
+            <span
+              className="MuiButton-label"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-caption"
+              >
+                Play
+              </span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      className="MuiBox-root MuiBox-root-26 makeStyles-icons-5"
+    >
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-content"
+        />
+        <div
+          className="MuiCardHeader-action"
+        >
+          <button
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+            disabled={false}
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root"
+                focusable="false"
+                style={
+                  Object {
+                    "fontSize": 30,
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 18c3.31 0 6-2.69 6-6s-2.69-6-6-6-6 2.69-6 6 2.69 6 6 6z"
+                  opacity=".3"
+                />
+                <path
+                  d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm0-14c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-avatar"
+        >
+          <div
+            className="MuiBox-root MuiBox-root-27"
+          >
+            <div
+              aria-haspopup="true"
+              className="MuiAvatar-root MuiAvatar-circle makeStyles-color-19 MuiAvatar-colorDefault"
+              onClick={[Function]}
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          className="MuiCardHeader-content"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

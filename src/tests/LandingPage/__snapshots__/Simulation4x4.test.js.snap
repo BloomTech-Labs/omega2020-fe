@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the information on the simulation snapshot the info on the Game Simulation 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-16 makeStyles-root-1"
+>
+  <div
+    className="MuiBox-root MuiBox-root-17 makeStyles-mainContainer-2"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-18"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+        id="solve"
+        style={
+          Object {
+            "fontSize": "1.3rem",
+          }
+        }
+      >
+        Try to solve this 4x4 sudoku:
+      </p>
+      <br />
+      <p
+        className="MuiTypography-root makeStyles-subheader-3 MuiTypography-body1"
+        id="row"
+      >
+        Each row, column and square needs to be filled
+        <br />
+        out with the numbers 1-4, without repeating any
+        <br />
+        numbers within the row, column or square.
+      </p>
+      <br />
+      <div
+        className="MuiBox-root MuiBox-root-19"
+      >
+        <img
+          alt="Game4x4"
+          src="Game4x4.png"
+          width="300"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
