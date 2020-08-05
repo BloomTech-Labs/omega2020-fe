@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { WinContext } from '../../../store/contexts/WinContext';
+import { GridContext } from '../../../store/contexts/GridContext';
 import { makeStyles } from '@material-ui/core/styles';
 import Board from '../puzzle-builder/Board';
 import { Get4x4 } from './grid-axios-call/4x4';
@@ -29,17 +31,17 @@ import {
 const ConstructPuzzle = (props) => {
   const classes = useStyles();
 
-  const [win, setWin] = useState('');
+  // const [win, setWin] = useState('');
+  const [win, setWin] = useContext(WinContext);
 
-  const [gameBoardState, setGameBoardState] = useState({
-    // -------------------------------------
-    // ...solution,
-    // -------------------------------------
-    boardState: '',
-    puzzleId: '',
-    history: [],
-    conflicts: new Set([]),
-  });
+  // const [gridState, setGridState] = useState({
+  //   boardState: '',
+  //   puzzleId: '',
+  //   history: [],
+  //   conflicts: new Set([]),
+  // });
+
+  const [gridState, setGridState] = useContext(GridContext);
 
   // Retrieve puzzle data
   async function getPuzzle4x4() {
@@ -61,44 +63,25 @@ const ConstructPuzzle = (props) => {
   }
 
   const getFormattedPuzzle = async () => {
-    const puzzle = await getPuzzle9x9();
-    const formattedPuzzle = formatPuzzle(
-      puzzle.sudoku,
-      gameBoardState.gridlength
-      // -------------------------------------
-      // setWin(puzzles.solution.solution);
-      // return puzzles.solution;
-      // -------------------------------------
-    );
+    const puzzle = await getPuzzle6x6();
+    let Length = puzzle.gridlength;
+    const formattedPuzzle = formatPuzzle(puzzle.sudoku, Length);
 
-    console.log('Game Board State in formatted puzzle', gameBoardState);
+    console.log('Game Board State in formatted puzzle', gridState);
     console.log('Loaded puzzle in formatted puzzle', puzzle);
     console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
 
-    setGameBoardState({
-      ...gameBoardState,
+    setGridState({
+      ...gridState,
+      boardState: formattedPuzzle,
       gridlength: puzzle.gridlength,
       row: puzzle.row,
       col: puzzle.col,
       puzzleId: puzzle.id,
       level: puzzle.level,
-      boardState: formattedPuzzle,
       solved: puzzle.solution,
       original: puzzle.sudoku,
     });
-
-    // -------------------------------------
-    /*
-    setGameBoardState({
-      ...gameBoardState,
-      puzzleId: '',
-      level: puzzle.difficulty,
-      boardState: formattedPuzzle,
-      original: puzzle.values,
-      solved: puzzle.solution,
-    });
-    */
-    // -------------------------------------
   };
 
   // Start the game here by getting a formatted puzzle
@@ -107,7 +90,7 @@ const ConstructPuzzle = (props) => {
   }, []);
 
   const handleSquareValueChange = (i, j, newValue) => {
-    setGameBoardState((prevState) => {
+    setGridState((prevState) => {
       const newBoardState = getDeepCopyOfArray(prevState.boardState);
       const prevEditable = prevState.boardState[i][j].editable;
       newBoardState[i][j] = {
@@ -122,7 +105,7 @@ const ConstructPuzzle = (props) => {
       newHistory.push(prevState.boardState);
 
       return {
-        ...gameBoardState,
+        ...gridState,
         boardState: newBoardState,
         history: newHistory,
         conflicts: new Set([]),
@@ -131,13 +114,13 @@ const ConstructPuzzle = (props) => {
   };
 
   const handleUndoClick = () => {
-    setGameBoardState((prevState) => {
+    setGridState((prevState) => {
       const newHistory = getDeepCopyOfArray(prevState.history);
       const lastBoardState = newHistory.pop();
 
       // Now assign the previous board state as the current board state
       return {
-        ...gameBoardState,
+        ...gridState,
         boardState: lastBoardState,
         history: newHistory,
         conflicts: new Set([]),
@@ -146,8 +129,8 @@ const ConstructPuzzle = (props) => {
   };
 
   const handleNewGameClick = () => {
-    setGameBoardState({
-      ...gameBoardState,
+    setGridState({
+      ...gridState,
       boardState: getFormattedPuzzle(),
       history: [],
       conflicts: new Set([]),
@@ -156,19 +139,19 @@ const ConstructPuzzle = (props) => {
 
   // saves sudoku state (data, diffuculty, time) to backend.
   const handleSaveClick = () => {
-    console.log(gameBoardState);
+    console.log(gridState);
 
-    const puzzleId = gameBoardState.puzzleId;
+    const puzzleId = gridState.puzzleId;
 
     // Turn boardState into a string
     var playString = [];
     var playStringNow;
 
-    for (var i = 0; i < gameBoardState.boardState.length; i++) {
+    for (var i = 0; i < gridState.boardState.length; i++) {
       // for each row
-      for (var j = 0; j < gameBoardState.boardState.length; j++) {
+      for (var j = 0; j < gridState.boardState.length; j++) {
         // for each column
-        playStringNow = gameBoardState.boardState[i][j].cellValue; // the value in each cell
+        playStringNow = gridState.boardState[i][j].cellValue; // the value in each cell
         playString.push(playStringNow); // is pushed to playString
       }
     }
@@ -176,10 +159,10 @@ const ConstructPuzzle = (props) => {
     var activePuzzleString = playString.join('');
 
     const req = {
-      difficulty: gameBoardState.level,
+      difficulty: gridState.level,
       data: activePuzzleString,
-      solved: gameBoardState.solved,
-      original: gameBoardState.original,
+      solved: gridState.solved,
+      original: gridState.original,
     };
 
     // -------------------------------------
@@ -196,11 +179,11 @@ const ConstructPuzzle = (props) => {
   };
 
   console.log('WIN', win);
-  console.log('GBS101', gameBoardState);
-  console.log('GBS101 9x9 puzzleId', gameBoardState.puzzleId);
+  console.log('GBS101', gridState);
+  console.log('GBS101 9x9 puzzleId', gridState.puzzleId);
 
   function handleVerifyClick() {
-    const { boardState, setBoardState } = gameBoardState;
+    const { boardState, setBoardState } = gridState;
 
     // Assigns id to boxes in two digit format for xy (row column)
     // rows[0]/cols[0] -> first row/column
@@ -223,8 +206,8 @@ const ConstructPuzzle = (props) => {
 
         // populating boxes
         const boxId = stringify(
-          Math.floor(i / gameBoardState.row),
-          Math.floor(j / gameBoardState.col)
+          Math.floor(i / gridState.row),
+          Math.floor(j / gridState.col)
         );
 
         if (boxes.hasOwnProperty(boxId)) {
@@ -240,8 +223,8 @@ const ConstructPuzzle = (props) => {
     const boxConflicts = flatten(getConflicts(Object.values(boxes)));
 
     const mergedConflicts = [...rowConflicts, ...colConflicts, ...boxConflicts];
-    setGameBoardState({
-      ...gameBoardState,
+    setGridState({
+      ...gridState,
       conflicts: new Set(mergedConflicts),
     });
 
@@ -249,11 +232,11 @@ const ConstructPuzzle = (props) => {
     var playString = [];
     var playStringNow;
 
-    for (var i = 0; i < gameBoardState.boardState.length; i++) {
+    for (var i = 0; i < gridState.boardState.length; i++) {
       // for each row
-      for (var j = 0; j < gameBoardState.boardState.length; j++) {
+      for (var j = 0; j < gridState.boardState.length; j++) {
         // for each column
-        playStringNow = gameBoardState.boardState[i][j].cellValue; // the value in each cell
+        playStringNow = gridState.boardState[i][j].cellValue; // the value in each cell
         playString.push(playStringNow); // is pushed to playString
       }
     }
@@ -278,16 +261,16 @@ const ConstructPuzzle = (props) => {
       <div>
         <Board
           theme={props.theme}
-          boardState={gameBoardState.boardState}
-          conflicts={gameBoardState.conflicts}
+          boardState={gridState.boardState}
+          conflicts={gridState.conflicts}
           onSquareValueChange={handleSquareValueChange}
-          historyLength={gameBoardState.history.length}
+          historyLength={gridState.history.length}
         />
       </div>
 
       {/* 
       in the KeyPad add: 
-          historyLength  = {gameBoardState.history.length}
+          historyLength  = {gridState.history.length}
           onUndoClick = {handleUndoClick}
           onNewGameClick = {handleNewGameClick}
           onVerifyClick  = {handleVerifyClick}

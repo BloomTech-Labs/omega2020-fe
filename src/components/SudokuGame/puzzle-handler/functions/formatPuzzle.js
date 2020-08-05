@@ -1,14 +1,12 @@
 import React from 'react';
 import { stringify } from './stringify';
 
-let gridLength = 9;
-
-export function formatPuzzle(puzzle) {
-  const formattedPuzzle = createArray(gridLength, gridLength);
+export function formatPuzzle(puzzle, Length) {
+  const formattedPuzzle = createArray(Length, Length);
 
   for (let i = 0; i < puzzle.length; i++) {
-    const rowId = getRowId(i);
-    const colId = getColId(i);
+    const rowId = getRowId(i, Length);
+    const colId = getColId(i, Length);
 
     const editable = puzzle[i] === '.';
 
@@ -21,12 +19,12 @@ export function formatPuzzle(puzzle) {
   return formattedPuzzle;
 }
 
-function getRowId(i) {
-  return Math.floor(i / gridLength);
+function getRowId(i, Length) {
+  return Math.floor(i / Length);
 }
 
-function getColId(i) {
-  return i % gridLength;
+function getColId(i, Length) {
+  return i % Length;
 }
 
 function createArray(length) {
