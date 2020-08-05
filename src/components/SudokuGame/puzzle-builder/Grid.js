@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GridContext } from '../../../store/contexts/GridContext';
 import styled from 'styled-components';
 import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
 function Grid(props) {
   const classes = useStyles();
+
+  const [gridState, setGridState] = useContext(GridContext);
 
   const generateSquareContent = () => {
     // A Square may only be edited if it's value is "."
@@ -19,8 +22,8 @@ function Grid(props) {
 
     // -------------------------------------------------------------
 
-    let conditionRow = 3;
-    let conditionCol = 3;
+    let conditionRow = gridState.row;
+    let conditionCol = gridState.col;
 
     // -------------------------------------------------------------
 

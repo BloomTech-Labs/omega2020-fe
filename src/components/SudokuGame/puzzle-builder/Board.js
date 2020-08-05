@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GridContext } from '../../../store/contexts/GridContext';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from './Grid';
 
 const Board = (props) => {
   const classes = useStyles();
+  const [gridState, setGridState] = useContext(GridContext);
 
   console.log('BOARD PROPS: ', props);
   console.log('AKAKFILES: ', props);
@@ -12,7 +14,7 @@ const Board = (props) => {
     props.onSquareValueChange(i, j, newValue);
   };
 
-  const boardState = props.boardState;
+  const boardState = gridState.boardState;
 
   const generateBoard = () => {
     const board = [];
