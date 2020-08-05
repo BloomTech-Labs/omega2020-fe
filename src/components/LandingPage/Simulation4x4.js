@@ -28,11 +28,12 @@ const Simulation4x4 = (props) => {
                   <Typography
                     className={classes.header}
                     style={{ fontSize: '1.3rem' }}
+                    id='solve'
                   >
                     Try to solve this 4x4 sudoku:
                   </Typography>
                   <br />
-                  <Typography className={classes.subheader}>
+                  <Typography className={classes.subheader} id='row'>
                     Each row, column and square needs to be filled
                     <br />
                     out with the numbers 1-4, without repeating any

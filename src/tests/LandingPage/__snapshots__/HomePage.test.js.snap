@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the information on the banner snapshot the info on the homepage 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-27 makeStyles-root-1"
+>
+  <div
+    className="MuiBox-root MuiBox-root-28 makeStyles-mainContainer-2"
+  >
+    <div
+      className="MuiCardHeader-root"
+    >
+      <div
+        className="MuiCardHeader-avatar"
+      >
+        <div
+          className="MuiBox-root MuiBox-root-29"
+        >
+          <div
+            className="MuiBox-root MuiBox-root-30"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+              id="sudo"
+              style={
+                Object {
+                  "fontSize": "1.3rem",
+                }
+              }
+            >
+              Sudomega Interactive Sudoku
+            </p>
+            <br />
+            <p
+              className="MuiTypography-root makeStyles-subheader-3 MuiTypography-body1"
+              id="upload"
+            >
+              Learn how to play, upload your own sudoku
+              <br />
+              games, and compete with friends :)
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiCardHeader-content"
+      />
+    </div>
+    <div
+      className="MuiCardHeader-root"
+    >
+      <div
+        className="MuiCardHeader-content"
+      />
+      <div
+        className="MuiCardHeader-action"
+      >
+        <div
+          className="MuiBox-root MuiBox-root-31"
+        >
+          <br />
+          <br />
+          <div
+            className="MuiBox-root MuiBox-root-32 makeStyles-space-6"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root makeStyles-icon-4"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2l-5.5 9h11z"
+              />
+              <circle
+                cx="17.5"
+                cy="17.5"
+                r="4.5"
+              />
+              <path
+                d="M3 13.5h8v8H3z"
+              />
+            </svg>
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root makeStyles-icon-4"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"
+              />
+            </svg>
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root makeStyles-icon-4"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+              />
+            </svg>
+          </div>
+          <br />
+          <br />
+        </div>
+      </div>
+    </div>
+    <div
+      className="MuiCardHeader-root"
+    >
+      <div
+        className="MuiCardHeader-content"
+      />
+      <div
+        className="MuiCardHeader-action"
+      >
+        <div
+          className="MuiBox-root MuiBox-root-33"
+        >
+          <a
+            aria-disabled={false}
+            className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-14 MuiButton-text href MuiButton-textSizeLarge MuiButton-sizeLarge"
+            href="/tutorial"
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+          >
+            <span
+              className="MuiButton-label"
+            >
+              <p
+                className="MuiTypography-root title MuiTypography-body2"
+              >
+                Get Started; learn the game play
+              </p>
+            </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
+          </a>
+          <br />
+          <br />
+          <span
+            className="MuiTypography-root MuiTypography-caption"
+          >
+            No signup required
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="MuiCardHeader-root"
+    >
+      <div
+        className="MuiCardHeader-content"
+      />
+      <div
+        className="MuiCardHeader-action"
+      >
+        <div
+          className="MuiBox-root MuiBox-root-34 makeStyles-gameBoard-5"
+        >
+          <div
+            className="makeStyles-root-16"
+          >
+            <div>
+              <div
+                className="makeStyles-board-17"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

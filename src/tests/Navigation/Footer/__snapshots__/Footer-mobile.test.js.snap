@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the length of the material ui and match the snapshot of the foot mobile component snapshot the component 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-11 makeStyles-root-1"
+>
+  <dark
+    className="makeStyles-root-1"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-12 makeStyles-leftContainer-2"
+    >
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-content"
+        />
+        <div
+          className="MuiCardHeader-action"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            style={
+              Object {
+                "fontSize": 30,
+                "paddingTop": 10,
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="MuiBox-root MuiBox-root-13 makeStyles-centerContainer-4"
+    >
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-avatar"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            style={
+              Object {
+                "fontSize": 30,
+                "paddingTop": 10,
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiCardHeader-content"
+        />
+      </div>
+    </div>
+    <div
+      className="MuiBox-root MuiBox-root-14 makeStyles-rightContainer-3"
+    >
+      <div
+        className="MuiBox-root MuiBox-root-15 makeStyles-icons-5"
+      >
+        <div
+          className="MuiCardHeader-root"
+        >
+          <div
+            className="MuiCardHeader-avatar"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root"
+              focusable="false"
+              style={
+                Object {
+                  "fontSize": 30,
+                  "paddingTop": 10,
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z"
+              />
+            </svg>
+          </div>
+          <div
+            className="MuiCardHeader-content"
+          />
+        </div>
+      </div>
+    </div>
+  </dark>
+</div>
+`;
