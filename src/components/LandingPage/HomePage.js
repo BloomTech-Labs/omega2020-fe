@@ -15,7 +15,7 @@ import GridOnIcon from '@material-ui/icons/GridOn';
 import BlueButton from '../assets/BlueButton';
 import game from '../../images/gameOfTheDay.png';
 import game2 from '../../images/gameOfTheDay2.png';
-import ConstructPuzzle from '../SudokuGame/puzzle-handler/ConstructPuzzle';
+import RenderPuzzle from '../SudokuGame/puzzle-handler/RenderPuzzle';
 
 const HomePage = (props) => {
   const classes = useStyles();
@@ -129,7 +129,7 @@ const HomePage = (props) => {
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
               <Box className={classes.gameBoard}>
-                <ConstructPuzzle />
+                <RenderPuzzle />
               </Box>
             )
           }

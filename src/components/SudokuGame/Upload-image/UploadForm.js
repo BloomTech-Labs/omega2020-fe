@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import './UploadImage.css';
 import { postImage } from './postImage';
-import ConstructPuzzle from '../puzzle-handler/ConstructPuzzle';
+import RenderPuzzle from '../puzzle-handler/RenderPuzzle';
 import UploadSudoku2 from './UploadSudoku2';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Backdrop from '@material-ui/core/Backdrop';

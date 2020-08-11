@@ -25,6 +25,9 @@ const UploadSudoku2 = (solution) => {
   // Retrieve puzzle data
   async function getRandomPuzzle() {
     var puzzles = await solution;
+    {
+      console.log(`solution: ${solution}`);
+    }
     setWin(puzzles.solution.solution);
     return puzzles.solution;
   }
