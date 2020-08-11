@@ -52,11 +52,12 @@ const HomePage = (props) => {
                           <Typography
                             className={classes.header}
                             style={{ fontSize: '1.3rem' }}
+                            id='sudo'
                           >
                             Sudomega Interactive Sudoku
                           </Typography>
                           <br />
-                          <Typography className={classes.subheader}>
+                          <Typography className={classes.subheader} id='upload'>
                             Learn how to play, upload your own sudoku
                             <br />
                             games, and compete with friends :&#41;

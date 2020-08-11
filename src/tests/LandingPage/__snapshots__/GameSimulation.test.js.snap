@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the information on the simulation snapshot the info on the Game Simulation 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-45 makeStyles-root-1"
+>
+  <div
+    className="MuiBox-root MuiBox-root-46 makeStyles-mainContainer-2"
+  >
+    <div
+      className="MuiCardHeader-root"
+    >
+      <div
+        className="MuiCardHeader-avatar"
+      >
+        <div
+          className="MuiBox-root MuiBox-root-47"
+        >
+          <div
+            className="MuiBox-root MuiBox-root-48"
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+              id="learn"
+              style={
+                Object {
+                  "fontSize": "1.3rem",
+                }
+              }
+            >
+              Learn The Game Play
+            </p>
+            <br />
+            <p
+              className="MuiTypography-root makeStyles-subheader-3 MuiTypography-body1"
+              id="start"
+            >
+              Start off with something easy
+              <br />
+              then kick it up a notch
+            </p>
+            <br />
+            <br />
+            <br />
+            <br />
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiCardHeader-content"
+      />
+    </div>
+    <div
+      className="MuiCardHeader-root"
+    >
+      <div
+        className="MuiCardHeader-avatar"
+      >
+        <div
+          className="MuiBox-root MuiBox-root-49 makeStyles-Simulation-4"
+        >
+          <div
+            className="MuiBox-root MuiBox-root-50 makeStyles-root-10"
+          >
+            <div
+              className="MuiBox-root MuiBox-root-51 makeStyles-mainContainer-11"
+            >
+              <div
+                className="MuiBox-root MuiBox-root-52"
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1"
+                  id="solve"
+                  style={
+                    Object {
+                      "fontSize": "1.3rem",
+                    }
+                  }
+                >
+                  Try to solve this 4x4 sudoku:
+                </p>
+                <br />
+                <p
+                  className="MuiTypography-root makeStyles-subheader-12 MuiTypography-body1"
+                  id="row"
+                >
+                  Each row, column and square needs to be filled
+                  <br />
+                  out with the numbers 1-4, without repeating any
+                  <br />
+                  numbers within the row, column or square.
+                </p>
+                <br />
+                <div
+                  className="MuiBox-root MuiBox-root-53"
+                >
+                  <img
+                    alt="Game4x4"
+                    src="Game4x4.png"
+                    width="300"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            className="MuiBox-root MuiBox-root-54 makeStyles-root-21"
+          >
+            <div
+              className="MuiBox-root MuiBox-root-55 makeStyles-mainContainer-22"
+            >
+              <div
+                className="MuiBox-root MuiBox-root-56"
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1"
+                  id="solve"
+                  style={
+                    Object {
+                      "fontSize": "1.3rem",
+                    }
+                  }
+                >
+                  Try to solve this 6x6 sudoku:
+                </p>
+                <br />
+                <p
+                  className="MuiTypography-root makeStyles-subheader-23 MuiTypography-body1"
+                  id="row"
+                >
+                  Each row, column and square needs to be filled
+                  <br />
+                  out with the numbers 1-6, without repeating any
+                  <br />
+                  numbers within the row, column or square.
+                </p>
+                <br />
+                <div
+                  className="MuiBox-root MuiBox-root-57"
+                >
+                  <img
+                    alt="Game6x6"
+                    src="Game6x6.png"
+                    width="300"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiCardHeader-content"
+      />
+    </div>
+  </div>
+</div>
+`;

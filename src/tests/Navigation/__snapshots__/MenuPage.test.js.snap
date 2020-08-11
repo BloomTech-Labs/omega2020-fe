@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the length of the material ui and match the snapshot of the foot mobile component snapshot the component 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-8 makeStyles-root-1"
+>
+  <div
+    className="MuiBox-root MuiBox-root-9 makeStyles-mainContainer-2"
+  >
+    <div
+      className="MuiCardHeader-root"
+    >
+      <div
+        className="MuiCardHeader-avatar"
+      >
+        <div
+          className="MuiBox-root MuiBox-root-10"
+        >
+          <p
+            className="MuiTypography-root MuiTypography-body1"
+            style={
+              Object {
+                "fontSize": "1.3rem",
+              }
+            }
+          >
+            MENU
+          </p>
+          <br />
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+            href="/"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            <p
+              className="MuiTypography-root makeStyles-subheader-3 MuiTypography-body1"
+            >
+              Home
+            </p>
+          </a>
+          <br />
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+            href="/about"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            <p
+              className="MuiTypography-root makeStyles-subheader-3 MuiTypography-body1"
+            >
+              About
+            </p>
+          </a>
+          <br />
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+            href="/tutorial"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            <p
+              className="MuiTypography-root makeStyles-subheader-3 MuiTypography-body1"
+            >
+              Tutorials
+            </p>
+          </a>
+          <br />
+        </div>
+      </div>
+      <div
+        className="MuiCardHeader-content"
+      />
+    </div>
+  </div>
+</div>
+`;
