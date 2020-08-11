@@ -23,7 +23,7 @@ import FooterCondition from './components/Navigation/FooterCondition';
 // What is left to update ---------------------------------------------
 import Registration from './components/Authentication/RegisterForm'; // add form validation
 import Login from './components/Authentication/LoginForm'; // add form validation
-import ConstructPuzzle from './components/SudokuGame/puzzle-handler/ConstructPuzzle'; // render 4x4 6x6 9x9
+import RenderPuzzle from './components/SudokuGame/puzzle-handler/RenderPuzzle'; // render 4x4 6x6 9x9
 
 import UploadForm from './components/SudokuGame/Upload-image/UploadForm';
 import UploadSudoku2 from './components/SudokuGame/Upload-image/UploadSudoku2'; // refactor
@@ -99,7 +99,7 @@ const App = () => {
 
                 <Route
                   path='/9x9Game'
-                  render={() => <ConstructPuzzle theme={themes} />}
+                  render={() => <RenderPuzzle theme={themes} />}
                 />
                 <Route path='/upload' component={UploadForm} />
                 <Route path='/upload-save' component={UploadSudoku2} />

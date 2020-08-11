@@ -21,45 +21,36 @@ import {
   getConflictsInArray,
 } from './functions/conflicts';
 
-// -------------------------------
-/* 
-    Comments in the line break style are diffrences
-    between the UploadSudoku2 and ConstructPuzzle state
-*/
-// --------------------------------
-
-const ConstructPuzzle = (props) => {
+const RenderPuzzle = (props) => {
   const classes = useStyles();
 
-  // const [win, setWin] = useState('');
   const [win, setWin] = useContext(WinContext);
-
-  // const [gridState, setGridState] = useState({
-  //   boardState: '',
-  //   puzzleId: '',
-  //   history: [],
-  //   conflicts: new Set([]),
-  // });
 
   const [gridState, setGridState] = useContext(GridContext);
 
   // Retrieve puzzle data
   async function getPuzzle4x4() {
-    var puzzles = await Get4x4();
+    let puzzles = await Get4x4();
     setWin(puzzles.solution);
     return puzzles;
   }
 
   async function getPuzzle6x6() {
-    var puzzles = await Get6x6();
+    let puzzles = await Get6x6();
     setWin(puzzles.solution);
     return puzzles;
   }
 
   async function getPuzzle9x9() {
-    var puzzles = await Get9x9();
+    let puzzles = await Get9x9();
     setWin(puzzles.solution);
     return puzzles;
+  }
+
+  async function uploadPuzzle() {
+    let puzzles = await gridState.solved.solution;
+    setWin(puzzles.solution.solution);
+    return puzzles.solution;
   }
 
   const getFormattedPuzzle = async () => {
@@ -165,10 +156,6 @@ const ConstructPuzzle = (props) => {
       original: gridState.original,
     };
 
-    // -------------------------------------
-    // postWithAuth(puzzleId, req);
-    // -------------------------------------
-
     console.log('GridNumxNum', puzzleId);
     axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
@@ -176,6 +163,8 @@ const ConstructPuzzle = (props) => {
         console.log('REQ', res);
         alert('Puzzle saved');
       });
+
+    postWithAuth(puzzleId, req);
   };
 
   console.log('WIN', win);
@@ -291,4 +280,4 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default ConstructPuzzle;
+export default RenderPuzzle;
