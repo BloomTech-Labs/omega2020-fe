@@ -5,7 +5,6 @@ import { Router, Route, Switch } from 'react-router-dom';
 import history from './utils/history';
 import { GridContext } from './store/contexts/GridContext';
 import { WinContext } from './store/contexts/WinContext';
-import { reducer, initialState } from './store/reducers/index';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from './store/Mode/useDarkMode';
 import { darkMode, lightMode } from './store/Mode/theme';
