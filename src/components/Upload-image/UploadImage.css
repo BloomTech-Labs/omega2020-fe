@@ -1,0 +1,17 @@
+#input-file {
+    height: 2em;
+    width: 30em;
+    font-size: 1em;
+    margin: 15px;
+    border: 1px solid rgb(92, 24, 24);
+    padding-top: 11px;
+    padding-left: 18px;
+  }
+  
+  
+  .upload-image{
+    width: 600px;
+    height: 71vh;
+    margin: 0 auto;
+  }
+  
