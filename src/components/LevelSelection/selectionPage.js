@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
       textAlign: 'center',
     },
     header: {
-      fontSize: '2em'
+      fontSize: '2em',
+      padding: '5%'
     },
     subheader: {
       // opacity: 0.3,
@@ -98,8 +99,8 @@ const SelectionPage = () => {
                         <Container>
                           <img
                             src={require('../../images/9x9.png')}
-                            width='75%'
-                            height='74%'
+                            width='100%'
+                            height='99%'
                             alt='9x9 grid' 
                             >   
                           </img>  
@@ -109,8 +110,10 @@ const SelectionPage = () => {
                     <Box className= {classes.section1}>
                         <Container className= {classes.section2}>
                             <Typography>4x4</Typography>
+                            <br/>
                             <Typography>start off with something easy</Typography>
-                            <WhiteButton title='Easy'/>
+                            <br/>
+                            <WhiteButton title='Easy' href='/'/>
                             <br/>
                             <WhiteButton title='Medium'/>
                             <br/>
@@ -118,7 +121,9 @@ const SelectionPage = () => {
                         </Container>
                         <Container className= {classes.section2}>
                             <Typography>6x6</Typography>
+                            <br/>
                             <Typography>let's kick it up a notch!</Typography>
+                            <br/>
                             <WhiteButton title='Easy'/>
                             <br/>
                             <WhiteButton title='Medium'/>
@@ -127,7 +132,9 @@ const SelectionPage = () => {
                         </Container>
                         <Container className= {classes.section2}>
                             <Typography>9x9</Typography>
+                            <br/>
                             <Typography>Level up even further</Typography>
+                            <br/>
                             <WhiteButton title='Easy'/>
                             <br/>
                             <WhiteButton title='Medium'/>
