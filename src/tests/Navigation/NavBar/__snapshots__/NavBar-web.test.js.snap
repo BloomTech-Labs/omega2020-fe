@@ -172,7 +172,7 @@ exports[`the length of the material ui and match the snapshot of the foot mobile
           <a
             aria-disabled={false}
             className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-13 MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
-            href="/coming-soon"
+            href="/levels"
             onBlur={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}

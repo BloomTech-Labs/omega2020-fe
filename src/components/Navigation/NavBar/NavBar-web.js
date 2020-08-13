@@ -101,7 +101,7 @@ const NavBarWeb = (props) => {
               loading ? (
                 <Skeleton className={classes.text_4} width={60} height={55} />
               ) : (
-                <WhiteButton title={'Play'} href={'/coming-soon'} />
+                <WhiteButton title={'Play'} href={'/levels'} />
               )
             }
           />
