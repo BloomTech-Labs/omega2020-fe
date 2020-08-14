@@ -16,6 +16,7 @@ import SoonPage from './components/soonPage/soon';
 import AboutUsPage from './components/AboutUsPage/AboutUsPage';
 import Tutorial from './components/Tutorial/tutorial-page';
 import FooterCondition from './components/Navigation/FooterCondition';
+import Display from './components/KeyPad/display/display'
 
 // What is left to update
 import Registration from './components/Authentication/RegisterForm'; // add form validation
@@ -70,6 +71,7 @@ const App = () => {
             <Route path='/tutorial' component={Tutorial} />
             <Route path='/coming-soon' component={SoonPage} />
             <Route path='/menu' component={MenuPage} />
+            <Route exact path='/display' component={Display} />
 
             {/* ---------------------------------------------- */}
 
