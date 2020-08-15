@@ -19,7 +19,7 @@ import AboutUsPage from './components/AboutUsPage/AboutUsPage';
 import Tutorial from './components/Tutorial/tutorial-page';
 import FooterCondition from './components/Navigation/FooterCondition';
 import selectionPage from './components/LevelSelection/selectionPage';
-
+import KeyPad from './components/KeyPad/display/display'
 // What is left to update ---------------------------------------------
 import Registration from './components/Authentication/RegisterForm'; // add form validation
 import Login from './components/Authentication/LoginForm'; // add form validation
@@ -95,6 +95,8 @@ const App = () => {
                 <Route path='/coming-soon' component={SoonPage} />
                 <Route path='/menu' component={MenuPage} />
                 <Route path='/levels' component={selectionPage} />
+                <Route exact path='/key' component={KeyPad} />
+
                 {/* ---------------------------------------------- */}
 
                 <Route
