@@ -21,6 +21,7 @@ import FooterCondition from './components/Navigation/FooterCondition';
 import selectionPage from './components/LevelSelection/selectionPage';
 
 // What is left to update ---------------------------------------------
+import GamePage from './components/GamePage/GamePage';
 import KeyPad from './components/KeyPad/display/display'; // finish keypad ui and connect to game grid
 import Registration from './components/Authentication/RegisterForm'; // add form validation
 import Login from './components/Authentication/LoginForm'; // add form validation
@@ -99,6 +100,7 @@ const App = () => {
                 <Route path='/tutorial' component={Tutorial} />
                 <Route path='/coming-soon' component={SoonPage} />
                 <Route path='/menu' component={MenuPage} />
+                <Route path='/game' component={GamePage} />
                 <Route path='/levels' component={selectionPage} />
                 <Route exact path='/key' component={KeyPad} />
 
@@ -111,7 +113,7 @@ const App = () => {
                 <Route path='/upload' component={UploadForm} />
                 <Route path='/upload-save' component={UploadSudoku2} />
               </Switch>
-              <FooterCondition />
+              {/* <FooterCondition /> */}
             </div>
           </ThemeProvider>
         </Router>
