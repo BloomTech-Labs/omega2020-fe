@@ -26,6 +26,7 @@
     "react-ga": "^2.7.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1",
+    "react-to-print": "^2.9.0",
     "reactstrap": "^8.2.0",
     "styled": "^1.0.0",
     "styled-components": "^5.1.1",

@@ -10248,6 +10248,13 @@ react-testing-library@^8.0.1:
   resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-8.0.1.tgz#b3dd43bce3fa88423cf0a23292fb819023c227cc"
   integrity sha512-Gq4JC9r3prA4hYwo7afcbHHMFckO29+5Nrh2KblAEPuK/DWaU0bJE1vtpAgLhzhY9bBirmcgjjIHljHEwGAXKw==
 
+react-to-print@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/react-to-print/-/react-to-print-2.9.0.tgz#98ab01df49208f35f2e2329a988b0cc11f72720d"
+  integrity sha512-5SwxY+Bg69cHmsIZQRwAUMBN4C5SxQ+IXBnmsU7YPfOpv32qYB6AocC0RXK4gOHO7pYj0NlM0z5ZFIHQ4cjlog==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-transition-group@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-1.2.1.tgz#e11f72b257f921b213229a774df46612346c7ca6"
