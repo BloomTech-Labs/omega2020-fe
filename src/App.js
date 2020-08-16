@@ -19,8 +19,9 @@ import AboutUsPage from './components/AboutUsPage/AboutUsPage';
 import Tutorial from './components/Tutorial/tutorial-page';
 import FooterCondition from './components/Navigation/FooterCondition';
 import selectionPage from './components/LevelSelection/selectionPage';
-import KeyPad from './components/KeyPad/display/display'
+
 // What is left to update ---------------------------------------------
+import KeyPad from './components/KeyPad/display/display'; // finish keypad ui and connect to game grid
 import Registration from './components/Authentication/RegisterForm'; // add form validation
 import Login from './components/Authentication/LoginForm'; // add form validation
 import RenderPuzzle from './components/SudokuGame/puzzle-handler/RenderPuzzle'; // render 4x4 6x6 9x9
@@ -67,7 +68,11 @@ const App = () => {
           <ThemeProvider theme={themeMode}>
             <div className='App'>
               <GlobalStyles />
-              <NavCondition token={token} toggleTheme={toggleTheme} />
+              <NavCondition
+                token={token}
+                toggleTheme={toggleTheme}
+                theme={theme}
+              />
               <Switch>
                 <Route
                   path='/login'

@@ -72,7 +72,7 @@ const HomePage = (props) => {
                           </Typography>
                           <br />
                           <Typography
-                            variant='h6'
+                            variant='body1'
                             className={classes.subheader}
                           >
                             Learn how to play, upload your own sudoku
@@ -112,13 +112,7 @@ const HomePage = (props) => {
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
               <Box>
-                <BlueButton
-                  title={'Get Started; learn the game play'}
-                  href={'/tutorial'}
-                />
-                <br />
-                <br />
-                <Typography variant='caption'>No signup required</Typography>
+                <BlueButton title={'Get Started'} href={'/tutorial'} />
               </Box>
             )
           }
@@ -158,7 +152,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subheader: {
     // opacity: 0.3,
-    color: '#A2A2A2',
+    // color: '#A2A2A2',
   },
   icon: {
     fontSize: 80,
