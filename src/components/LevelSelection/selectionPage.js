@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GridContext } from '../../store/contexts/GridContext';
 import { makeStyles, Container } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -105,6 +106,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SelectionPage = () => {
+  const [gridState, setGridState] = useContext(GridContext);
+
+  let grid = `${gridState.gridlength}x${gridState.gridlength}`;
+  let level = gridState.level;
+
   const classes = useStyles();
 
   let viewPort = false;
@@ -185,7 +191,10 @@ const SelectionPage = () => {
                         <br />
                         <Typography>Level up even further</Typography>
                         <br />
-                        <WhiteButton title='Easy' href='/game/9x9/easy' />
+                        <WhiteButton
+                          title='Easy'
+                          href={`/game/${grid}/${level}`}
+                        />
                         <br />
                         {/* <WhiteButton title='Medium' href='/coming-soon' />
                         <br />
@@ -252,7 +261,10 @@ const SelectionPage = () => {
                         <br />
                         <Typography>Level up even further</Typography>
                         <br />
-                        <WhiteButton title='Easy' href='/game/9x9/easy' />
+                        <WhiteButton
+                          title='Easy'
+                          href={`/game/${grid}/${level}`}
+                        />
                         {/* <br />
                         <WhiteButton title='Medium' href='/coming-soon' />
                         <br />

@@ -35,16 +35,19 @@ const App = () => {
   const [win, setWin] = useState('');
   const [gridState, setGridState] = useState({
     boardState: '',
-    gridlength: '',
-    row: '',
-    col: '',
-    puzzleId: '',
-    level: '',
+    gridlength: '9',
+    row: '3',
+    col: '3',
+    puzzleId: '0',
+    level: 'Easy',
     solved: '',
     original: '',
     history: [],
     conflicts: new Set([]),
   });
+
+  let grid = `${gridState.gridlength}x${gridState.gridlength}`;
+  let level = gridState.level;
 
   // move login state to context in the future
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -100,16 +103,16 @@ const App = () => {
                 <Route path='/tutorial' component={Tutorial} />
                 <Route path='/coming-soon' component={SoonPage} />
                 <Route path='/menu' component={MenuPage} />
-                <Route path='/game/9x9/easy' component={GamePage} />
                 <Route path='/levels' component={selectionPage} />
                 <Route exact path='/key' component={KeyPad} />
 
-                {/* ---------------------------------------------- */}
+                <Route path={`/game/${grid}/${level}`} component={GamePage} />
 
                 <Route
-                  path='/9x9'
-                  render={() => <RenderPuzzle theme={themes} />}
+                  path={`puzzle/${grid}`}
+                  component={() => <RenderPuzzle theme={themes} />}
                 />
+
                 <Route path='/upload' component={UploadForm} />
                 <Route path='/upload-save' component={UploadSudoku2} />
               </Switch>
