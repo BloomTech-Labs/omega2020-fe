@@ -35,6 +35,10 @@ const MenuPage = (props) => {
                   <Typography className={classes.subheader}>Home</Typography>
                 </Link>
                 <br />
+                <Link href='/levels'>
+                  <Typography className={classes.subheader}>Play</Typography>
+                </Link>
+                <br />
                 <Link href='/about'>
                   <Typography className={classes.subheader}>About</Typography>
                 </Link>

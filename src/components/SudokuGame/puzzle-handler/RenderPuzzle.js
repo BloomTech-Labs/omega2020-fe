@@ -54,7 +54,7 @@ const RenderPuzzle = (props) => {
   }
 
   const getFormattedPuzzle = async () => {
-    const puzzle = await getPuzzle4x4();
+    const puzzle = await getPuzzle9x9();
     let Length = puzzle.gridlength;
     const formattedPuzzle = formatPuzzle(puzzle.sudoku, Length);
 
