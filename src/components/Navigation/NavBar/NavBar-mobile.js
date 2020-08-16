@@ -4,6 +4,8 @@ import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
 import { IconButton } from '@material-ui/core';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import Brightness3Icon from '@material-ui/icons/Brightness3';
 import FiberManualRecordTwoToneIcon from '@material-ui/icons/FiberManualRecordTwoTone';
 import { makeStyles } from '@material-ui/core/styles';
 import Logo from '../../../images/omega-logo.png';
@@ -23,7 +25,18 @@ const NavBarMobile = (props) => {
               <Skeleton className={classes.text} width={40} height={40} />
             ) : (
               <IconButton color='inherit' onClick={props.toggleTheme}>
-                <FiberManualRecordTwoToneIcon style={{ fontSize: 30 }} />
+                {(() => {
+                  switch (props.theme) {
+                    case 'dark':
+                      return <WbSunnyIcon style={{ fontSize: 25 }} />;
+                    default:
+                      return (
+                        <Brightness3Icon
+                          style={{ fontSize: 25, transform: 'rotate(140deg)' }}
+                        />
+                      );
+                  }
+                })()}
               </IconButton>
             )
           }
