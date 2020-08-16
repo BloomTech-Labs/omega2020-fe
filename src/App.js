@@ -100,14 +100,14 @@ const App = () => {
                 <Route path='/tutorial' component={Tutorial} />
                 <Route path='/coming-soon' component={SoonPage} />
                 <Route path='/menu' component={MenuPage} />
-                <Route path='/game' component={GamePage} />
+                <Route path='/game/9x9/easy' component={GamePage} />
                 <Route path='/levels' component={selectionPage} />
                 <Route exact path='/key' component={KeyPad} />
 
                 {/* ---------------------------------------------- */}
 
                 <Route
-                  path='/9x9Game'
+                  path='/9x9'
                   render={() => <RenderPuzzle theme={themes} />}
                 />
                 <Route path='/upload' component={UploadForm} />
