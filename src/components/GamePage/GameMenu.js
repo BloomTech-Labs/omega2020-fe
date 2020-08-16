@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import ReactToPrint from 'react-to-print';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
@@ -10,7 +9,6 @@ import Timer from './Timer';
 
 const GameMenu = (props) => {
   const classes = useStyles();
-  const componentRef = useRef();
 
   let time = false;
 
@@ -22,6 +20,8 @@ const GameMenu = (props) => {
   } else {
     viewPort = false;
   }
+
+  console.log(`handlePrint from game menu: ${props.handlePrint}`);
 
   return (
     <Box>
@@ -58,10 +58,7 @@ const GameMenu = (props) => {
                 {/* ----------------------------------------------------------------- */}
 
                 <Box className={classes.rightContainer}>
-                  <ReactToPrint
-                    trigger={() => <ClearButton title={'Print'} />}
-                    content={() => componentRef.current}
-                  />
+                  <ClearButton title={'Print'} click={props.handlePrint} />
                   <ClearButton title={'Help'} />
                   <ClearButton title={'Settings'} disabled />
                 </Box>
