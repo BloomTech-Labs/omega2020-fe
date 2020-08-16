@@ -42,6 +42,7 @@ const App = () => {
     original: '',
     history: [],
     conflicts: new Set([]),
+    numbers: [], 
   });
 
   // move login state to context in the future
@@ -56,6 +57,8 @@ const App = () => {
   if (!componentMounted) {
     return <div />;
   }
+
+  console.log(JSON.stringify(gridState.gridlength, 'hsodfnd, sdnf, djfn'))
 
   let themes = 'dark';
   console.log(`theme in app ${theme}`);

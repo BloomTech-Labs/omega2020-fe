@@ -5,6 +5,8 @@ export function formatPuzzle(puzzle, Length) {
   const formattedPuzzle = createArray(Length, Length);
 
   for (let i = 0; i < puzzle.length; i++) {
+
+    console.log(i)
     const rowId = getRowId(i, Length);
     const colId = getColId(i, Length);
 
@@ -37,3 +39,4 @@ function createArray(length) {
   }
   return arr;
 }
+

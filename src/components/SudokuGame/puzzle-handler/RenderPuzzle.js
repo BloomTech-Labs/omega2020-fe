@@ -7,12 +7,15 @@ import { Get4x4 } from './grid-axios-call/4x4';
 import { Get6x6 } from './grid-axios-call/6x6';
 import { Get9x9 } from './grid-axios-call/9x9';
 
+
+import Length from '../../KeyPad/keypad/lengthKey'
 // Authentication
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { postWithAuth } from '../Upload-image/postWithAuth';
 
 // FUNCTIONS
 import { formatPuzzle } from './functions/formatPuzzle';
+import { keysPuzzle } from './functions/keys'
 import { stringify } from './functions/stringify';
 import { getDeepCopyOfArray } from './functions/getDeepCopyOfArray';
 import {
@@ -27,6 +30,7 @@ const RenderPuzzle = (props) => {
   const [win, setWin] = useContext(WinContext);
 
   const [gridState, setGridState] = useContext(GridContext);
+
 
   // Retrieve puzzle data
   async function getPuzzle4x4() {
@@ -56,8 +60,10 @@ const RenderPuzzle = (props) => {
   const getFormattedPuzzle = async () => {
     const puzzle = await getPuzzle6x6();
     let Length = puzzle.gridlength;
-    const formattedPuzzle = formatPuzzle(puzzle.sudoku, Length);
+    const keyFunction = keysPuzzle(puzzle.sudoku, Length)
+    const formattedPuzzle = (puzzle.sudoku, Length);
 
+    console.log(keyFunction, 'keys, keys, keys')
     console.log('Game Board State in formatted puzzle', gridState);
     console.log('Loaded puzzle in formatted puzzle', puzzle);
     console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
@@ -246,7 +252,7 @@ const RenderPuzzle = (props) => {
   }
 
   return (
-    <div className={classes.root}>
+    // <div className={classes.root}>
       <div>
         <Board
           theme={props.theme}
@@ -255,17 +261,25 @@ const RenderPuzzle = (props) => {
           onSquareValueChange={handleSquareValueChange}
           historyLength={gridState.history.length}
         />
-      </div>
+              {/* in the KeyPad add: */}
 
-      {/* 
-      in the KeyPad add: 
+
+        <Length
+          gridlength={gridState.gridlength}
           historyLength  = {gridState.history.length}
           onUndoClick = {handleUndoClick}
           onNewGameClick = {handleNewGameClick}
           onVerifyClick  = {handleVerifyClick}
           onSaveClick = {handleSaveClick}
-      */}
-    </div>
+          />
+
+        {/* <Length boardState={gridState.boardState} /> */}
+      </div>
+
+      
+      
+     
+    // </div>
   );
 };
 

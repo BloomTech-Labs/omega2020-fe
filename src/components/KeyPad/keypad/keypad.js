@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import  NumberButton  from './NumberButton';
 import ClearButton from './BangButton';
 import { info } from '../data';
+import Length from './lengthKey'
+import { GridContext } from '../../../store/contexts/GridContext'
 
 import { withStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core/';
 import Typography from '@material-ui/core/Typography';
 
 const KeyPad = (props) => {
+    const [ gridState, setState ] = useContext(GridContext);
+    
 
     return (
         <Input>
+
+        <Length />
+        {console.log(gridState, 'grid keys')}
 
             {info.numbers.map((numbers, index) => (
                 <Typography >
