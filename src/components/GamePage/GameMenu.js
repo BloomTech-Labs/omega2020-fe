@@ -11,6 +11,8 @@ const GameMenu = (props) => {
   const classes = useStyles();
 
   let time = false;
+  let grid = '9x9';
+  let level = 'Easy';
 
   let viewPort = false;
   const viewPortWidth = false;
@@ -31,8 +33,8 @@ const GameMenu = (props) => {
             return (
               <Box className={classes.root}>
                 <Box className={classes.leftContainer}>
-                  <ClearButton title={'9x9'} />
-                  <ClearButton title={'Easy'} />
+                  <ClearButton title={grid} />
+                  <ClearButton title={level} />
                 </Box>
 
                 <Box className={classes.centerContainer}>
@@ -44,18 +46,13 @@ const GameMenu = (props) => {
             return (
               <Box className={classes.root}>
                 <Box className={classes.leftContainer}>
-                  <ClearButton title={'9x9'} />
-                  <ClearButton title={'Easy'} />
-                  {/* <ClearButton title={'Medium'} />
-                  <ClearButton title={'Hard'} /> */}
+                  <ClearButton title={grid} />
+                  <ClearButton title={level} />
                 </Box>
-
-                {/* ----------------------------------------------------------------- */}
 
                 <Box className={classes.centerContainer}>
                   <Timer />
                 </Box>
-                {/* ----------------------------------------------------------------- */}
 
                 <Box className={classes.rightContainer}>
                   <ClearButton title={'Print'} click={props.handlePrint} />

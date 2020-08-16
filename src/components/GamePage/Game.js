@@ -1,16 +1,24 @@
 import React from 'react';
-import RenderPuzzle from '../SudokuGame/puzzle-handler/RenderPuzzle';
 import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import RenderPuzzle from '../SudokuGame/puzzle-handler/RenderPuzzle';
 
 const Game = (props) => {
   const classes = useStyles();
 
   let time = false;
+  let date = Date(); // needs fixing
+  let grid = '9x9';
+  let level = 'easy';
 
   return (
     <Box className={classes.root}>
       <Box className={classes.leftContainer}>
+        <Typography variant='caption'>
+          Sudoku {date} - {grid} {level}
+        </Typography>
+        <br />
         <RenderPuzzle />
       </Box>
 
@@ -32,9 +40,9 @@ const useStyles = makeStyles((theme) => ({
   },
   leftContainer: {
     display: 'flex',
-    flexFlow: 'row wrap',
+    flexFlow: 'column wrap',
     justifyContent: 'left',
-    alignItems: 'center',
+    alignItems: 'left',
     marginLeft: '10px',
     // border: '2px solid red',
   },
