@@ -7,16 +7,22 @@ import RenderPuzzle from '../SudokuGame/puzzle-handler/RenderPuzzle';
 const Game = (props) => {
   const classes = useStyles();
 
-  let time = false;
-  let date = Date(); // needs fixing
   let grid = '9x9';
   let level = 'easy';
+
+  let date = Date.now();
+  let todaysDate = Intl.DateTimeFormat('en-US').format(date);
+  const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
+  const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+  const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+
+  let time = false;
 
   return (
     <Box className={classes.root}>
       <Box className={classes.leftContainer}>
         <Typography variant='caption'>
-          Sudoku {date} - {grid} {level}
+          Sudoku {month} {day} {year} - {grid} {level}
         </Typography>
         <br />
         <RenderPuzzle />
@@ -43,16 +49,16 @@ const useStyles = makeStyles((theme) => ({
     flexFlow: 'column wrap',
     justifyContent: 'left',
     alignItems: 'left',
-    marginLeft: '10px',
-    // border: '2px solid red',
+    // marginLeft: '10px',
+    // border: '2px solid blue',
   },
   rightContainer: {
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginRight: '10px',
-    // border: '2px solid red',
+    margin: '20px',
+    // border: '2px solid blue',
   },
 }));
 
