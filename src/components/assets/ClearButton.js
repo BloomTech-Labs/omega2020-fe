@@ -10,6 +10,7 @@ const ClearButton = (props) => {
       size='large'
       className='href'
       color='inherit'
+      onClick={props.click}
     >
       <Typography variant='caption' className='title'>
         {props.title}

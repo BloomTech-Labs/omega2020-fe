@@ -21,12 +21,14 @@ const Game = (props) => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: 100,
     width: '100%',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
     textDecoration: 'none',
+    paddingTop: 100,
+    paddingBottom: 100,
+    // border: '2px solid red',
   },
   leftContainer: {
     display: 'flex',
