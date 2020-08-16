@@ -10,11 +10,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import CategoryIcon from '@material-ui/icons/Category';
 import AppsIcon from '@material-ui/icons/Apps';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import GridOnIcon from '@material-ui/icons/GridOn';
 
 import BlueButton from '../assets/BlueButton';
-import game from '../../images/gameOfTheDay.png';
-import game2 from '../../images/gameOfTheDay2.png';
 import RenderPuzzle from '../SudokuGame/puzzle-handler/RenderPuzzle';
 
 const HomePage = (props) => {

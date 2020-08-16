@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GridContext } from '../../store/contexts/GridContext';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
@@ -8,11 +9,14 @@ import ClearButton from '../assets/ClearButton';
 import Timer from './Timer';
 
 const GameMenu = (props) => {
+  const [gridState, setGridState] = useContext(GridContext);
+
+  let grid = `${gridState.gridlength}x${gridState.gridlength}`;
+  let level = gridState.level;
+
   const classes = useStyles();
 
   let time = false;
-  let grid = '9x9';
-  let level = 'Easy';
 
   let viewPort = false;
   const viewPortWidth = false;
