@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const KeyPad = (props) => {
   const [gridState, setGridState] = useContext(GridContext);
 
+  // Todo connect KeyPadNumber to gridState.gridlength value
   let KeyPadNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const classes = useStyles();
