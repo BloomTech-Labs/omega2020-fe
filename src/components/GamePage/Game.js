@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GridContext } from '../../store/contexts/GridContext';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import RenderPuzzle from '../SudokuGame/puzzle-handler/RenderPuzzle';
 
 const Game = (props) => {
-  const classes = useStyles();
+  const [gridState, setGridState] = useContext(GridContext);
 
-  let grid = '9x9';
-  let level = 'easy';
+  let grid = `${gridState.gridlength}x${gridState.gridlength}`;
+  let level = gridState.level;
+
+  const classes = useStyles();
 
   let date = Date.now();
   let todaysDate = Intl.DateTimeFormat('en-US').format(date);
@@ -25,10 +28,10 @@ const Game = (props) => {
           Sudoku {month} {day} {year} - {grid} {level}
         </Typography>
         <br />
+        <br />
+
         <RenderPuzzle />
       </Box>
-
-      <Box className={classes.rightContainer}>keypad</Box>
     </Box>
   );
 };
@@ -42,15 +45,12 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
     paddingTop: 100,
     paddingBottom: 100,
-    // border: '2px solid red',
   },
   leftContainer: {
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'left',
     alignItems: 'left',
-    // marginLeft: '10px',
-    // border: '2px solid blue',
   },
   rightContainer: {
     display: 'flex',
@@ -58,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     alignItems: 'center',
     margin: '20px',
-    // border: '2px solid blue',
   },
 }));
 
