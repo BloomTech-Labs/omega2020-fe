@@ -17,16 +17,15 @@ import LandingPage from './components/LandingPage/LandingPage';
 import SoonPage from './components/soonPage/soon';
 import AboutUsPage from './components/AboutUsPage/AboutUsPage';
 import Tutorial from './components/Tutorial/tutorial-page';
-import FooterCondition from './components/Navigation/FooterCondition';
 import selectionPage from './components/LevelSelection/selectionPage';
+import FooterCondition from './components/Navigation/FooterCondition';
 
 // What is left to update ---------------------------------------------
 import GamePage from './components/GamePage/GamePage';
-import KeyPad from './components/KeyPad/display/display'; // finish keypad ui and connect to game grid
+import KeyPad from './components/SudokuGame/puzzle-builder/KeyPad';
 import Registration from './components/Authentication/RegisterForm'; // add form validation
 import Login from './components/Authentication/LoginForm'; // add form validation
 import RenderPuzzle from './components/SudokuGame/puzzle-handler/RenderPuzzle'; // render 4x4 6x6 9x9
-
 import UploadForm from './components/SudokuGame/Upload-image/UploadForm';
 import UploadSudoku2 from './components/SudokuGame/Upload-image/UploadSudoku2'; // refactor
 
@@ -36,9 +35,9 @@ const App = () => {
   const [gridState, setGridState] = useState({
     boardState: '',
     gridlength: '9',
-    row: '3',
-    col: '3',
-    puzzleId: '0',
+    row: '',
+    col: '',
+    puzzleId: '',
     level: 'Easy',
     solved: '',
     original: '',
@@ -104,7 +103,7 @@ const App = () => {
                 <Route path='/coming-soon' component={SoonPage} />
                 <Route path='/menu' component={MenuPage} />
                 <Route path='/levels' component={selectionPage} />
-                <Route exact path='/key' component={KeyPad} />
+                <Route exact path='/keypad' component={KeyPad} />
 
                 <Route path={`/game/${grid}/${level}`} component={GamePage} />
 

@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
 import { GridContext } from '../../store/contexts/GridContext';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import ClearButton from '../assets/ClearButton';
 import Timer from './Timer';

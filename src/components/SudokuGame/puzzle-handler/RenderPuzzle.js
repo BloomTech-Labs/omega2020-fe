@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { WinContext } from '../../../store/contexts/WinContext';
 import { GridContext } from '../../../store/contexts/GridContext';
+
+import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+
 import Board from '../puzzle-builder/Board';
+import KeyPad from '../puzzle-builder/KeyPad';
+
 import { Get4x4 } from './grid-axios-call/4x4';
 import { Get6x6 } from './grid-axios-call/6x6';
 import { Get9x9 } from './grid-axios-call/9x9';
@@ -247,36 +252,40 @@ const RenderPuzzle = (props) => {
 
   return (
     <div className={classes.root}>
-      <div>
-        <Board
-          theme={props.theme}
-          boardState={gridState.boardState}
-          conflicts={gridState.conflicts}
-          onSquareValueChange={handleSquareValueChange}
-          historyLength={gridState.history.length}
-        />
-      </div>
+      <Grid container spacing={10}>
+        <Grid item xs={12} sm={6}>
+          <Board
+            theme={props.theme}
+            boardState={gridState.boardState}
+            conflicts={gridState.conflicts}
+            onSquareValueChange={handleSquareValueChange}
+            historyLength={gridState.history.length}
+            className={classes.Item}
+          />
+        </Grid>
 
-      {/* 
-      in the KeyPad add: 
-          historyLength  = {gridState.history.length}
-          onUndoClick = {handleUndoClick}
-          onNewGameClick = {handleNewGameClick}
-          onVerifyClick  = {handleVerifyClick}
-          onSaveClick = {handleSaveClick}
-      */}
+        <Grid item xs={12} sm={6}>
+          <KeyPad
+            historyLength={gridState.history.length}
+            onUndoClick={handleUndoClick}
+            onNewGameClick={handleNewGameClick}
+            onVerifyClick={handleVerifyClick}
+            onSaveClick={handleSaveClick}
+          />
+        </Grid>
+      </Grid>
     </div>
   );
 };
 
 const useStyles = makeStyles(() => ({
   root: {
-    display: 'felx',
-    flexFlow: 'column wrap',
-    alignContent: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
+    flexGrow: 1,
+    border: '2px solid red',
+  },
+  Item: {
+    width: '40%',
+    border: '2px solid blue',
   },
 }));
 
