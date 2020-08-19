@@ -30,7 +30,10 @@ const MenuPage = (props) => {
                 >
                   MENU
                 </Typography>
+
                 <br />
+                <br />
+
                 <Link href='/'>
                   <Typography className={classes.subheader}>Home</Typography>
                 </Link>
@@ -61,12 +64,12 @@ const MenuPage = (props) => {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    height: '80vh',
+    // height: '80vh',
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 100,
+    marginTop: 200,
   },
   mainContainer: {
     display: 'flex',

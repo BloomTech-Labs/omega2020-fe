@@ -50,8 +50,10 @@ const Banner = (props) => {
                             By Understanding Game Strategies
                           </Typography>
                           <br />
-                          <Typography className={classes.subheader}
-                          id="improve2">
+                          <Typography
+                            className={classes.subheader}
+                            id='improve2'
+                          >
                             Learn to recognize key patterns and methods
                             <br />
                             to improve your speed and skill level
@@ -64,8 +66,12 @@ const Banner = (props) => {
                       );
                     default:
                       return (
-                        <Box>
-                          <Typography variant='h4' className={classes.header} id="bang">
+                        <Box style={{ textAlign: 'center' }}>
+                          <Typography
+                            variant='h4'
+                            className={classes.header}
+                            id='bang'
+                          >
                             Improve Your Skills By Understanding Game Strategies
                           </Typography>
                           <br />

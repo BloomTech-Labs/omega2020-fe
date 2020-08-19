@@ -43,7 +43,7 @@ const GameSimulation = (props) => {
                           <Typography
                             className={classes.header}
                             style={{ fontSize: '1.3rem' }}
-                            id= 'learn'
+                            id='learn'
                           >
                             Learn The Game Play
                           </Typography>
@@ -61,8 +61,12 @@ const GameSimulation = (props) => {
                       );
                     default:
                       return (
-                        <Box className={classes.container}>
-                          <Typography variant='h4' className={classes.header} id='bang'>
+                        <Box style={{ textAlign: 'center' }}>
+                          <Typography
+                            variant='h4'
+                            className={classes.header}
+                            id='bang'
+                          >
                             Learn The Game Play
                           </Typography>
                           <br />
