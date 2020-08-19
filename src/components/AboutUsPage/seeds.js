@@ -113,7 +113,7 @@ const TeamV2 = [
   {
     version: '2',
     name: 'Vincent Adeniji',
-    image: 'https://avatars2.githubusercontent.com/u/54925113?s=460&v=4',
+    image: 'https://ca.slack-edge.com/ESZCHB482-W012BRP432S-5ca2303ff84a-512',
     title: 'Web Developer',
     linkedin: 'https://www.linkedin.com/in/vincent-adeniji-363008116/',
     github: 'https://github.com/TOSINNIJIS1',

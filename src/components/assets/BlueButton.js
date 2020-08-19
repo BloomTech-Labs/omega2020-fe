@@ -16,8 +16,8 @@ const BlueButton = (props) => {
 
 const ColorButton = withStyles((theme) => ({
   root: {
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: 60,
+    paddingRight: 60,
     paddingTop: 15,
     paddingBottom: 15,
     color: theme.palette.getContrastText(blue.A700),

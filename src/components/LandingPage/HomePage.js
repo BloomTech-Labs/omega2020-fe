@@ -12,6 +12,7 @@ import AppsIcon from '@material-ui/icons/Apps';
 import GetAppIcon from '@material-ui/icons/GetApp';
 
 import BlueButton from '../assets/BlueButton';
+import Cube from '../../images/cube4.gif';
 import RenderPuzzle from '../SudokuGame/puzzle-handler/RenderPuzzle';
 
 const HomePage = (props) => {
@@ -121,7 +122,8 @@ const HomePage = (props) => {
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
               <Box className={classes.gameBoard}>
-                <RenderPuzzle />
+                {/* <RenderPuzzle /> */}
+                <img src={Cube} alt={'cibe'} width={400} />
               </Box>
             )
           }
@@ -139,6 +141,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 100,
+    marginTop: 100,
+    // border: '2px solid red',
   },
   mainContainer: {
     display: 'flex',
@@ -156,7 +160,7 @@ const useStyles = makeStyles((theme) => ({
     color: grey[700],
   },
   gameBoard: {
-    marginTop: 200,
+    marginTop: 100,
   },
   space: {
     '& > *': {
