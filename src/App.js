@@ -22,7 +22,7 @@ import FooterCondition from './components/Navigation/FooterCondition';
 
 // What is left to update ---------------------------------------------
 import GamePage from './components/GamePage/GamePage';
-import KeyPad from './components/SudokuGame/puzzle-builder/KeyPad';
+import KeyPad from './components/SudokuGame/puzzle-builder/KeyPad/KeyPad';
 import Registration from './components/Authentication/RegisterForm'; // add form validation
 import Login from './components/Authentication/LoginForm'; // add form validation
 import RenderPuzzle from './components/SudokuGame/puzzle-handler/RenderPuzzle'; // render 4x4 6x6 9x9
@@ -79,13 +79,13 @@ const App = () => {
               <Switch>
                 <Route
                   path='/login'
-                  render={(props) => (
+                  component={(props) => (
                     <Login {...props} onChange={handleLoginStateChanged} />
                   )}
                 />
                 <Route
                   path='/register'
-                  render={(props) => (
+                  component={(props) => (
                     <Registration
                       {...props}
                       onChange={handleLoginStateChanged}
@@ -95,17 +95,23 @@ const App = () => {
                 <Route
                   exact
                   path='/'
-                  render={() => <LandingPage theme={theme} />}
+                  component={() => <LandingPage theme={theme} />}
                 />
 
                 <Route path='/about' component={AboutUsPage} />
                 <Route path='/tutorial' component={Tutorial} />
                 <Route path='/coming-soon' component={SoonPage} />
-                <Route path='/menu' component={MenuPage} />
+                <Route
+                  path='/menu'
+                  component={(props) => (
+                    <MenuPage toggleTheme={toggleTheme} theme={theme} />
+                  )}
+                />
                 <Route path='/levels' component={selectionPage} />
                 <Route exact path='/keypad' component={KeyPad} />
 
-                <Route path={`/game/${grid}/${level}`} component={GamePage} />
+                <Route path={`/game`} component={GamePage} />
+                {/* <Route path={`/game/${grid}/${level}`} component={GamePage} /> */}
 
                 <Route
                   path={`puzzle/${grid}`}
