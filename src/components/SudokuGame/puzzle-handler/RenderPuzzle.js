@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Board from '../puzzle-builder/Board';
-import KeyPad from '../puzzle-builder/KeyPad';
+import KeyPad from '../puzzle-builder/KeyPad/KeyPad';
 
 import { Get4x4 } from './grid-axios-call/4x4';
 import { Get6x6 } from './grid-axios-call/6x6';
