@@ -36,6 +36,14 @@ function Grid(props) {
       style['borderLeft'] = border;
     } // Lines to seperate middle colums
 
+    if (props.conflict) {
+      if (props.editable) {
+        style['background'] = 'red';
+      } else {
+        style['background'] = 'pink';
+      }
+    }
+
     return (
       <div className={classes.grid}>
         <Input

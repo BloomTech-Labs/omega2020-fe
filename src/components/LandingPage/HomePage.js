@@ -20,7 +20,6 @@ const HomePage = (props) => {
   const { loading = false } = props;
 
   let viewPort = false;
-  const viewPortWidth = false;
   const md = useMediaQuery('(min-width: 1050px)');
   if (viewPort === md) {
     viewPort = true;
@@ -123,7 +122,7 @@ const HomePage = (props) => {
             ) : (
               <Box className={classes.gameBoard}>
                 {/* <RenderPuzzle /> */}
-                <img src={Cube} alt={'cibe'} width={400} />
+                <img src={Cube} alt={'cibe'} width={300} />
               </Box>
             )
           }
@@ -141,8 +140,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 100,
-    marginTop: 100,
-    // border: '2px solid red',
+    marginBotom: 100,
   },
   mainContainer: {
     display: 'flex',
