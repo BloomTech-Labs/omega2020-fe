@@ -119,7 +119,7 @@ const useStyles = makeStyles(() => ({
     flexFlow: 'column wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 100,
+    marginTop: 200,
   },
   mainContainer: {
     width: '100%',

@@ -280,12 +280,14 @@ const RenderPuzzle = (props) => {
 
 const useStyles = makeStyles(() => ({
   root: {
-    flexGrow: 1,
-    border: '2px solid red',
+    // flexGrow: 1,
+    display: 'flex',
+    flexFlow: 'column wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   Item: {
     width: '40%',
-    border: '2px solid blue',
   },
 }));
 
