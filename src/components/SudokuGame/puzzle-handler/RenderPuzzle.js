@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { WinContext } from '../../../store/contexts/WinContext';
 import { GridContext } from '../../../store/contexts/GridContext';
+import { PuzzleContext } from '../../../store/contexts/PuzzleContext';
 
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -33,6 +34,10 @@ const RenderPuzzle = (props) => {
 
   const [gridState, setGridState] = useContext(GridContext);
 
+  const [puzzleState, setPuzzleState] = useContext(PuzzleContext);
+
+  console.log(`puzzleState from renderPuzzle: ${puzzleState}`);
+
   // Retrieve puzzle data
   async function getPuzzle4x4() {
     let puzzles = await Get4x4();
@@ -59,7 +64,29 @@ const RenderPuzzle = (props) => {
   }
 
   const getFormattedPuzzle = async () => {
-    const puzzle = await getPuzzle9x9();
+    async function getPuzzle() {
+      switch (puzzleState) {
+        case '4':
+          const puzzle4x4 = await getPuzzle4x4();
+          return puzzle4x4;
+          break;
+        case '6':
+          const puzzle6x6 = await getPuzzle6x6();
+          return puzzle6x6;
+          break;
+        case '9':
+          const puzzle9x9 = await getPuzzle9x9();
+          return puzzle9x9;
+          break;
+        default:
+          const puzzleDefault = await getPuzzle9x9();
+          return puzzleDefault;
+          break;
+      }
+    }
+
+    // const puzzle = await getPuzzle9x9();
+    const puzzle = await getPuzzle();
     let Length = puzzle.gridlength;
     const formattedPuzzle = formatPuzzle(puzzle.sudoku, Length);
 

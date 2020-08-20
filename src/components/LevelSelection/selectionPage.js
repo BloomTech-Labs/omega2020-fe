@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { GridContext } from '../../store/contexts/GridContext';
+import { PuzzleContext } from '../../store/contexts/PuzzleContext';
 import { makeStyles, Container } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -107,6 +108,10 @@ const useStyles = makeStyles((theme) => ({
 
 const SelectionPage = () => {
   const [gridState, setGridState] = useContext(GridContext);
+  const [puzzleState, setPuzzleState] = useContext(PuzzleContext);
+
+  setPuzzleState('9');
+  console.log(`puzzleState from levels: ${puzzleState}`);
 
   let grid = `${gridState.gridlength}x${gridState.gridlength}`;
   let level = gridState.level;
@@ -121,6 +126,15 @@ const SelectionPage = () => {
   } else {
     viewPort = false;
   }
+
+  const handleLevels = (value) => {
+    // let levels = setPuzzleState('value');
+    // console.log(`levels value from levels: ${levels}`);
+    // return levels;
+    return setPuzzleState('9');
+  };
+
+  handleLevels();
 
   return (
     <Box className={classes.root}>
@@ -194,8 +208,12 @@ const SelectionPage = () => {
                         <WhiteButton
                           title='Easy'
                           href={`/game`}
+                          onClick={handleLevels}
                           // href={`/game/${grid}/${level}`}
                         />
+                        <Button href={`/game`} onClick={handleLevels}>
+                          9x9 easy
+                        </Button>
                         <br />
                         {/* <WhiteButton title='Medium' href='/coming-soon' />
                         <br />
