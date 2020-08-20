@@ -25,6 +25,7 @@ const Board = (props) => {
         const conflicts = props.conflicts;
         const conflict = conflicts.has(i + '' + j) ? true : false;
         let currSquare = (
+          <div>
           <Grid
             theme={props.theme}
             key={'' + i + j}
@@ -35,6 +36,8 @@ const Board = (props) => {
             colIndex={j}
             onValueChange={handleSquareValueChange}
           />
+
+          </div>
         );
         currRow.push(currSquare);
       }
@@ -50,7 +53,7 @@ const Board = (props) => {
 
   const board = generateBoard();
 
-  return <div className={classes.board}>{board}</div>;
+  return <div className={classes.board} >{board}</div>;
 };
 
 const useStyles = makeStyles(() => ({

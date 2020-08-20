@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import  { configure, shallow, mount } from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
-import AboutUs from '../../components/AboutUsPage/AboutUs';
+import AboutUs from '../AboutUs';
 import Adapter from 'enzyme-adapter-react-16';
 import { Box, CardHeader, Typography } from '@material-ui/core/';
 import renderer from 'react-test-renderer'
