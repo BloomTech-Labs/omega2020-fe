@@ -7,7 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import { IconButton } from '@material-ui/core';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
-import FiberManualRecordTwoToneIcon from '@material-ui/icons/FiberManualRecordTwoTone';
+import Tooltip from '@material-ui/core/Tooltip';
+import { grey } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import WhiteButton from '../../assets/WhiteButton';
 import AvatarElement from './AvatarElement';
@@ -26,13 +27,16 @@ const NavBarWeb = (props) => {
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
               <Box className={classes.leftContainer}>
-                <Link href='/menu' className={classes.logo}>
-                  <img
-                    src={Logo}
-                    alt='logo'
-                    style={{ width: 20, height: 20 }}
-                  />
-                </Link>
+                <BootstrapTooltip title={'menu'}>
+                  <Link href='/menu' className={classes.logo}>
+                    <img
+                      src={Logo}
+                      alt='logo'
+                      style={{ width: 20, height: 20 }}
+                    />
+                  </Link>
+                </BootstrapTooltip>
+
                 <Link href='/' className={classes.title} color='inherit'>
                   <Typography variant='subtitle2' style={{ fontWeight: 600 }}>
                     SUDOMEGA
@@ -154,6 +158,22 @@ const NavBarWeb = (props) => {
     </Box>
   );
 };
+
+const useStylesBootstrap = makeStyles((theme) => ({
+  arrow: {
+    color: grey[200],
+  },
+  tooltip: {
+    backgroundColor: grey[200],
+    color: '#000',
+  },
+}));
+
+function BootstrapTooltip(props) {
+  const classes = useStylesBootstrap();
+
+  return <Tooltip arrow classes={classes} {...props} />;
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -2,7 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import { WinContext } from '../../../store/contexts/WinContext';
 import { GridContext } from '../../../store/contexts/GridContext';
 import { PuzzleContext } from '../../../store/contexts/PuzzleContext';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
+import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -277,37 +279,64 @@ const RenderPuzzle = (props) => {
     }
   }
 
+  let viewPort = false;
+  const md = useMediaQuery('(min-width: 1050px)');
+  if (viewPort === md) {
+    viewPort = true;
+  } else {
+    viewPort = false;
+  }
+
   return (
     <div className={classes.root}>
-      <Grid container spacing={10}>
-        <Grid item xs={12} sm={6}>
-          <Board
-            theme={props.theme}
-            boardState={gridState.boardState}
-            conflicts={gridState.conflicts}
-            onSquareValueChange={handleSquareValueChange}
-            historyLength={gridState.history.length}
-            className={classes.Item}
-          />
-        </Grid>
+      {(() => {
+        switch (viewPort) {
+          case true:
+            return (
+              <Box>
+                <Board
+                  theme={props.theme}
+                  boardState={gridState.boardState}
+                  conflicts={gridState.conflicts}
+                  onSquareValueChange={handleSquareValueChange}
+                  historyLength={gridState.history.length}
+                  className={classes.Item}
+                />
+              </Box>
+            );
+          default:
+            return (
+              <Grid container spacing={10}>
+                <Grid item xs={12} sm={6}>
+                  <Board
+                    theme={props.theme}
+                    boardState={gridState.boardState}
+                    conflicts={gridState.conflicts}
+                    onSquareValueChange={handleSquareValueChange}
+                    historyLength={gridState.history.length}
+                    className={classes.Item}
+                  />
+                </Grid>
 
-        <Grid item xs={12} sm={6}>
-          <KeyPad
-            historyLength={gridState.history.length}
-            onUndoClick={handleUndoClick}
-            onNewGameClick={handleNewGameClick}
-            onVerifyClick={handleVerifyClick}
-            onSaveClick={handleSaveClick}
-          />
-        </Grid>
-      </Grid>
+                <Grid item xs={12} sm={6}>
+                  <KeyPad
+                    historyLength={gridState.history.length}
+                    onUndoClick={handleUndoClick}
+                    onNewGameClick={handleNewGameClick}
+                    onVerifyClick={handleVerifyClick}
+                    onSaveClick={handleSaveClick}
+                  />
+                </Grid>
+              </Grid>
+            );
+        }
+      })()}
     </div>
   );
 };
 
 const useStyles = makeStyles(() => ({
   root: {
-    // flexGrow: 1,
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'center',
