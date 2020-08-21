@@ -13,6 +13,7 @@ const Game = (props) => {
 
   const classes = useStyles();
 
+  // Timer and date
   let date = Date.now();
   let todaysDate = Intl.DateTimeFormat('en-US').format(date);
   const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);

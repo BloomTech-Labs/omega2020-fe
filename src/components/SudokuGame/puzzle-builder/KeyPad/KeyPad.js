@@ -5,8 +5,9 @@ import Typography from '@material-ui/core/Typography';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import ReplayIcon from '@material-ui/icons/Replay';
 import SaveAltIcon from '@material-ui/icons/SaveAlt';
+import Tooltip from '@material-ui/core/Tooltip';
 import { blue, grey } from '@material-ui/core/colors';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import KeyPadBoard from './KeyPadBoard';
 
 const KeyPad = (props) => {
@@ -33,14 +34,26 @@ const KeyPad = (props) => {
         </Box>
 
         <Box className={classes.Items}>
-          <Box
-            className={classes.tripleItemActive}
-            onClick={props.onVerifyClick}
+          <HtmlTooltip
+            title={
+              <React.Fragment>
+                <Typography color='inherit'>About Hints</Typography>
+                <em>
+                  {
+                    'At the moment, Hints only lets you know if the number you just entered conflicts with another number. Stay tuned for future features.'
+                  }
+                </em>
+              </React.Fragment>
+            }
           >
-            <HelpOutlineIcon />
-            <Typography variant='body2'>Hint</Typography>
-          </Box>
-
+            <Box
+              className={classes.tripleItemActive}
+              onClick={props.onVerifyClick}
+            >
+              <HelpOutlineIcon />
+              <Typography variant='body2'>Hint</Typography>
+            </Box>
+          </HtmlTooltip>
           {/* 
 
             There is a bug with the undo button 
@@ -52,33 +65,74 @@ const KeyPad = (props) => {
           */}
 
           {gridChanged !== gridNotChanged ? (
-            <Box
-              className={classes.tripleItemActive}
-              onClick={props.onUndoClick}
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color='inherit'>About Undo</Typography>
+                  <u>{'Warning'}</u>
+                  <em>
+                    {` 🚨  if you click the undo without entering any numbers or if the grid is empty, it will crash the app, so don't freak out if that happens. 🙃 Just refresh the page`}
+                  </em>
+                </React.Fragment>
+              }
             >
-              <ReplayIcon />
-              <Typography variant='body2'>Undo</Typography>
-            </Box>
+              <Box
+                className={classes.tripleItemActive}
+                onClick={props.onUndoClick}
+              >
+                <ReplayIcon />
+                <Typography variant='body2'>Undo</Typography>
+              </Box>
+            </HtmlTooltip>
           ) : (
-            <Box className={classes.tripleItemGrey}>
-              <ReplayIcon />
-              <Typography variant='body2'>Undo</Typography>
-            </Box>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color='inherit'>About Undo</Typography>
+                  <em>{'Warning 🚨'}</em>
+                </React.Fragment>
+              }
+            >
+              <Box className={classes.tripleItemGrey}>
+                <ReplayIcon />
+                <Typography variant='body2'>Undo</Typography>
+              </Box>
+            </HtmlTooltip>
           )}
 
           {localStorage.getItem('token') !== null ? (
-            <Box
-              className={classes.tripleItemActive}
-              onClick={props.onSaveClick}
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color='inherit'>About Save</Typography>
+                  <em>{'TBD'}</em>
+                </React.Fragment>
+              }
             >
-              <SaveAltIcon />
-              <Typography variant='body2'>Save</Typography>
-            </Box>
+              <Box
+                className={classes.tripleItemActive}
+                onClick={props.onSaveClick}
+              >
+                <SaveAltIcon />
+                <Typography variant='body2'>Save</Typography>
+              </Box>
+            </HtmlTooltip>
           ) : (
-            <Box className={classes.tripleItemGrey}>
-              <SaveAltIcon />
-              <Typography variant='body2'>Save</Typography>
-            </Box>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color='inherit'>About Save</Typography>
+                  <em>
+                    {'Warning 🚨 You must be logged in to use the save button'}
+                  </em>
+                </React.Fragment>
+              }
+            >
+              <Box className={classes.tripleItemGrey}>
+                <SaveAltIcon />
+                <Typography variant='body2'>Save</Typography>
+              </Box>
+            </HtmlTooltip>
           )}
         </Box>
         {/* add too tip (log in frist) */}
@@ -90,6 +144,16 @@ const KeyPad = (props) => {
     </Box>
   );
 };
+
+const HtmlTooltip = withStyles((theme) => ({
+  tooltip: {
+    backgroundColor: '#f5f5f9',
+    color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}))(Tooltip);
 
 const useStyles = makeStyles((theme) => ({
   root: {

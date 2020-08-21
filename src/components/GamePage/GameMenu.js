@@ -2,9 +2,14 @@ import React, { useContext } from 'react';
 import { GridContext } from '../../store/contexts/GridContext';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Box from '@material-ui/core/Box';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 import { makeStyles } from '@material-ui/core/styles';
 import ClearButton from '../assets/ClearButton';
 import Timer from './Timer';
+import HelpModal from './Help';
+import SettingsModal from './Settings';
 
 const GameMenu = (props) => {
   const [gridState, setGridState] = useContext(GridContext);
@@ -16,6 +21,32 @@ const GameMenu = (props) => {
 
   let time = false;
 
+  // Modal functionailty
+  const [openHelp, setOpenHelp] = React.useState(false);
+  const [openSettings, setOpenSettings] = React.useState(false);
+
+  const handleOpenHelpModal = () => {
+    setOpenHelp(true);
+  };
+
+  const handleCloseHelpModal = () => {
+    setOpenHelp(false);
+  };
+
+  const handleOpenSettingsModal = () => {
+    setOpenSettings(true);
+  };
+
+  const handleCloseSettingsModal = () => {
+    setOpenSettings(false);
+  };
+
+  let ModalType = 'open';
+  if (openSettings === true) {
+    ModalType = 'openSettings';
+  }
+
+  // MediaQuery functionality
   let viewPort = false;
   const viewPortWidth = false;
   const md = useMediaQuery('(min-width: 1050px)');
@@ -58,9 +89,67 @@ const GameMenu = (props) => {
 
                 <Box className={classes.rightContainer}>
                   <ClearButton title={'Print'} click={props.handlePrint} />
-                  <ClearButton title={'Help'} />
-                  <ClearButton title={'Settings'} disabled />
+                  <ClearButton title={'Help'} click={handleOpenHelpModal} />
+                  <ClearButton
+                    title={'Settings'}
+                    click={handleOpenSettingsModal}
+                  />
                 </Box>
+              </Box>
+            );
+        }
+      })()}
+
+      {(() => {
+        switch (ModalType) {
+          case 'openSettings':
+            return (
+              <Box>
+                {/* Settings Modal --------------------------------- */}
+
+                <Modal
+                  aria-labelledby='transition-modal-title'
+                  aria-describedby='Setting Modal'
+                  className={classes.modal}
+                  open={openSettings}
+                  onClose={handleCloseSettingsModal}
+                  closeAfterTransition
+                  BackdropComponent={Backdrop}
+                  BackdropProps={{
+                    timeout: 500,
+                  }}
+                >
+                  <Fade in={openSettings}>
+                    <Box className={classes.paper}>
+                      <SettingsModal />
+                    </Box>
+                  </Fade>
+                </Modal>
+              </Box>
+            );
+          default:
+            return (
+              <Box>
+                {/* Help Modal --------------------------------- */}
+
+                <Modal
+                  aria-labelledby='transition-modal-title'
+                  aria-describedby='Help Modal'
+                  className={classes.modal}
+                  open={openHelp}
+                  onClose={handleCloseHelpModal}
+                  closeAfterTransition
+                  BackdropComponent={Backdrop}
+                  BackdropProps={{
+                    timeout: 500,
+                  }}
+                >
+                  <Fade in={openHelp}>
+                    <Box className={classes.paper}>
+                      <HelpModal />
+                    </Box>
+                  </Fade>
+                </Modal>
               </Box>
             );
         }
@@ -113,6 +202,20 @@ const useStyles = makeStyles((theme) => ({
   },
   disabled: {
     color: 'red',
+  },
+  modal: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
+  paper: {
+    width: '30%',
+    opacity: '0.5',
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
   },
 }));
 
