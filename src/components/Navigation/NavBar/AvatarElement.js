@@ -1,16 +1,16 @@
-import React from 'react';
-import Box from '@material-ui/core/Box';
-import Avatar from '@material-ui/core/Avatar';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuList from '@material-ui/core/MenuList';
-import { blue } from '@material-ui/core/colors';
-import { makeStyles } from '@material-ui/core/styles';
-import AvatarLogin from '../MenuItems/AvatarLogin';
-import AvatarLogout from '../MenuItems/AvatarLogout';
-import PersonIcon from '@material-ui/icons/Person';
+import React from "react";
+import Box from "@material-ui/core/Box";
+import Avatar from "@material-ui/core/Avatar";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
+import MenuList from "@material-ui/core/MenuList";
+import { blue } from "@material-ui/core/colors";
+import { makeStyles } from "@material-ui/core/styles";
+import AvatarLogin from "../MenuItems/AvatarLogin";
+import AvatarLogout from "../MenuItems/AvatarLogout";
+import PersonIcon from "@material-ui/icons/Person";
 
 const AvatarElement = () => {
   const classes = useStyles();
@@ -30,7 +30,7 @@ const AvatarElement = () => {
   };
 
   function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
+    if (event.key === "Tab") {
       event.preventDefault();
       setOpen(false);
     }
@@ -51,14 +51,14 @@ const AvatarElement = () => {
       <Avatar
         className={classes.color}
         ref={anchorRef}
-        aria-controls={open ? 'menu-list-grow' : undefined}
-        aria-haspopup='true'
+        aria-controls={open ? "menu-list-grow" : undefined}
+        aria-haspopup="true"
         onClick={handleToggle}
       >
         <PersonIcon />
       </Avatar>
       <Popper
-        placement='bottom-end'
+        placement="bottom-end"
         open={open}
         anchorEl={anchorRef.current}
         role={undefined}
@@ -70,16 +70,23 @@ const AvatarElement = () => {
             {...TransitionProps}
             style={{
               transformOrigin:
-                placement === 'bottom-end' ? 'bottom-end' : 'bottom-end',
+                placement === "bottom-end" ? "bottom-end" : "bottom-end",
             }}
           >
             <Paper>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList
                   autoFocusItem={open}
-                  id='menu-list-grow'
+                  id="menu-list-grow"
                   onKeyDown={handleListKeyDown}
                 >
+                  {/* {(() => {
+                    localStorage.getItem("token") !== null ? (
+                      <AvatarLogout handleClose={handleClose} />
+                    ) : (
+                      <AvatarLogin handleClose={handleClose} />
+                    );
+                  })()} */}
                   {/* <AvatarLogout handleClose={handleClose} /> */}
                   {/* <AvatarLogin handleClose={handleClose} /> */}
                 </MenuList>
@@ -94,25 +101,25 @@ const AvatarElement = () => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    display: 'flex',
-    flexFlow: 'column wrap',
-    justifyContent: 'flex-end',
-    alignContent: 'flex-end',
-    background: '#FFFFFF',
+    width: "100%",
+    display: "flex",
+    flexFlow: "column wrap",
+    justifyContent: "flex-end",
+    alignContent: "flex-end",
+    background: "#FFFFFF",
   },
   avatar: {
-    marginRight: '10px',
-    marginLeft: '25px',
+    marginRight: "10px",
+    marginLeft: "25px",
   },
   paper: {
     marginRight: theme.spacing(3),
   },
   MenuItem: {
-    display: 'flex',
-    flexFlow: 'column wrap',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
+    display: "flex",
+    flexFlow: "column wrap",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
     paddingRight: 120,
   },
   color: {

@@ -15,7 +15,6 @@ import { Get6x6 } from "../SudokuGame/puzzle-handler/grid-axios-call/6x6";
 import { Get9x9 } from "../SudokuGame/puzzle-handler/grid-axios-call/9x9";
 import { keysPuzzle } from "../SudokuGame/puzzle-handler/functions/keys";
 import { formatPuzzle } from "../SudokuGame/puzzle-handler/functions/formatPuzzle";
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -115,7 +114,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SelectionPage = () => {
+  const { win, setWin } = useContext(WinContext);
+  const { gridState, setGridState } = useContext(GridContext);
   const { puzzleState, setPuzzleState } = useContext(PuzzleContext);
+
+  // setPuzzleState("9");
+  // console.log(`puzzleState from levels: ${puzzleState}`);
+
+  let grid = `${gridState.gridlength}x${gridState.gridlength}`;
+  let level = gridState.level;
 
   const classes = useStyles();
 
@@ -128,9 +135,129 @@ const SelectionPage = () => {
   }
 
   const handleLevels = (value) => {
+    async function getPuzzle4x4() {
+      let puzzles = await Get4x4();
+      setWin(puzzles.solution);
+      return puzzles;
+    }
+
+    async function getPuzzle6x6() {
+      let puzzles = await Get6x6();
+      setWin(puzzles.solution);
+      return puzzles;
+    }
+
+    async function getPuzzle9x9() {
+      let puzzles = await Get9x9();
+      setWin(puzzles.solution);
+      return puzzles;
+    }
+
+    async function uploadPuzzle() {
+      let puzzles = await gridState.solved.solution;
+      setWin(puzzles.solution.solution);
+      return puzzles.solution;
+    }
+
+    const getFormattedPuzzle = async () => {
+      function getPuzzle() {
+        switch (puzzleState) {
+          case "4":
+            const puzzle4x4 = getPuzzle4x4();
+            return puzzle4x4;
+            break;
+          case "6":
+            const puzzle6x6 = getPuzzle6x6();
+            return puzzle6x6;
+            break;
+          case "9":
+            const puzzle9x9 = getPuzzle9x9();
+            return puzzle9x9;
+            break;
+          default:
+            const puzzleDefault = getPuzzle9x9();
+            return puzzleDefault;
+            break;
+        }
+      }
+
+      // const handleLevels = (value) => {
+      //   async function getPuzzle4x4() {
+      //     let puzzles = await Get4x4();
+      //     setWin(puzzles.solution);
+      //     return puzzles;
+      //   }
+
+      //   async function getPuzzle6x6() {
+      //     let puzzles = await Get6x6();
+      //     setWin(puzzles.solution);
+      //     return puzzles;
+      //   }
+
+      //   async function getPuzzle9x9() {
+      //     let puzzles = await Get9x9();
+      //     setWin(puzzles.solution);
+      //     return puzzles;
+      //   }
+
+      //   async function uploadPuzzle() {
+      //     let puzzles = await gridState.solved.solution;
+      //     setWin(puzzles.solution.solution);
+      //     return puzzles.solution;
+      //   }
+
+      //   const getFormattedPuzzle = async () => {
+      //     async function getPuzzle() {
+      //       switch (puzzleState) {
+      //         case "4":
+      //           const puzzle4x4 = await getPuzzle4x4();
+      //           return puzzle4x4;
+      //           break;
+      //         case "6":
+      //           const puzzle6x6 = await getPuzzle6x6();
+      //           return puzzle6x6;
+      //           break;
+      //         case "9":
+      //           const puzzle9x9 = await getPuzzle9x9();
+      //           return puzzle9x9;
+      //           break;
+      //         default:
+      //           const puzzleDefault = await getPuzzle9x9();
+      //           return puzzleDefault;
+      //           break;
+      //       }
+      //     }
+
+      // const puzzle = await getPuzzle9x9();
+      const puzzle = await getPuzzle();
+      let Length = puzzle.gridlength;
+      const formattedPuzzle = formatPuzzle(puzzle.sudoku, Length);
+      // key value rendering:
+      const keyFunction = keysPuzzle(puzzle.sudoku, Length);
+
+      console.log("Game Board State in formatted puzzle", gridState);
+      console.log("Loaded puzzle in formatted puzzle", puzzle);
+      console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
+
+      setGridState({
+        ...gridState,
+        boardState: formattedPuzzle,
+        gridlength: puzzle.gridlength,
+        row: puzzle.row,
+        col: puzzle.col,
+        puzzleId: puzzle.id,
+        level: puzzle.level,
+        solved: puzzle.solution,
+        original: puzzle.sudoku,
+      });
+    };
+    // let levels = setPuzzleState('value');
+    // console.log(`levels value from levels: ${levels}`);
+    // return levels;
     console.log("The puzzleState was ", puzzleState);
-    console.log("The value was ", value);
-    setPuzzleState(value);
+    setPuzzleState("9").then(
+      console.log("The puzzleState now is ", puzzleState)
+    );
   };
 
   return (
@@ -165,9 +292,6 @@ const SelectionPage = () => {
                         <Typography>start off with something easy</Typography>
                         <br />
                         <WhiteButton title="Easy" href="/coming-soon" />
-                        <Link to="/game" onClick={handleLevels("4")}>
-                          4x4 temp buttom
-                        </Link>
                         <br />
                         {/* <WhiteButton title='Medium' href='/coming-soon' />
                         <br />
@@ -187,9 +311,6 @@ const SelectionPage = () => {
                         <Typography>let's kick it up a notch!</Typography>
                         <br />
                         <WhiteButton title="Easy" href="/coming-soon" />
-                        <Link to="/game" onClick={handleLevels("6")}>
-                          6x6 temp buttom
-                        </Link>
                         <br />
                         {/* <WhiteButton title='Medium' href='/coming-soon' />
                         <br />
@@ -214,9 +335,9 @@ const SelectionPage = () => {
                           click={handleLevels}
                           // href={`/game/${grid}/${level}`}
                         />
-                        <Link to="/game" onClick={handleLevels("9")}>
-                          9x9 temp buttom
-                        </Link>
+                        {/* <Button href={`/game`} onClick={handleLevels}>
+                          9x9 easy
+                        </Button> */}
                         <br />
                         {/* <WhiteButton title='Medium' href='/coming-soon' />
                         <br />
@@ -262,9 +383,6 @@ const SelectionPage = () => {
                         <Typography>start off with something easy</Typography>
                         <br />
                         <WhiteButton title="Easy" href="/coming-soon" />
-                        <Link to="/game" onClick={handleLevels("4")}>
-                          4x4 temp buttom
-                        </Link>
                         {/* <br />
                         <WhiteButton title='Medium' href='/coming-soon' />
                         <br />
@@ -276,9 +394,6 @@ const SelectionPage = () => {
                         <Typography>let's kick it up a notch!</Typography>
                         <br />
                         <WhiteButton title="Easy" href="/coming-soon" />
-                        {/* <Link to="/game" onClick={handleLevels("6")}>
-                          6x6 temp buttom
-                        </Link> */}
                         {/* <br />
                         <WhiteButton title='Medium' href='/coming-soon' />
                         <br />
@@ -295,9 +410,6 @@ const SelectionPage = () => {
                           click={handleLevels}
                           // href={`/game/${grid}/${level}`}
                         />
-                        {/* <Link to="/game" onClick={handleLevels("9")}>
-                          9x9 temp buttom
-                        </Link> */}
                         {/* <br />
                         <WhiteButton title='Medium' href='/coming-soon' />
                         <br />
