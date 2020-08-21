@@ -22,6 +22,7 @@ import AboutUsPage from './components/AboutUsPage/AboutUsPage';
 import Tutorial from './components/Tutorial/tutorial-page';
 import selectionPage from './components/LevelSelection/selectionPage';
 import FooterCondition from './components/Navigation/FooterCondition';
+import SettingsModal from './components/GamePage/Settings';
 
 // What is left to update ---------------------------------------------
 import GamePage from './components/GamePage/GamePage';
@@ -126,7 +127,9 @@ const App = () => {
                       <MenuPage toggleTheme={toggleTheme} theme={theme} />
                     )}
                   />
-                  <Route path='/levels' component={() => <selectionPage />} />
+
+                  <Route path='/levels' component={selectionPage} />
+
                   <Route exact path='/keypad' component={KeyPad} />
 
                   <Route path={`/game`} component={GamePage} />
@@ -139,6 +142,14 @@ const App = () => {
 
                   <Route path='/upload' component={UploadForm} />
                   <Route path='/upload-save' component={UploadSudoku2} />
+
+                  <Route
+                    path='/settings'
+                    component={() => (
+                      <SettingsModal toggleTheme={toggleTheme} theme={theme} />
+                    )}
+                  />
+
                 </Switch>
                 {/* <FooterCondition /> */}
               </div>
