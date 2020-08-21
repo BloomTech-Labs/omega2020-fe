@@ -124,7 +124,9 @@ const App = () => {
                       <MenuPage toggleTheme={toggleTheme} theme={theme} />
                     )}
                   />
+
                   <Route path='/levels' component={selectionPage} />
+
                   <Route exact path='/keypad' component={KeyPad} />
 
                   <Route path={`/game`} component={GamePage} />
@@ -137,12 +139,14 @@ const App = () => {
 
                   <Route path='/upload' component={UploadForm} />
                   <Route path='/upload-save' component={UploadSudoku2} />
+
                   <Route
                     path='/settings'
                     component={() => (
                       <SettingsModal toggleTheme={toggleTheme} theme={theme} />
                     )}
                   />
+
                 </Switch>
                 {/* <FooterCondition /> */}
               </div>

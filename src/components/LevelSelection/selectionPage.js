@@ -211,6 +211,9 @@ const SelectionPage = () => {
                           click={handleLevels}
                           // href={`/game/${grid}/${level}`}
                         />
+                        <Button href={`/game`} onClick={handleLevels}>
+                          9x9 easy
+                        </Button>
                         <br />
                         {/* <WhiteButton title='Medium' href='/coming-soon' />
                         <br />
