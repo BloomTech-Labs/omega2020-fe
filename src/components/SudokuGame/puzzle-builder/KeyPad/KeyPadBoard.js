@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import { grey } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
-import Key from '../../../assets/KeyButton'
+import Key from '../../../assets/KeyButton';
 
 const KeyPadBoard = () => {
   const classes = useStyles();
@@ -34,7 +34,7 @@ const KeyPadBoard = () => {
 
   const board = generateBoard();
 
-  return  <Key className={classes.board} board={board} />;
+  return <Key className={classes.board} board={board} />;
 };
 
 const useStyles = makeStyles(() => ({
@@ -52,12 +52,12 @@ const useStyles = makeStyles(() => ({
   },
   squareItem: {
     width: '30%',
-    margin: 5,
+    margin: 3,
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 30,
+    padding: 25,
     color: grey[50],
     backgroundColor: grey[900],
     '&:hover': {
