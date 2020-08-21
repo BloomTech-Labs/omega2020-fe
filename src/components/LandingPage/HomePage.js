@@ -10,11 +10,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import CategoryIcon from '@material-ui/icons/Category';
 import AppsIcon from '@material-ui/icons/Apps';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import GridOnIcon from '@material-ui/icons/GridOn';
 
 import BlueButton from '../assets/BlueButton';
-import game from '../../images/gameOfTheDay.png';
-import game2 from '../../images/gameOfTheDay2.png';
+import Cube from '../../images/cube4.gif';
 import RenderPuzzle from '../SudokuGame/puzzle-handler/RenderPuzzle';
 
 const HomePage = (props) => {
@@ -22,7 +20,6 @@ const HomePage = (props) => {
   const { loading = false } = props;
 
   let viewPort = false;
-  const viewPortWidth = false;
   const md = useMediaQuery('(min-width: 1050px)');
   if (viewPort === md) {
     viewPort = true;
@@ -72,7 +69,7 @@ const HomePage = (props) => {
                           </Typography>
                           <br />
                           <Typography
-                            variant='h6'
+                            variant='body1'
                             className={classes.subheader}
                           >
                             Learn how to play, upload your own sudoku
@@ -112,13 +109,7 @@ const HomePage = (props) => {
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
               <Box>
-                <BlueButton
-                  title={'Get Started; learn the game play'}
-                  href={'/tutorial'}
-                />
-                <br />
-                <br />
-                <Typography variant='caption'>No signup required</Typography>
+                <BlueButton title={'Get Started'} href={'/tutorial'} />
               </Box>
             )
           }
@@ -130,7 +121,8 @@ const HomePage = (props) => {
               <Skeleton className={classes.text} width={60} height={55} />
             ) : (
               <Box className={classes.gameBoard}>
-                <RenderPuzzle />
+                {/* <RenderPuzzle /> */}
+                <img src={Cube} alt={'cibe'} width={300} />
               </Box>
             )
           }
@@ -148,6 +140,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 100,
+    marginBotom: 100,
   },
   mainContainer: {
     display: 'flex',
@@ -158,14 +151,14 @@ const useStyles = makeStyles((theme) => ({
   },
   subheader: {
     // opacity: 0.3,
-    color: '#A2A2A2',
+    // color: '#A2A2A2',
   },
   icon: {
     fontSize: 80,
     color: grey[700],
   },
   gameBoard: {
-    marginTop: 200,
+    marginTop: 100,
   },
   space: {
     '& > *': {

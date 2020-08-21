@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Game4x4 from '../../images/Game4x4.png';
-import RedButton from '../assets/RedButton';
+import PurpleButton from '../assets/PurpleButton';
 
 const Simulation4x4 = (props) => {
   const classes = useStyles();
@@ -92,7 +92,7 @@ const Simulation4x4 = (props) => {
                     <br />
                     <Box className={classes.space}>
                       <Typography variant='caption'>Need more help?</Typography>
-                      <RedButton title={'Tutorial Coming Soon'} />
+                      <PurpleButton title={'Tutorial Coming Soon'} />
                     </Box>
                   </Box>
                 </Box>

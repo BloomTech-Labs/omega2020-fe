@@ -1,8 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { WinContext } from '../../../store/contexts/WinContext';
 import { GridContext } from '../../../store/contexts/GridContext';
+import { PuzzleContext } from '../../../store/contexts/PuzzleContext';
+
+import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+
 import Board from '../puzzle-builder/Board';
+import KeyPad from '../puzzle-builder/KeyPad/KeyPad';
+
 import { Get4x4 } from './grid-axios-call/4x4';
 import { Get6x6 } from './grid-axios-call/6x6';
 import { Get9x9 } from './grid-axios-call/9x9';
@@ -31,6 +37,10 @@ const RenderPuzzle = (props) => {
 
   const [gridState, setGridState] = useContext(GridContext);
 
+  const [puzzleState, setPuzzleState] = useContext(PuzzleContext);
+
+  console.log(`puzzleState from renderPuzzle: ${puzzleState}`);
+
 
   // Retrieve puzzle data
   async function getPuzzle4x4() {
@@ -58,7 +68,29 @@ const RenderPuzzle = (props) => {
   }
 
   const getFormattedPuzzle = async () => {
-    const puzzle = await getPuzzle6x6();
+    async function getPuzzle() {
+      switch (puzzleState) {
+        case '4':
+          const puzzle4x4 = await getPuzzle4x4();
+          return puzzle4x4;
+          break;
+        case '6':
+          const puzzle6x6 = await getPuzzle6x6();
+          return puzzle6x6;
+          break;
+        case '9':
+          const puzzle9x9 = await getPuzzle9x9();
+          return puzzle9x9;
+          break;
+        default:
+          const puzzleDefault = await getPuzzle9x9();
+          return puzzleDefault;
+          break;
+      }
+    }
+
+    // const puzzle = await getPuzzle9x9();
+    const puzzle = await getPuzzle();
     let Length = puzzle.gridlength;
     const keyFunction = keysPuzzle(puzzle.sudoku, Length)
     const formattedPuzzle = (puzzle.sudoku, Length);
@@ -252,45 +284,43 @@ const RenderPuzzle = (props) => {
   }
 
   return (
-    // <div className={classes.root}>
-      <div>
-        <Board
-          theme={props.theme}
-          boardState={gridState.boardState}
-          conflicts={gridState.conflicts}
-          onSquareValueChange={handleSquareValueChange}
-          historyLength={gridState.history.length}
-        />
-              {/* in the KeyPad add: */}
-
-
-        <Length
-          gridlength={gridState.gridlength}
-          historyLength  = {gridState.history.length}
-          onUndoClick = {handleUndoClick}
-          onNewGameClick = {handleNewGameClick}
-          onVerifyClick  = {handleVerifyClick}
-          onSaveClick = {handleSaveClick}
+    <div className={classes.root}>
+      <Grid container spacing={10}>
+        <Grid item xs={12} sm={6}>
+          <Board
+            theme={props.theme}
+            boardState={gridState.boardState}
+            conflicts={gridState.conflicts}
+            onSquareValueChange={handleSquareValueChange}
+            historyLength={gridState.history.length}
+            className={classes.Item}
           />
+        </Grid>
 
-        {/* <Length boardState={gridState.boardState} /> */}
-      </div>
-
-      
-      
-     
-    // </div>
+        <Grid item xs={12} sm={6}>
+          <KeyPad
+            historyLength={gridState.history.length}
+            onUndoClick={handleUndoClick}
+            onNewGameClick={handleNewGameClick}
+            onVerifyClick={handleVerifyClick}
+            onSaveClick={handleSaveClick}
+          />
+        </Grid>
+      </Grid>
+    </div>
   );
 };
 
 const useStyles = makeStyles(() => ({
   root: {
-    display: 'felx',
+    // flexGrow: 1,
+    display: 'flex',
     flexFlow: 'column wrap',
-    alignContent: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    textAlign: 'center',
+  },
+  Item: {
+    width: '40%',
   },
 }));
 

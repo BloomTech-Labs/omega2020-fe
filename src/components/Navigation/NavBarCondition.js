@@ -24,9 +24,19 @@ const NavCondition = (props) => {
         {(() => {
           switch (viewPort) {
             case true:
-              return <NavBarMobile toggleTheme={props.toggleTheme} />;
+              return (
+                <NavBarMobile
+                  toggleTheme={props.toggleTheme}
+                  theme={props.theme}
+                />
+              );
             default:
-              return <NavBarWeb toggleTheme={props.toggleTheme} />;
+              return (
+                <NavBarWeb
+                  toggleTheme={props.toggleTheme}
+                  theme={props.theme}
+                />
+              );
           }
         })()}
       </Container>

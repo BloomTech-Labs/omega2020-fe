@@ -5,6 +5,8 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import { IconButton } from '@material-ui/core';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import Brightness3Icon from '@material-ui/icons/Brightness3';
 import FiberManualRecordTwoToneIcon from '@material-ui/icons/FiberManualRecordTwoTone';
 import { makeStyles } from '@material-ui/core/styles';
 import WhiteButton from '../../assets/WhiteButton';
@@ -40,21 +42,21 @@ const NavBarWeb = (props) => {
             )
           }
         />
-        <CardHeader
-          title={
-            loading ? (
-              <Skeleton className={classes.text} width={60} height={55} />
-            ) : (
-              <Link href='/about' className={classes.root} color='inherit'>
-                <Typography variant='caption'>About Us</Typography>
-              </Link>
-            )
-          }
-        />
       </Box>
 
       <Box className={classes.rightContainer}>
         <Box className={classes.links}>
+          <CardHeader
+            title={
+              loading ? (
+                <Skeleton className={classes.text} width={60} height={55} />
+              ) : (
+                <Link href='/about' className={classes.root} color='inherit'>
+                  <Typography variant='caption'>About Us</Typography>
+                </Link>
+              )
+            }
+          />
           <CardHeader
             title={
               loading ? (
@@ -119,7 +121,21 @@ const NavBarWeb = (props) => {
                 />
               ) : (
                 <IconButton color='inherit' onClick={props.toggleTheme}>
-                  <FiberManualRecordTwoToneIcon style={{ fontSize: 30 }} />
+                  {(() => {
+                    switch (props.theme) {
+                      case 'dark':
+                        return <WbSunnyIcon style={{ fontSize: 20 }} />;
+                      default:
+                        return (
+                          <Brightness3Icon
+                            style={{
+                              fontSize: 20,
+                              transform: 'rotate(140deg)',
+                            }}
+                          />
+                        );
+                    }
+                  })()}
                 </IconButton>
               )
             }
