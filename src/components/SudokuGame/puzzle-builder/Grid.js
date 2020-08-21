@@ -3,11 +3,13 @@ import { GridContext } from '../../../store/contexts/GridContext';
 import styled from 'styled-components';
 import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
-
+import KeyButton from '../../assets/KeyButton'
 function Grid(props) {
+  console.log(props, 'gridddd')
   const classes = useStyles();
 
   const [gridState, setGridState] = useContext(GridContext);
+
 
   const generateSquareContent = () => {
     // A Square may only be edited if it's value is "."
@@ -19,6 +21,7 @@ function Grid(props) {
     const style = {};
     const ri = props.rowIndex;
     const ci = props.colIndex;
+
 
     // -------------------------------------------------------------
 
@@ -44,6 +47,9 @@ function Grid(props) {
       }
     }
 
+
+
+    
     return (
       <div className={classes.grid}>
         <Input
@@ -55,6 +61,11 @@ function Grid(props) {
           disabled={disabled}
           onChange={handleSquareValueChange}
         />
+
+        <KeyButton 
+        change={handleSquareValueChange}/>
+        
+
       </div>
     );
   };
@@ -77,9 +88,13 @@ function Grid(props) {
   return generateSquareContent();
 }
 
+
+
 const isNumeric = (num) => {
   return !isNaN(num);
 };
+
+
 
 const useStyles = makeStyles(() => ({
   grid: {

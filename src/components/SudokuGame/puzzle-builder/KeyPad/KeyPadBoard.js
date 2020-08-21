@@ -5,7 +5,9 @@ import Typography from '@material-ui/core/Typography';
 import { grey } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
-const KeyPadBoard = (props) => {
+import Key from '../../../assets/KeyButton'
+
+const KeyPadBoard = () => {
   const classes = useStyles();
   const [gridState, setGridState] = useContext(GridContext);
 
@@ -32,7 +34,7 @@ const KeyPadBoard = (props) => {
 
   const board = generateBoard();
 
-  return <div className={classes.board}>{board}</div>;
+  return  <Key className={classes.board} board={board} />;
 };
 
 const useStyles = makeStyles(() => ({

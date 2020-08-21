@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import  { configure, shallow } from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
-import AboutUsPage from '../../components/AboutUsPage/AboutUsPage';
+import AboutUsPage from '../AboutUsPage';
 import Adapter from 'enzyme-adapter-react-16';
 import { Box, Container } from '@material-ui/core/';
 import { createMount } from '@material-ui/core/test-utils';
