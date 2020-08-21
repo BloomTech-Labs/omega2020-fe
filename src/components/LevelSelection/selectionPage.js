@@ -280,6 +280,7 @@ const SelectionPage = () => {
                         <WhiteButton
                           title='Easy'
                           href={`/game`}
+                          click={handleLevels}
                           // href={`/game/${grid}/${level}`}
                         />
                         {/* <br />
