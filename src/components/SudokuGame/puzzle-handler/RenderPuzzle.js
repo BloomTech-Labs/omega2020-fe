@@ -8,23 +8,24 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
+// puzzle builder
 import Board from '../puzzle-builder/Board';
 import KeyPad from '../puzzle-builder/KeyPad/KeyPad';
-import KeyButton from '../../assets/KeyButton'
+// key value rendering:
+import KeyButton from '../../assets/KeyButton';
+import Length from '../../KeyPad/keypad/lengthKey';
+import { keysPuzzle } from './functions/keys';
 
 import { Get4x4 } from './grid-axios-call/4x4';
 import { Get6x6 } from './grid-axios-call/6x6';
 import { Get9x9 } from './grid-axios-call/9x9';
 
-
-import Length from '../../KeyPad/keypad/lengthKey'
 // Authentication
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { postWithAuth } from '../Upload-image/postWithAuth';
 
 // FUNCTIONS
 import { formatPuzzle } from './functions/formatPuzzle';
-import { keysPuzzle } from './functions/keys'
 import { stringify } from './functions/stringify';
 import { getDeepCopyOfArray } from './functions/getDeepCopyOfArray';
 import {
@@ -43,7 +44,6 @@ const RenderPuzzle = (props) => {
   const [puzzleState, setPuzzleState] = useContext(PuzzleContext);
 
   console.log(`puzzleState from renderPuzzle: ${puzzleState}`);
-
 
   // Retrieve puzzle data
   async function getPuzzle4x4() {
@@ -95,10 +95,10 @@ const RenderPuzzle = (props) => {
     // const puzzle = await getPuzzle9x9();
     const puzzle = await getPuzzle();
     let Length = puzzle.gridlength;
-    const keyFunction = keysPuzzle(puzzle.sudoku, Length)
-    const formattedPuzzle = (puzzle.sudoku, Length);
+    const formattedPuzzle = formatPuzzle(puzzle.sudoku, Length);
+    // key value rendering:
+    const keyFunction = keysPuzzle(puzzle.sudoku, Length);
 
-    console.log(keyFunction, 'keys, keys, keys')
     console.log('Game Board State in formatted puzzle', gridState);
     console.log('Loaded puzzle in formatted puzzle', puzzle);
     console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
