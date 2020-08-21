@@ -51,6 +51,7 @@ const App = () => {
     original: '',
     history: [],
     conflicts: new Set([]),
+    numbers: [], 
   });
 
   let grid = `${gridState.gridlength}x${gridState.gridlength}`;
@@ -68,6 +69,8 @@ const App = () => {
   if (!componentMounted) {
     return <div />;
   }
+
+  console.log(JSON.stringify(gridState.gridlength, 'hsodfnd, sdnf, djfn'))
 
   let themes = 'dark';
   console.log(`theme in app ${theme}`);

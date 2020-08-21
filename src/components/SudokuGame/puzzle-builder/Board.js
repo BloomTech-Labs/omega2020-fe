@@ -7,6 +7,7 @@ const Board = (props) => {
   const classes = useStyles();
   const [gridState, setGridState] = useContext(GridContext);
 
+  console.log(gridState, ('Lord Grid'))
   console.log('BOARD PROPS: ', props);
   console.log('AKAKFILES: ', props);
 
@@ -16,10 +17,12 @@ const Board = (props) => {
 
   const boardState = gridState.boardState;
 
+
   const generateBoard = () => {
     const board = [];
 
     for (let i = 0; i < boardState.length; i++) {
+      console.log(boardState.length, 'length length')
       let currRow = [];
       for (let j = 0; j < boardState[i].length; j++) {
         const conflicts = props.conflicts;
@@ -48,10 +51,12 @@ const Board = (props) => {
       );
     }
 
+
     return board;
   };
 
   const board = generateBoard();
+  console.log(board)
 
   return <div className={classes.board} >{board}</div>;
 };
