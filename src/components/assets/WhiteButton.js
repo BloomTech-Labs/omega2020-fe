@@ -11,6 +11,7 @@ const WhiteButton = (props) => {
       size='large'
       variant='outlined'
       color={blue.A700}
+      onClick={props.click}
     >
       <Typography variant='caption'>{props.title}</Typography>
     </ColorButton>

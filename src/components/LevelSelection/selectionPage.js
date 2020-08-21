@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 100,
+    marginBottom: 200,
   },
   mainContainer: {
     display: 'flex',
@@ -119,7 +120,6 @@ const SelectionPage = () => {
   const classes = useStyles();
 
   let viewPort = false;
-  const viewPortWidth = false;
   const md = useMediaQuery('(min-width: 1050px)');
   if (viewPort === md) {
     viewPort = true;
@@ -208,12 +208,9 @@ const SelectionPage = () => {
                         <WhiteButton
                           title='Easy'
                           href={`/game`}
-                          onClick={handleLevels}
+                          click={handleLevels}
                           // href={`/game/${grid}/${level}`}
                         />
-                        <Button href={`/game`} onClick={handleLevels}>
-                          9x9 easy
-                        </Button>
                         <br />
                         {/* <WhiteButton title='Medium' href='/coming-soon' />
                         <br />

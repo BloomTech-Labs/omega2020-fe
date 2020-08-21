@@ -4,8 +4,10 @@ import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
 import { grey } from '@material-ui/core/colors';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 import CategoryIcon from '@material-ui/icons/Category';
 import AppsIcon from '@material-ui/icons/Apps';
@@ -13,7 +15,6 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 
 import BlueButton from '../assets/BlueButton';
 import Cube from '../../images/cube4.gif';
-import RenderPuzzle from '../SudokuGame/puzzle-handler/RenderPuzzle';
 
 const HomePage = (props) => {
   const classes = useStyles();
@@ -93,9 +94,21 @@ const HomePage = (props) => {
                 <br />
                 <br />
                 <Box className={classes.space}>
-                  <CategoryIcon className={classes.icon} />
-                  <AppsIcon className={classes.icon} />
-                  <GetAppIcon className={classes.icon} />
+                  <BootstrapTooltip title='Get Started'>
+                    <IconButton color='inherit' href={'/tutorial'}>
+                      <CategoryIcon className={classes.icon} />
+                    </IconButton>
+                  </BootstrapTooltip>
+                  <BootstrapTooltip title='Play'>
+                    <IconButton color='inherit' href={'/levels'}>
+                      <AppsIcon className={classes.icon} />
+                    </IconButton>
+                  </BootstrapTooltip>
+                  <BootstrapTooltip title='Upload'>
+                    <IconButton color='inherit' href={'/upload'}>
+                      <GetAppIcon className={classes.icon} />
+                    </IconButton>
+                  </BootstrapTooltip>
                 </Box>
                 <br />
                 <br />
@@ -131,6 +144,22 @@ const HomePage = (props) => {
     </Box>
   );
 };
+
+const useStylesBootstrap = makeStyles((theme) => ({
+  arrow: {
+    color: grey[200],
+  },
+  tooltip: {
+    backgroundColor: grey[200],
+    color: '#000',
+  },
+}));
+
+function BootstrapTooltip(props) {
+  const classes = useStylesBootstrap();
+
+  return <Tooltip arrow classes={classes} {...props} />;
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
