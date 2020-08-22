@@ -193,13 +193,13 @@
   <details>
     <summary>Features Documentation</summary>
     <br>
-    <a href="url">Landing Page</a><br/>
-    <a href="url">Login & Registration Page</a><br/>
-    <a href="url">Game Page</a><br/>
-    <a href="url">Tutorial Page</a><br/>
-    <a href="url">Upload Puzzle</a><br/>
-    <a href="url">About us Page</a><br/>
-    <a href="url">Dark and Light Mode</a><br/>
+    <a href="./DOCUMENTATION/LandingPage">Landing Page</a><br/>
+    <a href="./DOCUMENTATION/LoginRegistrationPage">Login & Registration Page</a><br/>
+    <a href="./DOCUMENTATION/GamePage">Game Page</a><br/>
+    <a href="./DOCUMENTATION/TutorialPage">Tutorial Page</a><br/>
+    <a href="./DOCUMENTATION/UploadPuzzle">Upload Puzzle</a><br/>
+    <a href="./DOCUMENTATION/AboutUsPage">About us Page</a><br/>
+    <a href="./DOCUMENTATION/Mode">Dark and Light Mode</a><br/>
  </details>
 </details>
 
