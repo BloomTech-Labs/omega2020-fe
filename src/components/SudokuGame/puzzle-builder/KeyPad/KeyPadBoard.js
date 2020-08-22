@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
-import { GridContext } from '../../../../store/contexts/GridContext';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import { grey } from '@material-ui/core/colors';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useContext } from "react";
+import { GridContext } from "../../../../store/contexts/GridContext";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import { grey } from "@material-ui/core/colors";
+import { makeStyles } from "@material-ui/core/styles";
 
-import Key from '../../../assets/KeyButton';
+import Key from "../../../assets/KeyButton";
 
 const KeyPadBoard = () => {
   const classes = useStyles();
-  const [gridState, setGridState] = useContext(GridContext);
+  const { gridState, setGridState } = useContext(GridContext);
 
   const GridLength = gridState.gridlength;
 
@@ -21,7 +21,7 @@ const KeyPadBoard = () => {
       for (let j = 0; j < GridLength[i]; j++) {
         let currSquare = (
           <Box item xs={1} className={classes.squareItem}>
-            <Typography variant='body2'>{j + 1}</Typography>
+            <Typography variant="body2">{j + 1}</Typography>
           </Box>
         );
         currRow.push(currSquare);
@@ -39,30 +39,30 @@ const KeyPadBoard = () => {
 
 const useStyles = makeStyles(() => ({
   board: {
-    display: 'felx',
-    flexFlow: 'column wrap',
-    justifyContent: 'center',
-    alignContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
+    display: "felx",
+    flexFlow: "column wrap",
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+    textAlign: "center",
   },
   boardRow: {
-    display: 'flex',
-    flexFlow: 'row wrap',
+    display: "flex",
+    flexFlow: "row wrap",
   },
   squareItem: {
-    width: '30%',
+    width: "30%",
     margin: 3,
-    display: 'flex',
-    flexFlow: 'column wrap',
-    justifyContent: 'center',
-    alignItems: 'center',
+    display: "flex",
+    flexFlow: "column wrap",
+    justifyContent: "center",
+    alignItems: "center",
     padding: 25,
     color: grey[50],
     backgroundColor: grey[900],
-    '&:hover': {
+    "&:hover": {
       backgroundColor: grey[800],
-      cursor: 'pointer',
+      cursor: "pointer",
     },
   },
 }));

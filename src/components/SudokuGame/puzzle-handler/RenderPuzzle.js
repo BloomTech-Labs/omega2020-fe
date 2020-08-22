@@ -1,47 +1,47 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { WinContext } from '../../../store/contexts/WinContext';
-import { GridContext } from '../../../store/contexts/GridContext';
-import { PuzzleContext } from '../../../store/contexts/PuzzleContext';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import React, { useState, useEffect, useContext } from "react";
+import { WinContext } from "../../../store/contexts/WinContext";
+import { GridContext } from "../../../store/contexts/GridContext";
+import { PuzzleContext } from "../../../store/contexts/PuzzleContext";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
 
 // puzzle builder
-import Board from '../puzzle-builder/Board';
-import KeyPad from '../puzzle-builder/KeyPad/KeyPad';
+import Board from "../puzzle-builder/Board";
+import KeyPad from "../puzzle-builder/KeyPad/KeyPad";
 // key value rendering:
-import KeyButton from '../../assets/KeyButton';
-import Length from '../../KeyPad/keypad/lengthKey';
-import { keysPuzzle } from './functions/keys';
+import KeyButton from "../../assets/KeyButton";
+import Length from "../../KeyPad/keypad/lengthKey";
+import { keysPuzzle } from "./functions/keys";
 
-import { Get4x4 } from './grid-axios-call/4x4';
-import { Get6x6 } from './grid-axios-call/6x6';
-import { Get9x9 } from './grid-axios-call/9x9';
+import { Get4x4 } from "./grid-axios-call/4x4";
+import { Get6x6 } from "./grid-axios-call/6x6";
+import { Get9x9 } from "./grid-axios-call/9x9";
 
 // Authentication
-import axiosWithAuth from '../../../utils/axiosWithAuth';
-import { postWithAuth } from '../Upload-image/postWithAuth';
+import axiosWithAuth from "../../../utils/axiosWithAuth";
+import { postWithAuth } from "../Upload-image/postWithAuth";
 
 // FUNCTIONS
-import { formatPuzzle } from './functions/formatPuzzle';
-import { stringify } from './functions/stringify';
-import { getDeepCopyOfArray } from './functions/getDeepCopyOfArray';
+import { formatPuzzle } from "./functions/formatPuzzle";
+import { stringify } from "./functions/stringify";
+import { getDeepCopyOfArray } from "./functions/getDeepCopyOfArray";
 import {
   flatten,
   getConflicts,
   getConflictsInArray,
-} from './functions/conflicts';
+} from "./functions/conflicts";
 
 const RenderPuzzle = (props) => {
   const classes = useStyles();
 
-  const [win, setWin] = useContext(WinContext);
+  const { win, setWin } = useContext(WinContext);
 
-  const [gridState, setGridState] = useContext(GridContext);
+  const { gridState, setGridState } = useContext(GridContext);
 
-  const [puzzleState, setPuzzleState] = useContext(PuzzleContext);
+  const { puzzleState, setPuzzleState } = useContext(PuzzleContext);
 
   console.log(`puzzleState from renderPuzzle: ${puzzleState}`);
 
@@ -71,26 +71,27 @@ const RenderPuzzle = (props) => {
   }
 
   const getFormattedPuzzle = async () => {
-    async function getPuzzle() {
+    const getPuzzle = () => {
       switch (puzzleState) {
-        case '4':
-          const puzzle4x4 = await getPuzzle4x4();
+        case "4":
+          const puzzle4x4 = getPuzzle4x4();
           return puzzle4x4;
           break;
-        case '6':
-          const puzzle6x6 = await getPuzzle6x6();
+        case "6":
+          const puzzle6x6 = getPuzzle6x6();
           return puzzle6x6;
           break;
-        case '9':
-          const puzzle9x9 = await getPuzzle9x9();
+        case "9":
+          const puzzle9x9 = getPuzzle9x9();
           return puzzle9x9;
           break;
         default:
-          const puzzleDefault = await getPuzzle9x9();
-          return puzzleDefault;
+          const puzzleDefault = getPuzzle9x9();
+          return null;
           break;
       }
-    }
+    };
+    // getPuzzle();
 
     // const puzzle = await getPuzzle9x9();
     const puzzle = await getPuzzle();
@@ -99,9 +100,9 @@ const RenderPuzzle = (props) => {
     // key value rendering:
     const keyFunction = keysPuzzle(puzzle.sudoku, Length);
 
-    console.log('Game Board State in formatted puzzle', gridState);
-    console.log('Loaded puzzle in formatted puzzle', puzzle);
-    console.log('formattedPuzzle  in formatted puzzle', formattedPuzzle);
+    console.log("Game Board State in formatted puzzle", gridState);
+    console.log("Loaded puzzle in formatted puzzle", puzzle);
+    console.log("formattedPuzzle  in formatted puzzle", formattedPuzzle);
 
     setGridState({
       ...gridState,
@@ -130,7 +131,7 @@ const RenderPuzzle = (props) => {
         cellId: stringify(i, j),
         editable: prevEditable,
       };
-      console.log('newBoardState: ', prevState.newBoardState);
+      console.log("newBoardState: ", prevState.newBoardState);
 
       // Now push the previous board state on the history stack
       const newHistory = getDeepCopyOfArray(prevState.history);
@@ -188,7 +189,7 @@ const RenderPuzzle = (props) => {
       }
     }
     // activePuzzleString = single string represents current board state
-    var activePuzzleString = playString.join('');
+    var activePuzzleString = playString.join("");
 
     const req = {
       difficulty: gridState.level,
@@ -197,20 +198,20 @@ const RenderPuzzle = (props) => {
       original: gridState.original,
     };
 
-    console.log('GridNumxNum', puzzleId);
+    console.log("GridNumxNum", puzzleId);
     axiosWithAuth()
       .post(`/user-puzzles/${puzzleId}`, req)
       .then((res) => {
-        console.log('REQ', res);
-        alert('Puzzle saved');
+        console.log("REQ", res);
+        alert("Puzzle saved");
       });
 
     postWithAuth(puzzleId, req);
   };
 
-  console.log('WIN', win);
-  console.log('GBS101', gridState);
-  console.log('GBS101 9x9 puzzleId', gridState.puzzleId);
+  console.log("WIN", win);
+  console.log("GBS101", gridState);
+  // console.log("GBS101 9x9 puzzleId", gridState.puzzleId);
 
   function handleVerifyClick() {
     const { boardState, setBoardState } = gridState;
@@ -272,22 +273,22 @@ const RenderPuzzle = (props) => {
     }
 
     // activePuzzleString = single string represents current board state
-    var activePuzzleString = playString.join('');
-    console.log('activePuzzleString', activePuzzleString);
-    console.log('WIN', win);
+    var activePuzzleString = playString.join("");
+    console.log("activePuzzleString", activePuzzleString);
+    console.log("WIN", win);
 
     if (mergedConflicts.length === 0) {
       if (activePuzzleString === win) {
         return (
           // build some animation for win here
-          alert('Congratulations! You have solved the puzzle!')
+          alert("Congratulations! You have solved the puzzle!")
         );
       }
     }
   }
 
   let viewPort = false;
-  const md = useMediaQuery('(min-width: 1050px)');
+  const md = useMediaQuery("(min-width: 1050px)");
   if (viewPort === md) {
     viewPort = true;
   } else {
@@ -341,16 +342,15 @@ const RenderPuzzle = (props) => {
     </div>
   );
 };
-
 const useStyles = makeStyles(() => ({
   root: {
-    display: 'flex',
-    flexFlow: 'column wrap',
-    justifyContent: 'center',
-    alignItems: 'center',
+    display: "flex",
+    flexFlow: "column wrap",
+    justifyContent: "center",
+    alignItems: "center",
   },
   Item: {
-    width: '40%',
+    width: "40%",
   },
 }));
 
