@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
     padding: '5%',
   },
   subheader: {
-    // opacity: 0.3,
     color: '#A2A2A2',
   },
   levels: {

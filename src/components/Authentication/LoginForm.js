@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axiosLoginAuth from '../../utils/axiosLoginAuth';
 import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -15,10 +16,32 @@ import {
 import BlueButton from '../assets/BlueButton';
 
 const LoginForm = (props) => {
+  const [user, setUser] = useState({ email: '', password: '' });
+
+  const changeHandler = (event) => {
+    setUser({ ...user, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    axiosLoginAuth()
+      .post('/auth/login', user)
+      .then((result) => {
+        setUser({ email: user.email, password: user.password, id: user.id });
+        localStorage.setItem('token', result.data.token);
+        localStorage.setItem('id', user.email);
+        props.onChange();
+        props.history.push('/');
+      })
+      .catch((error) => {
+        console.log(error);
+        alert('Email and/or Password not recognized, please try again', error);
+      });
+  };
+
   const classes = useStyles();
   const { loading = false } = props;
-
-  const [user, setUser] = useState({ email: '', password: '' });
 
   return (
     <Box className={classes.root}>
@@ -50,13 +73,19 @@ const LoginForm = (props) => {
                 <Skeleton className={classes.title} width={400} height={100} />
               ) : (
                 <Box>
-                  <form className={classes.form} noValidate autoComplete='off'>
+                  <form
+                    onSubmit={handleSubmit}
+                    className={classes.form}
+                    autoComplete='off'
+                  >
                     <Typography variant='subtitle2'>Email Address</Typography>
                     <CssTextField
-                      id='email'
                       variant='outlined'
                       required
+                      id='email'
+                      name='email'
                       type='email'
+                      onChange={changeHandler}
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -64,16 +93,18 @@ const LoginForm = (props) => {
                     <br />
                     <Typography variant='subtitle2'>Password</Typography>
                     <CssTextField
-                      id='password'
                       variant='outlined'
                       required
+                      id='password'
+                      name='password'
                       type='password'
+                      onChange={changeHandler}
                       InputLabelProps={{
                         shrink: true,
                       }}
                     />
                     <br />
-                    <BlueButton title={'Log In'} />
+                    <BlueButton title={'Log In'} type={'submit'} />
                   </form>
                 </Box>
               )
@@ -104,11 +135,9 @@ const LoginForm = (props) => {
   );
 };
 
-// Add from validation - Formik?
-
 const useStyles = makeStyles(() => ({
   root: {
-    height: '100vh',
+    marginTop: 100,
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
@@ -154,7 +183,6 @@ const CssTextField = withStyles({
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        // borderColor: 'default',
         borderColor: blue.A100,
       },
       '&:hover fieldset': {

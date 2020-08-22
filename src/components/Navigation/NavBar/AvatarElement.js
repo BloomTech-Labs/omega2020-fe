@@ -8,8 +8,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuList from '@material-ui/core/MenuList';
 import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
-import AvatarLogin from '../MenuItems/AvatarLogin';
-import AvatarLogout from '../MenuItems/AvatarLogout';
+import LoginLogOut from '../MenuItems/LoginLogOut';
 import PersonIcon from '@material-ui/icons/Person';
 
 const AvatarElement = (props) => {
@@ -80,15 +79,7 @@ const AvatarElement = (props) => {
                   id='menu-list-grow'
                   onKeyDown={handleListKeyDown}
                 >
-                  {/* {() => {
-                    localStorage.getItem('token') !== null ? (
-                      <AvatarLogout handleClose={handleClose} />
-                    ) : (
-                      <AvatarLogin handleClose={handleClose} />
-                    );
-                  }} */}
-                  {/* <AvatarLogout handleClose={handleClose} /> */}
-                  <AvatarLogin handleClose={handleClose} />
+                  <LoginLogOut handleClose={handleClose} />
                 </MenuList>
               </ClickAwayListener>
             </Paper>
