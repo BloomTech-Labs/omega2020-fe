@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 const ClearButton = (props) => {
   return (
     <ColorButton
+      type={props.type}
       href={props.href}
       size='large'
       className='href'

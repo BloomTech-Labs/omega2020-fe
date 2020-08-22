@@ -21,7 +21,9 @@ const AboutUs = (props) => {
               <Skeleton className={classes.title} width={400} height={100} />
             ) : (
               <Box>
-                <Typography variant='h4' data-testid='head1'>About Sudomega</Typography>
+                <Typography variant='h4' data-testid='head1'>
+                  About Sudomega
+                </Typography>
                 <TeamVersion2 />
               </Box>
             )
@@ -46,7 +48,9 @@ const AboutUs = (props) => {
                       <AccessibilityNewIcon style={{ fontSize: 100 }} />
                     </Box>
                     <br />
-                    <Typography variant={'h5'} data-testid='head2'>Our Story</Typography>
+                    <Typography variant={'h5'} data-testid='head2'>
+                      Our Story
+                    </Typography>
                   </Box>
                 )
               }
@@ -57,12 +61,12 @@ const AboutUs = (props) => {
                   <Skeleton width={400} height={400} />
                 ) : (
                   <Typography>
-                    Sudomega started as a Lambda School Labs project,
-                    meaning we were given an idea and told to run with it!
-                    Currently we are the second team to work on Sudomega, 
-                    previously known as Omega2020. Our goal is to bring Sudoku
-                    to everyone. We want to make it easy and fun to learn while
-                    still challenging more experienced users.
+                    Sudomega started as a Lambda School Labs project, meaning we
+                    were given an idea and told to run with it! Currently we are
+                    the second team to work on Sudomega, previously known as
+                    Omega2020. Our goal is to bring Sudoku to everyone. We want
+                    to make it easy and fun to learn while still challenging
+                    more experienced users.
                   </Typography>
                 )
               }
@@ -86,7 +90,9 @@ const AboutUs = (props) => {
                       <GroupIcon style={{ fontSize: 100 }} />
                     </Box>
                     <br />
-                    <Typography variant={'h5'} data-testid='head2'>About Our Teams</Typography>
+                    <Typography variant={'h5'} data-testid='head2'>
+                      About Our Teams
+                    </Typography>
                   </Box>
                 )
               }
@@ -98,9 +104,9 @@ const AboutUs = (props) => {
                 ) : (
                   <Typography data-testid='subheader'>
                     An overview of the founding team and core contributors to
-                    Sudomega. Teams are composed of Web Developers, Ux Designers, 
-                    and Data Scientists. Feel free to click on each members picture to 
-                    learn more about them!
+                    Sudomega. Teams are composed of Web Developers, Ux
+                    Designers, and Data Scientists. Feel free to click on each
+                    members picture to learn more about them!
                   </Typography>
                 )
               }
@@ -132,7 +138,6 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
-    // marginTop: 150,
     marginBottom: 150,
   },
   leftContainer: {

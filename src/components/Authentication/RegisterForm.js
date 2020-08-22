@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import axiosLoginAuth from '../../utils/axiosLoginAuth';
 import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -15,6 +17,33 @@ import {
 import BlueButton from '../assets/BlueButton';
 
 const RegisterForm = (props) => {
+  const [user, setUser] = useState({ email: '', password: '' });
+
+  const changeHandler = (event) => {
+    event.preventDefault();
+    setUser({ ...user, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .post('https://omega2020.herokuapp.com/auth/register', user)
+      .then((result) => {
+        setUser({ email: user.email, password: user.password, id: user.id });
+
+        axiosLoginAuth()
+          .post('/auth/login', user)
+          .then((result) => {
+            localStorage.setItem('token', result.data.token);
+            props.onChange();
+            props.history.push('/levels');
+          })
+          .catch((error) => {
+            alert('Email already exists please login to continue', error);
+          });
+      });
+  };
+
   const classes = useStyles();
   const { loading = false } = props;
 
@@ -47,19 +76,25 @@ const RegisterForm = (props) => {
                 <Skeleton className={classes.title} width={400} height={100} />
               ) : (
                 <Box>
-                  <form className={classes.form} noValidate autoComplete='off'>
+                  <form
+                    onSubmit={handleSubmit}
+                    className={classes.form}
+                    autoComplete='off'
+                  >
                     <Typography variant='subtitle2'>Email</Typography>
                     <CssTextField
-                      id='email'
                       variant='outlined'
                       required
+                      id='email'
+                      name='email'
                       type='email'
+                      onChange={changeHandler}
                       InputLabelProps={{
                         shrink: true,
                       }}
                     />
                     <br />
-                    <Typography variant='subtitle2'>Username</Typography>
+                    {/* <Typography variant='subtitle2'>Username</Typography>
                     <CssTextField
                       id='username'
                       variant='outlined'
@@ -69,32 +104,22 @@ const RegisterForm = (props) => {
                         shrink: true,
                       }}
                     />
-                    <br />
+                    <br /> */}
                     <Typography variant='subtitle2'>Password</Typography>
                     <CssTextField
+                      variant='outlined'
+                      required
                       id='password'
-                      variant='outlined'
-                      required
+                      name='password'
                       type='password'
+                      onChange={changeHandler}
                       InputLabelProps={{
                         shrink: true,
                       }}
                     />
                     <br />
-                    <Typography variant='subtitle2'>
-                      Confirm password
-                    </Typography>
-                    <CssTextField
-                      id='confirm password'
-                      variant='outlined'
-                      required
-                      type='password'
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                    />
-                    <br />
-                    <BlueButton title={'Create your account'} />
+
+                    <BlueButton title={'Create your account'} type='submit' />
                     <br />
                     <Typography variant='caption'>
                       By creating an account you agree to our Terms of Service
@@ -134,7 +159,7 @@ const RegisterForm = (props) => {
 
 const useStyles = makeStyles(() => ({
   root: {
-    height: '100vh',
+    marginTop: 100,
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-evenly',
