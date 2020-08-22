@@ -12,7 +12,7 @@ import AvatarLogin from '../MenuItems/AvatarLogin';
 import AvatarLogout from '../MenuItems/AvatarLogout';
 import PersonIcon from '@material-ui/icons/Person';
 
-const AvatarElement = () => {
+const AvatarElement = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -80,8 +80,15 @@ const AvatarElement = () => {
                   id='menu-list-grow'
                   onKeyDown={handleListKeyDown}
                 >
+                  {/* {() => {
+                    localStorage.getItem('token') !== null ? (
+                      <AvatarLogout handleClose={handleClose} />
+                    ) : (
+                      <AvatarLogin handleClose={handleClose} />
+                    );
+                  }} */}
                   {/* <AvatarLogout handleClose={handleClose} /> */}
-                  {/* <AvatarLogin handleClose={handleClose} /> */}
+                  <AvatarLogin handleClose={handleClose} />
                 </MenuList>
               </ClickAwayListener>
             </Paper>

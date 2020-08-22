@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
-import { GridContext } from '../../store/contexts/GridContext';
 import { PuzzleContext } from '../../store/contexts/PuzzleContext';
 import { makeStyles, Container } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
 import WhiteButton from '../assets/WhiteButton';
-import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import { grey } from '@material-ui/core/colors';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -108,14 +106,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SelectionPage = () => {
-  const [gridState, setGridState] = useContext(GridContext);
-  const [puzzleState, setPuzzleState] = useContext(PuzzleContext);
-
-  setPuzzleState('9');
-  console.log(`puzzleState from levels: ${puzzleState}`);
-
-  let grid = `${gridState.gridlength}x${gridState.gridlength}`;
-  let level = gridState.level;
+  const { puzzleState, setPuzzleState } = useContext(PuzzleContext);
+  let history = useHistory();
 
   const classes = useStyles();
 
@@ -127,14 +119,18 @@ const SelectionPage = () => {
     viewPort = false;
   }
 
-  const handleLevels = (value) => {
-    // let levels = setPuzzleState('value');
-    // console.log(`levels value from levels: ${levels}`);
-    // return levels;
-    return setPuzzleState('9');
-  };
-
-  handleLevels();
+  function handleClick4x4() {
+    setPuzzleState('4');
+    history.push('/game');
+  }
+  function handleClick6x6() {
+    setPuzzleState('6');
+    history.push('/game');
+  }
+  function handleClick9x9() {
+    setPuzzleState('9');
+    history.push('/game');
+  }
 
   return (
     <Box className={classes.root}>
@@ -167,11 +163,7 @@ const SelectionPage = () => {
                         <br />
                         <Typography>start off with something easy</Typography>
                         <br />
-                        <WhiteButton title='Easy' href='/coming-soon' />
-                        <br />
-                        {/* <WhiteButton title='Medium' href='/coming-soon' />
-                        <br />
-                        <WhiteButton title='Hard' href='/coming-soon' /> */}
+                        <WhiteButton title='Easy' click={handleClick4x4} />
                       </Container>
                       <Container className={classes.mobGrid}>
                         <img
@@ -186,11 +178,7 @@ const SelectionPage = () => {
                         <br />
                         <Typography>let's kick it up a notch!</Typography>
                         <br />
-                        <WhiteButton title='Easy' href='/coming-soon' />
-                        <br />
-                        {/* <WhiteButton title='Medium' href='/coming-soon' />
-                        <br />
-                        <WhiteButton title='Hard' href='/coming-soon' /> */}
+                        <WhiteButton title='Easy' click={handleClick6x6} />
                       </Container>
                       <Container className={classes.mobGrid}>
                         <img
@@ -201,20 +189,11 @@ const SelectionPage = () => {
                       <Container className={classes.mobSection2}>
                         <Typography className={classes.mobHeader}>
                           9x9
+                          <br />
                         </Typography>
-                        <br />
                         <Typography>Level up even further</Typography>
                         <br />
-                        <WhiteButton
-                          title='Easy'
-                          href={`/game`}
-                          click={handleLevels}
-                          // href={`/game/${grid}/${level}`}
-                        />
-                        <br />
-                        {/* <WhiteButton title='Medium' href='/coming-soon' />
-                        <br />
-                        <WhiteButton title='Hard' href='/coming-soon' /> */}
+                        <WhiteButton title='Easy' click={handleClick9x9} />
                       </Container>
                     </Box>
                   </Container>
@@ -255,38 +234,21 @@ const SelectionPage = () => {
                         <br />
                         <Typography>start off with something easy</Typography>
                         <br />
-                        <WhiteButton title='Easy' href='/coming-soon' />
-                        {/* <br />
-                        <WhiteButton title='Medium' href='/coming-soon' />
-                        <br />
-                        <WhiteButton title='Hard' href='/coming-soon' /> */}
+                        <WhiteButton title='Easy' click={handleClick4x4} />
                       </Container>
                       <Container className={classes.section2}>
                         <Typography className={classes.header}>6x6</Typography>
                         <br />
                         <Typography>let's kick it up a notch!</Typography>
                         <br />
-                        <WhiteButton title='Easy' href='/coming-soon' />
-                        {/* <br />
-                        <WhiteButton title='Medium' href='/coming-soon' />
-                        <br />
-                        <WhiteButton title='Hard' href='/coming-soon' /> */}
+                        <WhiteButton title='Easy' click={handleClick6x6} />
                       </Container>
                       <Container className={classes.section2}>
                         <Typography className={classes.header}>9x9</Typography>
                         <br />
                         <Typography>Level up even further</Typography>
                         <br />
-                        <WhiteButton
-                          title='Easy'
-                          href={`/game`}
-                          click={handleLevels}
-                          // href={`/game/${grid}/${level}`}
-                        />
-                        {/* <br />
-                        <WhiteButton title='Medium' href='/coming-soon' />
-                        <br />
-                        <WhiteButton title='Hard' href='/coming-soon' /> */}
+                        <WhiteButton title='Easy' click={handleClick9x9} />
                       </Container>
                     </Box>
                   </Container>
