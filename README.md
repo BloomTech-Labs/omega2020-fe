@@ -42,14 +42,14 @@
   <a href="#Contributors">⟶ Contributors</a><br/>
   <a href="#Getting-Started">⟶ Getting Started</a><br/>
   <a href="#Development-Info">⟶ Development Info</a><br/>
-  <a href="#Contributing">⟶ Contributing</a><br/>
+  <a href="#🤝-Contributing">⟶ Contributing</a><br/>
 </details>
 
 📂 For more information, read through our [DOCUMENTATIONS](#)
 
 ## Contributors
 
-🙌 This project exists thanks to all the people who contribute. [[Contribute](#Contributing)].
+🙌 This project exists thanks to all the people who contribute. [[Contribute](#🤝-Contributing)].
 
 > click the dropdown arrow to view information
 
