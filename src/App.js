@@ -36,7 +36,7 @@ const App = () => {
   // TODO: maybe in the future set up 1 context handler
   const [win, setWin] = useState('');
 
-  const [puzzleState, setPuzzleState] = useState('6');
+  const [puzzleState, setPuzzleState] = useState('9');
 
   const [gridState, setGridState] = useState({
     boardState: '',
