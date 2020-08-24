@@ -20,6 +20,8 @@ import { Get4x4 } from './grid-axios-call/4x4';
 import { Get6x6 } from './grid-axios-call/6x6';
 import { Get9x9 } from './grid-axios-call/9x9';
 
+
+
 // Authentication
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { postWithAuth } from '../Upload-image/postWithAuth';
@@ -332,7 +334,9 @@ const RenderPuzzle = (props) => {
                     onNewGameClick={handleNewGameClick}
                     onVerifyClick={handleVerifyClick}
                     onSaveClick={handleSaveClick}
+                    
                   />
+
                 </Grid>
               </Grid>
             );

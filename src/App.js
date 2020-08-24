@@ -1,6 +1,8 @@
 import React, { useState, useReducer } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 
+import Number from './components/assets/numBtn'
+
 // General utilities ---------------------------------------------
 import history from './utils/history';
 import { GridContext } from './store/contexts/GridContext';
@@ -51,7 +53,6 @@ const App = () => {
     original: '',
     history: [],
     conflicts: new Set([]),
-    numbers: [],
   });
 
   let grid = `${gridState.gridlength}x${gridState.gridlength}`;
@@ -112,6 +113,8 @@ const App = () => {
                       />
                     )}
                   />
+
+                  {/* <Number /> */}
                   <Route
                     exact
                     path='/'

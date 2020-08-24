@@ -5,28 +5,30 @@ import Typography from '@material-ui/core/Typography';
 import { grey } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
-import Key from '../../../assets/KeyButton';
+import NumberButton from '../../../assets/numBtn';
 
-const KeyPadBoard = () => {
+const KeyPadBoard = (props) => {
+  console.log(props, 'propss')
   const classes = useStyles();
   const [gridState, setGridState] = useContext(GridContext);
 
   const GridLength = gridState.gridlength;
 
-  const generateBoard = () => {
+  const generateBoard = (props) => {
     const board = [];
 
     for (let i = 0; i < GridLength; i++) {
       let currRow = [];
       for (let j = 0; j < GridLength[i]; j++) {
+        let keys = j + 1
         let currSquare = (
-          <Box item xs={1} className={classes.squareItem}>
-            <Typography variant='body2'>{j + 1}</Typography>
+          <Box item xs={1} className={classes.squareItem} onClick={(e) =>console.log(keys)} >
+            <Typography variant='body2' >{keys}</Typography>
           </Box>
         );
         currRow.push(currSquare);
       }
-      board.push(<div className={classes.boardRow}>{currRow}</div>);
+      board.push(<div className={classes.boardRow} >{currRow}</div>);
     }
 
     return board;
@@ -34,7 +36,9 @@ const KeyPadBoard = () => {
 
   const board = generateBoard();
 
-  return <Key className={classes.board} board={board} />;
+  return (
+  <NumberButton className={classes.board} />
+  );
 };
 
 const useStyles = makeStyles(() => ({

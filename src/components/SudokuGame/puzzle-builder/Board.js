@@ -3,6 +3,9 @@ import { GridContext } from '../../../store/contexts/GridContext';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from './Grid';
 
+import KeyButton from '../../assets/KeyButton'
+
+
 const Board = (props) => {
   const classes = useStyles();
   const [gridState, setGridState] = useContext(GridContext);
@@ -22,7 +25,6 @@ const Board = (props) => {
     const board = [];
 
     for (let i = 0; i < boardState.length; i++) {
-      console.log(boardState.length, 'length length')
       let currRow = [];
       for (let j = 0; j < boardState[i].length; j++) {
         const conflicts = props.conflicts;
@@ -39,6 +41,8 @@ const Board = (props) => {
             colIndex={j}
             onValueChange={handleSquareValueChange}
           />
+          {console.log(boardState)}
+          <KeyButton onValueChange={handleSquareValueChange} />
 
           </div>
         );
@@ -56,9 +60,8 @@ const Board = (props) => {
   };
 
   const board = generateBoard();
-  console.log(board)
 
-  return <div className={classes.board} >{board}</div>;
+  return <div className={classes.board}> {board}  </div>;
 };
 
 const useStyles = makeStyles(() => ({

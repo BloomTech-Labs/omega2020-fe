@@ -12,6 +12,7 @@ import KeyPadBoard from './KeyPadBoard';
 
 const KeyPad = (props) => {
   const [gridState, setGridState] = useContext(GridContext);
+  console.log(props, '1`')
 
   let gridNotChanged = 0;
   let gridChanged = 1;
