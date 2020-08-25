@@ -7,7 +7,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { blue } from '@material-ui/core/colors';
+import { blue, grey } from '@material-ui/core/colors';
 import {
   makeStyles,
   withStyles,
@@ -89,6 +89,9 @@ const RegisterForm = (props) => {
                       id='email'
                       name='email'
                       type='email'
+                      InputProps={{
+                        className: classes.textColor,
+                      }}
                       onChange={changeHandler}
                       InputLabelProps={{
                         shrink: true,
@@ -113,6 +116,9 @@ const RegisterForm = (props) => {
                       id='password'
                       name='password'
                       type='password'
+                      InputProps={{
+                        className: classes.textColor,
+                      }}
                       onChange={changeHandler}
                       InputLabelProps={{
                         shrink: true,
@@ -190,6 +196,9 @@ const useStyles = makeStyles(() => ({
     flexFlow: 'column wrap',
     justifyContent: 'flex-start',
     textAlign: 'left',
+  },
+  textColor: {
+    color: grey[600],
   },
   header: {
     fontWeight: 700,
