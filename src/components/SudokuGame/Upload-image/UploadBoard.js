@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
-import { GridContext } from '../../../store/contexts/GridContext';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from './Grid';
+import Grid from '../puzzle-builder/Grid';
 
 const Board = (props) => {
   const classes = useStyles();
-  const { gridState, setGridState } = useContext(GridContext);
 
   console.log('BOARD PROPS: ', props);
   console.log('AKAKFILES: ', props);
@@ -14,7 +12,7 @@ const Board = (props) => {
     props.onSquareValueChange(i, j, newValue);
   };
 
-  const boardState = gridState.boardState;
+  const boardState = props.boardState;
 
   const generateBoard = () => {
     const board = [];
@@ -25,18 +23,15 @@ const Board = (props) => {
         const conflicts = props.conflicts;
         const conflict = conflicts.has(i + '' + j) ? true : false;
         let currSquare = (
-          <div>
-            <Grid
-              theme={props.theme}
-              key={'' + i + j}
-              value={boardState[i][j].cellValue}
-              editable={boardState[i][j].editable}
-              conflict={conflict}
-              rowIndex={i}
-              colIndex={j}
-              onValueChange={handleSquareValueChange}
-            />
-          </div>
+          <Grid
+            key={'' + i + j}
+            value={boardState[i][j].cellValue}
+            editable={boardState[i][j].editable}
+            conflict={conflict}
+            rowIndex={i}
+            colIndex={j}
+            onValueChange={handleSquareValueChange}
+          />
         );
         currRow.push(currSquare);
       }
@@ -50,8 +45,9 @@ const Board = (props) => {
     return board;
   };
 
+  console.log(props);
+
   const board = generateBoard();
-  console.log(board);
 
   return <div className={classes.board}>{board}</div>;
 };

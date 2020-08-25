@@ -36,7 +36,8 @@ const RegisterForm = (props) => {
           .then((result) => {
             localStorage.setItem('token', result.data.token);
             props.onChange();
-            props.history.push('/levels');
+            localStorage.removeItem('token');
+            props.history.push('/login');
           })
           .catch((error) => {
             alert('Email already exists please login to continue', error);
