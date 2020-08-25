@@ -122,10 +122,10 @@ const App = () => {
 
                   <Route exact path='/keypad' component={KeyPad} />
 
-                  <Route path={`/game`} component={GamePage} />
+                  <Route path={'/game'} component={GamePage} />
 
                   <Route
-                    path={`puzzle/${grid}`}
+                    path={'/puzzle'}
                     component={() => <RenderPuzzle theme={themes} />}
                   />
 

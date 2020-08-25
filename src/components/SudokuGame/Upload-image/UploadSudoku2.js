@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Board from '../puzzle-builder/Board';
+import Board from './UploadBoard';
 import { postWithAuth } from './postWithAuth.js';
 
 const UploadSudoku2 = (solution) => {
@@ -258,20 +258,6 @@ const UploadSudoku2 = (solution) => {
   function getColId(i) {
     return i % 9;
   }
-
-  /*
-      Returns a puzzle formatted like so:
-      [
-        [ob1, ob2, ob3],
-        [.     .    . ],
-        [.     .    . ],
-      ]
-      
-      Where ob = {
-        cellValue     : value of this cell,
-        editable : true if this cell will be user defined, false otherwise
-      }
-      */
 
   return (
     <div className='Sudoku'>

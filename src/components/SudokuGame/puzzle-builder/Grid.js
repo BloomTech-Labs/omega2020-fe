@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
-import { GridContext } from "../../../store/contexts/GridContext";
-import styled from "styled-components";
-import { blue } from "@material-ui/core/colors";
-import { makeStyles } from "@material-ui/core/styles";
-import KeyButton from "../../assets/KeyButton";
+import React, { useContext } from 'react';
+import { GridContext } from '../../../store/contexts/GridContext';
+import styled from 'styled-components';
+import { blue } from '@material-ui/core/colors';
+import { makeStyles } from '@material-ui/core/styles';
+import KeyButton from '../../assets/KeyButton';
 
 function Grid(props) {
-  // console.log(props, "gridddd");
   const classes = useStyles();
 
   const { gridState, setGridState } = useContext(GridContext);
@@ -14,7 +13,7 @@ function Grid(props) {
   const generateSquareContent = () => {
     // A Square may only be edited if it's value is "."
     const disabled = !props.editable;
-    const squareValue = props.value === "." ? "" : props.value;
+    const squareValue = props.value === '.' ? '' : props.value;
 
     // Style validation - if conflicts exist, turn square red if it was edited wrong.
     // turn border red of conflicting squares for hint as to why.
@@ -24,25 +23,25 @@ function Grid(props) {
 
     // -------------------------------------------------------------
 
-    let conditionRow = gridState.row;
-    let conditionCol = gridState.col;
+    let conditionRow = gridState.row || 3;
+    let conditionCol = gridState.col || 3;
 
     // -------------------------------------------------------------
 
     let border = `3px solid ${blue.A700}`;
 
     if (ri > 0 && ri % conditionRow === 0) {
-      style["borderTop"] = border;
+      style['borderTop'] = border;
     } // Lines to seperate middle rows
     if (ci > 0 && ci % conditionCol === 0) {
-      style["borderLeft"] = border;
+      style['borderLeft'] = border;
     } // Lines to seperate middle colums
 
     if (props.conflict) {
       if (props.editable) {
-        style["background"] = "red";
+        style['background'] = 'red';
       } else {
-        style["background"] = "pink";
+        style['background'] = 'pink';
       }
     }
 
@@ -52,7 +51,7 @@ function Grid(props) {
           className={classes.square}
           id={props.key}
           style={style}
-          type="text"
+          type='text'
           value={squareValue}
           disabled={disabled}
           onChange={handleSquareValueChange}
@@ -75,7 +74,7 @@ function Grid(props) {
 
   // Cell validation
   const isValidInput = (i) => {
-    return i === "" || (i.length === 1 && isNumeric(i));
+    return i === '' || (i.length === 1 && isNumeric(i));
   };
 
   return generateSquareContent();
@@ -87,14 +86,14 @@ const isNumeric = (num) => {
 
 const useStyles = makeStyles(() => ({
   grid: {
-    height: "100%",
-    width: "100%",
+    height: '100%',
+    width: '100%',
   },
   square: {
-    border: "0.5px solid grey",
-    width: "100%",
-    height: "100%",
-    textAlign: "center",
+    border: '0.5px solid grey',
+    width: '100%',
+    height: '100%',
+    textAlign: 'center',
   },
 }));
 
@@ -102,11 +101,11 @@ const Input = styled.input`
   background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
 
-  &[type="text"]:disabled {
+  &[type='text']:disabled {
     background-color: #cdcac9;
     color: black;
   }
-  &[type="text"]:focus {
+  &[type='text']:focus {
     background: #608cff;
   }
 `;
