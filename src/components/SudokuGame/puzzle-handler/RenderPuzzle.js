@@ -4,6 +4,9 @@ import { GridContext } from '../../../store/contexts/GridContext';
 import { PuzzleContext } from '../../../store/contexts/PuzzleContext';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
+
+import NumberButton from '../../assets/numBtn'
+
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,7 +16,8 @@ import Board from '../puzzle-builder/Board';
 import KeyPad from '../puzzle-builder/KeyPad/KeyPad';
 // key value rendering:
 import KeyButton from '../../assets/KeyButton';
-import Length from '../../KeyPad/keypad/lengthKey';
+import KeyPadBoard from '../puzzle-builder/KeyPad/KeyPadBoard'
+
 import { keysPuzzle } from './functions/keys';
 
 import { Get4x4 } from './grid-axios-call/4x4';
@@ -132,7 +136,7 @@ const RenderPuzzle = (props) => {
         cellId: stringify(i, j),
         editable: prevEditable,
       };
-      console.log('newBoardState: ', prevState.newBoardState);
+      console.log('newBoardState: ', prevEditable);
 
       // Now push the previous board state on the history stack
       const newHistory = getDeepCopyOfArray(prevState.history);
@@ -335,6 +339,11 @@ const RenderPuzzle = (props) => {
                     onVerifyClick={handleVerifyClick}
                     onSaveClick={handleSaveClick}
                     
+                  />
+
+
+
+                  <KeyButton valueChange={handleSquareValueChange}
                   />
 
                 </Grid>

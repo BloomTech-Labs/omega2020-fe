@@ -1,36 +1,38 @@
 import React, { useState, useContext } from 'react';
 import { GridContext } from '../../store/contexts/GridContext' 
 import Numbers from './numBtn'
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+
 
 function Keys (props) {
-    const [value, setValue] = useState(props.value);
+    console.log(props, 'data')
 
-    const handleChange = (e) => {
-        const target = setValue(e);
+    const handleClick = (i, j, newValue) => {
+        console.log(i, j, newValue, 'BIGbANG')
+        // props.valueChange(i, j, newValue)
 
-        if(target) {
+    }
+
+    const handleChange = () => {
+        const target = props.data
+        if((target)) {
             const row = props.rowIndex;
             const col = props.colIndex;
-            props.onValueChange(row, col, target)
+            handleClick(row, col, target)
 
         }
     }
-    
-    return (
-        <div>
-            {/* <h1>{value}</h1> */}
-            <button 
-            onClick={
-                () =>
-                {handleChange(console.log(props.data, 'bang'))}}
-            >
-                    {props.data}
-            </button>
-            
-        </div>
-        
 
+    return (
+        <div className={props.boardRow}>
+            <Typography className={props.boardRow} variant='body2' onClick= {() =>
+                handleChange(console.log(props.data, 'valen'))
+            }>
+                 {props.data}
+            </Typography>
+        </div>
     )
 }
 
-export default Keys
+export default Keys;

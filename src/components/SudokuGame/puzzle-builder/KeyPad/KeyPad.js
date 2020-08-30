@@ -9,6 +9,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { blue, grey } from '@material-ui/core/colors';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import KeyPadBoard from './KeyPadBoard';
+import NumberButton from '../../../assets/numBtn'
 
 const KeyPad = (props) => {
   const [gridState, setGridState] = useContext(GridContext);
@@ -32,6 +33,7 @@ const KeyPad = (props) => {
         </Box>
         <Box className={classes.Items}>
           <KeyPadBoard />
+          {/* <NumberButton /> */}
         </Box>
 
         <Box className={classes.Items}>

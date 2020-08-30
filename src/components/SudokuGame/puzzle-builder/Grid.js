@@ -12,7 +12,7 @@ function Grid(props) {
 
   const [gridState, setGridState] = useContext(GridContext);
 
-  console.log(props.value, 'myvalue')
+  console.log(props.editable, 'myvalue')
 
   const generateSquareContent = () => {
     // A Square may only be edited if it's value is "."
@@ -98,7 +98,7 @@ function Grid(props) {
 
 
 const isNumeric = (num) => {
-  return !isNaN(num);
+  return -!isNaN(num);
 };
 
 

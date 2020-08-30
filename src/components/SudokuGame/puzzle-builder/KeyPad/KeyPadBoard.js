@@ -5,10 +5,12 @@ import Typography from '@material-ui/core/Typography';
 import { grey } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
+import KeyPad from './KeyPad'
 import NumberButton from '../../../assets/numBtn';
+import KeyButton from '../../../assets/KeyButton'
 
 const KeyPadBoard = (props) => {
-  console.log(props, 'propss')
+  console.log(props.onValueChange, 'propss')
   const classes = useStyles();
   const [gridState, setGridState] = useContext(GridContext);
 
@@ -37,7 +39,12 @@ const KeyPadBoard = (props) => {
   const board = generateBoard();
 
   return (
-  <NumberButton className={classes.board} />
+    <div>
+
+      <KeyButton board={classes.boardRow} board={board} />
+  <NumberButton className={classes.board} class={classes} board={board}  />
+    </div>
+    
   );
 };
 

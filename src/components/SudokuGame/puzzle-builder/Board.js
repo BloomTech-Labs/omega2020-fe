@@ -3,18 +3,20 @@ import { GridContext } from '../../../store/contexts/GridContext';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from './Grid';
 
-import KeyButton from '../../assets/KeyButton'
+import KeyButton from '../../assets/KeyButton';
+import NumberButton from '../../assets/numBtn';
+import KeyPadBoard from '../puzzle-builder/KeyPad/KeyPadBoard'
 
 
 const Board = (props) => {
   const classes = useStyles();
   const [gridState, setGridState] = useContext(GridContext);
 
-  console.log(gridState, ('Lord Grid'))
   console.log('BOARD PROPS: ', props);
   console.log('AKAKFILES: ', props);
 
   const handleSquareValueChange = (i, j, newValue) => {
+    console.log(i, j, newValue, 'bigbang')
     props.onSquareValueChange(i, j, newValue);
   };
 
@@ -42,7 +44,13 @@ const Board = (props) => {
             onValueChange={handleSquareValueChange}
           />
           {console.log(boardState)}
-          <KeyButton onValueChange={handleSquareValueChange} />
+          <KeyButton 
+            rowIndex={i}
+            colIndex={j}
+            onValueChange={handleSquareValueChange}
+          />
+
+          
 
           </div>
         );
