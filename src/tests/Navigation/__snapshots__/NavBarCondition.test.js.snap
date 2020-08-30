@@ -48,17 +48,14 @@ exports[`the length of the material ui and match the snapshot of the foot mobile
                   focusable="false"
                   style={
                     Object {
-                      "fontSize": 30,
+                      "fontSize": 25,
+                      "transform": "rotate(140deg)",
                     }
                   }
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 18c3.31 0 6-2.69 6-6s-2.69-6-6-6-6 2.69-6 6 2.69 6 6 6z"
-                    opacity=".3"
-                  />
-                  <path
-                    d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm0-14c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z"
+                    d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z"
                   />
                 </svg>
               </span>

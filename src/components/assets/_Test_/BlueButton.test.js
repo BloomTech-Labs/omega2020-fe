@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom/extend-expect';
-import Button from '../../components/assets/BlueButton';
+import Button from '../BlueButton';
 import Adapter from 'enzyme-adapter-react-16';
 import { Typography } from '@material-ui/core';
 

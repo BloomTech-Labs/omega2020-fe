@@ -2,33 +2,30 @@ import React from 'react';
 import  { configure, mount } from 'enzyme';
 import renderer from 'react-test-renderer'
 import '@testing-library/jest-dom/extend-expect';
-import WhiteButton from '../../components/assets/WhiteButton';
+import RedButton from '../RedButton';
 import Adapter from 'enzyme-adapter-react-16';
-import { Typography, Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 configure({ adapter: new Adapter() });
 
-describe('the white button content', () => {
+describe('the blue button content', () => {
 
     const mockInfo = {
-        title: 'Play'
+        title: 'Tutorial Coming Soon'
     }
 
-    const ReactWrapper = mount(<WhiteButton mockInfo={mockInfo} />)
+    const ReactWrapper = mount(<RedButton mockInfo={mockInfo} />)
 
     it('snapshot the components', () => {
-        const whiteButton = renderer.create(<WhiteButton />).toJSON()
-        expect(whiteButton).toMatchSnapshot();
+        const redButton = renderer.create(<RedButton />).toJSON()
+        expect(redButton).toMatchSnapshot();
     })
 
 
-    it('renders the mock info, and the length of the typography, and button', () => {
+    it('renders the mock info, and the length of the typography', () => {
         expect(ReactWrapper.find(Typography)).toHaveLength(1);
-        expect(ReactWrapper.find(Button)).toHaveLength(1);
         let wrapper = ReactWrapper.props().mockInfo.title
         expect(wrapper).toEqual(mockInfo.title)        
     })
 
-
-    
 })

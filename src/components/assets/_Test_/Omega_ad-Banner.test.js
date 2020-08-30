@@ -2,11 +2,12 @@ import React from 'react';
 import { configure, mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom/extend-expect';
-import OBanner from '../../components/assets/Omega_ad-Banner';
-import BlueButton from '../../components/assets/BlueButton';
+import OBanner from '../Omega_ad-Banner';
+import BlueButton from '../BlueButton';
 import Adapter from 'enzyme-adapter-react-16';
 import { Typography, Box, CardHeader } from '@material-ui/core';
-import AppIcon from '../../images/omega-mobile-icon.png';
+import AppIcon from '../../../images/omega-mobile-icon.png';
+
 
 configure({ adapter: new Adapter() });
 

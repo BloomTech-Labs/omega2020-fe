@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom/extend-expect';
-import Banner from '../../components/assets/GitHub-Banner';
+import Banner from '../GitHub-Banner';
 import Adapter from 'enzyme-adapter-react-16';
 import { Typography, IconButton, Box } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';

@@ -12,3 +12,7 @@ it('App renders without crashing', () => {
 });
 
 
+describe('whats in the entire component', () => {
+  
+})
+
